@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bebas_Neue } from 'next/font/google'
 
 import './globals.css'
+import Header from '@/components/Header'
 
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
 
@@ -20,7 +21,10 @@ export default function RootLayout(props: Props) {
 
 	return (
 		<html lang='en'>
-			<body className={bebasNeue.className}>{children}</body>
+			<body className={bebasNeue.className}>
+				<Header />
+				{children}
+			</body>
 		</html>
 	)
 }
