@@ -24,6 +24,9 @@ const config: Config = {
 			fontSize: {
 				'hero-text': 'var(--hero-text-size)',
 			},
+			transitionProperty: {
+				width: 'width',
+			},
 		},
 	},
 	plugins: [],
