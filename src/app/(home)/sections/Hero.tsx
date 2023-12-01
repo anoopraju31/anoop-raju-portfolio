@@ -21,11 +21,11 @@ const Hero = () => {
 					</h1>
 				</div>
 
-				<div className='flex justify-between items-center uppercase'>
-					<h2 className='text-base sm:text-2xl lg:text-[2rem] leading-none'>
+				<div className='flex justify-between items-center gap-5 uppercase'>
+					<h2 className='w-1/2 flex-shrink-0 text-center text-base sm:text-2xl lg:text-[2rem] leading-none'>
 						Web Developer
 					</h2>
-					<h2 className='text-base sm:text-2xl lg:text-[2rem] leading-none'>
+					<h2 className='w-1/2 flex-shrink-0 text-center text-base sm:text-2xl lg:text-[2rem] leading-none'>
 						Living in Kerala
 					</h2>
 				</div>
