@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { Gantari } from 'next/font/google'
+import FooterScrollText from './FooterScrollText'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Footer = () => {
 	return (
 		<footer className='bg-light-green h-full text-dark-blue'>
-			<div className='h-24' />
+			<FooterScrollText />
 			<div className='h-[2px] bg-dark-blue' />
 
 			<div className='max-w-[1200px] mx-auto px-[10px] bg-light-green h-full'>

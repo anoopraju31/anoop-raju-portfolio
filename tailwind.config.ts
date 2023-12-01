@@ -8,6 +8,19 @@ const config: Config = {
 				'dark-blue': '#090e16',
 				'light-green': '#00ff57',
 			},
+			keyframes: {
+				marquee: {
+					'0%': {
+						transform: 'translate3d(0%, 0, 0)',
+					},
+					'100%': {
+						transform: 'translate3d(-100%, 0, 0)',
+					},
+				},
+			},
+			animation: {
+				marquee: 'marquee 40s linear infinite',
+			},
 		},
 	},
 	plugins: [],
