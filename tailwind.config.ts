@@ -21,6 +21,9 @@ const config: Config = {
 			animation: {
 				marquee: 'marquee 40s linear infinite',
 			},
+			fontSize: {
+				'hero-text': 'var(--hero-text-size)',
+			},
 		},
 	},
 	plugins: [],
