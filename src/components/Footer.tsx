@@ -6,7 +6,7 @@ const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Footer = () => {
 	return (
-		<footer className='bg-light-green h-full text-dark-blue'>
+		<footer className='bg-light-green h-full text-black'>
 			<FooterScrollText />
 			<div className='h-[2px] bg-dark-blue' />
 
@@ -64,8 +64,8 @@ const Footer = () => {
 			{/* copy right */}
 			<div className='flex justify-center py-5 sm:pt-[80px] md:pt-[100px] lg:pt-[120px] md:pb-10'>
 				<p className='text-center font-semibold text-sm md:text-base uppercase tracking-wide'>
-					Powered By <span className='text-[#f54848]'>Nextjs</span>. developed
-					by <span className='text-[#f54848]'>anoop raju</span>
+					Powered By <span className='text-green-900'>Nextjs</span>. developed
+					by <span className='text-green-900'>anoop raju</span>
 				</p>
 			</div>
 		</footer>
