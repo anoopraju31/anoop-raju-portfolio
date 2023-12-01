@@ -3,7 +3,7 @@ import React from 'react'
 
 const NavMenu = () => {
 	return (
-		<div className='h-screen bg-dark-blue flex justify-center items-center'>
+		<div className='fixed top-0 left-0 right-0 z-40 h-screen bg-dark-blue flex justify-center items-center'>
 			<nav className='flex flex-col justify-center items-center text-white'>
 				<Link
 					href='/'
