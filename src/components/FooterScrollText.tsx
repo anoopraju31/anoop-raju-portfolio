@@ -11,7 +11,7 @@ const ScrollText = () => {
 
 const FooterScrollText = () => {
 	return (
-		<div className='w-full overflow-hidden  text-dark-blue font-extrabold uppercase tracking-[0.01em] leading-none whitespace-nowrap text-[10vw] md:text-[15vw]'>
+		<div className='w-full py-[15px] overflow-hidden  text-dark-blue font-extrabold uppercase tracking-[0.01em] leading-none whitespace-nowrap text-[10vw] md:text-[15vw]'>
 			<div className='inline-block min-w-screen animate-marquee'>
 				<ScrollText />
 				<ScrollText />
