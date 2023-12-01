@@ -24,7 +24,7 @@ const Header = () => {
 				<button
 					type='button'
 					onClick={toggleMenu}
-					className='rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center hover:text-white bg-white hover:bg-light-green transition-colors duration-300'>
+					className='rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center bg-white hover:bg-light-green transition-colors duration-300'>
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
 				</button>
