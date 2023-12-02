@@ -7,12 +7,12 @@ const About = () => {
 	return (
 		<section
 			className={`py-10 md:py-[60px] lg:py-[100px] lg:px-[10px] whitespace-normal break-normal ${ptSans.className}`}>
-			<div className='max-w-[1400px] mx-auto py-5 px-[30px] grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center'>
+			<div className='max-w-[1400px] h-fit mx-auto py-5 px-[30px] grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center'>
 				<div className='flex flex-col justify-start items-start'>
 					<div className='relative w-full h-[400px] md:h-[500px] lg:h-full overflow-hidden'>
 						<Image
 							src='/anoop-raju.jpg'
-							className='w-full h-full object-contain'
+							className='w-full h-full aspect-square object-cover'
 							alt=''
 							width={600}
 							height={500}
@@ -24,7 +24,7 @@ const About = () => {
 
 				<div className='flex flex-col justify-start items-start'>
 					<div className='w-full h-full flex flex-col justify-center relative lg:p-[25px]'>
-						<div className='relative lg:-left-[140px]'>
+						<div className='relative lg:-left-[140px] lg:-top-2'>
 							<h2 className='text-3xl md:text-[40px] md:leading-[45px] lg:text-[80px] lg:leading-none font-medium'>
 								{' '}
 								About Me{' '}
@@ -32,40 +32,30 @@ const About = () => {
 						</div>
 
 						<p className='text-base sm:text-lg leading-5 mb-[10px] font-light'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iure
-							atque quis sequi velit ab! Deleniti obcaecati nobis quaerat nihil
-							atque accusantium dignissimos vel suscipit aliquam, reiciendis
-							earum quia expedita, consequuntur ratione ipsum beatae facilis
-							natus excepturi! Pariatur neque aliquid, tenetur eaque doloribus
-							pariatur.
+							Introducing Paul Vadir, a web design virtuoso based in the heart
+							of London. Paul&apos;s journey into the world of web design began
+							when he was just a teenager, tinkering with HTML and CSS to bring
+							his creative visions to life.
 							<br />
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-							adipisci sed pariatur vel ipsum quis facilis, dignissimos iusto
-							eveniet reprehenderit quasi quibusdam magni officia explicabo
-							maxime unde consequatur officiis exercitationem amet alias atque
-							et? Rem nisi tenetur repellat porro voluptatibus veniam,
-							consequatur voluptate explicabo quae quia? Vitae laudantium amet
-							quae deserunt? Sunt architecto doloremque pariatur quas nihil
-							perspiciatis accusantium temporibus repudiandae placeat repellat
-							earum nobis dicta eius dolor, similique voluptatum optio a autem
-							excepturi eum consectetur a!
 							<br />
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-							excepturi quidem soluta vel hic cum molestias nemo! Labore
-							nesciunt quaerat ex vero commodi unde earum, sed nostrum doloribus
-							vitae, eveniet quae numquam ducimus laboriosam sapiente delectus.
-							Nisi maxime voluptatum dolorem deserunt autem repellat illo, quia
-							eum doloremque odio impedit nam rem molestias tempora aliquam
-							delectus minus consequatur! Ratione quod ea doloremque
-							reprehenderit debitis voluptas eligendi necessitatibus, rerum
-							quaerat optio. Dignissimos neque maxime placeat ratione dolore
-							expedita! Debitis cupiditate beatae placeat, quas repellendus
-							architecto consectetur quos nesciunt, in quaerat eum? Eveniet
-							incidunt modi quas alias inventore maiores tenetur esse omnis
-							nobis?
+							With a penchant for creating sleek and user-friendly websites,
+							Paul&apos;s work has garnered recognition not only in London but
+							also on an international scale. His design philosophy revolves
+							around simplicity and aesthetics, transforming intricate concepts
+							into visually stunning digital experiences.
 							<br />
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-							Suscipit, accusantium?
+							<br />
+							Outside the world of web design, Paul enjoys exploring the vibrant
+							streets of London, finding inspiration in the city&apos;s rich
+							history and diverse culture. He firmly believes that a web
+							designer&apos;s ability to see beauty in everyday life is a key
+							asset in creating exceptional digital experiences.
+							<br />
+							<br />
+							Paul Vadir&apos;s expanding portfolio showcases his talent for
+							crafting unique and captivating websites. If you&apos;re in need
+							of a digital masterpiece in London, look no further than the
+							skilled web designer, Paul Vadir.
 						</p>
 					</div>
 				</div>
