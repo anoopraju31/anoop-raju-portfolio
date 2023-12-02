@@ -1,3 +1,4 @@
+import About from './sections/About'
 import Hero from './sections/Hero'
 import Projects from './sections/Projects'
 
@@ -6,6 +7,7 @@ export default function Home() {
 		<main className='bg-black text-white'>
 			<Hero />
 			<Projects />
+			<About />
 		</main>
 	)
 }
