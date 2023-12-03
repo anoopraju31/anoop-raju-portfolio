@@ -12,7 +12,7 @@ import styles from './hero.module.css'
 
 const HeroMask = () => {
 	const [isHovered, setIsHovered] = useState(false)
-	const { x, y } = useMousePosition()
+	const { x, y, containerRef } = useMousePosition()
 
 	const size = isHovered ? 300 : 40
 
@@ -26,6 +26,7 @@ const HeroMask = () => {
 			initial={maskInitialAnimation}
 			animate={maskAnimation(x, y, size)}
 			transition={maskTransition}
+			ref={containerRef}
 			className={styles.mask}>
 			<div
 				onMouseEnter={handleMouseEnter}

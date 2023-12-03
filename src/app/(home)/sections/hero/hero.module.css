@@ -1,5 +1,5 @@
 .main {
-	@apply w-full h-full bg-black cursor-none;
+	@apply w-full h-full bg-black;
 }
 .mask,
 .body {

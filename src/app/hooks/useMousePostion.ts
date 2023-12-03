@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type MousePosition = {
 	x: number
@@ -10,18 +10,34 @@ const useMousePosition = () => {
 		x: -1000,
 		y: -1000,
 	})
+	const containerRef = useRef<HTMLDivElement | null>(null)
 
-	const updateMousePosition = (e: MouseEvent) => {
+	const handleMousePosition = (e: MouseEvent) => {
 		setMousePosition({ x: e.clientX, y: e.clientY })
 	}
 
-	useEffect(() => {
-		window.addEventListener('mousemove', updateMousePosition)
+	const handleMouseLeave = () => {
+		setMousePosition({
+			x: -1000,
+			y: -1000,
+		})
+	}
 
-		return () => window.removeEventListener('mousemove', updateMousePosition)
+	useEffect(() => {
+		const container = containerRef.current
+
+		if (!container) return
+
+		container.addEventListener('mousemove', handleMousePosition)
+		container.addEventListener('mouseleave', handleMouseLeave)
+
+		return () => {
+			container.removeEventListener('mousemove', handleMousePosition)
+			container.removeEventListener('mouseleave', handleMouseLeave)
+		}
 	}, [])
 
-	return mousePosition
+	return { ...mousePosition, containerRef }
 }
 
 export default useMousePosition
