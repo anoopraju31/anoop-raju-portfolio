@@ -7,8 +7,8 @@ type MousePosition = {
 
 const useMousePosition = () => {
 	const [mousePosition, setMousePosition] = useState<MousePosition>({
-		x: 0,
-		y: 0,
+		x: -1000,
+		y: -1000,
 	})
 
 	const updateMousePosition = (e: MouseEvent) => {

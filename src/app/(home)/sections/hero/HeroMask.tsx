@@ -3,7 +3,11 @@
 import { useState } from 'react'
 import useMousePosition from '@/app/hooks/useMousePostion'
 import { motion } from 'framer-motion'
-import { maskAnimation, maskTransition } from '@/utills/animations'
+import {
+	maskAnimation,
+	maskInitialAnimation,
+	maskTransition,
+} from '@/utills/animations'
 import styles from './hero.module.css'
 
 const HeroMask = () => {
@@ -19,6 +23,7 @@ const HeroMask = () => {
 
 	return (
 		<motion.div
+			initial={maskInitialAnimation}
 			animate={maskAnimation(x, y, size)}
 			transition={maskTransition}
 			className={styles.mask}>

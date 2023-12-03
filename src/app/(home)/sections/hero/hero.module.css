@@ -1,5 +1,5 @@
 .main {
-	@apply w-full h-full bg-black;
+	@apply w-full h-full bg-black cursor-none;
 }
 .mask,
 .body {
@@ -35,11 +35,9 @@
 }
 
 .mask {
-	@apply text-[black] z-10;
-	position: absolute;
+	@apply text-[black] absolute left-0 top-0;
 	mask-image: url('/mask.svg');
 	mask-repeat: no-repeat;
 	mask-size: 400px;
 	background: #00ff15;
-	/* mask-mode: alpha; */
 }
