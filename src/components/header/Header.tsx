@@ -17,15 +17,22 @@ const Header = () => {
 		<>
 			<header className='fixed top-0 left-0 right-0 z-50 w-full max-w-[1400px] mx-auto mt-5 py-2 px-[10px] md:px-[25px] flex justify-between items-center'>
 				<Link
+					aria-label='logo'
 					href='/'
-					className={`uppercase text-white  hover:text-light-green transition-colors duration-300 text-2xl md:text-3xl ${gantari.className}`}>
+					className={`uppercase ${
+						isMenuOpen ? 'text-black' : 'text-white'
+					} transition-colors duration-300 text-2xl md:text-3xl ${
+						gantari.className
+					}`}>
 					Anoopfolio
 				</Link>
 
 				<button
 					type='button'
 					onClick={toggleMenu}
-					className='rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center bg-white hover:bg-light-green transition-colors duration-300'>
+					className={`rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center ${
+						isMenuOpen ? 'bg-black text-light-green' : 'bg-white text-black'
+					} transition-colors duration-300`}>
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
 				</button>
