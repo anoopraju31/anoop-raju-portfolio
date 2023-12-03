@@ -5,8 +5,8 @@ import styles from './hero.module.css'
 const Hero = () => {
 	return (
 		<section className={styles.main}>
-			<HeroBody />
 			<HeroMask />
+			<HeroBody />
 		</section>
 	)
 }

@@ -3,7 +3,7 @@
 }
 .mask,
 .body {
-	@apply w-full text-white  h-[65vh] md:h-[80vh] lg:h-[90vh] md:py-[50px] lg:py-[100px] px-[2%] relative overflow-hidden flex justify-center items-center;
+	@apply w-full text-white  h-[65vh] md:h-[80vh] lg:h-[90vh] md:py-[50px] lg:py-[100px] px-[2%] overflow-hidden flex justify-center items-center;
 }
 
 .hero-container {
@@ -41,5 +41,5 @@
 	mask-repeat: no-repeat;
 	mask-size: 400px;
 	background: #00ff15;
-	mask-mode: alpha;
+	/* mask-mode: alpha; */
 }
