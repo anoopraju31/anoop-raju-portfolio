@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Bebas_Neue } from 'next/font/google'
 
 import './globals.css'
-import Header from '@/components/Header'
+import Header from '@/components/header/Header'
 import Footer from '@/components/Footer'
 
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
