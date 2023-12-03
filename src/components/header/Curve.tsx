@@ -28,8 +28,6 @@ const Curve = () => {
 		},
 	}
 
-	console.log(width)
-
 	return (
 		<svg className='absolute right-0 -top-[99px] w-screen h-[100px] fill-light-green stroke-none'>
 			<motion.path
