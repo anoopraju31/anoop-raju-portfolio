@@ -1,6 +1,4 @@
-import About from './sections/About'
-import Hero from './sections/hero/Hero'
-import Projects from './sections/Projects'
+import { About, Hero, Projects } from './sections'
 
 export default function Home() {
 	return (
