@@ -1,6 +1,7 @@
 .main {
 	@apply w-full h-full bg-black;
 }
+.mask,
 .body {
 	@apply w-full text-white  h-[65vh] md:h-[80vh] lg:h-[90vh] md:py-[50px] lg:py-[100px] px-[2%] relative overflow-hidden flex justify-center items-center;
 }
@@ -21,10 +22,24 @@
 	@apply flex-shrink-0 rounded-full overflow-hidden w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px] object-cover;
 }
 
+.mask .hero-image {
+	@apply flex-shrink-0 w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px];
+}
+
 .hero-subheading-container {
 	@apply flex justify-between items-center gap-5 uppercase;
 }
 
 .hero-subheading {
 	@apply w-1/2 flex-shrink-0 text-center text-base sm:text-2xl lg:text-[2rem] leading-none;
+}
+
+.mask {
+	@apply text-[black] z-10;
+	position: absolute;
+	mask-image: url('/mask.svg');
+	mask-repeat: no-repeat;
+	mask-size: 400px;
+	background: #00ff15;
+	mask-mode: alpha;
 }
