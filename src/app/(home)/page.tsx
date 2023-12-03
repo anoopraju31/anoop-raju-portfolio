@@ -1,5 +1,5 @@
 import About from './sections/About'
-import Hero from './sections/Hero'
+import Hero from './sections/hero/Hero'
 import Projects from './sections/Projects'
 
 export default function Home() {
