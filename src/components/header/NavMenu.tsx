@@ -1,9 +1,15 @@
 import Link from 'next/link'
-import React from 'react'
+import { motion } from 'framer-motion'
+import { menuSlide } from '@/utills/animations'
 
 const NavMenu = () => {
 	return (
-		<div className='fixed top-0 left-0 right-0 z-40 h-screen bg-black flex justify-center items-center'>
+		<motion.div
+			variants={menuSlide}
+			initial='initial'
+			animate='enter'
+			exit='exit'
+			className='fixed top-0 left-0 right-0 z-40 h-screen bg-black flex justify-center items-center'>
 			<nav className='flex flex-col justify-center items-center text-white'>
 				<Link
 					href='/'
@@ -21,7 +27,7 @@ const NavMenu = () => {
 					Contact
 				</Link>
 			</nav>
-		</div>
+		</motion.div>
 	)
 }
 

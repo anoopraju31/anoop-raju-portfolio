@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Gantari } from 'next/font/google'
 import { CgClose, CgMenu } from 'react-icons/cg'
 import NavMenu from './NavMenu'
+import { AnimatePresence } from 'framer-motion'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
@@ -29,7 +30,8 @@ const Header = () => {
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
 				</button>
 			</header>
-			{isMenuOpen && <NavMenu />}
+
+			<AnimatePresence mode='wait'>{isMenuOpen && <NavMenu />}</AnimatePresence>
 		</>
 	)
 }
