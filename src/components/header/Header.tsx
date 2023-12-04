@@ -1,17 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Gantari } from 'next/font/google'
 import { CgClose, CgMenu } from 'react-icons/cg'
 import NavMenu from './NavMenu'
 import { AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+	const pathname = usePathname()
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+
+	useEffect(() => {
+		setIsMenuOpen(false)
+	}, [pathname])
 
 	return (
 		<>
