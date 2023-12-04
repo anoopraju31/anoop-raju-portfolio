@@ -16,10 +16,10 @@ const useMousePosition = () => {
 		setMousePosition({ x: e.clientX, y: e.clientY })
 	}
 
-	const handleMouseLeave = () => {
+	const handleMouseLeave = (e: MouseEvent) => {
 		setMousePosition({
-			x: -1000,
-			y: -1000,
+			x: e.clientX,
+			y: window.innerHeight * 2,
 		})
 	}
 
