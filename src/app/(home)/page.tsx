@@ -1,4 +1,5 @@
 import { About, Hero, Projects } from './sections'
+import Skills from './sections/Skills'
 
 export default function Home() {
 	return (
@@ -6,6 +7,7 @@ export default function Home() {
 			<Hero />
 			<Projects />
 			<About />
+			<Skills />
 		</main>
 	)
 }
