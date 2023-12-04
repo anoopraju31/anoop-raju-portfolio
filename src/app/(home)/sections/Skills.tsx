@@ -1,6 +1,6 @@
+import { IconType } from 'react-icons'
 import ParallaxContainer from '@/components/ParallaxContainer'
 import { firstContainer, secondContainer } from '@/utills/SkillLogos'
-import { IconType } from 'react-icons'
 
 type IconContainerProps = {
 	Icon: IconType
