@@ -6,3 +6,7 @@
 	--hero-image-width: calc(100vw * 0.1875);
 	--hero-text-size: calc((100vw * 0.19428571));
 }
+
+body::-webkit-scrollbar {
+	display: none;
+}
