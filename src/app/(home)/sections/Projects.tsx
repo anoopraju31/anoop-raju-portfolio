@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ProjectCard from '@/components/ProjectCard'
+import ProjectCard from '@/components/projectCard/ProjectCard'
 
 const Projects = () => {
 	return (
