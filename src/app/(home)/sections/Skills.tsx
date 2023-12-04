@@ -43,7 +43,7 @@ const Skills = () => {
 			</div>
 
 			{/* Small Screen List */}
-			<div className='mt-[30px] flex md:hidden flex-wrap gap-3 justify-center text-2xl sm: text-3xl'>
+			<div className='mt-[30px] flex md:hidden flex-wrap gap-3 justify-center text-2xl sm:text-3xl'>
 				{firstContainer.map(({ id, icon }) => (
 					<IconContainer key={id} Icon={icon} />
 				))}
