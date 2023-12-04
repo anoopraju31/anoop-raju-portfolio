@@ -49,7 +49,7 @@ const ParallaxContainer = ({ children, baseVelocity = 100 }: ParallaxProps) => {
 	return (
 		<div className='overflow-hidden leading-[0.8px] whitespace-nowrap flex'>
 			<motion.div
-				className='flex font-semibold uppercase md:text-4xl lg:text-6xl gap-[25px]'
+				className='flex font-semibold uppercase md:text-4xl lg:text-5xl gap-[25px]'
 				style={{ x }}>
 				<div>{children} </div>
 				<div>{children} </div>

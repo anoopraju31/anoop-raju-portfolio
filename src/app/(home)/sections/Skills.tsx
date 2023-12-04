@@ -17,15 +17,15 @@ const IconContainer = (props: IconContainerProps) => {
 
 const Skills = () => {
 	return (
-		<section className='px-[10px] md:px-0 pt-0 pb-10 md:py-[60px] lg:py-[100px]'>
+		<section className='px-[10px] md:px-0 pt-0 md:pt-10 lg:pt-20 pb-10 md:pb-[60px] lg:pb-[100px]'>
 			<div className='flex justify-center items-center'>
-				<h2 className='text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-center font-medium'>
+				<h2 className='text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-center font-medium'>
 					Skills
 				</h2>
 			</div>
 
 			{/* Large Screen - Marquee */}
-			<div className='mt-[60px] md:mt-[100px] hidden md:flex flex-col gap-7 md:gap-12'>
+			<div className='mt-[100px] hidden md:flex flex-col gap-7 md:gap-12'>
 				<ParallaxContainer baseVelocity={-2}>
 					<div className='flex gap-3 md:gap-[25px]'>
 						{firstContainer.map(({ id, icon }) => (
