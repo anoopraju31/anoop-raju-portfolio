@@ -33,3 +33,14 @@ export const showTransition = {
 	delay: 0.5,
 	ease: [0.73, 0.06, 0.42, 0.835],
 }
+
+export const slideToView = {
+	initial: { opacity: 0 },
+	animate: {
+		opacity: 1,
+		transition: {
+			duration: 1,
+			ease: [0.73, 0.06, 0.42, 0.835],
+		},
+	},
+}
