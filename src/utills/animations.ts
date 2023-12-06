@@ -9,9 +9,27 @@ export const maskInitialAnimation = {
 export const maskTransition = { type: 'tween', ease: 'backOut', duration: 0.5 }
 export const menuSlide = {
 	initial: { y: 'calc(100% + 100px)' },
-	enter: { y: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+	enter: {
+		y: '0',
+		transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] },
+	},
 	exit: {
 		y: 'calc(100% + 100px)',
-		transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+		transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] },
 	},
+}
+
+export const showAnimation = {
+	initial: { opacity: 0 },
+	animate: {
+		opacity: 1,
+	},
+	exit: {
+		opacity: 0,
+	},
+}
+export const showTransition = {
+	duration: 1,
+	delay: 0.5,
+	ease: [0.73, 0.06, 0.42, 0.835],
 }
