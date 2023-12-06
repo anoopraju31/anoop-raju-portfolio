@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { CgClose, CgMenu } from 'react-icons/cg'
 import NavMenu from './NavMenu'
 import { slideToView } from '@/utills/animations'
+import MagneticContainer from '../MagneticContainer'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
@@ -40,15 +41,17 @@ const Header = () => {
 					Anoopfolio
 				</Link>
 
-				<button
-					type='button'
-					onClick={toggleMenu}
-					className={`rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center ${
-						isMenuOpen ? 'bg-black text-light-green' : 'bg-white text-black'
-					} transition-colors duration-1000 delay-500`}>
-					<span className='sr-only'> Menu </span>
-					{isMenuOpen ? <CgClose /> : <CgMenu />}
-				</button>
+				<MagneticContainer>
+					<button
+						type='button'
+						onClick={toggleMenu}
+						className={`rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center ${
+							isMenuOpen ? 'bg-black text-light-green' : 'bg-white text-black'
+						} transition-colors duration-1000 delay-500`}>
+						<span className='sr-only'> Menu </span>
+						{isMenuOpen ? <CgClose /> : <CgMenu />}
+					</button>
+				</MagneticContainer>
 			</motion.h2>
 
 			<AnimatePresence mode='wait'>{isMenuOpen && <NavMenu />}</AnimatePresence>
