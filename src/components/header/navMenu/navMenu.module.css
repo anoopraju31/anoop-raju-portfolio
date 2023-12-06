@@ -1,0 +1,31 @@
+.main,
+.mask {
+	@apply w-full h-full absolute flex justify-center items-center;
+
+	.nav {
+		@apply flex flex-col justify-center items-center;
+	}
+}
+
+.main {
+	@apply bg-light-green;
+
+	.nav {
+		@apply text-black;
+	}
+}
+
+.mask {
+	@apply bg-red-500;
+
+	mask-image: url('/mask.svg');
+	mask-repeat: no-repeat;
+	mask-size: 400px;
+	background: #000;
+	mask-mode: alpha;
+	cursor: none;
+
+	.nav {
+		@apply text-white;
+	}
+}

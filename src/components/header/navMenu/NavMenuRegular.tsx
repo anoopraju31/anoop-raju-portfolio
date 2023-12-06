@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { menuSlide } from '@/utills/animations'
 import Curve from '../Curve'
 import NavLink from './NavLink'
+import styles from './navMenu.module.css'
 
 const NavMenuRegular = () => {
 	return (
@@ -10,8 +11,8 @@ const NavMenuRegular = () => {
 			initial='initial'
 			animate='enter'
 			exit='exit'
-			className='fixed top-0 left-0 right-0 z-40 h-screen bg-light-green flex justify-center items-center'>
-			<nav className='group flex flex-col justify-center items-center text-black'>
+			className={styles.main}>
+			<nav className={styles.nav}>
 				<NavLink title='Home' link='/' />
 				<NavLink title='Projects' link='/projects' />
 				<NavLink title='Contact' link='/contact' />
