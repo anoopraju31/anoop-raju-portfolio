@@ -1,4 +1,5 @@
-.main {
+.main,
+.mask {
 	@apply pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px];
 
 	.section {
@@ -15,5 +16,13 @@
 		.projects-container {
 			@apply my-[50px] grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-11;
 		}
+	}
+}
+
+.mask {
+	@apply absolute w-full;
+
+	.mask-project-card {
+		@apply w-full h-full object-cover rounded-xl bg-red-600;
 	}
 }
