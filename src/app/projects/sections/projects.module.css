@@ -20,7 +20,14 @@
 }
 
 .mask {
-	@apply absolute w-full;
+	@apply absolute w-full text-black;
+
+	mask-image: url('/mask.svg');
+	mask-repeat: no-repeat;
+	mask-size: 400px;
+	background: #00ff15;
+	mask-mode: alpha;
+	cursor: none;
 
 	.mask-project-card {
 		@apply w-full h-full object-cover rounded-xl bg-red-600;
