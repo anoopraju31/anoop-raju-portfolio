@@ -12,7 +12,7 @@ const NavLink = (props: NavLinkProps) => {
 	return (
 		<Link
 			href={link}
-			className='text-[8vh] lg:text-[15vh] font-bold leading-none uppercase hover:scale-75 hover:text-black transition-all duration-300'>
+			className='text-[8vh] lg:text-[15vh] flex font-bold leading-none uppercase hover:scale-75 z-50 transition-all duration-300'>
 			<motion.span
 				variants={showAnimation}
 				initial='initial'
