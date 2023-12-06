@@ -30,6 +30,6 @@
 	cursor: none;
 
 	.mask-project-card {
-		@apply w-full h-full object-cover rounded-xl bg-red-600;
+		@apply w-full h-full object-cover rounded-xl bg-red-600 z-50 aspect-video;
 	}
 }
