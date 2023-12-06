@@ -1,0 +1,19 @@
+.main {
+	@apply pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px];
+
+	.section {
+		@apply w-full max-w-[1300px] mx-auto px-[10px];
+
+		.heading-container {
+			@apply mt-[60px] flex justify-center items-center;
+
+			.heading {
+				@apply text-3xl sm:text-4xl md:text-5xl font-semibold capitalize;
+			}
+		}
+
+		.projects-container {
+			@apply my-[50px] grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-11;
+		}
+	}
+}

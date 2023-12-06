@@ -3,7 +3,7 @@ import RegularPage from './sections/RegularPage'
 
 const ProjectsPage = () => {
 	return (
-		<main className='relative'>
+		<main className='relative bg-black text-white'>
 			<RegularPage />
 		</main>
 	)
