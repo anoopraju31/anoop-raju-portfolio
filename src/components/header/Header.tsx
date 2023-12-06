@@ -14,8 +14,12 @@ const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+	const [hover, setHover] = useState(false)
 	const pathname = usePathname()
+
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+	const handleMouseEnter = () => setHover(true)
+	const handleMouseLeave = () => setHover(false)
 
 	useEffect(() => {
 		setIsMenuOpen(false)
@@ -45,8 +49,12 @@ const Header = () => {
 					<button
 						type='button'
 						onClick={toggleMenu}
-						className={`rounded-3xl text-xl md:text-2xl p-1 md:p-2 flex justify-center items-center ${
-							isMenuOpen ? 'bg-black text-light-green' : 'bg-white text-black'
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={`rounded-3xl text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center ${
+							isMenuOpen || hover
+								? 'bg-black text-light-green'
+								: 'bg-white text-black'
 						} transition-colors duration-1000 delay-500`}>
 						<span className='sr-only'> Menu </span>
 						{isMenuOpen ? <CgClose /> : <CgMenu />}
