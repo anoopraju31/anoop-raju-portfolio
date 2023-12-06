@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Gantari } from 'next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CgClose, CgMenu } from 'react-icons/cg'
-import NavMenu from './NavMenu'
+import NavMenu from './navMenu/NavMenu'
 import { slideToView } from '@/utills/animations'
 import MagneticContainer from '../MagneticContainer'
 

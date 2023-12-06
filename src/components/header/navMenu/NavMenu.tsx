@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { menuSlide, showAnimation, showTransition } from '@/utills/animations'
-import Curve from './Curve'
+import Curve from '../Curve'
 
 type NavLinkProps = {
 	title: string
