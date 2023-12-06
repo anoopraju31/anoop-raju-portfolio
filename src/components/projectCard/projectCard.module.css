@@ -1,5 +1,5 @@
 .project-card {
-	@apply w-full h-full z-50 overflow-hidden relative cursor-none;
+	@apply w-full h-full z-30 overflow-hidden relative cursor-none;
 
 	.cursor {
 		@apply w-32 h-32 rounded-full flex justify-center items-center bg-orange-300 z-50 absolute top-0 left-0 right-0;
@@ -10,6 +10,6 @@
 	}
 
 	.img {
-		@apply w-full h-full object-cover rounded-xl z-50 aspect-video;
+		@apply w-full h-full object-cover rounded-xl aspect-video;
 	}
 }
