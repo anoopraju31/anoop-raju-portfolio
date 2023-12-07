@@ -38,8 +38,8 @@ const NavMenu = () => {
 				<motion.div
 					className='w-32 h-32 bg-black rounded-full flex justify-center items-center z-50 absolute'
 					animate={{
-						height: 60,
-						width: 60,
+						height: 20,
+						width: 20,
 						background: '#000',
 						fontSize: '18px',
 						x: elementX - window.innerWidth / 2,
