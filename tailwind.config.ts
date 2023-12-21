@@ -6,7 +6,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				'dark-blue': '#090e16',
-				'light-green': '#00ff57',
+				'light-green': '#00ff15',
 			},
 			keyframes: {
 				marquee: {

@@ -1,13 +1,11 @@
-import { About, Hero, Projects } from './sections'
-import Skills from './sections/Skills'
+import MaskPage from './MaskPage'
+import RegularPage from './RegularPage'
 
 export default function Home() {
 	return (
-		<main className='bg-black text-white'>
-			<Hero />
-			<Projects />
-			<About />
-			<Skills />
+		<main className='bg-black text-white relative'>
+			<MaskPage />
+			<RegularPage />
 		</main>
 	)
 }
