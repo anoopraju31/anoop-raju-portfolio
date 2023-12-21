@@ -3,7 +3,7 @@ import { Bebas_Neue } from 'next/font/google'
 
 import './globals.css'
 import Header from '@/components/header/Header'
-import Footer from '@/components/Footer'
+import Footer from '@/components/footer'
 
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
 
