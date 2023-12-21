@@ -11,9 +11,17 @@ const useMousePosition = () => {
 		y: -1000,
 	})
 	const containerRef = useRef<HTMLDivElement | null>(null)
+	const mousePositionWithRespectToScreen = useRef<MousePosition>({
+		x: -1000,
+		y: -1000,
+	})
 
 	const handleMousePosition = (e: MouseEvent) => {
-		setMousePosition({ x: e.clientX, y: e.clientY })
+		setMousePosition({ x: e.pageX, y: e.pageY })
+		mousePositionWithRespectToScreen.current = {
+			x: e.clientX,
+			y: e.clientY,
+		}
 	}
 
 	const handleMouseLeave = (e: MouseEvent) => {
@@ -24,16 +32,16 @@ const useMousePosition = () => {
 	}
 
 	useEffect(() => {
-		const container = containerRef.current
+		// const container = containerRef.current
 
-		if (!container) return
+		// if (!container) return
 
-		container.addEventListener('mousemove', handleMousePosition)
-		container.addEventListener('mouseleave', handleMouseLeave)
+		document.addEventListener('mousemove', handleMousePosition)
+		// document.addEventListener('mouseleave', handleMouseLeave)
 
 		return () => {
-			container.removeEventListener('mousemove', handleMousePosition)
-			container.removeEventListener('mouseleave', handleMouseLeave)
+			document.removeEventListener('mousemove', handleMousePosition)
+			// document.removeEventListener('mouseleave', handleMouseLeave)
 		}
 	}, [])
 
