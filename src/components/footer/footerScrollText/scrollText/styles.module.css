@@ -1,0 +1,7 @@
+.container {
+	@apply inline-flex items-center;
+}
+
+.seperator {
+	@apply rounded-full mx-[10px] md:mx-5 w-[15px] md:w-[25px] lg:w-[50px] h-[15px] md:h-[25px] lg:h-[50px] bg-dark-blue;
+}

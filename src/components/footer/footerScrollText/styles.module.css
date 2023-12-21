@@ -1,0 +1,7 @@
+.outter-container {
+	@apply w-full py-[15px] overflow-hidden  text-dark-blue font-extrabold uppercase tracking-[0.01em] leading-none whitespace-nowrap text-[10vw] md:text-[15vw];
+}
+
+.inner-container {
+	@apply inline-block min-w-full animate-marquee;
+}
