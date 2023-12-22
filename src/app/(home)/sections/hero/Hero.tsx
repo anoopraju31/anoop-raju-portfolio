@@ -52,7 +52,7 @@ const Hero = () => {
 						viewport={{ once: true }}
 						transition={{ delay: 0.5 }}
 						className={styles['hero-subheading']}>
-						Web Developer
+						Full Stack Developer
 					</motion.h2>
 					<motion.h2
 						variants={slideToView}
