@@ -1,10 +1,18 @@
+'use client'
+
+import useAppDispatch from '@/app/hooks/useAddDispatch'
 import { PT_Sans } from 'next/font/google'
-import Image from 'next/image'
+import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
 import styles from './about.module.css'
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 const AboutMask = () => {
+	const dispatch = useAppDispatch()
+
+	const handleMouseEnter = () => dispatch(mouseEnter())
+	const handleMouseLeave = () => dispatch(mouseLeave())
+
 	return (
 		<div className={`${styles.mask} text-black ${ptSans.className}`}>
 			<div className={styles['inner-container']}>
@@ -16,9 +24,18 @@ const AboutMask = () => {
 
 				<div className={styles.wrapper}>
 					<div className={styles['text-container']}>
-						<h2 className={styles.heading}> About Me </h2>
+						<h2
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className={styles.heading}>
+							{' '}
+							About Me{' '}
+						</h2>
 
-						<p className={styles.description}>
+						<p
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className={styles.description}>
 							Introducing Paul Vadir, a web design virtuoso based in the heart
 							of London. Paul&apos;s journey into the world of web design began
 							when he was just a teenager, tinkering with HTML and CSS to bring
