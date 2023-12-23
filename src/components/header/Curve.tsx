@@ -4,7 +4,7 @@ import useWindowWidth from '@/app/hooks/useWindowWidth'
 import { motion } from 'framer-motion'
 
 const Curve = () => {
-	const width = useWindowWidth()
+	const { width } = useWindowWidth()
 
 	const initialPath = `m0 100 L0 200 L${width} 200 L${width} 100 Q${
 		width / 2

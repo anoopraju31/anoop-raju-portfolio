@@ -29,7 +29,7 @@ const NavMenu = () => {
 	return (
 		<motion.div
 			ref={ref as Ref<HTMLDivElement> | undefined}
-			className='fixed top-0 left-0 right-0 z-40 h-screen bg-light-green flex justify-center items-center cursor-none'
+			className='fixed top-0 left-0 right-0 z-50 h-screen bg-light-green flex justify-center items-center cursor-none'
 			variants={menuSlide}
 			initial='initial'
 			animate='enter'
