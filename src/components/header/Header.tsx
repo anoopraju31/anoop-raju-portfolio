@@ -27,8 +27,8 @@ const Header = () => {
 	}, [pathname])
 
 	const menuStyle = () => {
-		if (isMenuOpen && hover) return 'text-light-green bg-black'
-		if (hover) return 'text-black bg-light-green'
+		if (isMenuOpen && hover) return 'text-light-green border-none bg-black'
+		if (hover) return 'text-black border-none bg-light-green'
 		if (isMenuOpen) return 'text-black border border-black'
 		return 'text-white border border-white'
 	}
@@ -46,8 +46,10 @@ const Header = () => {
 					aria-label='logo'
 					href='/'
 					className={`uppercase ${
-						isMenuOpen ? 'text-black' : 'text-white hover:text-light-green'
-					} transition-colors duration-500 text-2xl md:text-3xl ${
+						isMenuOpen
+							? 'text-black delay-500'
+							: 'text-white hover:text-light-green'
+					} transition-colors duration-500 text-2xl md:text-3xl outline-none ${
 						gantari.className
 					}`}>
 					Anoopfolio
