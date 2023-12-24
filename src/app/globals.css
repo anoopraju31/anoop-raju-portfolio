@@ -5,6 +5,7 @@
 :root {
 	--hero-image-width: calc(100vw * 0.1875);
 	--hero-text-size: calc((100vw * 0.19428571));
+	--projects-container-height: calc(450vh + 64px);
 }
 
 body::-webkit-scrollbar {
