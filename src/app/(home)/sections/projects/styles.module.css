@@ -1,0 +1,28 @@
+.projects {
+	@apply mb-10 z-30 cursor-none relative -top-[20vh] mdlg:top-0 px-4;
+}
+
+.container {
+	@apply relative mdlg:hidden;
+}
+
+.container-mdlg {
+	@apply hidden mdlg:h-full mdlg:flex mdlg:gap-4;
+}
+
+.all-projects-container {
+	@apply py-5 lg:py-10 flex justify-center items-center;
+}
+
+.all-projects-link-body,
+.all-projects-link-mask {
+	@apply px-5 py-[15px] cursor-none text-lg lg:text-xl rounded-3xl uppercase border;
+}
+
+.all-projects-link-body {
+	@apply border-white;
+}
+
+.all-projects-link-mask {
+	@apply border-dark-blue;
+}
