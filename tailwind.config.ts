@@ -4,6 +4,9 @@ const config: Config = {
 	content: ['./src/components/**/*.{ts,tsx}', './src/app/**/*.{ts,tsx}'],
 	theme: {
 		extend: {
+			screens: {
+				mdlg: '892px',
+			},
 			colors: {
 				'dark-blue': '#090e16',
 				'light-green': '#00ff15',
