@@ -4,6 +4,7 @@ import { Bebas_Neue } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer'
+import ReduxProvider from '@/components/ReduxProvider'
 
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
 
@@ -23,9 +24,11 @@ export default function RootLayout(props: Props) {
 	return (
 		<html lang='en'>
 			<body className={bebasNeue.className}>
-				<Header />
-				{children}
-				<Footer />
+				<ReduxProvider>
+					<Header />
+					{children}
+					<Footer />
+				</ReduxProvider>
 			</body>
 		</html>
 	)
