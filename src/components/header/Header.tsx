@@ -45,6 +45,7 @@ const Header = () => {
 				<Link
 					aria-label='logo'
 					href='/'
+					onClick={() => setIsMenuOpen(false)}
 					className={`uppercase ${
 						isMenuOpen
 							? 'text-black delay-500'
