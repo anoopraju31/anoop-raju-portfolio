@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Gantari } from 'next/font/google'
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
+import ContactButton from './contactButton'
 import styles from './styles.module.css'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
@@ -15,9 +16,7 @@ const Footer = () => {
 			<div className={styles['outter-container']}>
 				<div className={styles['inner-container']}>
 					<div className={styles['contact-me-wrapper']}>
-						<Link href='/contact' className={styles['contact-me']}>
-							contact me
-						</Link>
+						<ContactButton />
 					</div>
 
 					<ul

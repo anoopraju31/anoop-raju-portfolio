@@ -18,10 +18,6 @@
 	@apply self-start grid mx-auto sm:mx-0;
 }
 
-.contact-me {
-	@apply block w-fit px-[60px] py-[10px] rounded-[50px] border-dark-blue border-2 uppercase font-medium text-[35px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-none hover:bg-dark-blue hover:text-light-green transition-colors duration-500;
-}
-
 .footer-links-container {
 	@apply flex flex-col gap-[30px];
 }
@@ -35,5 +31,5 @@
 }
 
 .highlighted-text {
-	@apply text-green-900;
+	@apply text-orange-600;
 }
