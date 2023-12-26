@@ -8,10 +8,18 @@ const useFooterScrollOverViewport = () => {
 
 	useEffect(() => {
 		const footer = document.getElementById('footer')
-		const handleHeaderColorChangeOnScroll = () => {
-			if (!footer) return
 
-			const footerRect = footer.getBoundingClientRect()
+		const footerRect = footer?.getBoundingClientRect()
+
+		if (!footerRect) return
+
+		setIsFooterCrossedViewport(footerRect.top <= 74)
+
+		const handleHeaderColorChangeOnScroll = () => {
+			const footerRect = footer?.getBoundingClientRect()
+
+			if (!footerRect) return
+
 			setIsFooterCrossedViewport(footerRect.top <= 74)
 		}
 
