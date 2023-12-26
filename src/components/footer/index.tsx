@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Gantari } from 'next/font/google'
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
@@ -9,7 +8,7 @@ const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Footer = () => {
 	return (
-		<footer className={styles.footer}>
+		<footer id='footer' aria-label='footer' className={styles.footer}>
 			<FooterScrollText />
 			<div className={styles.divider} />
 

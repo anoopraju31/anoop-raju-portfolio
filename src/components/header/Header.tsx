@@ -21,6 +21,7 @@ const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 const Header = () => {
 	const [showHeader, setShowHeader] = useState<boolean>(true)
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+	const [isHeaderColorDark, setIsHeaderColorDark] = useState<boolean>(false)
 	const [hover, setHover] = useState(false)
 	const pathname = usePathname()
 	const { scrollY } = useScroll()
@@ -36,12 +37,32 @@ const Header = () => {
 	})
 
 	useEffect(() => {
+		const footer = document.getElementById('footer')
+		const handleHeaderColorChangeOnScroll = () => {
+			if (footer) {
+				const footerRect = footer.getBoundingClientRect()
+
+				setIsHeaderColorDark(footerRect.top <= 74)
+			}
+		}
+
+		document.addEventListener('scroll', handleHeaderColorChangeOnScroll)
+
+		return () =>
+			document.removeEventListener('scroll', handleHeaderColorChangeOnScroll)
+	}, [])
+
+	useEffect(() => {
 		setIsMenuOpen(false)
 	}, [pathname])
 
 	const menuStyle = () => {
 		if (isMenuOpen && hover) return 'text-light-green border-none bg-black'
-		if (hover) return 'text-black border-none bg-light-green'
+		if (isHeaderColorDark && hover) return 'bg-black border-none text-white'
+		if (!isHeaderColorDark && hover)
+			return 'text-black border-none bg-light-green'
+
+		if (isHeaderColorDark) return 'bg-black border-none text-light-green'
 		if (isMenuOpen) return 'text-black border border-black'
 		return 'text-white border border-white'
 	}
@@ -64,6 +85,8 @@ const Header = () => {
 					className={`uppercase ${
 						isMenuOpen
 							? 'text-black delay-500'
+							: isHeaderColorDark
+							? 'text-dark-blue hover:text-white'
 							: 'text-white hover:text-light-green'
 					} transition-colors duration-500 text-2xl md:text-3xl outline-none ${
 						gantari.className

@@ -1,5 +1,5 @@
 .footer {
-	@apply bg-light-green h-full text-black;
+	@apply bg-light-green h-full text-black relative cursor-none;
 }
 
 .divider {
