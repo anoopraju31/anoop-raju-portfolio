@@ -15,12 +15,16 @@ import { CgClose, CgMenu } from 'react-icons/cg'
 import MagneticContainer from '../MagneticContainer'
 import NavMenu from './navMenu/NavMenu'
 import { slideToView } from '@/utills/animations'
+import useAppSelector from '@/app/hooks/useAppSelector'
+import { useDispatch } from 'react-redux'
+import { closeMenu, toggleMenu } from '@/app/features/navbarSlice'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Header = () => {
 	const [showHeader, setShowHeader] = useState<boolean>(true)
-	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+	const isMenuOpen = useAppSelector((state) => state.navbar.isMenuOpen)
+	const dispatch = useDispatch()
 	const isHeaderColorDark = useFooterScrollOverViewport()
 	const pathname = usePathname()
 	const { scrollY } = useScroll()
@@ -32,10 +36,11 @@ const Header = () => {
 	})
 
 	useEffect(() => {
-		setIsMenuOpen(false)
-	}, [pathname])
+		dispatch(closeMenu())
+	}, [pathname, dispatch])
 
-	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+	const handleMenuButtonClick = () => dispatch(toggleMenu())
+	const handleClose = () => dispatch(closeMenu())
 
 	const menuStyle = () => {
 		if (!isMenuOpen && !isHeaderColorDark)
@@ -72,7 +77,7 @@ const Header = () => {
 				<Link
 					aria-label='logo'
 					href='/'
-					onClick={() => setIsMenuOpen(false)}
+					onClick={handleClose}
 					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-none transition-colors duration-1000 text-2xl md:text-3xl outline-none ${
 						gantari.className
 					}`}>
@@ -82,7 +87,7 @@ const Header = () => {
 				<MagneticContainer>
 					<button
 						type='button'
-						onClick={toggleMenu}
+						onClick={handleMenuButtonClick}
 						className={`rounded-3xl text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border ${menuStyle()} cursor-none transition-colors duration-1000`}>
 						<span className='sr-only'> Menu </span>
 						{isMenuOpen ? <CgClose /> : <CgMenu />}

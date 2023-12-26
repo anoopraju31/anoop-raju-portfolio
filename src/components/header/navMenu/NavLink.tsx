@@ -1,6 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { showAnimation, showTransition } from '@/utills/animations'
+import useAppDispatch from '@/app/hooks/useAddDispatch'
+import { closeMenu } from '@/app/features/navbarSlice'
 
 type NavLinkProps = {
 	title: string
@@ -9,6 +13,10 @@ type NavLinkProps = {
 
 const NavLink = (props: NavLinkProps) => {
 	const { title, link } = props
+	const dispatch = useAppDispatch()
+
+	const handleClick = () => dispatch(closeMenu())
+
 	return (
 		<Link
 			href={link}
@@ -19,6 +27,7 @@ const NavLink = (props: NavLinkProps) => {
 				whileInView='animate'
 				exit='exit'
 				viewport={{ once: true }}
+				onClick={handleClick}
 				transition={showTransition}>
 				{title}
 			</motion.span>
