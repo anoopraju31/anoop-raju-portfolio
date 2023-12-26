@@ -10,3 +10,13 @@ export const projects: Project[] = [
 	{ id: 3, img: '/netflix-gpt.png' },
 	{ id: 4, img: '/nike.png' },
 ]
+
+export const skills = [
+	'HTML',
+	'CSS',
+	'JavaScript',
+	'ReactJS',
+	'NextJS',
+	'TailwindCSS',
+	'Framer Motion',
+]
