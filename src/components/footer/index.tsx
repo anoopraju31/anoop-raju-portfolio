@@ -18,6 +18,7 @@ const Footer = () => {
 
 	const handleMouseEnter = () => setHover(true)
 	const handleMouseLeave = () => setHover(false)
+	const handleScroll = () => setHover(false)
 
 	useEffect(() => {
 		const container = ref.current
@@ -25,10 +26,12 @@ const Footer = () => {
 
 		container.addEventListener('mouseenter', handleMouseEnter)
 		container.addEventListener('mouseleave ', handleMouseLeave)
+		document.addEventListener('scroll', handleScroll)
 
 		return () => {
 			container.removeEventListener('mouseenter', handleMouseEnter)
 			container.removeEventListener('mouseleave ', handleMouseLeave)
+			document.removeEventListener('scroll', handleScroll)
 		}
 	}, [ref])
 
