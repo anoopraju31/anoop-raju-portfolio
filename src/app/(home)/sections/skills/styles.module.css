@@ -34,5 +34,5 @@
 }
 
 .skills-container {
-	@apply select-none leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem] flex flex-col items-center mdlg:items-start;
+	@apply select-none leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem] flex flex-col;
 }

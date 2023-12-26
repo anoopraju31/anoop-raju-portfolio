@@ -14,7 +14,7 @@ const SkillItem = (props: Props) => {
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
 		target: container,
-		offset: ['start 0.9', 'start 0.2'],
+		offset: ['start 0.9', 'start 0.25'],
 	})
 	const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%'], {
 		ease: cubicBezier(0.17, 0.67, 0.83, 0.67),

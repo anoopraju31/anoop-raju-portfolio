@@ -1,10 +1,10 @@
 .container {
-	@apply relative;
+	@apply relative w-fit;
 }
 
 .main-text,
 .mask-text {
-	@apply text-3xl xl:text-8xl font-extrabold whitespace-nowrap;
+	@apply text-skill leading-none font-extrabold whitespace-nowrap;
 }
 
 .mask-text {
