@@ -2,34 +2,30 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { Gantari } from 'next/font/google'
+import useFooterScrollOverViewport from '@/app/hooks/useFooterScrollOverViewport'
 import {
 	AnimatePresence,
 	motion,
 	useMotionValueEvent,
 	useScroll,
 } from 'framer-motion'
+import { Gantari } from 'next/font/google'
+import Link from 'next/link'
 import { CgClose, CgMenu } from 'react-icons/cg'
-import { HiOutlineMenuAlt4 } from 'react-icons/hi'
+import MagneticContainer from '../MagneticContainer'
 import NavMenu from './navMenu/NavMenu'
 import { slideToView } from '@/utills/animations'
-import MagneticContainer from '../MagneticContainer'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Header = () => {
 	const [showHeader, setShowHeader] = useState<boolean>(true)
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-	const [isHeaderColorDark, setIsHeaderColorDark] = useState<boolean>(false)
+	const isHeaderColorDark = useFooterScrollOverViewport()
 	const [hover, setHover] = useState(false)
 	const pathname = usePathname()
 	const { scrollY } = useScroll()
 	const scrollHeight = useRef<number>(0)
-
-	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
-	const handleMouseEnter = () => setHover(true)
-	const handleMouseLeave = () => setHover(false)
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		setShowHeader(scrollHeight.current > latest)
@@ -37,24 +33,12 @@ const Header = () => {
 	})
 
 	useEffect(() => {
-		const footer = document.getElementById('footer')
-		const handleHeaderColorChangeOnScroll = () => {
-			if (footer) {
-				const footerRect = footer.getBoundingClientRect()
-
-				setIsHeaderColorDark(footerRect.top <= 74)
-			}
-		}
-
-		document.addEventListener('scroll', handleHeaderColorChangeOnScroll)
-
-		return () =>
-			document.removeEventListener('scroll', handleHeaderColorChangeOnScroll)
-	}, [])
-
-	useEffect(() => {
 		setIsMenuOpen(false)
 	}, [pathname])
+
+	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
+	const handleMouseEnter = () => setHover(true)
+	const handleMouseLeave = () => setHover(false)
 
 	const menuStyle = () => {
 		if (isMenuOpen && hover) return 'text-light-green border-none bg-black'
