@@ -1,10 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Gantari } from 'next/font/google'
-import { AnimatePresence, motion } from 'framer-motion'
+import {
+	AnimatePresence,
+	motion,
+	useMotionValueEvent,
+	useScroll,
+} from 'framer-motion'
 import { CgClose, CgMenu } from 'react-icons/cg'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import NavMenu from './navMenu/NavMenu'
@@ -14,13 +19,21 @@ import MagneticContainer from '../MagneticContainer'
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Header = () => {
+	const [showHeader, setShowHeader] = useState<boolean>(true)
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 	const [hover, setHover] = useState(false)
 	const pathname = usePathname()
+	const { scrollY } = useScroll()
+	const scrollHeight = useRef<number>(0)
 
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 	const handleMouseEnter = () => setHover(true)
 	const handleMouseLeave = () => setHover(false)
+
+	useMotionValueEvent(scrollY, 'change', (latest) => {
+		setShowHeader(scrollHeight.current > latest)
+		scrollHeight.current = latest
+	})
 
 	useEffect(() => {
 		setIsMenuOpen(false)
@@ -35,13 +48,15 @@ const Header = () => {
 
 	return (
 		<>
-			<motion.h2
+			<motion.header
 				variants={slideToView}
 				initial='initial'
 				whileInView='animate'
 				viewport={{ once: true }}
 				transition={{ delay: 0.5 }}
-				className='fixed top-0 left-0 right-0 z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[10px] md:px-[25px] flex justify-between items-center'>
+				className={`fixed ${
+					showHeader ? 'top-0' : '-top-40'
+				} left-0 right-0 z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[10px] md:px-[25px] flex justify-between items-center transition-top duration-1000 ease-in-out`}>
 				<Link
 					aria-label='logo'
 					href='/'
@@ -67,7 +82,7 @@ const Header = () => {
 						{isMenuOpen ? <CgClose /> : <CgMenu />}
 					</button>
 				</MagneticContainer>
-			</motion.h2>
+			</motion.header>
 
 			<AnimatePresence mode='wait'>{isMenuOpen && <NavMenu />}</AnimatePresence>
 		</>
