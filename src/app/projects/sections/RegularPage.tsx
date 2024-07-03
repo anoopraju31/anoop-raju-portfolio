@@ -1,27 +1,16 @@
-import ProjectCard from '@/components/projectCard/ProjectCard'
-import styles from './projects.module.css'
+// import { devProjects } from './projectDetails'
 
 const RegularPage = () => {
 	return (
-		<div className={styles.main}>
-			<section className={styles.section}>
-				<div className={styles['heading-container']}>
-					<h1 className={styles.heading}>All Portfolio</h1>
+		<div className='pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px]'>
+			<section className='w-full max-w-[1300px] mx-auto px-[10px]'>
+				<div className='mt-[60px] flex justify-center items-center'>
+					<h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold capitalize'>
+						All Portfolio
+					</h1>
 				</div>
 
-				<div className={styles['projects-container']}>
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-					<ProjectCard img='/nike.png' />
-				</div>
+				<div className='my-[60px] grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-11'></div>
 			</section>
 		</div>
 	)
