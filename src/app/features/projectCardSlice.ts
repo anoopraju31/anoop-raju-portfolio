@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 type projectCardHover = {
 	cardId: number | null
+	link: string | null
 }
 
 const initialState: projectCardHover = {
 	cardId: null,
+	link: null,
 }
 
 const projectCardhoverSlice = createSlice({
@@ -13,10 +15,12 @@ const projectCardhoverSlice = createSlice({
 	initialState,
 	reducers: {
 		projectCardMouseEnter: (state, action) => {
-			state.cardId = action.payload
+			state.cardId = action.payload.cardId
+			state.link = action.payload.link
 		},
 		projectCardMouseLeave: (state) => {
 			state.cardId = null
+			state.link = null
 		},
 	},
 })
