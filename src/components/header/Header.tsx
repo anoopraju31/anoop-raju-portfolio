@@ -44,7 +44,7 @@ const Header = () => {
 
 	const menuStyle = () => {
 		if (!isMenuOpen && !isHeaderColorDark)
-			return 'bg-dark-blue hover:bg-white border-white text-white hover:text-dark-blue'
+			return 'bg-dark-blue hover:bg-light-green border-white hover:border-dark-blue text-white hover:text-white'
 		if (!isMenuOpen && isHeaderColorDark)
 			return 'bg-light-green hover:bg-dark-blue border-dark-blue text-dark-blue hover:text-light-green'
 		if (isMenuOpen && !isHeaderColorDark)

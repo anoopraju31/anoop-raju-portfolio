@@ -1,5 +1,5 @@
 'use client'
-import { Ref, useEffect, useState } from 'react'
+import { type FC, Ref, useEffect, useState } from 'react'
 import useFooterScrollOverViewport from '@/app/hooks/useFooterScrollOverViewport'
 import { useMouse } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion'
@@ -7,18 +7,18 @@ import Curve from '../Curve'
 import NavLink from './NavLink'
 import { menuSlide } from '@/utills/animations'
 
-const NavMenu = () => {
+const NavMenu: FC = () => {
 	const [hover, setHover] = useState(false)
 	const [mouse, ref] = useMouse()
 	const isBackgroundDark = useFooterScrollOverViewport()
-	const { elementX, elementY, x, y } = mouse
-
-	const handleMouseEnter = () => setHover(true)
-	const handleMouseLeave = () => setHover(false)
+	const { elementX, elementY } = mouse
 
 	useEffect(() => {
 		const container = ref.current
 		if (!container) return
+
+		const handleMouseEnter = () => setHover(true)
+		const handleMouseLeave = () => setHover(false)
 
 		container.addEventListener('mouseenter', handleMouseEnter)
 		container.addEventListener('mouseleave ', handleMouseLeave)
@@ -64,6 +64,7 @@ const NavMenu = () => {
 					link='/projects'
 				/>
 				<NavLink title='Contact' link='/contact' />
+				<NavLink title='Blogs' link='/blogs' />
 			</nav>
 			<Curve isBackgroundDark={isBackgroundDark} />
 		</motion.div>
