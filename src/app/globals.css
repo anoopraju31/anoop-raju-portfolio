@@ -5,9 +5,21 @@
 :root {
 	--hero-image-width: calc(100vw * 0.1875);
 	--hero-text-size: calc((100vw * 0.19428571));
+	--skill-text-size: calc(100vw * 0.06857142);
 	--projects-container-height: calc(450vh + 64px);
+	--curveTransitionSvgHeight: calc(100vh + 600px);
+	--height-transition: calc(100vh - 80px);
 }
 
 body::-webkit-scrollbar {
 	display: none;
+}
+
+body {
+	user-select: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+	transition: background-color 0s 600000s, color 0s 600000s !important;
 }
