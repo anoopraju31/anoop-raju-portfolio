@@ -3,11 +3,11 @@
 import { Gantari } from 'next/font/google'
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
-import ContactButton from './contactButton'
 import styles from './styles.module.css'
 import { Ref, useEffect, useState } from 'react'
 import { useMouse } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
@@ -58,7 +58,9 @@ const Footer = () => {
 			<div className={styles['outter-container']}>
 				<div className={styles['inner-container']}>
 					<div className={styles['contact-me-wrapper']}>
-						<ContactButton />
+						<Link href='/contact' className={styles['contact-button']}>
+							contact me
+						</Link>
 					</div>
 
 					<ul

@@ -1,3 +1,0 @@
-.contact-button {
-	@apply block w-fit px-[60px] py-[10px] rounded-[50px] border-dark-blue border-2 uppercase font-medium text-[35px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-none cursor-none hover:bg-dark-blue hover:text-light-green transition-colors duration-1000;
-}
