@@ -1,11 +1,10 @@
-import ProjectCard from '@/components/projectCard/ProjectCard'
+import { Particles } from '@/components/Particles'
 import RegularPage from './sections/RegularPage'
-import MaskPage from './sections/MaskPage'
 
 const ProjectsPage = () => {
 	return (
 		<main className='relative bg-black text-white'>
-			<MaskPage />
+			<Particles className='fixed inset-0 -z-10' />
 			<RegularPage />
 		</main>
 	)

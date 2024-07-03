@@ -6,7 +6,16 @@ export const maskInitialAnimation = {
 	WebkitMaskPosition: '-1000px -1000px',
 	WebkitMaskSize: '0px',
 }
-export const maskTransition = { type: 'tween', ease: 'backOut', duration: 0.5 }
+export const maskTransition = {
+	type: 'tween',
+	ease: 'backOut',
+	duration: 0.0001,
+	WebkitMaskSize: {
+		duration: 0.1,
+		type: 'spring',
+		damping: 15,
+	},
+}
 export const menuSlide = {
 	initial: { y: 'calc(100% + 100px)' },
 	enter: {

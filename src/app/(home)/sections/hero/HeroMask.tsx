@@ -1,54 +1,52 @@
 'use client'
 
-import { useState } from 'react'
-import useMousePosition from '@/app/hooks/useMousePostion'
-import { motion } from 'framer-motion'
-import {
-	maskAnimation,
-	maskInitialAnimation,
-	maskTransition,
-} from '@/utills/animations'
+import useAppDispatch from '@/app/hooks/useAddDispatch'
+import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
 import styles from './hero.module.css'
 
 const HeroMask = () => {
-	const [isHovered, setIsHovered] = useState(false)
-	const { x, y, containerRef } = useMousePosition()
+	const dispatch = useAppDispatch()
 
-	const size = isHovered ? 300 : 40
-
-	const handleMouseEnter = () => setIsHovered(true)
-	const handleMouseEnterImage = () => setIsHovered(false)
-	const handleMouseLeave = () => setIsHovered(false)
-	const handleMouseLeaveImage = () => setIsHovered(true)
+	const handleMouseEnter = () => dispatch(mouseEnter())
+	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
-		<motion.div
-			initial={maskInitialAnimation}
-			animate={maskAnimation(x, y, size)}
-			transition={maskTransition}
-			ref={containerRef}
-			className={styles.mask}>
-			<div
-				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
-				className={styles['hero-container']}>
+		<div className={styles.mask}>
+			<div className={styles['hero-container']}>
 				<div className={styles['hero-heading-container']}>
-					<h1 className={styles['hero-heading']}>Anoop</h1>
+					<h1
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={styles['hero-heading']}>
+						Anoop
+					</h1>
 
-					<div
-						onMouseEnter={handleMouseEnterImage}
-						onMouseLeave={handleMouseLeaveImage}
-						className={styles['hero-image']}
-					/>
-					<h1 className={styles['hero-heading']}>Raju</h1>
+					<div className='flex-shrink-0 overflow-hidden w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px]' />
+
+					<h1
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={styles['hero-heading']}>
+						Raju
+					</h1>
 				</div>
 
 				<div className={styles['hero-subheading-container']}>
-					<h2 className={styles['hero-subheading']}>Web Developer</h2>
-					<h2 className={styles['hero-subheading']}>Living in Kerala</h2>
+					<h2
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={styles['hero-subheading']}>
+						Strong on Frontend
+					</h2>
+					<h2
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={styles['hero-subheading']}>
+						Desire to travel outside Kerala
+					</h2>
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	)
 }
 

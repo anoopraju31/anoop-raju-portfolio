@@ -1,0 +1,39 @@
+.footer {
+	@apply bg-light-green h-full text-black relative  z-10;
+}
+
+.divider {
+	@apply h-[2px] bg-dark-blue;
+}
+
+.outter-container {
+	@apply max-w-[1200px] mx-auto px-[10px] bg-light-green h-full;
+}
+
+.inner-container {
+	@apply mt-[40px] sm:mt-[60px] md:mt-[80px] lg:mt-[140px] grid grid-cols-1 sm:grid-cols-2 justify-center items-center sm:gap-x-[80px] md:gap-x-[100px] lg:gap-x-[147px] gap-y-[25px];
+}
+
+.contact-me-wrapper {
+	@apply self-start grid mx-auto sm:mx-0;
+}
+
+.footer-links-container {
+	@apply flex flex-col gap-[30px];
+}
+
+.copyright-container {
+	@apply flex justify-center py-10 sm:pt-[80px] md:pt-[100px] lg:pt-[120px] md:pb-10;
+}
+
+.copyright-text {
+	@apply text-center font-semibold text-sm md:text-base uppercase tracking-wide;
+}
+
+.highlighted-text {
+	@apply text-orange-600;
+}
+
+.contact-button {
+	@apply block w-fit px-[60px] py-[10px] rounded-[50px] border-dark-blue border-2 uppercase font-medium text-[35px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-none cursor-none hover:bg-dark-blue hover:text-light-green transition-colors duration-1000;
+}

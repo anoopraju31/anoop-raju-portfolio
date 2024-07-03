@@ -1,37 +1,41 @@
+'use client'
+
+import useAppDispatch from '@/app/hooks/useAddDispatch'
 import { PT_Sans } from 'next/font/google'
-import Image from 'next/image'
-import React from 'react'
+import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
+import styles from './about.module.css'
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
-const About = () => {
+
+const AboutMask = () => {
+	const dispatch = useAppDispatch()
+
+	const handleMouseEnter = () => dispatch(mouseEnter())
+	const handleMouseLeave = () => dispatch(mouseLeave())
+
 	return (
-		<section
-			className={`py-10 md:py-[60px] lg:py-[100px] lg:px-[10px] whitespace-normal break-normal ${ptSans.className}`}>
-			<div className='max-w-[1400px] h-fit mx-auto py-5 px-[30px] grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center'>
-				<div className='flex flex-col justify-start items-start'>
-					<div className='relative w-full h-[400px] md:h-[500px] lg:h-full overflow-hidden'>
-						<Image
-							src='/anoop-raju.jpg'
-							className='w-full h-full aspect-square object-cover'
-							alt=''
-							width={600}
-							height={500}
-						/>
-						<div className='w-[150px] h-[150px] bg-black absolute top-auto bottom-0 right-0 left-auto' />
-						<div className='w-[150px] h-[150px] bg-black absolute top-0 bottom-auto right-auto left-0' />
+		<div className={`${styles.mask} text-black ${ptSans.className}`}>
+			<div className={styles['inner-container']}>
+				<div className={styles.wrapper}>
+					<div className={styles['img-container']}>
+						<div className={styles.img} />
 					</div>
 				</div>
 
-				<div className='flex flex-col justify-start items-start'>
-					<div className='w-full h-full flex flex-col justify-center relative lg:p-[25px]'>
-						<div className='relative lg:-left-[140px] lg:-top-2'>
-							<h2 className='text-3xl md:text-[40px] md:leading-[45px] lg:text-[80px] lg:leading-none font-medium'>
-								{' '}
-								About Me{' '}
-							</h2>
-						</div>
+				<div className={styles.wrapper}>
+					<div className={styles['text-container']}>
+						<h2
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className={styles.heading}>
+							{' '}
+							About Me{' '}
+						</h2>
 
-						<p className='text-base sm:text-lg leading-5 mb-[10px] font-light'>
+						<p
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className={styles.description}>
 							Introducing Paul Vadir, a web design virtuoso based in the heart
 							of London. Paul&apos;s journey into the world of web design began
 							when he was just a teenager, tinkering with HTML and CSS to bring
@@ -60,8 +64,8 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	)
 }
 
-export default About
+export default AboutMask

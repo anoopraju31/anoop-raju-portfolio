@@ -1,0 +1,15 @@
+.outter-container {
+	@apply w-full h-screen flex justify-center items-center sticky top-0;
+}
+
+.inner-container {
+	@apply w-full h-[60%] relative rounded-2xl;
+}
+
+.img-container {
+	@apply w-full h-full;
+}
+
+.img {
+	@apply w-full h-full object-cover relative rounded-2xl;
+}

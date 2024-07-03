@@ -1,12 +1,15 @@
-import { MouseEvent, ReactNode, useRef, useState } from 'react'
+import { type MouseEvent, type ReactNode, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 type Props = { children: ReactNode }
+type Position = {
+	x: number
+	y: number
+}
 
-export default function MagneticContainer(props: Props) {
-	const { children } = props
+export default function MagneticContainer({ children }: Props) {
 	const ref = useRef<HTMLDivElement | null>(null)
-	const [position, setPosition] = useState({ x: 0, y: 0 })
+	const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
 
 	const handleMouse = (e: MouseEvent) => {
 		const container = ref.current
@@ -15,23 +18,21 @@ export default function MagneticContainer(props: Props) {
 
 		const { clientX, clientY } = e
 		const { height, width, left, top } = container.getBoundingClientRect()
-		const middleX = clientX - (left + width / 4)
-		const middleY = clientY - (top + height / 4)
+		const middleX = clientX - (left + width / 2)
+		const middleY = clientY - (top + height / 2)
+
 		setPosition({ x: middleX, y: middleY })
 	}
 
-	const reset = () => {
-		setPosition({ x: 0, y: 0 })
-	}
+	const reset = () => setPosition({ x: 0, y: 0 })
 
-	const { x, y } = position
 	return (
 		<motion.div
 			style={{ position: 'relative' }}
 			ref={ref}
 			onMouseMove={handleMouse}
 			onMouseLeave={reset}
-			animate={{ x, y }}
+			animate={position}
 			transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}>
 			{children}
 		</motion.div>

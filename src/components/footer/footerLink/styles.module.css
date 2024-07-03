@@ -1,0 +1,7 @@
+.footer-link {
+	@apply block relative cursor-none tracking-[0.25px] pt-[5px] px-[5px] lg:px-0 pb-[10px] hover:scale-90 sm:hover:scale-100 sm:hover:pl-[3vw] transition-all duration-300 text-xl sm:text-3xl lg:text-4xl xl:text-5xl uppercase text-center sm:text-left;
+}
+
+.divider {
+	@apply h-[1.6px] bg-dark-blue;
+}

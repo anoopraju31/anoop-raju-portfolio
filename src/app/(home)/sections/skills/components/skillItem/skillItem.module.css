@@ -1,0 +1,16 @@
+.container {
+	@apply relative w-fit;
+}
+
+.main-text,
+.mask-text {
+	@apply text-skill leading-none font-extrabold whitespace-nowrap;
+}
+
+.mask-text {
+	@apply absolute top-0 w-0 overflow-hidden;
+}
+
+.main-text {
+	@apply opacity-30;
+}

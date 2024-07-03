@@ -3,8 +3,13 @@
 import useWindowWidth from '@/app/hooks/useWindowWidth'
 import { motion } from 'framer-motion'
 
-const Curve = () => {
-	const width = useWindowWidth()
+type CurveProps = {
+	isBackgroundDark: boolean
+}
+
+const Curve = (props: CurveProps) => {
+	const { isBackgroundDark } = props
+	const { width } = useWindowWidth()
 
 	const initialPath = `m0 100 L0 200 L${width} 200 L${width} 100 Q${
 		width / 2
@@ -29,7 +34,10 @@ const Curve = () => {
 	}
 
 	return (
-		<svg className='absolute right-0 -top-[99px] w-screen h-[100px] fill-light-green stroke-none'>
+		<svg
+			className={`absolute right-0 -top-[99px] w-screen h-[100px] ${
+				isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green'
+			} stroke-none`}>
 			<motion.path
 				variants={curve}
 				initial='initial'

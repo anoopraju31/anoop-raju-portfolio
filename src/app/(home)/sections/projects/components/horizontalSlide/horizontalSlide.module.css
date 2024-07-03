@@ -1,0 +1,7 @@
+.container {
+	@apply w-[20vw] h-[90vh] whitespace-nowrap break-normal;
+}
+
+.img {
+	@apply w-full h-full object-cover rounded-xl;
+}
