@@ -1,5 +1,7 @@
 .mask {
-	@apply text-black z-40 absolute left-0 top-0 overflow-hidden w-full cursor-none;
+	@apply text-black z-40 absolute left-0 top-0 overflow-hidden w-full;
+}
+.m {
 	mask-image: url('/mask.svg');
 	mask-repeat: no-repeat;
 	mask-size: 30px;
