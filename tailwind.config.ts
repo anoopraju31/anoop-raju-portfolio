@@ -9,7 +9,7 @@ const config: Config = {
 			},
 			colors: {
 				'dark-blue': '#090e16',
-				'light-green': '#00ff15',
+				'light-green': 'rgb(76, 252, 15)', //'#00ff15', #b8ef43
 			},
 			keyframes: {
 				marquee: {
@@ -26,6 +26,9 @@ const config: Config = {
 			},
 			fontSize: {
 				'hero-text': 'var(--hero-text-size)',
+				skill: 'var(--skill-text-size)',
+				body: 'clamp(1.1rem, 2vw, 1.3rem)',
+				heading: 'clamp(2rem, 5vw, 2.75rem)',
 			},
 			transitionProperty: {
 				width: 'width',
@@ -35,4 +38,5 @@ const config: Config = {
 	},
 	plugins: [],
 }
+
 export default config
