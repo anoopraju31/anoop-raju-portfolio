@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import useFooterScrollOverViewport from '@/app/hooks/useFooterScrollOverViewport'
+import useAppSelector from '@/app/hooks/useAppSelector'
+import { useDispatch } from 'react-redux'
 import {
 	AnimatePresence,
 	motion,
@@ -15,8 +17,6 @@ import { CgClose, CgMenu } from 'react-icons/cg'
 import MagneticContainer from '../MagneticContainer'
 import NavMenu from './navMenu/NavMenu'
 import { slideToView } from '@/utills/animations'
-import useAppSelector from '@/app/hooks/useAppSelector'
-import { useDispatch } from 'react-redux'
 import { closeMenu, toggleMenu } from '@/app/features/navbarSlice'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
