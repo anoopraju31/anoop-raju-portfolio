@@ -1,58 +1,16 @@
-'use client'
-
 import { Gantari } from 'next/font/google'
+import Link from 'next/link'
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
 import styles from './styles.module.css'
-import { Ref, useEffect, useState } from 'react'
-import { useMouse } from '@uidotdev/usehooks'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
 const Footer = () => {
-	const [hover, setHover] = useState(false)
-	const [mouse, ref] = useMouse()
-	const { elementX, elementY, x, y } = mouse
-
-	const handleMouseEnter = () => setHover(true)
-	const handleMouseLeave = () => setHover(false)
-	const handleScroll = () => setHover(false)
-
-	useEffect(() => {
-		const container = ref.current
-		if (!container) return
-
-		container.addEventListener('mouseenter', handleMouseEnter)
-		container.addEventListener('mouseleave ', handleMouseLeave)
-		document.addEventListener('scroll', handleScroll)
-
-		return () => {
-			container.removeEventListener('mouseenter', handleMouseEnter)
-			container.removeEventListener('mouseleave ', handleMouseLeave)
-			document.removeEventListener('scroll', handleScroll)
-		}
-	}, [ref])
-
 	return (
-		<footer
-			ref={ref as Ref<HTMLDivElement> | undefined}
-			id='footer'
-			aria-label='footer'
-			className={styles.footer}>
-			{hover && (
-				<motion.div
-					className={`w-5 h-5 bg-dark-blue rounded-full flex justify-center items-center absolute`}
-					animate={{
-						x: elementX - 10,
-						y: elementY - 10,
-					}}
-					transition={{ type: 'tween', ease: 'backOut', duration: 0.001 }}
-				/>
-			)}
-
+		<footer id='footer' aria-label='footer' className={styles.footer}>
 			<FooterScrollText />
+
 			<div className={styles.divider} />
 
 			<div className={styles['outter-container']}>
