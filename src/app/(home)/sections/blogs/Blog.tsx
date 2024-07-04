@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import Link from 'next/link'
-import BlogCard from '@/components/blogCard/BlogCard'
+import BlogCard from '@/components/blogCard'
 import styles from './blog.module.css'
 
 const Blog: FC = () => {

@@ -3,9 +3,9 @@
 import { type FC } from 'react'
 import useAppDispatch from '@/app/hooks/useAddDispatch'
 import Link from 'next/link'
-import BlogCardMask from '@/components/blogCard/BlogCardMask'
 import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
 import styles from './blog.module.css'
+import BlogCard from '@/components/blogCard'
 
 const BlogMask: FC = () => {
 	const dispatch = useAppDispatch()
@@ -31,9 +31,9 @@ const BlogMask: FC = () => {
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['inner-container']}>
-						<BlogCardMask />
-						<BlogCardMask />
-						<BlogCardMask />
+						<BlogCard isMask />
+						<BlogCard isMask />
+						<BlogCard isMask />
 					</div>
 
 					<div className={styles['link-container']}>
