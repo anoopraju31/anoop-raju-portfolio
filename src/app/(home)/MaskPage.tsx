@@ -3,6 +3,7 @@ import HeroMask from './sections/hero/HeroMask'
 import ProjectsMask from './sections/projects/ProjectsMask'
 import AboutMask from './sections/about/AboutMask'
 import SkillsMask from './sections/skills/SkillsMask'
+import BlogMask from './sections/blogs/BlogMask'
 
 const MaskPage = () => {
 	return (
@@ -12,6 +13,7 @@ const MaskPage = () => {
 				<ProjectsMask />
 				<AboutMask />
 				<SkillsMask />
+				<BlogMask />
 			</Mask>
 		</div>
 	)

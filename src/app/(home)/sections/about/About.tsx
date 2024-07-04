@@ -6,49 +6,53 @@ const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 const About = () => {
 	return (
-		<section className={`${styles.body}  ${ptSans.className}`}>
+		<section className={`${styles.body}`}>
 			<div className={styles['inner-container']}>
 				<div className={styles.wrapper}>
-					<div className={styles['img-container']}>
+					<div className={`hidden md:block ${styles['img-container']}`}>
 						<Image
-							src='/anoop-raju.jpg'
+							src='/photo.jpg'
+							alt='anoop raju'
+							width={400}
+							height={400}
 							className={styles.img}
-							alt=''
-							width={600}
-							height={500}
 						/>
 					</div>
 				</div>
-
-				<div className={styles.wrapper}>
+				<div className={`${styles.wrapper} ${ptSans.className}`}>
 					<div className={styles['text-container']}>
 						<h2 className={styles.heading}> About Me </h2>
 
+						<div className={`md:hidden ${styles['img-container']} mb-10`}>
+							<Image
+								src='/photo.jpg'
+								alt='anoop raju'
+								width={400}
+								height={400}
+								className={styles.img}
+							/>
+						</div>
 						<p className={styles.description}>
-							Introducing Paul Vadir, a web design virtuoso based in the heart
-							of London. Paul&apos;s journey into the world of web design began
-							when he was just a teenager, tinkering with HTML and CSS to bring
-							his creative visions to life.
-							<br />
-							<br />
-							With a penchant for creating sleek and user-friendly websites,
-							Paul&apos;s work has garnered recognition not only in London but
-							also on an international scale. His design philosophy revolves
-							around simplicity and aesthetics, transforming intricate concepts
-							into visually stunning digital experiences.
-							<br />
-							<br />
-							Outside the world of web design, Paul enjoys exploring the vibrant
-							streets of London, finding inspiration in the city&apos;s rich
-							history and diverse culture. He firmly believes that a web
-							designer&apos;s ability to see beauty in everyday life is a key
-							asset in creating exceptional digital experiences.
-							<br />
-							<br />
-							Paul Vadir&apos;s expanding portfolio showcases his talent for
-							crafting unique and captivating websites. If you&apos;re in need
-							of a digital masterpiece in London, look no further than the
-							skilled web designer, Paul Vadir.
+							Hello! I&apos;m a passionate Software Developer with a knack for
+							crafting sleek and scalable frontend applications. With a flair
+							for web design and a dedication to creating seamless user
+							experiences, I turn ideas into visually appealing and functional
+							digital realities.
+						</p>
+
+						<p className={styles.description}>
+							As a recent graduate of the Indian Institute of Information
+							Technology, Kottayam, I&apos;ve honed my skills in both the
+							theoretical and practical aspects of web development. My journey
+							in tech is fueled by a constant quest for knowledge and growth,
+							always ready to embrace the next big challenge.
+						</p>
+
+						<p className={styles.description}>
+							When I&apos;m not coding, you can find me exploring the latest
+							design trends, diving into new technologies, or dreaming up
+							innovative ways to improve the digital landscape. Let&apos;s build
+							something amazing together!
 						</p>
 					</div>
 				</div>
