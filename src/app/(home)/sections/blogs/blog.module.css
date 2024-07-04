@@ -1,5 +1,5 @@
 .section {
-	@apply pb-20 md:pb-[60px] lg:py-[100px] lg:px-[10px];
+	@apply pb-20 md:pb-[100px] lg:pb-[200px] lg:pt-[100px] lg:px-[10px];
 }
 
 .container {
@@ -29,7 +29,7 @@
 
 .link,
 .link-mask {
-	@apply mt-32 mdlg:mt-0 px-5 py-[15px] cursor-none text-lg lg:text-xl rounded-3xl uppercase border;
+	@apply px-5 py-[15px] text-lg lg:text-xl rounded-3xl uppercase border;
 }
 
 .link {

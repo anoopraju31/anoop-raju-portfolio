@@ -41,7 +41,7 @@ const BlogMask: FC = () => {
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
 							href='/blogs'
-							className={styles['link']}>
+							className={styles['link-mask']}>
 							View More Blogs
 						</Link>
 					</div>
