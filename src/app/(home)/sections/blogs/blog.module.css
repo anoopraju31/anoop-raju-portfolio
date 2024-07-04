@@ -1,5 +1,5 @@
 .section {
-	@apply pb-10 md:pb-[60px] lg:py-[100px] lg:px-[10px];
+	@apply pb-20 md:pb-[60px] lg:py-[100px] lg:px-[10px];
 }
 
 .container {
@@ -7,11 +7,11 @@
 }
 
 .heading-container {
-	@apply flex items-center justify-center mb-16;
+	@apply flex items-center mb-16;
 }
 
 .heading {
-	@apply text-3xl md:text-[40px] md:leading-[45px] lg:text-[80px] lg:leading-none font-bold;
+	@apply text-[40px] leading-[45px] md:text-[60px] md:leading-[65px] mdlg:text-[80px] lg:leading-none font-bold;
 }
 
 .outter-container {
