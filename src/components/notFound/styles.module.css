@@ -1,0 +1,32 @@
+.body,
+.mask {
+	@apply min-h-screen container flex flex-col items-center justify-center px-5 mx-auto py-8;
+}
+
+.mask {
+	@apply text-dark-blue;
+}
+
+.container {
+	@apply text-center;
+}
+
+.heading {
+	@apply font-extrabold text-9xl md:text-hero-text leading-none;
+}
+
+.desc {
+	@apply mb-8 text-lg font-semibold md:text-2xl mdlg:text-3xl;
+}
+
+.link {
+	@apply px-8 py-3 font-semibold rounded;
+}
+
+.body .link {
+	@apply bg-light-green text-dark-blue;
+}
+
+.mask .link {
+	@apply bg-dark-blue text-light-green;
+}
