@@ -1,0 +1,36 @@
+.card,
+.card__mask {
+	@apply flex flex-col gap-3;
+}
+
+.card__mask {
+	@apply text-dark-blue;
+}
+
+.badge {
+	@apply flex justify-center items-center rounded-2xl px-2 py-1 border leading-none w-fit;
+}
+
+.card .badge {
+	@apply border-white;
+}
+
+.card__mask .badge {
+	@apply border-dark-blue;
+}
+
+.card__title {
+	@apply text-2xl md:text-3xl mdlg:text-4xl font-bold leading-none;
+}
+
+.card__date {
+	@apply text-base;
+}
+
+.card .card__date {
+	@apply text-gray-400;
+}
+
+.card__mask .card__date {
+	@apply text-dark-blue;
+}
