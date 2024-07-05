@@ -76,9 +76,8 @@ const ViewMoreProject = () => {
 			<Link
 				href='/projects'
 				className={styles['all-projects-link-mask']}
-				// onMouseEnter={handleMouseEnter}
-				// onMouseLeave={handleMouseLeave}
-			>
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}>
 				View More Projects
 			</Link>
 		</div>

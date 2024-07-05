@@ -36,6 +36,10 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
 				<motion.div
 					onClick={() => redirect(link ?? '/')}
 					className={`w-16 h-16 bg-light-green text-dark-blue text-6xl rounded-full flex justify-center items-center absolute`}
+					initial={{
+						x: -400,
+						y: -400,
+					}}
 					animate={{
 						x: x - 32,
 						y: y - 32,
