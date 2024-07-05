@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useScroll } from 'framer-motion'
 import useAppDispatch from '@/app/hooks/useAddDispatch'
+import useAppSelector from '@/app/hooks/useAppSelector'
 import Link from 'next/link'
 import Lenis from '@studio-freight/lenis'
 import VerticalSlideMask from './components/veticalSlide/VerticalSlideMask'
@@ -12,7 +13,6 @@ import { projects } from '@/utills/constants'
 import styles from './styles.module.css'
 
 const ProjectsMask = () => {
-	const dispatch = useAppDispatch()
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
 		target: container,
@@ -30,9 +30,6 @@ const ProjectsMask = () => {
 
 		requestAnimationFrame(raf)
 	})
-
-	const handleMouseEnter = () => dispatch(mouseEnter())
-	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
 		<section className={styles.projects}>
@@ -54,21 +51,36 @@ const ProjectsMask = () => {
 
 			{/* Mask for large screen */}
 			<div className={styles['container-mdlg']}>
-				{projects.map(({ id }) => (
-					<HorizontalSlideMask key={id} id={id} />
+				{projects.map(({ id, deployedUrl }) => (
+					<HorizontalSlideMask deployedUrl={deployedUrl} key={id} id={id} />
 				))}
 			</div>
 
-			<div className={styles['all-projects-container']}>
-				<Link
-					href='/projects'
-					className={styles['all-projects-link-mask']}
-					onMouseEnter={handleMouseEnter}
-					onMouseLeave={handleMouseLeave}>
-					View More Projects
-				</Link>
-			</div>
+			<ViewMoreProject />
 		</section>
+	)
+}
+
+const ViewMoreProject = () => {
+	const dispatch = useAppDispatch()
+	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
+	const handleMouseEnter = () => dispatch(mouseEnter())
+	const handleMouseLeave = () => dispatch(mouseLeave())
+
+	return (
+		<div
+			className={`${styles['all-projects-container']} ${
+				currentCardId && 'invisible'
+			}`}>
+			<Link
+				href='/projects'
+				className={styles['all-projects-link-mask']}
+				// onMouseEnter={handleMouseEnter}
+				// onMouseLeave={handleMouseLeave}
+			>
+				View More Projects
+			</Link>
+		</div>
 	)
 }
 
