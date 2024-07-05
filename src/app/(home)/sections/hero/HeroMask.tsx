@@ -38,13 +38,13 @@ const HeroMask = () => {
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-subheading']}>
-						Strong on Frontend
+						Full Stack Developer
 					</h2>
 					<h2
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-subheading']}>
-						Yearning to Explore the Globe
+						Living in kerala
 					</h2>
 				</div>
 			</div>
