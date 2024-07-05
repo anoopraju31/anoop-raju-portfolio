@@ -11,6 +11,7 @@ type Props = {
 const SkillItem: FC<Props> = ({ skill }) => {
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
+		layoutEffect: false,
 		target: container,
 		offset: ['start 0.9', 'start 0.25'],
 	})
