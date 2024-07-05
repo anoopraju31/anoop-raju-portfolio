@@ -15,6 +15,7 @@ import styles from './styles.module.css'
 const ProjectsMask = () => {
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
+		layoutEffect: false,
 		target: container,
 		offset: ['start start', 'end end'],
 	})
@@ -32,7 +33,7 @@ const ProjectsMask = () => {
 	})
 
 	return (
-		<section className={styles.projects}>
+		<div ref={container} className={styles.projects}>
 			{/* Mask for small screen */}
 			<div className={styles.container}>
 				{projects.map(({ id }) => {
@@ -57,7 +58,7 @@ const ProjectsMask = () => {
 			</div>
 
 			<ViewMoreProject />
-		</section>
+		</div>
 	)
 }
 

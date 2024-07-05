@@ -11,7 +11,7 @@ const About = () => {
 				<div className={styles.wrapper}>
 					<div className={`hidden md:block ${styles['img-container']}`}>
 						<Image
-							src='/photo.jpg'
+							src='/anoop-raju.jpg'
 							alt='anoop raju'
 							width={400}
 							height={400}
@@ -25,11 +25,11 @@ const About = () => {
 
 						<div className={`md:hidden ${styles['img-container']} mb-10`}>
 							<Image
-								src='/photo.jpg'
+								src='/anoop-raju.jpg'
 								alt='anoop raju'
 								width={400}
 								height={400}
-								className={styles.img}
+								className={`${styles.img} aspect-square`}
 							/>
 						</div>
 						<p className={styles.description}>
