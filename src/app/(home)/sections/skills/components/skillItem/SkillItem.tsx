@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { type FC, useRef } from 'react'
 import { useTransform, motion, useScroll, cubicBezier } from 'framer-motion'
 import styles from './skillItem.module.css'
 
@@ -8,9 +8,7 @@ type Props = {
 	skill: string
 }
 
-const SkillItem = (props: Props) => {
-	const { skill } = props
-
+const SkillItem: FC<Props> = ({ skill }) => {
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
 		target: container,
