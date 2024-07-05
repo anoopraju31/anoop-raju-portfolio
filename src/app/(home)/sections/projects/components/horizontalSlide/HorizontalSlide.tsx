@@ -1,37 +1,29 @@
 'use client'
 
 import useAppSelector from '@/app/hooks/useAppSelector'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import ProjectCard from '../projectCard/ProjectCard'
 import styles from './horizontalSlide.module.css'
 
 type HorizontalSlideProps = {
 	id: number
 	img: string
+	name: string
+	year: string
 }
 
 const HorizontalSlide = (props: HorizontalSlideProps) => {
-	const { id, img } = props
+	const { id } = props
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
-
-	const initial = {
-		opacity: 0,
-		y: 0,
-		width: '20vw',
-	}
-	const animate = {
-		width: id === currentCardId ? '100vw' : '20vw',
-	}
+	const initial = { opacity: 0, y: 0, width: '20vw' }
+	const animate = { width: id === currentCardId ? '100vw' : '20vw' }
 	const inViewAnimation = {
 		opacity: 1,
 		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.73, 0.06, 0.42, 0.835],
-		},
+		transition: { duration: 1, ease: [0.17, 0.67, 0.83, 0.67] },
 	}
 	const viewPort = { once: true }
-	const transition = { duration: 0.4, ease: 'easeOut' }
+	const transition = { duration: 1.5, ease: 'backOut' }
 
 	return (
 		<motion.div
@@ -41,14 +33,7 @@ const HorizontalSlide = (props: HorizontalSlideProps) => {
 			viewport={viewPort}
 			transition={transition}
 			className={styles.container}>
-			<Image
-				src={img}
-				alt={img}
-				width={1000}
-				height={1000}
-				priority
-				className={styles.img}
-			/>
+			<ProjectCard {...props} />
 		</motion.div>
 	)
 }
