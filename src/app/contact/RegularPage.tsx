@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import ContactForm from './components/contactForm'
-import ContactWrapper from './components/contactWrapper/contactWrapper'
+import ContactWrapper from './components/contactWrapper/ContactWrapper'
 import styles from './styles.module.css'
 
 const RegularPage: FC = () => {

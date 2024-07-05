@@ -1,13 +1,10 @@
 'use client'
 
 import useAppDispatch from '@/app/hooks/useAddDispatch'
-import { PT_Sans } from 'next/font/google'
 import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
-import { skills } from '@/utills/constants'
+import SkillsContainerMask from './components/skillsContainer/SkillsContainerMask'
+import { services, skills } from '@/utills/constants'
 import styles from './styles.module.css'
-import SkillItemMask from './components/skillItem/SkillItemMask'
-
-const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 const SkillsMask = () => {
 	const dispatch = useAppDispatch()
@@ -19,38 +16,31 @@ const SkillsMask = () => {
 		<div className={styles.section} aria-label='skills mask'>
 			<div className={styles.container}>
 				<div className={styles['heading-container']}>
-					<h2
+					<div
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles.heading}>
-						Skills
-					</h2>
+						Services
+					</div>
 				</div>
 
-				<div className={styles['text-container']}>
-					<div
-						className={` ${styles['left-text-outter-container']} ${ptSans.className}`}>
-						<div
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className={styles['left-text-inner-container']}>
-							<h3 className={styles['left-text-container-header']}>
-								my digital tool box.
-							</h3>
-							<p className={styles['left-text-container-body']}>
-								These are my go to tech stack to make any projects happen. I am
+				<SkillsContainerMask
+					title='my expertises.'
+					description='I focus on all things design and web related. With each of my
+								services, my goal is to deliver an impactful and elevating
+								digital experience for everyone.'
+					skills={services}
+				/>
+
+				<div className='py-4'></div>
+
+				<SkillsContainerMask
+					title='my digital tool box.'
+					description='These are my go to tech stack to make any projects happen. I am
 								always eager of learning more about my current stack, and new
-								technologies that could expand my horizons.
-							</p>
-						</div>
-					</div>
-
-					<div className={styles['skills-container']}>
-						{skills.map((item, index) => (
-							<SkillItemMask key={index} skill={item} />
-						))}
-					</div>
-				</div>
+								technologies that could expand my horizons.'
+					skills={skills}
+				/>
 			</div>
 		</div>
 	)

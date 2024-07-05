@@ -3,7 +3,7 @@
 }
 
 .inner-container {
-	@apply w-full h-[60%] relative rounded-2xl;
+	@apply w-full h-[80%] relative rounded-2xl;
 }
 
 .img-container {

@@ -50,8 +50,16 @@ const ProjectsMain = () => {
 
 			{/* For Small Screen */}
 			<div className={styles['container-mdlg']}>
-				{projects.map(({ id, img }) => {
-					return <HorizontalSlide key={id} id={id} img={img} />
+				{projects.map(({ id, img, name, year }) => {
+					return (
+						<HorizontalSlide
+							key={id}
+							id={id}
+							img={img}
+							name={name}
+							year={year}
+						/>
+					)
 				})}
 			</div>
 

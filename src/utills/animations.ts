@@ -48,6 +48,7 @@ export const slideToView = {
 	animate: {
 		opacity: 1,
 		transition: {
+			delay: 1.25,
 			duration: 1,
 			ease: [0.73, 0.06, 0.42, 0.835],
 		},

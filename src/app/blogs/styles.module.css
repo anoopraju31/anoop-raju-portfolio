@@ -1,0 +1,41 @@
+.section {
+	@apply py-20 md:py-[100px] lg:py-24 lg:px-[10px];
+}
+
+.container {
+	@apply max-w-[1400px] mx-auto px-[30px] pt-10 pb-20 md:py-20;
+}
+
+.heading-container {
+	@apply flex items-center justify-center mb-10 md:mb-20;
+}
+
+.heading {
+	@apply text-[40px] leading-[45px] md:text-[60px] md:leading-[65px] mdlg:text-[80px] lg:leading-none font-bold;
+}
+
+.outter-container {
+	@apply flex flex-col gap-10;
+}
+
+.inner-container {
+	@apply grid grid-cols-1 md:grid-cols-2 mdlg:grid-cols-3 gap-10 gap-y-16;
+}
+
+.link-container,
+.link-container-mask {
+	@apply py-5 lg:py-10 flex justify-center items-center;
+}
+
+.link,
+.link-mask {
+	@apply px-5 py-[15px] text-lg lg:text-xl rounded-3xl uppercase border;
+}
+
+.link {
+	@apply border-white;
+}
+
+.link-mask {
+	@apply border-dark-blue;
+}

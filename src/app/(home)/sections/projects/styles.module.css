@@ -1,5 +1,5 @@
 .projects {
-	@apply mb-10 z-30 cursor-none relative -top-[20vh] mdlg:top-0 px-4;
+	@apply mdlg:mb-10 z-30 cursor-none relative mdlg:top-0 px-4;
 }
 
 .container {
@@ -16,7 +16,7 @@
 
 .all-projects-link-body,
 .all-projects-link-mask {
-	@apply px-5 py-[15px] cursor-none text-lg lg:text-xl rounded-3xl uppercase border;
+	@apply mt-32 mdlg:mt-0 px-5 py-[15px] cursor-none text-lg lg:text-xl rounded-3xl uppercase border;
 }
 
 .all-projects-link-body {
