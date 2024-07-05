@@ -1,7 +1,12 @@
-import { FC } from 'react'
+import { type FC } from 'react'
+import { type Metadata } from 'next'
+import { Particles } from '@/components/Particles'
 import MaskPage from './MaskPage'
 import RegularPage from './RegularPage'
-import { Particles } from '@/components/Particles'
+
+export const metadata: Metadata = {
+	title: 'Blogs',
+}
 
 const BlogsPage: FC = () => {
 	return (
