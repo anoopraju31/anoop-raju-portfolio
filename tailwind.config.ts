@@ -26,6 +26,7 @@ const config: Config = {
 			},
 			fontSize: {
 				'hero-text': 'var(--hero-text-size)',
+				'skill-sm': 'var(--skill-text-size-sm)',
 				skill: 'var(--skill-text-size)',
 				body: 'clamp(1.1rem, 2vw, 1.3rem)',
 				heading: 'clamp(2rem, 5vw, 2.75rem)',

@@ -5,7 +5,9 @@
 :root {
 	--hero-image-width: calc(100vw * 0.1875);
 	--hero-text-size: calc((100vw * 0.19428571));
-	--skill-text-size: calc(100vw * 0.06857142);
+	--skill-text-size-sm: calc(100vw * 0.06857142);
+	--skill-text-size: calc(100vw * 0.03857142);
+	/* --skill-text-size: calc(100vw * 0.09857142); */
 	--projects-container-height: calc(450vh + 64px);
 	--curveTransitionSvgHeight: calc(100vh + 600px);
 	--height-transition: calc(100vh - 80px);

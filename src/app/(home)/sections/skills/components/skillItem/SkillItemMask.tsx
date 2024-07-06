@@ -18,7 +18,7 @@ const SkillItemMask: FC<Props> = ({ skill }) => {
 		<p
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			className='text-skill leading-none font-extrabold'>
+			className='text-skill-sm md:text-skill leading-none font-extrabold'>
 			{skill}
 		</p>
 	)
