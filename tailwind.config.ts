@@ -30,6 +30,8 @@ const config: Config = {
 				skill: 'var(--skill-text-size)',
 				body: 'clamp(1.1rem, 2vw, 1.3rem)',
 				heading: 'clamp(2rem, 5vw, 2.75rem)',
+				'works-title': 'clamp(1.25rem, 2vw, 1.5rem)',
+				'body-4': 'clamp(0.75rem, 3vw, 1rem)',
 			},
 			transitionProperty: {
 				width: 'width',
