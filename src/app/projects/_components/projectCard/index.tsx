@@ -28,10 +28,10 @@ const ProjectCard: FC<Props> = ({ name, img, alt, link, tools, year }) => {
 			</a>
 			<div className='mt-4'>
 				<div className='mb-3 flex space-x-2'>
-					<p className='flex items-center justify-center rounded-full border border-light-green bg-transparent px-4 py-1 text-body-4 text-light-green'>
+					<p className='flex items-center justify-center rounded-full border border-white bg-transparent px-4 py-1 text-body-4 text-white'>
 						{year}
 					</p>
-					<p className='flex items-center justify-center rounded-full border border-light-green bg-transparent px-4 py-1 text-body-4 text-light-green'>
+					<p className='flex items-center justify-center rounded-full border border-white bg-transparent px-4 py-1 text-body-4 text-white'>
 						{tools}
 					</p>
 				</div>
