@@ -4,7 +4,7 @@
 
 .main-text,
 .mask-text {
-	@apply text-skill leading-none font-extrabold whitespace-nowrap;
+	@apply text-skill-sm md:text-skill leading-none font-extrabold whitespace-nowrap;
 }
 
 .mask-text {
