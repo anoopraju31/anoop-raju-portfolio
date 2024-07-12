@@ -19,19 +19,21 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
 	const { cardId: currentCardId, link } = useAppSelector(
 		(state) => state.projectCardHover,
 	)
-	const size = isHovered ? 300 : 20
+	const size = isHovered ? 300 : currentCardId ? 64 : 20
 
 	return (
 		<motion.div
 			ref={containerRef}
 			initial={maskInitialAnimation}
 			animate={maskAnimation(
-				currentCardId ? -400 : x,
-				currentCardId ? -400 : y,
+				// currentCardId ? -400 :
+				x,
+				// currentCardId ? -400 :
+				y,
 				size,
 			)}
 			transition={maskTransition}
-			className={`${styles.mask} ${currentCardId ? '' : styles.m}`}>
+			className={`${styles.mask} ${styles.m}`}>
 			{currentCardId ? (
 				<motion.div
 					onClick={() => redirect(link ?? '/')}
