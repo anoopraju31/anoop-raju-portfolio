@@ -1,0 +1,49 @@
+.product__card,
+.mask__product__card {
+	@apply inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl;
+}
+
+.img {
+	@apply w-screen duration-700 ease-in-out hover:scale-105;
+}
+
+.mask__product__card .img {
+	@apply opacity-0 -z-50;
+}
+
+.container {
+	@apply mt-4 w-fit;
+}
+
+.tools__container {
+	@apply mb-3 flex space-x-2;
+}
+
+.tools__wrapper,
+.tools__wrapper__mask {
+	@apply flex items-center justify-center rounded-full border bg-transparent px-4 py-1 text-body-4;
+}
+
+.tools__container {
+	@apply text-white border-white;
+}
+
+.tools__wrapper__mask {
+	@apply text-dark-blue border-dark-blue;
+}
+
+.name__container {
+	@apply 2xl:space-y-3;
+}
+
+.project__name {
+	@apply text-works-title font-medium uppercase 2xl:text-5xl;
+}
+
+.mask__product__card .project__name {
+	@apply text-dark-blue;
+}
+
+.product__card .project__name {
+	@apply text-white;
+}

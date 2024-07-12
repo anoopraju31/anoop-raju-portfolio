@@ -1,7 +1,12 @@
+'use client'
 import { type FC } from 'react'
 import Image from 'next/image'
+import styles from './styles.module.css'
+import { motion } from 'framer-motion'
+import useAppSelector from '@/app/hooks/useAppSelector'
 
-type Props = {
+export type ProjectCardProps = {
+	id: number
 	name: string
 	img: string
 	alt: string
@@ -10,35 +15,55 @@ type Props = {
 	tools: string
 }
 
-const ProjectCard: FC<Props> = ({ name, img, alt, link, tools, year }) => {
+const ProjectCard: FC<ProjectCardProps> = ({
+	id,
+	name,
+	img,
+	alt,
+	tools,
+	year,
+}) => {
+	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
+
 	return (
 		<div>
-			<a
-				target='_blank'
-				rel='noreferrer'
-				href={link}
-				className='img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl'>
-				<Image
-					className='w-screen duration-700 ease-in-out group-hover:scale-105'
-					src={img}
-					alt={alt}
-					width='800'
-					height='600'
-				/>
-			</a>
-			<div className='mt-4'>
-				<div className='mb-3 flex space-x-2'>
-					<p className='flex items-center justify-center rounded-full border border-white bg-transparent px-4 py-1 text-body-4 text-white'>
-						{year}
-					</p>
-					<p className='flex items-center justify-center rounded-full border border-white bg-transparent px-4 py-1 text-body-4 text-white'>
-						{tools}
-					</p>
+			<motion.div
+				initial={{ borderRadius: 0 }}
+				animate={{
+					borderRadius: currentCardId ? '24px' : 0,
+				}}
+				transition={{
+					duration: 0.7,
+					ease: 'easeInOut',
+				}}
+				className={styles.product__card}>
+				<motion.div
+					initial={{
+						scale: 1,
+					}}
+					animate={{
+						scale: currentCardId === id ? 1.05 : 1,
+					}}
+					transition={{
+						duration: 0.7,
+						ease: 'easeInOut',
+					}}>
+					<Image
+						className={styles.img}
+						src={img}
+						alt={alt}
+						width='800'
+						height='600'
+					/>
+				</motion.div>
+			</motion.div>
+			<div className={styles.container}>
+				<div className={styles.tools__container}>
+					<p className={styles.tools__wrapper}>{year}</p>
+					<p className={styles.tools__wrapper}>{tools}</p>
 				</div>
-				<div className='2xl:space-y-3'>
-					<h3 className='text-works-title font-medium uppercase text-white 2xl:text-5xl'>
-						{name}
-					</h3>
+				<div className={styles.name__container}>
+					<h3 className={styles.project__name}>{name}</h3>
 				</div>
 			</div>
 		</div>
