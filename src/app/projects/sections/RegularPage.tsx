@@ -1,21 +1,21 @@
 // import { devProjectCard } from './projectDetails'
 
 import ProjectCard from '../_components/projectCard'
+import styles from './projects.module.css'
 
 const RegularPage = () => {
 	return (
-		<div className='pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px]'>
-			<section className='w-full max-w-[1400px] mx-auto px-[10px]'>
-				<div className='mt-[60px] flex justify-center items-center'>
-					<h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold capitalize'>
-						All Projects
-					</h1>
+		<main className={styles.regularPage}>
+			<section className={styles.container}>
+				<div className={styles.heading__container}>
+					<h1>All Projects</h1>
 				</div>
 
-				<div className='my-16 grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12'>
+				<div className={styles.project__container}>
 					{/* Project #1 */}
-					<div className=' col-span-1 md:col-span-12'>
+					<div className={styles.project1__container}>
 						<ProjectCard
+							id={1}
 							link='https://eat-curious-wysm.vercel.app/'
 							img='/eat-curious.png'
 							alt='eat-curious'
@@ -24,9 +24,11 @@ const RegularPage = () => {
 							tools='NextJS • ReactJS • TailwindCSS • Typescript'
 						/>
 					</div>
+
 					{/* Project #2 */}
-					<div className='col-span-1 pt-0 md:col-span-7 md:pt-16'>
+					<div className={styles.project2__container}>
 						<ProjectCard
+							id={2}
 							link='https://react-ai-article-summarizer.netlify.app/'
 							img='/summerize.png'
 							alt='Summarizer'
@@ -35,8 +37,11 @@ const RegularPage = () => {
 							tools='ReactJS • TailwindCSS • JavaScript • OpenAI API'
 						/>
 					</div>
-					<div className='col-span-1 pt-0 md:col-span-5 md:pt-80'>
+
+					{/* Project #3 */}
+					<div className={styles.project3__container}>
 						<ProjectCard
+							id={3}
 							link='https://github.com/anoopraju31/netflix-gpt'
 							img='/netflix-gpt.png'
 							alt='NetFlix GPT'
@@ -45,8 +50,11 @@ const RegularPage = () => {
 							tools='ReactJS • TailwindCSS • JavaScript • OpenAI API'
 						/>
 					</div>
-					<div className='col-span-1 h-fit pt-0 md:col-span-8 md:pt-20'>
+
+					{/* Project #4 */}
+					<div className={styles.project4__container}>
 						<ProjectCard
+							id={4}
 							link='https://github.com/anoopraju31/nike-landing-page'
 							img='/nike.png'
 							alt='nike page mockup'
@@ -55,8 +63,11 @@ const RegularPage = () => {
 							tools='ReactJS • TailwindCSS • JavaScript'
 						/>
 					</div>
-					<div className='col-span-1 h-fit md:col-span-4'>
+
+					{/* Project #5 */}
+					<div className={styles.project5__container}>
 						<ProjectCard
+							id={5}
 							link='https://nextjs-dropbox-clone.vercel.app/'
 							img='/dropbox.png'
 							alt='Dropbox mockup'
@@ -67,7 +78,7 @@ const RegularPage = () => {
 					</div>
 				</div>
 			</section>
-		</div>
+		</main>
 	)
 }
 

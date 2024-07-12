@@ -1,35 +1,40 @@
-.main,
-.mask {
+.regularPage,
+.maskPage {
 	@apply pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px];
-
-	.section {
-		@apply w-full max-w-[1300px] mx-auto px-[10px];
-
-		.heading-container {
-			@apply mt-[60px] flex justify-center items-center;
-
-			.heading {
-				@apply text-3xl sm:text-4xl md:text-5xl font-semibold capitalize;
-			}
-		}
-
-		.projects-container {
-			@apply my-[50px] grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-11;
-		}
-	}
 }
 
-.mask {
-	@apply absolute w-full text-black;
+.container {
+	@apply w-full max-w-[1400px] mx-auto px-[10px];
+}
 
-	mask-image: url('/mask.svg');
-	mask-repeat: no-repeat;
-	mask-size: 400px;
-	background: #00ff15;
-	mask-mode: alpha;
-	cursor: none;
+.heading__container {
+	@apply mt-[60px] flex justify-center items-center;
+}
 
-	.mask-project-card {
-		@apply w-full h-full object-cover rounded-xl bg-red-600 z-50 aspect-video;
-	}
+.heading__container h1 {
+	@apply text-3xl sm:text-4xl md:text-5xl font-semibold capitalize;
+}
+
+.project__container {
+	@apply my-16 grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12;
+}
+
+.project1__container {
+	@apply col-span-1 md:col-span-12;
+}
+
+.project2__container {
+	@apply col-span-1 pt-0 md:col-span-7 md:pt-16;
+}
+
+.project3__container {
+	@apply col-span-1 pt-0 md:col-span-5 md:pt-80;
+}
+
+.project4__container {
+	@apply col-span-1 h-fit pt-0 md:col-span-8 md:pt-20;
+}
+
+.project5__container {
+	@apply col-span-1 h-fit md:col-span-4;
 }
