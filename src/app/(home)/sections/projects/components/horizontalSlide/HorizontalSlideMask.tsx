@@ -1,6 +1,7 @@
 'use client'
 
 import useAppDispatch from '@/app/hooks/useAddDispatch'
+import useAppSelector from '@/app/hooks/useAppSelector'
 import { motion } from 'framer-motion'
 import {
 	projectCardMouseEnter,
@@ -15,9 +16,12 @@ type SlideLgMaskProps = {
 const HorizontalSlideMask = (props: SlideLgMaskProps) => {
 	const { id, deployedUrl } = props
 	const dispatch = useAppDispatch()
+	const cardId = useAppSelector((state) => state.projectCardHover.cardId)
 
-	const handleCardHoverStart = () =>
-		dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
+	const handleCardHoverStart = () => {
+		if (!cardId)
+			dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
+	}
 	const handleCardHoverEnd = () => dispatch(projectCardMouseLeave())
 	const handleClick = () => window.open(deployedUrl)
 	const initial = { opacity: 0, y: 0, width: '20vw' }
@@ -30,8 +34,9 @@ const HorizontalSlideMask = (props: SlideLgMaskProps) => {
 			initial={initial}
 			whileHover={animateOnhover}
 			transition={transition}
-			onHoverStart={handleCardHoverStart}
+			// onHoverStart={handleCardHoverStart}
 			onHoverEnd={handleCardHoverEnd}
+			onMouseMove={handleCardHoverStart}
 			className={styles.container}
 		/>
 	)

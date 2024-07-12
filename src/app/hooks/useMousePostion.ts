@@ -2,6 +2,7 @@
 
 import { useState, useRef, useLayoutEffect } from 'react'
 import useAppDispatch from './useAddDispatch'
+import useAppSelector from './useAppSelector'
 import { projectCardMouseLeave } from '../features/projectCardSlice'
 
 type MousePosition = {
@@ -16,6 +17,7 @@ const useMousePosition = () => {
 	})
 	const containerRef = useRef<HTMLDivElement | null>(null)
 	const dispatch = useAppDispatch()
+	const cardId = useAppSelector((state) => state.projectCardHover.cardId)
 
 	useLayoutEffect(() => {
 		const handleMousePosition = (e: MouseEvent) => {
@@ -29,7 +31,7 @@ const useMousePosition = () => {
 				x: -400,
 				y: -400,
 			})
-			dispatch(projectCardMouseLeave())
+			if (cardId) dispatch(projectCardMouseLeave())
 		}
 
 		document.addEventListener('mousemove', handleMousePosition)
@@ -39,7 +41,7 @@ const useMousePosition = () => {
 			document.removeEventListener('mousemove', handleMousePosition)
 			document.removeEventListener('scroll', handleScroll)
 		}
-	}, [dispatch])
+	}, [dispatch, cardId])
 
 	return { ...mousePosition, containerRef }
 }
