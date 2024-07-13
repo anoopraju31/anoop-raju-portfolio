@@ -32,6 +32,15 @@
 	@apply text-dark-blue border-dark-blue;
 }
 
+.github,
+.mask__github {
+	@apply flex items-center justify-center rounded-full border bg-transparent p-1 px-2 text-body-4;
+}
+
+.mask__github {
+	@apply text-dark-blue border-dark-blue;
+}
+
 .name__container {
 	@apply 2xl:space-y-3;
 }

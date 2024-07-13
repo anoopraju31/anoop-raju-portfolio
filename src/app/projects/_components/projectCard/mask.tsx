@@ -1,15 +1,16 @@
 'use client'
 
-import React, { FC } from 'react'
-import styles from './styles.module.css'
-import Image from 'next/image'
-import { ProjectCardProps } from '.'
+import { type FC } from 'react'
+import { type ProjectCardProps } from '.'
 import useAppDispatch from '@/app/hooks/useAddDispatch'
+import Image from 'next/image'
+import { FaGithub } from 'react-icons/fa'
 import { mouseEnter, mouseLeave } from '@/app/features/textHoverSlice'
 import {
 	projectCardMouseEnter,
 	projectCardMouseLeave,
 } from '@/app/features/projectCardSlice'
+import styles from './styles.module.css'
 
 const MaskProductCard: FC<ProjectCardProps> = ({
 	id,
@@ -21,20 +22,19 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 	link,
 }) => {
 	const dispatch = useAppDispatch()
-
+	const handleMouseMove = () =>
+		dispatch(projectCardMouseEnter({ cardId: id, link }))
+	const handleMouseLeaveImg = () => dispatch(projectCardMouseLeave())
+	const handleClick = () => window.open(link)
 	const handleMouseEnter = () => dispatch(mouseEnter())
 	const handleMouseLeave = () => dispatch(mouseLeave())
-
-	const handleClick = () => window.open(link)
 
 	return (
 		<div>
 			<div
 				onClick={handleClick}
-				onMouseMove={() =>
-					dispatch(projectCardMouseEnter({ cardId: id, link }))
-				}
-				onMouseLeave={() => dispatch(projectCardMouseLeave())}
+				onMouseMove={handleMouseMove}
+				onMouseLeave={handleMouseLeaveImg}
 				className={styles.mask__product__card}>
 				<Image
 					className={styles.img}
@@ -51,6 +51,9 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 				<div className={styles.tools__container}>
 					<p className={styles.tools__wrapper__mask}>{year}</p>
 					<p className={styles.tools__wrapper__mask}>{tools}</p>
+					<a href={link} className={styles.mask__github}>
+						<FaGithub />
+					</a>
 				</div>
 				<div className={styles.name__container}>
 					<h3 className={styles.project__name}>{name}</h3>

@@ -1,9 +1,11 @@
 'use client'
+
 import { type FC } from 'react'
-import Image from 'next/image'
-import styles from './styles.module.css'
-import { motion } from 'framer-motion'
 import useAppSelector from '@/app/hooks/useAppSelector'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { FaGithub } from 'react-icons/fa'
+import styles from './styles.module.css'
 
 export type ProjectCardProps = {
 	id: number
@@ -22,6 +24,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	alt,
 	tools,
 	year,
+	link,
 }) => {
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
 
@@ -30,7 +33,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 			<motion.div
 				initial={{ borderRadius: 0 }}
 				animate={{
-					borderRadius: currentCardId ? '24px' : 0,
+					borderRadius: currentCardId == id ? '32px' : 0,
 				}}
 				transition={{
 					duration: 0.7,
@@ -61,6 +64,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				<div className={styles.tools__container}>
 					<p className={styles.tools__wrapper}>{year}</p>
 					<p className={styles.tools__wrapper}>{tools}</p>
+					<a href={link} className={styles.github}>
+						<FaGithub />
+					</a>
 				</div>
 				<div className={styles.name__container}>
 					<h3 className={styles.project__name}>{name}</h3>
