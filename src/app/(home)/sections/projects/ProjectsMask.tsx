@@ -67,6 +67,7 @@ const ViewMoreProject = () => {
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
 	const handleMouseEnter = () => dispatch(mouseEnter())
 	const handleMouseLeave = () => dispatch(mouseLeave())
+	const handleClick = () => dispatch(mouseLeave())
 
 	return (
 		<div
@@ -76,6 +77,7 @@ const ViewMoreProject = () => {
 			<Link
 				href='/projects'
 				className={styles['all-projects-link-mask']}
+				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}>
 				View More Projects
