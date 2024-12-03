@@ -1,7 +1,6 @@
-import React, { FC, LabelHTMLAttributes, TextareaHTMLAttributes } from 'react'
+import React, { FC, TextareaHTMLAttributes } from 'react'
 
-type Props = TextareaHTMLAttributes<HTMLTextAreaElement> &
-	LabelHTMLAttributes<HTMLLabelElement>
+type Props = TextareaHTMLAttributes<HTMLTextAreaElement>
 
 const TextareaField: FC<Props> = ({ ...rest }) => {
 	return (
@@ -13,8 +12,9 @@ const TextareaField: FC<Props> = ({ ...rest }) => {
 				{...rest}
 			/>
 			<label
-				htmlFor={rest.htmlFor || rest.id}
-				className='absolute text-base text-dark-blue dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-light-green peer-focus:dark:text-light-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto'>
+				htmlFor={rest.id}
+				className='absolute text-base text-dark-blue dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-light-green peer-focus:dark:text-light-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto'
+			>
 				{rest.form}
 			</label>
 		</div>
