@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { showAnimation, showTransition } from '@/utills/animations'
-import useAppDispatch from '@/app/hooks/useAddDispatch'
-import { closeMenu } from '@/app/features/navbarSlice'
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
+import { closeMenu } from '@/app/(portfolio)/features/navbarSlice'
 
 type NavLinkProps = {
 	title: string
@@ -20,7 +20,8 @@ const NavLink = (props: NavLinkProps) => {
 	return (
 		<Link
 			href={link}
-			className='text-[8vh] lg:text-[15vh] flex font-bold leading-none uppercase hover:scale-75 z-50 transition-all duration-300 cursor-none'>
+			className='text-[8vh] lg:text-[15vh] flex font-bold leading-none uppercase hover:scale-75 z-50 transition-all duration-300 cursor-none'
+		>
 			<motion.span
 				variants={showAnimation}
 				initial='initial'
@@ -28,7 +29,8 @@ const NavLink = (props: NavLinkProps) => {
 				exit='exit'
 				viewport={{ once: true }}
 				onClick={handleClick}
-				transition={showTransition}>
+				transition={showTransition}
+			>
 				{title}
 			</motion.span>
 		</Link>

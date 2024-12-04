@@ -1,5 +1,5 @@
 'use client'
-import { store } from '@/app/store'
+import { store } from '@/app/(portfolio)/store'
 import { Provider } from 'react-redux'
 
 const ReduxProvider = ({ children }: { children: React.ReactNode }) => {

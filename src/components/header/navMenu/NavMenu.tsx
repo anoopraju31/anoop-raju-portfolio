@@ -1,6 +1,6 @@
 'use client'
 import { type FC, Ref, useEffect, useState } from 'react'
-import useFooterScrollOverViewport from '@/app/hooks/useFooterScrollOverViewport'
+import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport'
 import { useMouse } from '@uidotdev/usehooks'
 import { motion } from 'framer-motion'
 import Curve from '../Curve'
@@ -38,7 +38,8 @@ const NavMenu: FC = () => {
 			variants={menuSlide}
 			initial='initial'
 			animate='enter'
-			exit='exit'>
+			exit='exit'
+		>
 			{hover && (
 				<motion.div
 					className={`w-32 h-32 ${
@@ -49,7 +50,7 @@ const NavMenu: FC = () => {
 						width: 20,
 						fontSize: '18px',
 						x: elementX - window.innerWidth / 2,
-						y: elementY - window.innerHeight / 2,
+						y: elementY - window.innerHeight / 2
 					}}
 					transition={{ type: 'tween', ease: 'backOut', duration: 0.01 }}
 				/>
@@ -57,12 +58,10 @@ const NavMenu: FC = () => {
 			<nav
 				className={`flex flex-col justify-center items-center ${
 					isBackgroundDark ? 'text-light-green' : 'text-dark-blue'
-				}`}>
+				}`}
+			>
 				<NavLink title='Home' link='/' />
-				<NavLink
-					title={isBackgroundDark ? 'Projects dark' : 'Projects'}
-					link='/projects'
-				/>
+				<NavLink title={isBackgroundDark ? 'Projects dark' : 'Projects'} link='/projects' />
 				<NavLink title='Contact' link='/contact' />
 				<NavLink title='Blogs' link='/blogs' />
 			</nav>

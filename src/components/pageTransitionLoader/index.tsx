@@ -13,7 +13,8 @@ export default function PageTransitionLoader({ children }: Props) {
 				whileInView={{ y: '-100%' }}
 				transition={{ delay: 1.45, duration: 0 }}
 				viewport={{ once: true }}
-				className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen flex z-[100000]'>
+				className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen flex z-[100000]'
+			>
 				<motion.div
 					initial={{ y: '0%' }}
 					animate={{ y: '-100%' }}
