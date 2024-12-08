@@ -4,6 +4,7 @@ import About from './sections/about/About'
 import Projects from './sections/projects/ProjectsMain'
 import Skills from './sections/skills/SkillsMain'
 import Blog from './sections/blogs/Blog'
+import Experience from './sections/experience/Experience'
 
 const RegularPage = () => {
 	return (
@@ -12,6 +13,7 @@ const RegularPage = () => {
 			<Projects />
 			<About />
 			<Skills />
+			<Experience />
 			<Blog />
 		</div>
 	)

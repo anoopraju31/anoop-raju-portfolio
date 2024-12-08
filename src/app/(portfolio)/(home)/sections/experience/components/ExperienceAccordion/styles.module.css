@@ -1,0 +1,87 @@
+.experience__wrapper {
+	@apply w-full;
+}
+
+.divider,
+.divider__mask {
+	@apply w-full h-[1px];
+}
+
+.divider {
+	@apply bg-white/40;
+}
+
+.divider__mask {
+	@apply bg-dark-blue/40;
+}
+
+.accordion {
+	@apply w-full relative my-5 lg:my-10;
+}
+
+.accordion__header {
+	@apply w-full flex items-center justify-between gap-4;
+}
+
+.accordion__title__container {
+	@apply w-full flex flex-col gap-2;
+}
+
+.company,
+.company__mask {
+	@apply w-full text-ellipsis text-2xl lg:text-4xl font-medium text-left;
+}
+
+.company {
+	@apply text-white;
+}
+
+.company__mask {
+	@apply text-dark-blue;
+}
+
+.position__container {
+	@apply hidden md:flex items-center gap-2;
+}
+
+.position,
+.position__mask,
+.duration__mask,
+.duration {
+	@apply text-2xl font-extralight;
+}
+
+.position,
+.duration {
+	@apply text-white/90;
+}
+
+.position__mask,
+.duration__mask {
+	@apply text-dark-blue;
+}
+
+.dot,
+.dot__mask {
+	@apply w-2 h-2 rounded-full;
+}
+
+.dot {
+	@apply bg-white;
+}
+
+.dot__mask {
+	@apply bg-dark-blue;
+}
+
+.read__more__container {
+	@apply flex items-center gap-1 md:gap-2 text-lg md:text-2xl lg:text-3xl font-extralight whitespace-nowrap;
+}
+
+.read__more {
+	@apply text-white;
+}
+
+.read__more__mask {
+	@apply text-dark-blue;
+}
