@@ -1,17 +1,17 @@
 'use client'
 
-import React, { FC, useState } from 'react'
+import { type FC } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import styles from './styles.module.css'
 import { Experience } from '@/utills/constants'
+import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
 
 const ExperienceAccordion: FC<Experience> = ({ id, companyName, position, duration, description }) => {
-	const [isOpen, setIsOpen] = useState<boolean>(false)
-	const toggleAccordion = () => setIsOpen((prev) => !prev)
+	const isOpen = useAppSelector((state) => state.accordion.filter((item) => item.id === id))[0].isOpen
 
 	return (
 		<div className={styles.experience__wrapper} id={id}>
-			<button className={styles.accordion} onClick={toggleAccordion}>
+			<button className={styles.accordion}>
 				<div className={styles.accordion__header}>
 					<div className={styles.accordion__title__container}>
 						<h4 className={styles.company}>{companyName} </h4>
@@ -23,10 +23,10 @@ const ExperienceAccordion: FC<Experience> = ({ id, companyName, position, durati
 					</div>
 					<div className={styles.read__more__container}>
 						{isOpen ? <FaMinus /> : <FaPlus />}
-						<p className={styles.read__more}>Read More</p>
+						<p className={styles.read__more}>Read {isOpen ? 'Less' : 'More'}</p>
 					</div>
 				</div>
-				<div className={styles.accordion__body}></div>
+				{isOpen? <div className={styles.accordion__body}>{description}</div> : null}
 			</button>
 			<div className={styles.divider} />
 		</div>

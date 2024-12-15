@@ -1,34 +1,25 @@
 import { accordionData } from '@/utills/constants'
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = () => {
-    const accordion = accordionData.map(data => ({
-        id: data.id,
-        isOpen: false
-    }))
-}
+const initialState = () =>
+	accordionData.map((data) => ({
+		id: data.id,
+		isOpen: false
+	}))
 
-const navbarSlice = createSlice({
+const accordionSlice = createSlice({
 	name: 'accordion',
 	initialState,
 	reducers: {
-		toggleMenu: (state) => {
-			state.isMenuOpen = !state.isMenuOpen
-		},
-		closeMenu: (state) => {
-			state.isMenuOpen = false
-		},
-		openMenu: (state) => {
-			state.hover = true
-		},
-		startHover: (state) => {
-			state.hover = true
-		},
-		endHover: (state) => {
-			state.hover = false
+		toggleAccordion: (state, action) => {
+			state.map((item) => {
+				if (item.id === action.payload.id) item.isOpen = !item.isOpen
+
+				return item
+			})
 		}
 	}
 })
 
-export const { endHover, startHover, toggleMenu, closeMenu, openMenu } = navbarSlice.actions
-export default navbarSlice.reducer
+export const { toggleAccordion } = accordionSlice.actions
+export default accordionSlice.reducer
