@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import styles from './styles.module.css'
 import ExperienceAccordionMask from './components/ExperienceAccordion/ExperienceAccordionMask'
+import { accordionData } from '@/utills/constants'
 
 const ExperienceMask: FC = () => {
 	const dispatch = useAppDispatch()
@@ -23,9 +24,9 @@ const ExperienceMask: FC = () => {
 				</div>
 
 				<div className={styles['outter-container']}>
-					<ExperienceAccordionMask />
-					<ExperienceAccordionMask />
-					<ExperienceAccordionMask />
+					{accordionData.map((data) => (
+						<ExperienceAccordionMask key={data.id} {...data} />
+					))}
 				</div>
 			</div>
 		</div>

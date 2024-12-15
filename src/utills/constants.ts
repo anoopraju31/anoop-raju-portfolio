@@ -114,7 +114,15 @@ export const devProjects = [
 	}
 ]
 
-export const accordionData = [
+export type Experience = {
+	id: string
+	companyName: string
+	position: string
+	duration: string
+	description: string
+}
+
+export const accordionData: Experience[] = [
 	{
 		id: 'accordion-1',
 		companyName: 'Company Name',

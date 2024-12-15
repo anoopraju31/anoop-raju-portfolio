@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import styles from './styles.module.css'
 import ExperienceAccordion from './components/ExperienceAccordion/ExperienceAccordion'
+import { accordionData } from '@/utills/constants'
 
 const Experience: FC = () => {
 	return (
@@ -11,9 +12,9 @@ const Experience: FC = () => {
 				</div>
 
 				<div className={styles['outter-container']}>
-					<ExperienceAccordion />
-					<ExperienceAccordion />
-					<ExperienceAccordion />
+					{accordionData.map((data) => (
+						<ExperienceAccordion key={data.id} {...data} />
+					))}
 				</div>
 			</div>
 		</section>

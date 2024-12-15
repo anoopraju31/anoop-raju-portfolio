@@ -5,15 +5,16 @@ import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import { FaPlus } from 'react-icons/fa6'
 import styles from './styles.module.css'
+import { Experience } from '@/utills/constants'
 
-const ExperienceAccordionMask = () => {
+const ExperienceAccordionMask:FC<Experience> = ({id, companyName, duration, position, description}) => {
 	const dispatch = useAppDispatch()
 
 	const handleMouseEnter = () => dispatch(mouseEnter())
 	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
-		<div className={styles.experience__wrapper}>
+		<div className={styles.experience__wrapper} id={`mask-${id}`}>
 			<button className={styles.accordion}>
 				<div className={styles.accordion__header}>
 					<div
@@ -21,11 +22,11 @@ const ExperienceAccordionMask = () => {
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 					>
-						<h4 className={styles.company__mask}>Company Name Lorem ipsum dolor </h4>
+						<h4 className={styles.company__mask}>{companyName} </h4>
 						<div className={styles.position__container}>
-							<p className={styles.position__mask}> Frontend Developer</p>
+							<p className={styles.position__mask}> {position}</p>
 							<div className={styles.dot__mask} />
-							<p className={styles.duration__mask}> Jan 2022 - Sept 2023</p>
+							<p className={styles.duration__mask}> {duration}</p>
 						</div>
 					</div>
 					
