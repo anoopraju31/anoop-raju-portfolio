@@ -9,7 +9,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-
 import { Gantari } from 'next/font/google'
 import Link from 'next/link'
 import { CgClose, CgMenu } from 'react-icons/cg'
-import MagneticContainer from '../MagneticContainer'
+// import MagneticContainer from '../MagneticContainer'
 import NavMenu from './navMenu/NavMenu'
 import { slideToView } from '@/utills/animations'
 import { closeMenu, toggleMenu } from '@/app/(portfolio)/features/navbarSlice'
@@ -39,19 +39,19 @@ const Header = () => {
 
 	const menuStyle = () => {
 		if (!isMenuOpen && !isHeaderColorDark)
-			return 'bg-dark-blue hover:bg-light-green border-white hover:border-dark-blue text-white hover:text-white'
+			return 'bg-white hover:bg-light-green border-white hover:border-light-green text-dark-blue hover:text-dark-blue'
 		if (!isMenuOpen && isHeaderColorDark)
-			return 'bg-light-green hover:bg-dark-blue border-dark-blue text-dark-blue hover:text-light-green'
+			return 'bg-white hover:bg-light-green border-white hover:border-light-green text-dark-blue hover:text-dark-blue'
 		if (isMenuOpen && !isHeaderColorDark)
-			return 'bg-light-green hover:bg-dark-blue border-dark-blue text-dark-blue hover:text-light-green'
-		else return 'bg-dark-blue hover:bg-light-green border-light-green text-light-green hover:text-dark-blue'
+			return 'bg-dark-blue hover:bg-white border-dark-blue hover:border-white text-light-green hover:text-dark-blue'
+		else return 'bg-light-green hover:bg-dark-blue border-light-green text-dark-blue hover:text-light-green'
 	}
 
 	const logoStyle = () => {
 		if (!isMenuOpen && !isHeaderColorDark) return 'text-white hover:text-light-green'
-		if (!isMenuOpen && isHeaderColorDark) return 'text-dark-blue hover:text-white'
+		if (!isMenuOpen && isHeaderColorDark) return 'text-white hover:text-dark-blue'
 		if (isMenuOpen && !isHeaderColorDark) return 'text-dark-blue hover:text-white'
-		else return 'text-light-green hover:text-white'
+		else return 'text-light-green hover:text-light-green'
 	}
 
 	return (
@@ -70,23 +70,21 @@ const Header = () => {
 					aria-label='logo'
 					href='/'
 					onClick={handleClose}
-					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-none transition-colors duration-1000 text-2xl md:text-3xl outline-none ${
-						gantari.className
-					}`}
+					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-none transition-colors duration-1000 text-2xl md:text-3xl outline-none ${gantari.className}`}
 				>
 					Anoopfolio
 				</Link>
 
-				<MagneticContainer>
-					<button
-						type='button'
-						onClick={handleMenuButtonClick}
-						className={`rounded-3xl text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border ${menuStyle()} cursor-none transition-colors duration-1000`}
-					>
-						<span className='sr-only'> Menu </span>
-						{isMenuOpen ? <CgClose /> : <CgMenu />}
-					</button>
-				</MagneticContainer>
+				{/* <MagneticContainer> */}
+				<button
+					type='button'
+					onClick={handleMenuButtonClick}
+					className={`rounded-lg text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border ${menuStyle()} cursor-none transition-colors duration-1000`}
+				>
+					<span className='sr-only'> Menu </span>
+					{isMenuOpen ? <CgClose /> : <CgMenu />}
+				</button>
+				{/* </MagneticContainer> */}
 			</motion.header>
 
 			<AnimatePresence mode='wait'>{isMenuOpen && <NavMenu />}</AnimatePresence>

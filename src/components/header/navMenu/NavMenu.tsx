@@ -61,7 +61,7 @@ const NavMenu: FC = () => {
 				}`}
 			>
 				<NavLink title='Home' link='/' />
-				<NavLink title={isBackgroundDark ? 'Projects dark' : 'Projects'} link='/projects' />
+				<NavLink title='Projects' link='/projects' />
 				<NavLink title='Contact' link='/contact' />
 				<NavLink title='Blogs' link='/blogs' />
 			</nav>
