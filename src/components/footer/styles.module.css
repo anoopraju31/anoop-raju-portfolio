@@ -1,5 +1,5 @@
 .footer {
-	@apply bg-light-green h-full text-black relative  z-10;
+	@apply bg-light-green h-full text-black overflow-hidden;
 }
 
 .divider {
@@ -15,7 +15,7 @@
 }
 
 .contact-me-wrapper {
-	@apply self-start grid mx-auto sm:mx-0;
+	@apply self-start grid mx-auto sm:mx-0 relative;
 }
 
 .footer-links-container {
