@@ -7,13 +7,12 @@ import RegularPage from './RegularPage'
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'Contact Me',
+	title: 'Contact Me'
 }
 
 const ContactPage: FC = () => {
 	return (
-		<main
-			className={`bg-dark-blue text-white relative z-10 ${ptSans.className}`}>
+		<main className={`bg-dark-blue text-white relative ${ptSans.className}`}>
 			<Particles className='fixed inset-0 -z-10' />
 			<RegularPage />
 		</main>

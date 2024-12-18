@@ -4,7 +4,7 @@ import RegularPage from './RegularPage'
 
 export default function Home() {
 	return (
-		<main className='bg-dark-blue text-white relative z-10'>
+		<main className='bg-dark-blue text-white relative'>
 			<Particles className='fixed inset-0 -z-10 h-screen' />
 			<MaskPage />
 			<RegularPage />
