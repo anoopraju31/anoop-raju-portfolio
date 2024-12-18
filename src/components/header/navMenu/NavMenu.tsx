@@ -46,14 +46,27 @@ const NavMenu: FC = () => {
 						isBackgroundDark ? 'bg-light-green' : 'bg-dark-blue'
 					} rounded-full flex justify-center items-center z-50 absolute`}
 					animate={{
-						height: 20,
-						width: 20,
+						height: 6,
+						width: 6,
 						fontSize: '18px',
 						x: elementX - window.innerWidth / 2,
 						y: elementY - window.innerHeight / 2
 					}}
 					transition={{ type: 'tween', ease: 'backOut', duration: 0.01 }}
 				/>
+			)}
+			{hover && (
+				<motion.div
+					className={`${isBackgroundDark ? 'border-light-green' : 'border-dark-blue'} w-32 h-32 bg-transparent border rounded-full flex justify-center items-center absolute transition-opacity`}
+					animate={{
+						height: 32,
+						width: 32,
+						fontSize: '18px',
+						x: elementX - window.innerWidth / 2,
+						y: elementY - window.innerHeight / 2
+					}}
+					transition={{ type: 'tween', ease: 'backOut', duration: 0.05 }}
+				></motion.div>
 			)}
 			<nav
 				className={`flex flex-col justify-center items-center ${
