@@ -6,8 +6,9 @@ const InputField: FC<Props> = ({ ...rest }) => {
 	return (
 		<div className='flex-1 w-full relative z-0'>
 			<input
-				{...rest}
+				placeholder={rest.placeholder || ' '}
 				className='block py-2.5 px-0 w-full text-sm text-dark-blue bg-transparent border-0 border-b-2 border-dark-blue appearance-none dark:text-white dark:border-white dark:focus:border-light-green focus:outline-none focus:ring-0 focus:border-light-green peer'
+				{...rest}
 			/>
 			<label
 				htmlFor={rest.id}
