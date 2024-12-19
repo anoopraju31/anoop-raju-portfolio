@@ -119,7 +119,7 @@ export type Experience = {
 	companyName: string
 	position: string
 	duration: string
-	description: string
+	description: string[]
 }
 
 export const accordionData: Experience[] = [
@@ -136,15 +136,22 @@ export const accordionData: Experience[] = [
 		companyName: 'Infigon Futures',
 		position: 'Frontend Developer - Intern',
 		duration: 'Aug 2024 - Present',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.'
+		description: [
+			'Spearheaded the development of a new, user-friendly company website, resulting in a 20% increase in site traffic and improved user engagement.',
+			'Enhanced the responsiveness of existing web applications, ensuring seamless functionality across devices, boosting mobile user satisfaction by 30%.',
+			'Optimized website SEO, leading to a 15% improvement in search engine rankings and greater online visibility.',
+			'Collaborated with cross-functional teams to implement scalable and performance-driven front-end solutions using modern tools and frameworks.'
+		]
 	},
 	{
 		id: 'accordion-3',
 		companyName: 'Tridashay Private Limited',
 		position: 'Frontend Developer - Intern',
 		duration: 'Feb 2022 - Jun 2022',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.'
+		description: [
+			'Revamped the company website, improving page load speed by 30% and enhancing overall user engagement.',
+			'Collaborated on the development of 5+ real-time projects, delivering scalable, responsive front-end solutions to meet diverse client needs.',
+			'Built and rigorously tested 10+ reusable components, reducing development time for future projects by 20%.'
+		]
 	}
 ]

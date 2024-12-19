@@ -48,3 +48,16 @@ export const slideToView = {
 		}
 	}
 }
+
+export const panelVariants = {
+	open: {
+		opacity: 1,
+		width: '100%',
+		height: '100%'
+	},
+	closed: {
+		opacity: 0,
+		width: '100%',
+		height: '0%'
+	}
+}

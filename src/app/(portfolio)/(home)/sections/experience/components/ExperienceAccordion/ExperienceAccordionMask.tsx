@@ -4,10 +4,15 @@ import { type FC } from 'react'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
+import { AnimatePresence, motion } from 'framer-motion'
 import styles from './styles.module.css'
 import { Experience } from '@/utills/constants'
 import { toggleAccordion } from '@/app/(portfolio)/features/accordionSlice'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
+import { panelVariants } from '@/utills/animations'
+import { PT_Sans } from 'next/font/google'
+
+const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 const ExperienceAccordionMask: FC<Experience> = ({ id, companyName, duration, position, description }) => {
 	const dispatch = useAppDispatch()
@@ -42,7 +47,27 @@ const ExperienceAccordionMask: FC<Experience> = ({ id, companyName, duration, po
 						<p className={styles.read__more__mask}>Read {isOpen ? 'Less' : 'More'}</p>
 					</div>
 				</div>
-				{isOpen ? <div className={styles.accordion__body}>{description}</div> : null}
+
+				<AnimatePresence mode='wait'>
+					{isOpen ? (
+						<motion.div
+							variants={panelVariants}
+							initial='closed'
+							animate='open'
+							exit='closed'
+							transition={{ type: 'tween', ease: 'backOut', duration: 1 }}
+							className={`${ptSans.className} ${styles.accordion__body}`}
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+						>
+							<ul className='flex flex-col'>
+								{description.map((item, index) => (
+									<li key={index}>{item}</li>
+								))}
+							</ul>
+						</motion.div>
+					) : null}
+				</AnimatePresence>
 			</button>
 			<div className={styles.divider__mask} />
 		</div>

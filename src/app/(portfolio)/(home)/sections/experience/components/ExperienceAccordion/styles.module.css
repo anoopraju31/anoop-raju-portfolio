@@ -1,5 +1,5 @@
 .experience__wrapper {
-	@apply w-full;
+	@apply w-full transition-transform duration-1000 ease-in-out;
 }
 
 .divider,
@@ -79,9 +79,22 @@
 }
 
 .read__more {
-	@apply text-white;
+	@apply text-white hidden md:block;
 }
 
 .read__more__mask {
-	@apply text-dark-blue;
+	@apply text-dark-blue hidden md:block;
+}
+
+.accordion__body {
+	@apply text-sm md:text-base lg:text-xl my-4 font-extralight text-left;
+}
+
+.accordion__body ul {
+	@apply flex flex-col gap-1 list-disc ml-10;
+}
+
+.accordion__body li {
+	@apply list-disc;
+	list-style-type: square;
 }

@@ -1,10 +1,15 @@
 'use client'
 
 import { type FC } from 'react'
-import { FaMinus, FaPlus } from 'react-icons/fa6'
-import styles from './styles.module.css'
-import { Experience } from '@/utills/constants'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
+import { AnimatePresence, motion } from 'framer-motion'
+import { FaMinus, FaPlus } from 'react-icons/fa6'
+import { Experience } from '@/utills/constants'
+import styles from './styles.module.css'
+import { panelVariants } from '@/utills/animations'
+import { PT_Sans } from 'next/font/google'
+
+const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
 
 const ExperienceAccordion: FC<Experience> = ({ id, companyName, position, duration, description }) => {
 	const isOpen = useAppSelector((state) => state.accordion.filter((item) => item.id === id))[0].isOpen
@@ -26,7 +31,24 @@ const ExperienceAccordion: FC<Experience> = ({ id, companyName, position, durati
 						<p className={styles.read__more}>Read {isOpen ? 'Less' : 'More'}</p>
 					</div>
 				</div>
-				{isOpen? <div className={styles.accordion__body}>{description}</div> : null}
+				<AnimatePresence mode='wait'>
+					{isOpen ? (
+						<motion.div
+							variants={panelVariants}
+							initial='closed'
+							animate='open'
+							exit='closed'
+							transition={{ type: 'tween', ease: 'backOut', duration: 1 }}
+							className={`${ptSans.className} ${styles.accordion__body}`}
+						>
+							<ul>
+								{description.map((item, index) => (
+									<li key={index}>{item}</li>
+								))}
+							</ul>
+						</motion.div>
+					) : null}
+				</AnimatePresence>
 			</button>
 			<div className={styles.divider} />
 		</div>
