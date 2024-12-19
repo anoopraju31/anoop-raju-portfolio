@@ -60,7 +60,7 @@ const Footer: FC = () => {
 				<div className={styles['inner-container']}>
 					<div className={styles['contact-me-wrapper']}>
 						<Link href='/contact' className={styles['contact-button']}>
-							contact me
+							Contact Me
 						</Link>
 					</div>
 
@@ -75,10 +75,7 @@ const Footer: FC = () => {
 
 			{/* copy right */}
 			<div className={styles['copyright-container']}>
-				<p className={styles['copyright-text']}>
-					Build using <span className={styles['highlighted-text']}>Nextjs</span>. developed by{' '}
-					<span className={styles['highlighted-text']}>anoop raju</span>
-				</p>
+				<p className={styles['copyright-text']}>© 2024 Anoop Raju. All rights reserved.</p>
 			</div>
 		</footer>
 	)
