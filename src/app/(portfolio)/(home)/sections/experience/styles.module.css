@@ -1,0 +1,19 @@
+.section {
+	@apply pb-10 md:pb-[60px] lg:py-[100px] lg:px-[10px];
+}
+
+.container {
+	@apply max-w-[1400px] mx-auto py-5 px-[30px];
+}
+
+.heading-container {
+	@apply flex items-center mb-6;
+}
+
+.heading {
+	@apply text-[40px] leading-[45px] md:text-[60px] md:leading-[65px] mdlg:text-[80px] lg:leading-none font-bold;
+}
+
+.outter-container {
+	@apply flex flex-col;
+}
