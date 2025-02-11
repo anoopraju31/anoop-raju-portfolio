@@ -4,6 +4,7 @@ import { type ChangeEvent, useState, type FC, FormEvent, useEffect } from 'react
 import InputField from './inputField'
 import TextareaField from './textareaField'
 import { submitContactMe } from '@/utills/actions'
+import { toast } from 'sonner'
 
 export type ContactFormData = {
 	name: string
@@ -38,16 +39,16 @@ const ContactForm: FC = () => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
-		console.log(formData)
-
 		const response = await submitContactMe(formData)
 
-		console.log(response)
-
-		if (response) {
-			setStatus('SUCCESS')
-			setFormData(initialFormData)
+		if (!response) {
+			toast.error('Something went wrong. Please try again later.')
+			return
 		}
+
+		setStatus('SUCCESS')
+		setFormData(initialFormData)
+		toast.success('Message sent successfully!')
 	}
 
 	return (
@@ -96,7 +97,7 @@ const ContactForm: FC = () => {
 
 			<button
 				type='submit'
-				// disabled={status === 'DISABLED'}
+				disabled={status === 'DISABLED'}
 				className='flex py-4 px-10 justify-center border-none outline-none items-center gap-5 cursor-pointer disabled:cursor-not-allowed bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
 			>
 				Send

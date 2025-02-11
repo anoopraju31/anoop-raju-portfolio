@@ -5,6 +5,7 @@ import ReduxProvider from '@/components/ReduxProvider'
 import ScrollToTopOnReload from '@/components/ScrollToTopOnReload'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
@@ -33,6 +34,7 @@ export default function RootLayout(props: Props) {
 						<Header />
 						{children}
 						<Footer />
+						<Toaster />
 					</ScrollToTopOnReload>
 				</ReduxProvider>
 			</body>
