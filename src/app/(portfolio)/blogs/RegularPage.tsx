@@ -2,8 +2,13 @@ import { type FC } from 'react'
 import styles from './styles.module.css'
 import BlogCard from '@/components/blogCard'
 import Link from 'next/link'
+import { Blogs } from '../../../../types'
 
-const RegularPage: FC = () => {
+type Props = {
+	blogs: Blogs[]
+}
+
+const RegularPage: FC<Props> = ({ blogs }) => {
 	return (
 		<section className={styles.section} aria-label='skills'>
 			<div className={styles.container}>
@@ -13,15 +18,9 @@ const RegularPage: FC = () => {
 
 				<div className={styles['outter-container']}>
 					<div className={styles['inner-container']}>
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
+						{blogs.map((blog) => (
+							<BlogCard key={blog._id} blog={blog} />
+						))}
 					</div>
 
 					{/* <div className={styles['link-container']}>
