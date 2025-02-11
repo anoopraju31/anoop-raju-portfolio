@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const BlogsPage: FC = () => {
 	return (
 		<main className='bg-dark-blue text-white relative'>
-			<Particles className='fixed inset-0 -z-10 h-screen' />
+			<Particles className='fixed inset-0 h-screen' />
 			<MaskPage />
 			<RegularPage />
 		</main>
