@@ -68,6 +68,99 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Post = {
+  _id: string;
+  _type: "post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  slug: Slug;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    _key: string;
+  } & Code | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    caption?: string;
+    _type: "image";
+    _key: string;
+  } | {
+    _key: string;
+  } & Table>;
+  conclusion?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  readTime?: number;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  date?: string;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "author";
+  };
+  keywords?: Array<string>;
+  seoTitle?: string;
+  seoDescription?: string;
+  tags?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "tags";
+  }>;
+};
+
 export type Projects = {
   _id: string;
   _type: "projects";
@@ -209,33 +302,231 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Projects | ContactMe | Tags | Slug | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type Table = {
+  _type: "table";
+  rows?: Array<{
+    _key: string;
+  } & TableRow>;
+};
+
+export type TableRow = {
+  _type: "tableRow";
+  cells?: Array<string>;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Projects | ContactMe | Tags | Slug | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code | Table | TableRow;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/query.ts
 // Variable: AllBlogsQuery
-// Query: *[_type == "post"  ] | order(date desc, _updatedAt desc) [0...10] {      _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  coverImage,  readTime,  "date": coalesce(date, _updatedAt),  "tags": tags[]->title,   "author": author->{"name": coalesce(name, "Anonymous"), picture},  }
-export type AllBlogsQueryResult = Array<never>;
+// Query: *[_type == "post"  ] | order(date desc, _updatedAt desc) [0...10] {    _id,    "title": coalesce(title, "Untitled"),    "slug": slug.current,    coverImage,    readTime,    "date": coalesce(date, _updatedAt),    "tags": tags[]->title,    "author": author->{"name": coalesce(name, "Anonymous"), picture},  }
+export type AllBlogsQueryResult = Array<{
+  _id: string;
+  title: string | "Untitled";
+  slug: string;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  readTime: number | null;
+  date: string;
+  tags: Array<string> | null;
+  author: {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+  } | null;
+}>;
 // Variable: AllBlogsQuery2
-// Query: *[_type == "post"  ] | order(date desc, _updatedAt desc) {      _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  coverImage,  readTime,  "date": coalesce(date, _updatedAt),  "tags": tags[]->title,   "author": author->{"name": coalesce(name, "Anonymous"), picture},    }
-export type AllBlogsQuery2Result = Array<never>;
+// Query: *[_type == "post"  ] | order(date desc, _updatedAt desc) {    _id,    "title": coalesce(title, "Untitled"),    "slug": slug.current,    coverImage,    readTime,    "date": coalesce(date, _updatedAt),    "tags": tags[]->title,    "author": author->{"name": coalesce(name, "Anonymous"), picture},  }
+export type AllBlogsQuery2Result = Array<{
+  _id: string;
+  title: string | "Untitled";
+  slug: string;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  readTime: number | null;
+  date: string;
+  tags: Array<string> | null;
+  author: {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+  } | null;
+}>;
 // Variable: postQuery
-// Query: *[_type == "post" && slug.current == $slug] [0] {    content, conclusion,      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  excerpt,  readTime,  "coverImage": coverImage.asset->url,  "seoTitle": seoTitle,  "seoDescription": seoDescription,  "keywords": keywords[],  "tags": tags[]->title,  "date": coalesce(date, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), picture, socialLinks[]{ platform, url }, shortDescription},  }
-export type PostQueryResult = null;
+// Query: *[_type == "post" && slug.current == $slug] [0] {    content,     conclusion,        _id,    "status": select(_originalId in path("drafts.**") => "draft", "published"),    "title": coalesce(title, "Untitled"),    "slug": slug.current,    readTime,    "coverImage": coverImage.asset->url,    "seoTitle": seoTitle,    "seoDescription": seoDescription,    "keywords": keywords[],    "tags": tags[]->title,    "date": coalesce(date, _updatedAt),    "author": author->{"name": coalesce(name, "Anonymous"), picture, socialLinks[]{ platform, url }, shortDescription},}
+export type PostQueryResult = {
+  content: Array<{
+    _key: string;
+  } & Code | {
+    _key: string;
+  } & Table | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt: string;
+    caption?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  conclusion: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  _id: string;
+  status: "draft" | "published";
+  title: string | "Untitled";
+  slug: string;
+  readTime: number | null;
+  coverImage: string | null;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  keywords: Array<string> | null;
+  tags: Array<string> | null;
+  date: string;
+  author: {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    socialLinks: Array<{
+      platform: "facebook" | "instagram" | "linkedin" | "twitter" | "youtube";
+      url: string | null;
+    }> | null;
+    shortDescription: string;
+  } | null;
+} | null;
 // Variable: moreStoriesQuery
-// Query: *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {      _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  readTime,  "coverImage": coverImage.asset->url,  "date": coalesce(date, _updatedAt),  "tags": tags[]->title,   "author": author->{"name": coalesce(name, "Anonymous"), picture},      }
-export type MoreStoriesQueryResult = Array<never>;
+// Query: *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {     _id,    "title": coalesce(title, "Untitled"),    "slug": slug.current,    readTime,    "coverImage": coverImage.asset->url,    "date": coalesce(date, _updatedAt),    "tags": tags[]->title,    "author": author->{"name": coalesce(name, "Anonymous"), picture},}
+export type MoreStoriesQueryResult = Array<{
+  _id: string;
+  title: string | "Untitled";
+  slug: string;
+  readTime: number | null;
+  coverImage: string | null;
+  date: string;
+  tags: Array<string> | null;
+  author: {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+  } | null;
+}>;
 // Variable: postSlugs
 // Query: *[_type == "post"]{slug}
-export type PostSlugsResult = Array<never>;
+export type PostSlugsResult = Array<{
+  slug: Slug;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"post\"  ] | order(date desc, _updatedAt desc) [0...10] {\n    \n  _id,\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  coverImage,\n  readTime,\n  \"date\": coalesce(date, _updatedAt),\n  \"tags\": tags[]->title,\n   \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n  \n}": AllBlogsQueryResult;
-    "*[_type == \"post\"  ] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  coverImage,\n  readTime,\n  \"date\": coalesce(date, _updatedAt),\n  \"tags\": tags[]->title,\n   \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n  \n  }": AllBlogsQuery2Result;
-    "*[_type == \"post\" && slug.current == $slug] [0] {\n    content, conclusion,\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  excerpt,\n  readTime,\n  \"coverImage\": coverImage.asset->url,\n  \"seoTitle\": seoTitle,\n  \"seoDescription\": seoDescription,\n  \"keywords\": keywords[],\n  \"tags\": tags[]->title,\n  \"date\": coalesce(date, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture, socialLinks[]{ platform, url }, shortDescription},\n\n  }": PostQueryResult;
-    "*[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  readTime,\n  \"coverImage\": coverImage.asset->url,\n  \"date\": coalesce(date, _updatedAt),\n  \"tags\": tags[]->title,\n   \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n  \n    }": MoreStoriesQueryResult;
+    "*[_type == \"post\"  ] | order(date desc, _updatedAt desc) [0...10] {\n    _id,\n    \"title\": coalesce(title, \"Untitled\"),\n    \"slug\": slug.current,\n    coverImage,\n    readTime,\n    \"date\": coalesce(date, _updatedAt),\n    \"tags\": tags[]->title,\n    \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n  }": AllBlogsQueryResult;
+    "*[_type == \"post\"  ] | order(date desc, _updatedAt desc) {\n    _id,\n    \"title\": coalesce(title, \"Untitled\"),\n    \"slug\": slug.current,\n    coverImage,\n    readTime,\n    \"date\": coalesce(date, _updatedAt),\n    \"tags\": tags[]->title,\n    \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n  }": AllBlogsQuery2Result;
+    "*[_type == \"post\" && slug.current == $slug] [0] {\n    content, \n    conclusion,\n    \n    _id,\n    \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n    \"title\": coalesce(title, \"Untitled\"),\n    \"slug\": slug.current,\n    readTime,\n    \"coverImage\": coverImage.asset->url,\n    \"seoTitle\": seoTitle,\n    \"seoDescription\": seoDescription,\n    \"keywords\": keywords[],\n    \"tags\": tags[]->title,\n    \"date\": coalesce(date, _updatedAt),\n    \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture, socialLinks[]{ platform, url }, shortDescription},\n\n}": PostQueryResult;
+    "*[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n     _id,\n    \"title\": coalesce(title, \"Untitled\"),\n    \"slug\": slug.current,\n    readTime,\n    \"coverImage\": coverImage.asset->url,\n    \"date\": coalesce(date, _updatedAt),\n    \"tags\": tags[]->title,\n    \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), picture},\n}": MoreStoriesQueryResult;
     "*[_type == \"post\"]{slug}": PostSlugsResult;
   }
 }

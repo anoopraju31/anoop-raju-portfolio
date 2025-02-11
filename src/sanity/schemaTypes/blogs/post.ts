@@ -34,8 +34,20 @@ export const postType = defineType({
 			type: 'array',
 			description: 'This is the main Content of Blog (Formatting is preserved)',
 			of: [
+				{ type: 'block' }, // Standard text block
 				{
-					type: 'block'
+					type: 'code',
+					title: 'Code Block',
+					options: {
+						language: 'javascript', // Default language
+						languageAlternatives: [
+							{ title: 'JavaScript', value: 'javascript' },
+							{ title: 'TypeScript', value: 'typescript' },
+							{ title: 'HTML', value: 'html' },
+							{ title: 'CSS', value: 'css' },
+							{ title: 'Python', value: 'python' }
+						]
+					}
 				},
 				{
 					type: 'image',
