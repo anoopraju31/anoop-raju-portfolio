@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const ContactPage: FC = () => {
 	return (
 		<main className={`bg-dark-blue text-white relative ${ptSans.className}`}>
-			<Particles className='fixed inset-0 h-screen' />
+			<Particles className='fixed inset-0 h-screen z-0' />
 			<RegularPage />
 		</main>
 	)

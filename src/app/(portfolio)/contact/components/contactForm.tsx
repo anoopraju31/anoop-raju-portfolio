@@ -5,7 +5,7 @@ import InputField from './inputField'
 import TextareaField from './textareaField'
 import { submitContactMe } from '@/utills/actions'
 
-type ContactFormData = {
+export type ContactFormData = {
 	name: string
 	email: string
 	subject: string
@@ -26,18 +26,23 @@ const ContactForm: FC = () => {
 	const [status, setStatus] = useState<Status>('DISABLED')
 
 	useEffect(() => {
-		const isDisabled = Object.values(formData).every((value) => !value)
+		const { email, name, subject, message } = formData
+		const isDisabled = !email || !name || !subject || !message
+
 		setStatus(isDisabled ? 'DISABLED' : 'ENABLED')
 	}, [formData])
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
 		setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-	}
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 
+		console.log(formData)
+
 		const response = await submitContactMe(formData)
+
+		console.log(response)
 
 		if (response) {
 			setStatus('SUCCESS')
@@ -46,8 +51,8 @@ const ContactForm: FC = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className='flex flex-col items-end gap-7 self-stretch'>
-			<div className='flex flex-col items-start gap-[60px] self-stretch'>
+		<form onSubmit={handleSubmit} className='flex flex-col items-end gap-6 md:gap-8 self-stretch'>
+			<div className='flex flex-col items-start gap-4 sm:gap-5 md:gap-8 lg:gap-12 xl:gap-[60px] self-stretch'>
 				{/* Name */}
 				<InputField
 					form='Your name'
@@ -91,8 +96,8 @@ const ContactForm: FC = () => {
 
 			<button
 				type='submit'
-				disabled={status === 'DISABLED'}
-				className='flex py-4 px-10 justify-center border-none outline-none items-center gap-5 bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
+				// disabled={status === 'DISABLED'}
+				className='flex py-4 px-10 justify-center border-none outline-none items-center gap-5 cursor-pointer disabled:cursor-not-allowed bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
 			>
 				Send
 			</button>
