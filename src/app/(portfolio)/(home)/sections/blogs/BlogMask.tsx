@@ -1,13 +1,18 @@
 'use client'
 
 import { type FC } from 'react'
+import { type Blogs } from '../../../../../../types'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import Link from 'next/link'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import BlogCard from '@/components/blogCard'
 import styles from './blog.module.css'
 
-const BlogMask: FC = () => {
+type Props = {
+	blogs: Blogs[]
+}
+
+const BlogMask: FC<Props> = ({ blogs }) => {
 	const dispatch = useAppDispatch()
 
 	const handleMouseEnter = () => dispatch(mouseEnter())
@@ -29,9 +34,9 @@ const BlogMask: FC = () => {
 						onMouseLeave={handleMouseLeave}
 						className={styles['inner-container']}
 					>
-						<BlogCard isMask />
-						<BlogCard isMask />
-						<BlogCard isMask />
+						{blogs.map((blog) => (
+							<BlogCard isMask key={blog._id} blog={blog} />
+						))}
 					</div>
 
 					<div className={styles['link-container']}>
