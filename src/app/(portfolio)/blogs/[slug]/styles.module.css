@@ -1,0 +1,7 @@
+.section {
+	@apply py-20 md:py-[100px] lg:py-24 lg:px-[10px] min-h-screen;
+}
+
+.container {
+	@apply max-w-[1400px] mx-auto px-[30px] pt-10 pb-20 md:py-20;
+}
