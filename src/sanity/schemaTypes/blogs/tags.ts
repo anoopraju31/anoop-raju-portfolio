@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 
-export default defineType({
+export const tagType = defineType({
 	name: 'tags',
 	title: 'Tags',
 	type: 'document',

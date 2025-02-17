@@ -1,9 +1,14 @@
 import { type FC } from 'react'
+import { type Blogs } from '../../../../../../types'
 import Link from 'next/link'
 import BlogCard from '@/components/blogCard'
 import styles from './blog.module.css'
 
-const Blog: FC = () => {
+type Props = {
+	blogs: Blogs[]
+}
+
+const Blog: FC<Props> = ({ blogs }) => {
 	return (
 		<section className={styles.section} aria-label='skills'>
 			<div className={styles.container}>
@@ -13,9 +18,9 @@ const Blog: FC = () => {
 
 				<div className={styles['outter-container']}>
 					<div className={styles['inner-container']}>
-						<BlogCard />
-						<BlogCard />
-						<BlogCard />
+						{blogs.map((blog) => (
+							<BlogCard key={blog._id} blog={blog} />
+						))}
 					</div>
 
 					<div className={styles['link-container']}>
