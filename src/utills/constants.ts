@@ -134,7 +134,7 @@ export const accordionData: Experience[] = [
 	{
 		id: 'accordion-2',
 		companyName: 'Infigon Futures',
-		position: 'Frontend Developer - Intern',
+		position: 'Frontend Developer',
 		duration: 'Aug 2024 - Present',
 		description: [
 			'Spearheaded the development of a new, user-friendly company website, resulting in a 20% increase in site traffic and improved user engagement.',
