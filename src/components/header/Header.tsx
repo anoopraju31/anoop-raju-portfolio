@@ -43,14 +43,14 @@ const Header = () => {
 		if (!isMenuOpen && isHeaderColorDark)
 			return 'bg-white hover:bg-light-green border-white hover:border-light-green text-dark-blue hover:text-dark-blue'
 		if (isMenuOpen && !isHeaderColorDark)
-			return 'bg-dark-blue hover:bg-white border-dark-blue hover:border-white text-light-green hover:text-dark-blue'
-		else return 'bg-light-green hover:bg-dark-blue border-light-green text-dark-blue hover:text-light-green'
+			return 'bg-dark-blue hover:bg-transparent border-dark-blue hover:border-dark-blue text-light-green hover:text-dark-blue'
+		else return 'bg-light-green hover:bg-transparent border-light-green text-dark-blue hover:text-light-green'
 	}
 
 	const logoStyle = () => {
 		if (!isMenuOpen && !isHeaderColorDark) return 'text-white hover:text-light-green'
 		if (!isMenuOpen && isHeaderColorDark) return 'text-white hover:text-dark-blue'
-		if (isMenuOpen && !isHeaderColorDark) return 'text-dark-blue hover:text-white'
+		if (isMenuOpen && !isHeaderColorDark) return 'text-dark-blue hover:text-dark-blue'
 		else return 'text-light-green hover:text-light-green'
 	}
 
@@ -79,7 +79,7 @@ const Header = () => {
 				<button
 					type='button'
 					onClick={handleMenuButtonClick}
-					className={`rounded-lg text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border ${menuStyle()} cursor-none transition-colors duration-1000`}
+					className={`rounded-lg text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border-2 ${menuStyle()} cursor-none transition-colors duration-1000`}
 				>
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
