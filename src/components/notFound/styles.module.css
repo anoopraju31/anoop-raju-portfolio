@@ -1,10 +1,19 @@
 .body,
 .mask {
-	@apply min-h-screen container flex flex-col items-center justify-center px-5 mx-auto py-8;
+	@apply m-0 h-screen w-full flex flex-col items-center justify-center px-5 py-8;
+}
+
+.body::-webkit-scrollbar,
+.mask::-webkit-scrollbar {
+	@apply hidden;
 }
 
 .mask {
 	@apply text-dark-blue;
+}
+
+.body {
+	@apply text-white;
 }
 
 .container {
@@ -12,11 +21,11 @@
 }
 
 .heading {
-	@apply font-extrabold text-9xl md:text-hero-text leading-none;
+	@apply font-extrabold text-[200px] md:text-[272px] leading-none;
 }
 
 .desc {
-	@apply mb-8 text-lg font-semibold md:text-2xl mdlg:text-3xl;
+	@apply mb-8 font-semibold text-2xl mdlg:text-3xl;
 }
 
 .link {
