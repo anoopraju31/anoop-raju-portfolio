@@ -6,10 +6,10 @@ import NotFoundBody from '@/components/notFound/NotFoundBody'
 
 const NotFound: FC = () => {
 	return (
-		<main className='bg-dark-blue text-white relative z-10'>
-			<Particles className='fixed inset-0 -z-10 h-screen' />
+		<main className='bg-dark-blue text-white relative'>
+			<Particles className='fixed inset-0 h-screen' />
 
-			<div className='absolute top-0 left-0 right-0 w-full'>
+			<div className='absolute top-0 left-0 right-0 bottom-0 w-full'>
 				<Mask>
 					<NotFoundMask />
 				</Mask>

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import ScrollToTopOnReload from '@/components/ScrollToTopOnReload'
-import Header from '@/components/header/Header'
-import Footer from '@/components/footer'
-import { Toaster } from 'sonner'
+import { Bebas_Neue } from 'next/font/google'
+import ReduxProvider from '@/components/ReduxProvider'
+import './globals.css'
+
+const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: {
@@ -18,15 +19,14 @@ type Props = {
 	children: ReactNode
 }
 
-export default function PortfolioLayout(props: Props) {
+export default function RootLayout(props: Props) {
 	const { children } = props
 
 	return (
-		<ScrollToTopOnReload>
-			<Header />
-			{children}
-			<Footer />
-			<Toaster />
-		</ScrollToTopOnReload>
+		<html lang='en'>
+			<body className={`${bebasNeue.className} antialiased`}>
+				<ReduxProvider>{children}</ReduxProvider>
+			</body>
+		</html>
 	)
 }

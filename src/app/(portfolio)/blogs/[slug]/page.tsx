@@ -1,22 +1,22 @@
 import { type FC } from 'react'
-import { PostQueryResult } from '../../../../../sanity.types'
+import type { PostQueryResult } from '../../../../../sanity.types'
 import { sanityFetch } from '@/sanity/lib/live'
 import { postQuery } from '@/sanity/query'
 import { notFound } from 'next/navigation'
 import MaskPage from './MaskPage'
 import RegularPage from './RegularPage'
 
-type Props = {
-	params: { slug: string }
-}
+export const dynamic = 'force-dynamic'
 
-export const revalidate = 300
+type Props = {
+	params: Promise<{ slug: string }>
+}
 
 const BlogPostPage: FC<Props> = async ({ params }) => {
 	// @ts-ignore
 	const post = await sanityFetch<PostQueryResult>({
 		query: postQuery,
-		params
+		params: await params
 	})
 
 	if (!post.data?._id) return notFound()
