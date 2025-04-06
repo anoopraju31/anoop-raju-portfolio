@@ -8,11 +8,11 @@ const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: {
-		default: 'Anoop Raju - Portfolio',
-		template: 'Anoop Raju | %s'
+		default: 'Anoop Raju | Frontend Developer & Web Creator',
+		template: '%s | Anoop Raju'
 	},
 	description:
-		"Discover Anoop's portfolio - a showcase of creative works and projects reflecting passion and expertise in ."
+		'Explore the portfolio of Anoop Raju, a passionate frontend developer skilled in React, TypeScript, Next.js, and Tailwind CSS. Check out projects, case studies, and design implementations focused on clean UI and seamless user experiences.'
 }
 
 type Props = {
