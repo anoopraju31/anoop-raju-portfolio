@@ -12,7 +12,20 @@ export const metadata: Metadata = {
 		template: '%s | Anoop Raju'
 	},
 	description:
-		'Explore the portfolio of Anoop Raju, a passionate frontend developer skilled in React, TypeScript, Next.js, and Tailwind CSS. Check out projects, case studies, and design implementations focused on clean UI and seamless user experiences.'
+		'Explore the portfolio of Anoop Raju, a passionate frontend developer skilled in React, TypeScript, Next.js, and Tailwind CSS. Check out projects, case studies, and design implementations focused on clean UI and seamless user experiences.',
+	keywords: [
+		'Anoop Raju',
+		'Frontend Developer',
+		'React Developer',
+		'Next.js Portfolio',
+		'TypeScript Developer',
+		'Web Developer India',
+		'Tailwind CSS',
+		'UI/UX Developer',
+		'JavaScript Portfolio',
+		'Web Projects',
+		'Developer Portfolio 2025'
+	]
 }
 
 type Props = {
