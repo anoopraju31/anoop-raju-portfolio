@@ -98,7 +98,7 @@ const ContactForm: FC = () => {
 			<button
 				type='submit'
 				disabled={status === 'DISABLED'}
-				className='flex py-4 px-10 justify-center border-none outline-none items-center gap-5 cursor-pointer disabled:cursor-not-allowed bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
+				className='flex w-full py-4 px-10 justify-center border-none outline-none items-center gap-5 rounded-lg cursor-pointer disabled:cursor-not-allowed bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
 			>
 				Send
 			</button>
