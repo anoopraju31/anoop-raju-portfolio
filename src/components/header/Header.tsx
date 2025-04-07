@@ -64,7 +64,7 @@ const Header = () => {
 				transition={{ delay: 0.5 }}
 				className={`fixed ${
 					showHeader || isMenuOpen ? 'top-0' : '-top-40'
-				} left-0 right-0 cursor-none z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[10px] md:px-[25px] flex justify-between items-center transition-top duration-1000 ease-in-out`}
+				} left-0 right-0 cursor-none z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[25px] flex justify-between items-center transition-top duration-1000 ease-in-out`}
 			>
 				<Link
 					aria-label='logo'
