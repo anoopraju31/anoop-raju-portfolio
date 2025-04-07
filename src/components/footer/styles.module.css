@@ -7,7 +7,7 @@
 }
 
 .outter-container {
-	@apply max-w-[1200px] mx-auto px-[10px] bg-light-green h-full;
+	@apply max-w-[1200px] mx-auto px-[25px] bg-light-green h-full;
 }
 
 .inner-container {

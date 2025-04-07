@@ -64,13 +64,13 @@ const Header = () => {
 				transition={{ delay: 0.5 }}
 				className={`fixed ${
 					showHeader || isMenuOpen ? 'top-0' : '-top-40'
-				} left-0 right-0 cursor-none z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[10px] md:px-[25px] flex justify-between items-center transition-top duration-1000 ease-in-out`}
+				} left-0 right-0 cursor-none z-[100] w-full max-w-[1400px] mx-auto mt-5 py-2 px-[25px] flex justify-between items-center transition-top duration-1000 ease-in-out hover:text-opacity-10`}
 			>
 				<Link
 					aria-label='logo'
 					href='/'
 					onClick={handleClose}
-					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-none transition-colors duration-1000 text-2xl md:text-3xl outline-none ${gantari.className}`}
+					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-pointer transition-colors duration-1000 text-2xl md:text-3xl outline-none ${gantari.className}`}
 				>
 					Anoopfolio
 				</Link>
@@ -79,7 +79,7 @@ const Header = () => {
 				<button
 					type='button'
 					onClick={handleMenuButtonClick}
-					className={`rounded-lg text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border-2 ${menuStyle()} cursor-none transition-colors duration-1000`}
+					className={`rounded-lg text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border-2 ${menuStyle()} cursor-pointer transition-colors duration-1000 backdrop-blur-lg  hover:bg-opacity-10 hover:border-opacity-10`}
 				>
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
