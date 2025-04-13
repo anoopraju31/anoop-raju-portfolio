@@ -16,40 +16,40 @@ const HeroMask = () => {
 		<div className={`${styles.mask} ${currentCardId && 'invisible'}`}>
 			<div className={styles['hero-container']}>
 				<div className={styles['hero-heading-container']}>
-					<h1
+					<span
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-heading']}
 					>
 						Anoop
-					</h1>
+					</span>
 
 					<div className='flex-shrink-0 overflow-hidden w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px]' />
 
-					<h1
+					<span
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-heading']}
 					>
 						Raju
-					</h1>
+					</span>
 				</div>
 
 				<div className={styles['hero-subheading-container']}>
-					<h2
+					<span
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-subheading']}
 					>
-						Full Stack Developer
-					</h2>
-					<h2
+						Frontend Developer
+					</span>
+					<span
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
 						className={styles['hero-subheading']}
 					>
-						Living in kerala
-					</h2>
+						Living in kerala, India
+					</span>
 				</div>
 			</div>
 		</div>

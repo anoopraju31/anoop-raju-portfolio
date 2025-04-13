@@ -8,9 +8,14 @@
  *
  */
 
+'use client'
+
+import { useEffect } from 'react'
 import { urlForImage } from '@/sanity/lib/utils'
 import Image from 'next/image'
 import { PortableText, type PortableTextComponents, type PortableTextBlock } from 'next-sanity'
+import Prism from 'prismjs'
+import 'prismjs/themes/prism-tomorrow.css'
 
 interface TableRow {
 	_key: string
@@ -22,6 +27,10 @@ interface TableValue {
 }
 
 export default function CustomPortableText({ className, value }: { className?: string; value: PortableTextBlock[] }) {
+	useEffect(() => {
+		Prism.highlightAll()
+	}, [value])
+
 	const components: PortableTextComponents = {
 		list: {
 			bullet: ({ children }) => {
@@ -147,9 +156,10 @@ export default function CustomPortableText({ className, value }: { className?: s
 				)
 			},
 			code: ({ value }) => {
+				const lang = value.language || 'javascript'
 				return (
-					<pre>
-						<code>{value.code}</code>
+					<pre className={`language-${lang} !bg-gray-900 text-white p-4 rounded-md overflow-auto my-4`}>
+						<code className={`language-${lang}`}>{value.code}</code>
 					</pre>
 				)
 			},
