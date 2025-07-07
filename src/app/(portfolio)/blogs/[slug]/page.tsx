@@ -5,7 +5,13 @@ import { postQuery } from '@/sanity/query'
 import { notFound } from 'next/navigation'
 import RegularPage from './RegularPage'
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
+
+// Force dynamic params so ISR works for new posts
+export const dynamicParams = true
+
+// Cache invalidation interval
+export const revalidate = 300
 
 type Props = {
 	params: Promise<{ slug: string }>
