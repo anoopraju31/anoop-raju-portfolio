@@ -32,6 +32,35 @@ This is the **personal portfolio website** of [Anoop Raju](https://anoopraju.xyz
 ---
 
 ## 📁 Folder Structure
+``` bash
+anoop-raju-portfolio/
+├── public/                # Static assets (images, favicon, etc.)
+├── src/
+│ ├── app/                 # Next.js App Router files
+│ ├── components/          # Reusable UI components
+│ ├── sanity/              # Sanity client and query logic
+│ └── utils/               # Utility functions and helpers
+├── .env.example           # Environment variable template
+├── .env.local             # Local environment variables (not committed)
+├── .eslintrc.json         # ESLint config
+├── .gitignore             # Git ignored files
+├── .README.md             # Project documentation (likely backup)
+├── next.config.js         # Next.js configuration
+├── package-lock.json      # Dependency lock file
+├── package.json           # Project metadata and scripts
+├── postcss.config.js      # PostCSS configuration for Tailwind
+├── sanity.cli.ts          # CLI config for Sanity
+├── sanity.config.ts       # Main Sanity configuration
+├── sanity.types.ts        # TypeScript types for Sanity schemas
+├── schema.json            # Sanity schema JSON
+├── tailwind.config.ts     # Tailwind CSS config
+├── tsconfig.json          # TypeScript config
+└── types.ts               # Global custom TypeScript types
+```
+
+---
+
+## 📁 Folder Structure
 
 
 ---
