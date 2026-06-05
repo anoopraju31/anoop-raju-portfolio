@@ -1,5 +1,5 @@
 .footer {
-	@apply bg-light-green h-full text-black overflow-hidden;
+	@apply bg-light-green h-full text-black overflow-hidden relative;
 }
 
 .divider {

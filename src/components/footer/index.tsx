@@ -1,53 +1,79 @@
 'use client'
 
 import { Gantari } from 'next/font/google'
-import { useMouse } from '@uidotdev/usehooks'
+import { useLayoutEffect, useRef, useState, type FC } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
+
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
+
 import styles from './styles.module.css'
-import { type FC, type Ref, useState } from 'react'
-import { motion } from 'framer-motion'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
-const Footer: FC = () => {
-	const [mouse, ref] = useMouse()
-	const [isVisible, setIsVisible] = useState<boolean>(false)
-	const { elementX, elementY } = mouse
+type MousePosition = {
+	x: number
+	y: number
+}
 
-	const handleMouseEnter = () => setIsVisible(true)
-	const handleMouseLeave = () => setIsVisible(false)
+const Footer: FC = () => {
+	const [mousePosition, setMousePosition] = useState<MousePosition>({
+		x: -400,
+		y: -400
+	})
+	const containerRef = useRef<HTMLElement | null>(null)
+		
+	useLayoutEffect(() => {
+		const handleMousePosition = (e: MouseEvent) => {
+			if (!containerRef.current) return
+			const rect = containerRef.current.getBoundingClientRect()
+			setMousePosition({
+				x: e.clientX - rect.left,
+				y: e.clientY - rect.top
+			})
+		}
+
+		const handleScroll = () => {
+			setMousePosition({
+				x: -400,
+				y: -400
+			})
+		}
+
+		document.addEventListener('mousemove', handleMousePosition)
+		document.addEventListener('scroll', handleScroll)
+
+		return () => {
+			document.removeEventListener('mousemove', handleMousePosition)
+			document.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
+
+	const year = new Date().getFullYear()
+
 
 	return (
 		<footer
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
-			ref={ref as Ref<HTMLElement> | undefined}
+			ref={containerRef}
 			id='footer'
 			aria-label='footer'
 			className={styles.footer}
 		>
 			<motion.div
-				className={`${isVisible ? 'visible' : 'invisible'} w-32 h-32 bg-transparent border border-dark-blue rounded-full flex justify-center items-center absolute transition-opacity`}
+				className={`w-8 h-8 bg-transparent border border-dark-blue rounded-full flex justify-center items-center absolute top-0 left-0 pointer-events-none transition-opacity`}
 				animate={{
-					height: 32,
-					width: 32,
-					fontSize: '18px',
-					x: elementX - 16,
-					y: elementY - 16
+					x: mousePosition.x - 16,
+					y: mousePosition.y - 16
 				}}
 				transition={{ type: 'tween', ease: 'backOut', duration: 0.05 }}
-			></motion.div>
+			/>
 
 			<motion.div
-				className={`${isVisible ? 'visible' : 'invisible'} w-1.5 h-1.5 bg-dark-blue rounded-full z-10 transition-opacity`}
+				className={`w-1.5 h-1.5 bg-dark-blue rounded-full z-10 absolute top-0 left-0 pointer-events-none transition-opacity`}
 				animate={{
-					height: 6,
-					width: 6,
-					fontSize: '18px',
-					x: elementX - 3,
-					y: elementY - 3
+					x: mousePosition.x - 3,
+					y: mousePosition.y - 3
 				}}
 				transition={{ type: 'tween', ease: 'backOut', duration: 0.01 }}
 			/>
@@ -75,7 +101,7 @@ const Footer: FC = () => {
 
 			{/* copy right */}
 			<div className={styles['copyright-container']}>
-				<p className={styles['copyright-text']}>© 2024 Anoop Raju. All rights reserved.</p>
+				<p className={styles['copyright-text']}>© {year} Anoop Raju. All rights reserved.</p>
 			</div>
 		</footer>
 	)
