@@ -33,7 +33,7 @@ const Curve = (props: CurveProps) => {
 		<svg
 			className={`absolute right-0 -top-[99px] w-screen h-[100px] ${
 				isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green'
-			} stroke-none`}
+			} stroke-none pointer-events-none`}
 		>
 			<motion.path variants={curve} initial='initial' animate='enter' exit='exit'></motion.path>
 		</svg>
