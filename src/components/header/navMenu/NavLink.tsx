@@ -65,9 +65,6 @@ const NavLink = ({
 		<motion.div
 			custom={index}
 			variants={navItemVariants}
-			initial='initial'
-			animate='enter'
-			exit='exit'
 			className='overflow-hidden py-1 md:py-2'
 		>
 			<Link

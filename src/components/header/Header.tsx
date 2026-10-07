@@ -9,9 +9,9 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-
 import { Gantari } from 'next/font/google'
 import Link from 'next/link'
 import { CgClose, CgMenu } from 'react-icons/cg'
-// import MagneticContainer from '../MagneticContainer'
+import MagneticContainer from '../MagneticContainer'
 import NavMenu from './navMenu/NavMenu'
-import { slideToView } from '@/utills/animations'
+import { menuSlide, slideToView } from '@/utills/animations'
 import { closeMenu, toggleMenu } from '@/app/(portfolio)/features/navbarSlice'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
@@ -77,7 +77,7 @@ const Header = () => {
 					Anoopfolio
 				</Link>
 
-				{/* <MagneticContainer> */}
+				<MagneticContainer>
 				<button
 					type='button'
 					onClick={handleMenuButtonClick}
@@ -88,11 +88,24 @@ const Header = () => {
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
 				</button>
-				{/* </MagneticContainer> */}
+				</MagneticContainer>
 			</motion.header>
 
 			<AnimatePresence>
-				{isMenuOpen && <NavMenu key='nav-menu' />}
+				{isMenuOpen && (
+					<motion.div
+						key='nav-menu'
+						variants={menuSlide}
+						initial='initial'
+						animate='enter'
+						exit='exit'
+						className={`fixed inset-0 z-50 h-screen w-screen overflow-visible ${
+							isHeaderColorDark ? 'bg-dark-blue text-white' : 'bg-light-green text-dark-blue'
+						} transition-colors duration-500`}
+					>
+						<NavMenu />
+					</motion.div>
+				)}
 			</AnimatePresence>
 		</>
 	)

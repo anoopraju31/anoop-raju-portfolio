@@ -18,7 +18,7 @@ export const maskTransition = {
 }
 export const menuSlide = {
 	initial: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
-	enter: { y: '0', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
+	enter: { y: 'calc(0% + 0px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
 	exit: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } }
 }
 

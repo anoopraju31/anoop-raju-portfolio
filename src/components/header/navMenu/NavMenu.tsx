@@ -16,7 +16,6 @@ import {
 } from 'react-icons/fi'
 import Curve from '../Curve'
 import NavLink from './NavLink'
-import { menuSlide } from '@/utills/animations'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
@@ -117,15 +116,7 @@ const NavMenu: FC = () => {
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<motion.div
-			className={`fixed inset-0 z-50 h-screen w-screen overflow-visible ${
-				isBackgroundDark ? 'bg-dark-blue text-white' : 'bg-light-green text-dark-blue'
-			} transition-colors duration-500`}
-			variants={menuSlide}
-			initial='initial'
-			animate='enter'
-			exit='exit'
-		>
+		<>
 			{/* Custom Magnetic Cursor Follower (z-[150] floats above Header and NavMenu) */}
 			{isCursorVisible && (
 				<>
@@ -179,9 +170,6 @@ const NavMenu: FC = () => {
 					{/* Top Status & Directory Bar */}
 					<motion.div
 						variants={secondaryFadeVariants}
-						initial='initial'
-						animate='enter'
-						exit='exit'
 						className={`flex flex-wrap items-center justify-between border-b pb-4 gap-4 text-xs sm:text-sm font-mono tracking-widest uppercase ${
 							isBackgroundDark
 								? 'border-white/10 text-white/50'
@@ -239,9 +227,6 @@ const NavMenu: FC = () => {
 						{/* Right Column: Editorial Contact & Social Meta */}
 						<motion.div
 							variants={secondaryFadeVariants}
-							initial='initial'
-							animate='enter'
-							exit='exit'
 							className='lg:col-span-5 flex flex-col justify-between space-y-8 lg:pl-10 lg:border-l'
 							style={{
 								borderColor: isBackgroundDark
@@ -377,9 +362,6 @@ const NavMenu: FC = () => {
 					{/* Bottom Meta & Copyright */}
 					<motion.div
 						variants={secondaryFadeVariants}
-						initial='initial'
-						animate='enter'
-						exit='exit'
 						className={`flex flex-wrap items-center justify-between border-t pt-4 gap-4 text-xs font-mono tracking-wider ${
 							isBackgroundDark
 								? 'border-white/10 text-white/40'
@@ -391,7 +373,7 @@ const NavMenu: FC = () => {
 					</motion.div>
 
 				</div>
-		</motion.div>
+		</>
 	)
 }
 
