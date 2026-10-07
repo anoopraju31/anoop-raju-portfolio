@@ -12,6 +12,8 @@ import {
 	projectCardMouseLeave
 } from '@/app/(portfolio)/features/projectCardSlice'
 import styles from './styles.module.css'
+import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
+import { motion } from 'framer-motion'
 
 const MaskProductCard: FC<ProjectCardProps> = ({
 	id,
@@ -30,6 +32,8 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 	siteDomain
 }) => {
 	const dispatch = useAppDispatch()
+	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
+	const isHovered = currentCardId === id
 
 	const handleMouseMove = () => dispatch(projectCardMouseEnter({ cardId: id, link }))
 	const handleMouseLeaveImg = () => dispatch(projectCardMouseLeave())
@@ -70,7 +74,11 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 				)}
 
 				<div className={styles.imageAspect}>
-					<div className='w-full h-full'>
+					<motion.div 
+						animate={{
+							scale: isHovered ? 1.05 : 1
+						}}
+						transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}className='w-full h-full'>
 						<Image
 							className={`${styles.img} ${styles.imgMask}`}
 							src={img}
@@ -79,7 +87,7 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 							height={750}
 							priority={id === 1}
 						/>
-					</div>
+					</motion.div>
 					<div className={`${styles.imageOverlay} ${styles.imageOverlayMask}`} />
 				</div>
 			</div>
