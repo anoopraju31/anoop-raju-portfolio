@@ -70,7 +70,10 @@
 }
 
 .imgMask {
-	@apply opacity-0 select-none pointer-events-none;
+	@apply object-cover object-top w-full h-full select-none pointer-events-none;
+	filter: invert(1) !important;
+	-webkit-filter: invert(1) !important;
+	opacity: 1 !important;
 }
 
 /* Subtle Overlay Glow */

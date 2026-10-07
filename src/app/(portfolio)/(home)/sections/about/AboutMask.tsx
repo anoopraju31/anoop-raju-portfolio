@@ -1,6 +1,7 @@
 'use client'
 
 import { PT_Sans } from 'next/font/google'
+import Image from 'next/image'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
@@ -19,8 +20,18 @@ const AboutMask = () => {
 		<div className={`${styles.mask} ${currentCardId && 'invisible'} text-black ${ptSans.className}`}>
 			<div className={styles['inner-container']}>
 				<div className={styles.wrapper}>
-					<div className={`hidden md:block ${styles['img-container']}`}>
-						<div className={styles.img} />
+					<div
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={`hidden md:block ${styles['img-container']}`}
+					>
+						<Image
+							src='/anoop-raju.jpg'
+							alt='anoop raju'
+							width={400}
+							height={400}
+							className={`${styles.img} filter invert`}
+						/>
 					</div>
 				</div>
 
@@ -31,8 +42,18 @@ const AboutMask = () => {
 							About Me{' '}
 						</h2>
 
-						<div className={`md:hidden ${styles['img-container']} mb-10`}>
-							<div className={styles.img} />
+						<div
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+							className={`md:hidden ${styles['img-container']} mb-10`}
+						>
+							<Image
+								src='/anoop-raju.jpg'
+								alt='anoop raju'
+								width={400}
+								height={400}
+								className={`${styles.img} aspect-square filter invert`}
+							/>
 						</div>
 
 						<p

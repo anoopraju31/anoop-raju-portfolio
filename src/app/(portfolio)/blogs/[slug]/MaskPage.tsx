@@ -50,7 +50,7 @@ const MaskPage: FC<Props> = ({ post }) => {
 						<div className='w-full'>
 							{post.coverImage ? (
 								<Image
-									className='w-full h-full object-contain rounded-2xl'
+									className='w-full h-full object-contain rounded-2xl filter invert'
 									alt={post.coverImage}
 									src={post.coverImage}
 									priority
