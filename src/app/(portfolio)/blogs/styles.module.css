@@ -1,41 +1,184 @@
 .section {
-	@apply py-20 md:py-[100px] lg:py-24 lg:px-[10px];
+	@apply pt-[130px] sm:pt-[150px] lg:pt-[170px] pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8;
 }
 
 .container {
-	@apply max-w-[1400px] mx-auto px-[30px] pt-10 pb-20 md:py-20;
+	@apply max-w-[1400px] mx-auto;
 }
 
-.heading-container {
-	@apply flex items-center justify-center mb-10 md:mb-20;
+/* Hero Header Section */
+.heroSection {
+	@apply flex flex-col items-center text-center max-w-4xl mx-auto mb-16 sm:mb-24;
 }
 
-.heading {
-	@apply text-[40px] leading-[45px] md:text-[60px] md:leading-[65px] mdlg:text-[80px] lg:leading-none font-bold;
+.eyebrowBadge {
+	@apply inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border text-xs sm:text-sm font-mono tracking-wider uppercase mb-6 backdrop-blur-md;
 }
 
-.outter-container {
-	@apply flex flex-col gap-10;
+.eyebrowBadgeRegular {
+	@apply border-light-green/30 bg-light-green/[0.06] text-light-green;
 }
 
-.inner-container {
-	@apply grid grid-cols-1 md:grid-cols-2 mdlg:grid-cols-3 gap-10 gap-y-16;
+.eyebrowBadgeMask {
+	@apply border-dark-blue/40 bg-dark-blue/[0.08] text-dark-blue font-bold;
 }
 
-.link-container,
-.link-container-mask {
-	@apply py-5 lg:py-10 flex justify-center items-center;
+.pulseDot {
+	@apply w-2 h-2 rounded-full;
 }
 
-.link,
-.link-mask {
-	@apply px-5 py-[15px] text-lg lg:text-xl rounded-3xl uppercase border;
+.pulseDotRegular {
+	@apply bg-light-green animate-pulse;
 }
 
-.link {
-	@apply border-white;
+.pulseDotMask {
+	@apply bg-dark-blue animate-pulse;
 }
 
-.link-mask {
-	@apply border-dark-blue;
+.mainHeading {
+	@apply text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-wide uppercase leading-none;
+}
+
+.headingRegular {
+	@apply text-white;
+}
+
+.headingMask {
+	@apply text-dark-blue;
+}
+
+.headingHighlightRegular {
+	@apply text-light-green;
+}
+
+.headingHighlightMask {
+	@apply text-dark-blue opacity-75 underline decoration-2;
+}
+
+.heroSubtitle {
+	@apply mt-6 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed;
+}
+
+.heroSubtitleRegular {
+	@apply text-white/70;
+}
+
+.heroSubtitleMask {
+	@apply text-dark-blue/85 font-medium;
+}
+
+/* Stats Bar */
+.statsBar {
+	@apply mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xs sm:text-sm;
+}
+
+.statItem {
+	@apply flex items-center gap-2 px-3.5 py-1.5 rounded-full border;
+}
+
+.statItemRegular {
+	@apply border-white/10 bg-white/[0.02] text-white/60;
+}
+
+.statItemMask {
+	@apply border-dark-blue/20 bg-dark-blue/[0.05] text-dark-blue/80 font-medium;
+}
+
+.statNumberRegular {
+	@apply text-light-green font-bold;
+}
+
+.statNumberMask {
+	@apply text-dark-blue font-bold;
+}
+
+/* Blog Articles Grid */
+.blogGrid {
+	@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch;
+}
+
+/* Empty State */
+.emptyState {
+	@apply py-20 px-6 rounded-3xl border text-center flex flex-col items-center justify-center max-w-xl mx-auto;
+}
+
+.emptyStateRegular {
+	@apply border-white/10 bg-white/[0.02] text-white;
+}
+
+.emptyStateMask {
+	@apply border-dark-blue/20 bg-dark-blue/[0.05] text-dark-blue;
+}
+
+.emptyTitle {
+	@apply text-2xl font-bold uppercase tracking-tight mb-2;
+}
+
+.emptyDescription {
+	@apply text-sm max-w-md leading-relaxed opacity-70;
+}
+
+/* Bottom CTA Section */
+.bottomCtaSection {
+	@apply mt-28 sm:mt-36 pt-16 sm:pt-20 border-t flex flex-col items-center text-center;
+}
+
+.bottomCtaSectionRegular {
+	@apply border-white/10;
+}
+
+.bottomCtaSectionMask {
+	@apply border-dark-blue/20;
+}
+
+.ctaEyebrow {
+	@apply font-mono text-xs sm:text-sm tracking-widest uppercase mb-3;
+}
+
+.ctaEyebrowRegular {
+	@apply text-light-green;
+}
+
+.ctaEyebrowMask {
+	@apply text-dark-blue font-bold;
+}
+
+.ctaTitle {
+	@apply text-3xl sm:text-5xl md:text-6xl font-normal uppercase max-w-2xl tracking-tight leading-tight;
+}
+
+.ctaTitleRegular {
+	@apply text-white;
+}
+
+.ctaTitleMask {
+	@apply text-dark-blue;
+}
+
+.ctaDescription {
+	@apply mt-4 text-sm sm:text-base max-w-lg leading-relaxed;
+}
+
+.ctaDescriptionRegular {
+	@apply text-white/60;
+}
+
+.ctaDescriptionMask {
+	@apply text-dark-blue/80;
+}
+
+.ctaButtonWrapper {
+	@apply mt-8;
+}
+
+.ctaButton {
+	@apply inline-flex items-center gap-3 font-semibold px-8 py-4 rounded-full text-sm sm:text-base transition-all duration-300 hover:scale-105 shadow-xl;
+}
+
+.ctaButtonRegular {
+	@apply bg-light-green text-dark-blue hover:shadow-light-green/20;
+}
+
+.ctaButtonMask {
+	@apply bg-dark-blue text-light-green hover:shadow-dark-blue/20;
 }
