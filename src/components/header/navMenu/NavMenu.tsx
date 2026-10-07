@@ -258,8 +258,8 @@ const NavMenu: FC = () => {
 								}`}
 							>
 								<div className='flex items-center gap-2 mb-3'>
-									<span className='relative flex justify-center items-center h-2.5 w-2.5'>
-										<span className={`animate-ping absolute inset-0 inline-flex h-full w-full rounded-full ${
+									<span className='relative flex justify-center items-center h-5 w-5'>
+										<span className={`animate-ping absolute top-[5px] left-[5px] inline-flex h-2.5 w-2.5 rounded-full ${
 											isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80'
 										} opacity-75`} />
 										<span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
