@@ -180,7 +180,7 @@ const NavMenu: FC = () => {
 							<span className={`inline-block w-2 h-2 rounded-full ${
 									isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80'
 								} animate-pulse`} />
-							<span>// NAVIGATION DIRECTORY</span>
+							<span>{'//'} NAVIGATION DIRECTORY</span>
 						</div>
 
 						<div className='flex items-center gap-4'>
@@ -274,11 +274,11 @@ const NavMenu: FC = () => {
 										isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50'
 									}`}
 								>
-									// SAY HELLO
+									{'//'} SAY HELLO
 								</span>
 								<div className='flex flex-wrap items-center gap-3'>
 									<a
-										href='mailto:anoop2019@iiitkottaya.ac.in'
+										href='mailto:anoop2019@iiitkottayam.ac.in'
 										onMouseEnter={() => setIsInteractiveHovered(true)}
 										onMouseLeave={() => setIsInteractiveHovered(false)}
 										className={`group inline-flex items-center gap-2 text-base sm:text-lg font-medium transition-colors duration-300 underline underline-offset-4 ${
@@ -329,7 +329,7 @@ const NavMenu: FC = () => {
 										isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50'
 									}`}
 								>
-									// CONNECT
+									{'//'} CONNECT
 								</span>
 								<div className='flex flex-wrap gap-2.5'>
 									{SOCIAL_LINKS.map((social) => {
