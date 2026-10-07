@@ -1,75 +1,126 @@
 'use client'
 
 import { type FC } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaPlus } from 'react-icons/fa6'
+import { FiCheckCircle } from 'react-icons/fi'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
-import { FaMinus, FaPlus } from 'react-icons/fa6'
-import { AnimatePresence, motion } from 'framer-motion'
-import styles from './styles.module.css'
-import { Experience } from '@/utills/constants'
-import { toggleAccordion } from '@/app/(portfolio)/features/accordionSlice'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
-import { panelVariants } from '@/utills/animations'
-import { PT_Sans } from 'next/font/google'
+import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
+import { toggleAccordion } from '@/app/(portfolio)/features/accordionSlice'
+import { Experience } from '@/utills/constants'
+import styles from './styles.module.css'
 
-const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
+interface Props extends Experience {
+	index?: number
+}
 
-const ExperienceAccordionMask: FC<Experience> = ({ id, companyName, duration, position, description }) => {
+const ExperienceAccordionMask: FC<Props> = ({
+	id,
+	companyName,
+	position,
+	duration,
+	description,
+	index = 0
+}) => {
 	const dispatch = useAppDispatch()
-	const isOpen = useAppSelector((state) => state.accordion.filter((item) => item.id === id))[0].isOpen
+	const isOpen =
+		useAppSelector((state) => state.accordion.find((item) => item.id === id))?.isOpen ?? false
+
 	const handleMouseEnter = () => dispatch(mouseEnter())
 	const handleMouseLeave = () => dispatch(mouseLeave())
 	const toggle = () => dispatch(toggleAccordion({ id }))
 
+	const indexDisplay = String(index + 1).padStart(2, '0')
+	const isCurrent = duration.toLowerCase().includes('present')
+
 	return (
-		<div className={styles.experience__wrapper} id={`mask-${id}`}>
-			<button className={styles.accordion} onClick={toggle}>
-				<div className={styles.accordion__header}>
-					<div
-						className={styles.accordion__title__container}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-					>
-						<h4 className={styles.company__mask}>{companyName} </h4>
-						<div className={styles.position__container}>
-							<p className={styles.position__mask}> {position}</p>
-							<div className={styles.dot__mask} />
-							<p className={styles.duration__mask}> {duration}</p>
-						</div>
+		<div
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			className={`${styles.card} ${styles.cardMask}`}
+			id={`mask-${id}`}
+		>
+			<button
+				type='button'
+				onClick={toggle}
+				aria-expanded={isOpen}
+				className={styles.accordionHeader}
+			>
+				<div className={styles.leftInfo}>
+					<div className={styles.indexRow}>
+						<span className={styles.indexNumberMask}>[{indexDisplay}]</span>
+						<span className='text-dark-blue/60 font-medium'>ROLE &bull; CAREER</span>
 					</div>
 
-					<div
-						className={styles.read__more__container}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-					>
-						{isOpen ? <FaMinus /> : <FaPlus />}
-						<p className={styles.read__more__mask}>Read {isOpen ? 'Less' : 'More'}</p>
+					<h3 className={`${styles.companyName} ${styles.companyNameMask}`}>
+						{companyName}
+					</h3>
+
+					<div className={styles.metaPillsRow}>
+						<div className={`${styles.rolePill} ${styles.rolePillMask}`}>
+							{isCurrent && <span className={`${styles.roleDot} ${styles.roleDotMask}`} />}
+							<span>{position}</span>
+						</div>
+
+						<span className={`${styles.durationPill} ${styles.durationMask}`}>
+							{duration}
+						</span>
 					</div>
 				</div>
 
-				<AnimatePresence mode='wait'>
-					{isOpen ? (
-						<motion.div
-							variants={panelVariants}
-							initial='closed'
-							animate='open'
-							exit='closed'
-							transition={{ type: 'tween', ease: 'backOut', duration: 1 }}
-							className={`${ptSans.className} ${styles.accordion__body}`}
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-						>
-							<ul className='flex flex-col'>
-								{description.map((item, index) => (
-									<li key={index}>{item}</li>
-								))}
-							</ul>
-						</motion.div>
-					) : null}
-				</AnimatePresence>
+				<div className={`${styles.toggleButton} ${styles.toggleButtonMask}`}>
+					<motion.div
+						animate={{ rotate: isOpen ? 45 : 0 }}
+						transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+					>
+						<FaPlus size={14} />
+					</motion.div>
+				</div>
 			</button>
-			<div className={styles.divider__mask} />
+
+			<AnimatePresence initial={false}>
+				{isOpen && (
+					<motion.div
+						key={`content-mask-${id}`}
+						initial={{ height: 0, opacity: 0 }}
+						animate={{
+							height: 'auto',
+							opacity: 1,
+							transition: {
+								height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+								opacity: { duration: 0.25, delay: 0.05 },
+							},
+						}}
+						exit={{
+							height: 0,
+							opacity: 0,
+							transition: {
+								height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+								opacity: { duration: 0.2 },
+							},
+						}}
+						style={{ overflow: 'hidden' }}
+						className={styles.bodyWrapper}
+					>
+						<div className='pt-6'>
+							<div className={`${styles.bodyContent} ${styles.bodyContentMask}`}>
+								<ul className={styles.achievementsList}>
+									{description.map((item, idx) => (
+										<li key={idx} className={styles.achievementItem}>
+											<FiCheckCircle
+												size={16}
+												className={`${styles.bulletIcon} ${styles.bulletIconMask}`}
+											/>
+											<span className={styles.achievementTextMask}>{item}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	)
 }

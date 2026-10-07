@@ -1,100 +1,144 @@
-.experience__wrapper {
-	@apply w-full transition-transform duration-1000 ease-in-out;
+/* Experience Accordion Card Styles */
+.card {
+	@apply w-full rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-colors duration-300 text-left select-none;
 }
 
-.divider,
-.divider__mask {
-	@apply w-full h-[1px];
+.cardRegular {
+	@apply bg-white/[0.02] border-white/10 hover:border-light-green/40 hover:bg-white/[0.04] text-white shadow-lg shadow-black/20;
 }
 
-.divider {
-	@apply bg-white/40;
+.cardMask {
+	@apply bg-dark-blue/[0.05] border-dark-blue/20 hover:border-dark-blue text-dark-blue;
 }
 
-.divider__mask {
-	@apply bg-dark-blue/40;
+/* Header Trigger Area */
+.accordionHeader {
+	@apply w-full flex items-start sm:items-center justify-between gap-4 cursor-pointer;
 }
 
-.accordion {
-	@apply w-full relative my-5 lg:my-10;
+.leftInfo {
+	@apply flex flex-col gap-2.5;
 }
 
-.accordion__header {
-	@apply w-full flex items-center justify-between gap-4;
+.indexRow {
+	@apply flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider;
 }
 
-.accordion__title__container {
-	@apply w-full flex flex-col gap-2;
+.indexNumberRegular {
+	@apply text-light-green font-bold;
 }
 
-.company,
-.company__mask {
-	@apply w-full text-ellipsis text-2xl lg:text-4xl font-medium text-left;
+.indexNumberMask {
+	@apply text-dark-blue font-bold;
 }
 
-.company {
+.companyName {
+	@apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight uppercase leading-none;
+}
+
+.companyNameRegular {
 	@apply text-white;
 }
 
-.company__mask {
+.companyNameMask {
 	@apply text-dark-blue;
 }
 
-.position__container {
-	@apply hidden md:flex items-center gap-2;
+/* Meta Pills: Role & Duration */
+.metaPillsRow {
+	@apply flex flex-wrap items-center gap-2.5 pt-1;
 }
 
-.position,
-.position__mask,
-.duration__mask,
-.duration {
-	@apply text-2xl font-extralight;
+.rolePill {
+	@apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs sm:text-sm font-mono border leading-none;
 }
 
-.position,
-.duration {
-	@apply text-white/90;
+.rolePillRegular {
+	@apply border-light-green/30 bg-light-green/[0.08] text-light-green font-medium;
 }
 
-.position__mask,
-.duration__mask {
+.rolePillMask {
+	@apply border-dark-blue/30 bg-dark-blue/10 text-dark-blue font-bold;
+}
+
+.roleDot {
+	@apply w-1.5 h-1.5 rounded-full;
+}
+
+.roleDotRegular {
+	@apply bg-light-green animate-pulse;
+}
+
+.roleDotMask {
+	@apply bg-dark-blue animate-pulse;
+}
+
+.durationPill {
+	@apply font-mono text-xs sm:text-sm tracking-wider;
+}
+
+.durationRegular {
+	@apply text-white/50;
+}
+
+.durationMask {
+	@apply text-dark-blue/70 font-medium;
+}
+
+/* Toggle Button Icon */
+.toggleButton {
+	@apply flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center transition-all duration-300;
+}
+
+.toggleButtonRegular {
+	@apply border-white/15 bg-white/[0.04] text-white hover:border-light-green hover:bg-light-green hover:text-dark-blue;
+}
+
+.toggleButtonMask {
+	@apply border-dark-blue/25 bg-dark-blue/10 text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
+}
+
+/* Expandable Body */
+.bodyWrapper {
+	@apply overflow-hidden;
+}
+
+.bodyContent {
+	@apply pt-6 border-t flex flex-col gap-3;
+}
+
+.bodyContentRegular {
+	@apply border-white/10;
+}
+
+.bodyContentMask {
+	@apply border-dark-blue/15;
+}
+
+.achievementsList {
+	@apply flex flex-col gap-3 text-sm sm:text-base leading-relaxed;
+}
+
+.achievementItem {
+	@apply flex items-start gap-3;
+}
+
+.bulletIcon {
+	@apply flex-shrink-0 mt-1.5 text-xs;
+}
+
+.bulletIconRegular {
+	@apply text-light-green;
+}
+
+.bulletIconMask {
 	@apply text-dark-blue;
 }
 
-.dot,
-.dot__mask {
-	@apply w-2 h-2 rounded-full;
+.achievementTextRegular {
+	@apply text-white/80;
 }
 
-.dot {
-	@apply bg-white;
-}
-
-.dot__mask {
-	@apply bg-dark-blue;
-}
-
-.read__more__container {
-	@apply flex items-center gap-1 md:gap-2 text-lg md:text-2xl lg:text-3xl font-extralight whitespace-nowrap;
-}
-
-.read__more {
-	@apply text-white hidden md:block;
-}
-
-.read__more__mask {
-	@apply text-dark-blue hidden md:block;
-}
-
-.accordion__body {
-	@apply text-sm md:text-base lg:text-xl my-4 font-extralight text-left;
-}
-
-.accordion__body ul {
-	@apply flex flex-col gap-1 list-disc ml-10;
-}
-
-.accordion__body li {
-	@apply list-disc;
-	list-style-type: square;
+.achievementTextMask {
+	@apply text-dark-blue font-normal;
 }
