@@ -10,7 +10,7 @@ export default async function Home() {
 
 	return (
 		<main className='bg-dark-blue text-white relative'>
-			<Particles className='fixed inset-0 h-screen' />
+			<Particles className='fixed inset-0 h-screen z-0 pointer-events-auto' />
 			<MaskPage blogs={blogsData} />
 			<RegularPage blogs={blogsData} />
 		</main>
