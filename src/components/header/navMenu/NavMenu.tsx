@@ -133,8 +133,8 @@ const NavMenu: FC = () => {
 					<motion.div
 						className={`pointer-events-none fixed top-0 left-0 z-[150] hidden md:block rounded-full border ${
 							isBackgroundDark
-								? 'border-light-green' // bg-light-green/10' // shadow-[0_0_15px_rgba(76,252,15,0.25)]'
-								: 'border-dark-blue' // bg-dark-blue/10' // shadow-[0_0_15px_rgba(9,14,22,0.25)]'
+								? 'border-light-green' 
+								: 'border-dark-blue'
 						}`}
 						animate={{
 							x: mousePos.x - (isInteractiveHovered ? 24 : 16),
@@ -150,8 +150,8 @@ const NavMenu: FC = () => {
 					<motion.div
 						className={`pointer-events-none fixed top-0 left-0 z-[150] hidden md:block rounded-full ${
 							isBackgroundDark
-								? 'bg-light-green' // shadow-[0_0_10px_#4cfc0f]'
-								: 'bg-dark-blue' // shadow-[0_0_10px_#090e16]'
+								? 'bg-light-green' 
+								: 'bg-dark-blue'
 						}`}
 						animate={{
 							x: mousePos.x - (isInteractiveHovered ? 4 : 3),
