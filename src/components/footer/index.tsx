@@ -1,107 +1,273 @@
 'use client'
 
 import { Gantari } from 'next/font/google'
-import { useLayoutEffect, useRef, useState, type FC } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { FiArrowUpRight, FiArrowUp, FiCopy, FiCheck, FiMail } from 'react-icons/fi'
+import { toast } from 'sonner'
 
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
+import MagneticContainer from '../MagneticContainer'
 
 import styles from './styles.module.css'
 
 const gantari = Gantari({ weight: '400', subsets: ['latin'] })
 
-type MousePosition = {
-	x: number
-	y: number
-}
+const SOCIAL_LINKS = [
+	{ title: 'Linked In', link: 'https://www.linkedin.com/in/anoop-raju' },
+	{ title: 'GitHub', link: 'https://github.com/anoopraju31' },
+	{ title: 'Instagram', link: 'https://www.instagram.com/_a.n.o.o.p_r.a.j.u_/' },
+	{ title: 'Email', link: 'mailto:anoop2019@iiitkottayam.ac.in' }
+]
 
 const Footer: FC = () => {
-	const [mousePosition, setMousePosition] = useState<MousePosition>({
-		x: -400,
-		y: -400
-	})
-	const containerRef = useRef<HTMLElement | null>(null)
-		
-	useLayoutEffect(() => {
-		const handleMousePosition = (e: MouseEvent) => {
-			if (!containerRef.current) return
-			const rect = containerRef.current.getBoundingClientRect()
-			setMousePosition({
-				x: e.clientX - rect.left,
-				y: e.clientY - rect.top
+	const [mousePos, setMousePos] = useState({ x: -200, y: -200 })
+	const [isCursorInside, setIsCursorInside] = useState(false)
+	const [isInteractiveHovered, setIsInteractiveHovered] = useState(false)
+	const [hoveredLinkIndex, setHoveredLinkIndex] = useState<number | null>(null)
+	const [copiedEmail, setCopiedEmail] = useState(false)
+	const [liveTime, setLiveTime] = useState('')
+	const footerRef = useRef<HTMLElement | null>(null)
+
+	// Live Bengaluru Clock
+	useEffect(() => {
+		const updateTime = () => {
+			const now = new Date()
+			const istString = now.toLocaleTimeString('en-US', {
+				timeZone: 'Asia/Kolkata',
+				hour: '2-digit',
+				minute: '2-digit',
+				hour12: true
 			})
+			setLiveTime(istString)
+		}
+		updateTime()
+		const interval = setInterval(updateTime, 1000)
+		return () => clearInterval(interval)
+	}, [])
+
+	// Fluid mouse tracking within Footer bounds
+	useEffect(() => {
+		const footerElement = footerRef.current
+		if (!footerElement) return
+
+		const handleMouseMove = (e: MouseEvent) => {
+			setMousePos({ x: e.clientX, y: e.clientY })
+			if (!isCursorInside) setIsCursorInside(true)
+
+			const target = e.target as HTMLElement | null
+			const isInteractive = Boolean(
+				target?.closest('a, button, [role="button"], input, textarea, select, .cursor-pointer')
+			)
+			setIsInteractiveHovered(isInteractive)
 		}
 
-		const handleScroll = () => {
-			setMousePosition({
-				x: -400,
-				y: -400
-			})
+		const handleMouseEnter = () => setIsCursorInside(true)
+		const handleMouseLeave = () => {
+			setIsCursorInside(false)
+			setIsInteractiveHovered(false)
+			setHoveredLinkIndex(null)
 		}
 
-		document.addEventListener('mousemove', handleMousePosition)
-		document.addEventListener('scroll', handleScroll)
+		footerElement.addEventListener('mousemove', handleMouseMove)
+		footerElement.addEventListener('mouseenter', handleMouseEnter)
+		footerElement.addEventListener('mouseleave', handleMouseLeave)
 
 		return () => {
-			document.removeEventListener('mousemove', handleMousePosition)
-			document.removeEventListener('scroll', handleScroll)
+			footerElement.removeEventListener('mousemove', handleMouseMove)
+			footerElement.removeEventListener('mouseenter', handleMouseEnter)
+			footerElement.removeEventListener('mouseleave', handleMouseLeave)
 		}
-	}, [])
+	}, [isCursorInside])
+
+	const handleCopyEmail = (e: React.MouseEvent) => {
+		e.preventDefault()
+		navigator.clipboard.writeText('anoop2019@iiitkottayam.ac.in')
+		setCopiedEmail(true)
+		toast.success('Email copied to clipboard!')
+		setTimeout(() => setCopiedEmail(false), 2200)
+	}
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
+	}
 
 	const year = new Date().getFullYear()
 
-
 	return (
 		<footer
-			ref={containerRef}
+			ref={footerRef}
 			id='footer'
 			aria-label='footer'
 			className={styles.footer}
 		>
-			<motion.div
-				className={`w-8 h-8 bg-transparent border border-dark-blue rounded-full flex justify-center items-center absolute top-0 left-0 pointer-events-none transition-opacity`}
-				animate={{
-					x: mousePosition.x - 16,
-					y: mousePosition.y - 16
-				}}
-				transition={{ type: 'tween', ease: 'backOut', duration: 0.05 }}
-			/>
+			{/* Custom Smooth Magnetic Cursor Follower */}
+			{isCursorInside && (
+				<>
+					{/* Outer Magnetic Ring */}
+					<motion.div
+						className='pointer-events-none fixed top-0 left-0 z-50 hidden md:block rounded-full border border-dark-blue bg-dark-blue/10'
+						animate={{
+							x: mousePos.x - (isInteractiveHovered ? 24 : 16),
+							y: mousePos.y - (isInteractiveHovered ? 24 : 16),
+							width: isInteractiveHovered ? 48 : 32,
+							height: isInteractiveHovered ? 48 : 32,
+							opacity: isInteractiveHovered ? 0.9 : 0.65
+						}}
+						transition={{ type: 'spring', damping: 28, stiffness: 420, mass: 0.15 }}
+					/>
 
-			<motion.div
-				className={`w-1.5 h-1.5 bg-dark-blue rounded-full z-10 absolute top-0 left-0 pointer-events-none transition-opacity`}
-				animate={{
-					x: mousePosition.x - 3,
-					y: mousePosition.y - 3
-				}}
-				transition={{ type: 'tween', ease: 'backOut', duration: 0.01 }}
-			/>
+					{/* Precision Center Dot */}
+					<motion.div
+						className='pointer-events-none fixed top-0 left-0 z-50 hidden md:block rounded-full bg-dark-blue'
+						animate={{
+							x: mousePos.x - (isInteractiveHovered ? 4 : 3),
+							y: mousePos.y - (isInteractiveHovered ? 4 : 3),
+							width: isInteractiveHovered ? 8 : 6,
+							height: isInteractiveHovered ? 8 : 6,
+							opacity: 1
+						}}
+						transition={{ type: 'spring', damping: 35, stiffness: 600, mass: 0.1 }}
+					/>
+				</>
+			)}
 
+			{/* Top Marquee Scrolling Banner */}
 			<FooterScrollText />
 
 			<div className={styles.divider} />
 
+			{/* Main Content Area */}
 			<div className={styles['outter-container']}>
 				<div className={styles['inner-container']}>
+					
+					{/* Left Column: CTA & Quick Contact Info */}
 					<div className={styles['contact-me-wrapper']}>
-						<Link href='/contact' className={styles['contact-button']}>
-							Contact Me
-						</Link>
+						<span className='text-xs font-mono tracking-widest uppercase text-dark-blue/60'>
+							{'//'} START A CONVERSATION
+						</span>
+
+						{/* Magnetic CTA Button */}
+						<div className='w-fit'>
+							<MagneticContainer>
+								<Link href='/contact' className={styles['contact-button']}>
+									<span>Contact Me</span>
+									<FiArrowUpRight className='text-3xl sm:text-5xl transition-transform duration-500 hover:rotate-45' />
+								</Link>
+							</MagneticContainer>
+						</div>
+
+						{/* Availability & Pitch Card */}
+						<div className='p-6 rounded-2xl border border-dark-blue/20 bg-dark-blue/[0.04] max-w-lg'>
+							<div className='flex items-center gap-2 mb-2'>
+								<span className='relative flex h-2.5 w-2.5'>
+									<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-dark-blue opacity-75' />
+									<span className='relative inline-flex rounded-full h-2.5 w-2.5 bg-dark-blue' />
+								</span>
+								<span className='text-xs font-mono uppercase tracking-wider font-bold text-dark-blue'>
+									Available for new opportunities
+								</span>
+							</div>
+							<p className={`text-sm sm:text-base leading-relaxed text-dark-blue/80 ${gantari.className}`}>
+								Looking to build cutting-edge web applications, interactive 3D experiences,
+								or scale your digital engineering? Let&apos;s build something impactful.
+							</p>
+						</div>
+
+						{/* Direct Email with Quick Copy */}
+						{/* <div className='flex flex-col gap-2'>
+							<span className='text-xs font-mono tracking-widest uppercase text-dark-blue/60'>
+								{'//'} DIRECT INQUIRY
+							</span>
+							<div className='flex flex-wrap items-center gap-3'>
+								<a
+									href='mailto:anoop2019@iiitkottayam.ac.in'
+									className='group inline-flex items-center gap-2 text-base sm:text-lg font-bold text-dark-blue underline underline-offset-4 decoration-dark-blue/40 hover:opacity-75 transition-opacity'
+								>
+									<FiMail className='text-dark-blue text-lg' />
+									<span>anoop2019@iiitkottayam.ac.in</span>
+									<FiArrowUpRight className='text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' />
+								</a>
+
+								<button
+									type='button'
+									onClick={handleCopyEmail}
+									className={`px-3 py-1 rounded-full text-xs font-mono flex items-center gap-1.5 border border-dark-blue/30 transition-all duration-300 ${
+										copiedEmail
+											? 'bg-dark-blue text-light-green font-bold'
+											: 'bg-transparent text-dark-blue hover:bg-dark-blue/10'
+									}`}
+									title='Copy email address'
+								>
+									{copiedEmail ? (
+										<>
+											<FiCheck className='text-sm' />
+											<span>COPIED!</span>
+										</>
+									) : (
+										<>
+											<FiCopy className='text-sm' />
+											<span>COPY</span>
+										</>
+									)}
+								</button>
+							</div>
+						</div> */}
 					</div>
 
-					<ul className={`${styles['footer-links-container']} ${gantari.className}`}>
-						<FooterLink title='Linked In' link='https://www.linkedin.com/in/anoop-raju' />
-						<FooterLink title='GitHub' link='https://github.com/anoopraju31' />
-						<FooterLink title='Instagram' link='https://www.instagram.com/_a.n.o.o.p_r.a.j.u_/' />
-						<FooterLink title='Email' link='mailto:anoop2019@iiitkottaya.ac.in' />
-					</ul>
+					{/* Right Column: Social Links */}
+					<div className={styles['footer-links-container']}>
+						<span className='text-xs font-mono tracking-widest uppercase text-dark-blue/60 mb-2'>
+							{'//'} DIRECTORY & SOCIALS
+						</span>
+						<ul className={`flex flex-col ${gantari.className}`}>
+							{SOCIAL_LINKS.map((item, idx) => (
+								<FooterLink
+									key={item.title}
+									title={item.title}
+									link={item.link}
+									index={idx}
+									isHovered={hoveredLinkIndex === idx}
+									isAnyHovered={hoveredLinkIndex !== null}
+									onHoverStart={() => setHoveredLinkIndex(idx)}
+									onHoverEnd={() => setHoveredLinkIndex(null)}
+								/>
+							))}
+						</ul>
+					</div>
+
 				</div>
 			</div>
 
-			{/* copy right */}
-			<div className={styles['copyright-container']}>
-				<p className={styles['copyright-text']}>© {year} Anoop Raju. All rights reserved.</p>
+			<div className={styles.divider} />
+
+			{/* Bottom Meta & Copyright Bar */}
+			<div className={styles['bottom-bar']}>
+				<p>© {year} ANOOP RAJU. ALL RIGHTS RESERVED.</p>
+				
+				<div className='flex items-center gap-2'>
+					<span className='w-1.5 h-1.5 rounded-full bg-dark-blue animate-pulse' />
+					<span>BENGALURU, INDIA {liveTime ? `• ${liveTime} IST` : ''}</span>
+				</div>
+
+				<div className='w-fit'>
+					<MagneticContainer>
+						<button
+							type='button'
+							onClick={scrollToTop}
+							className='group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-dark-blue/30 hover:bg-dark-blue hover:text-light-green transition-all duration-300 text-xs font-mono cursor-none'
+							title='Scroll to top'
+						>
+							<span>BACK TO TOP</span>
+							<FiArrowUp className='transition-transform duration-300 group-hover:-translate-y-1' />
+						</button>
+					</MagneticContainer>
+				</div>
 			</div>
 		</footer>
 	)

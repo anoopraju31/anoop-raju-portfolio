@@ -1,39 +1,31 @@
 .footer {
-	@apply bg-light-green h-full text-black overflow-hidden relative;
+	@apply bg-light-green h-full text-dark-blue overflow-hidden relative cursor-none select-none;
 }
 
 .divider {
-	@apply h-[2px] bg-dark-blue;
+	@apply h-[1.5px] bg-dark-blue/30 w-full;
 }
 
 .outter-container {
-	@apply max-w-[1200px] mx-auto px-[25px] bg-light-green h-full;
+	@apply max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 bg-light-green h-full py-12 md:py-20;
 }
 
 .inner-container {
-	@apply mt-[40px] sm:mt-[60px] md:mt-[80px] lg:mt-[140px] grid grid-cols-1 sm:grid-cols-2 justify-center items-center sm:gap-x-[80px] md:gap-x-[100px] lg:gap-x-[147px] gap-y-[25px];
+	@apply grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start;
 }
 
 .contact-me-wrapper {
-	@apply self-start grid mx-auto sm:mx-0 relative;
+	@apply lg:col-span-6 flex flex-col space-y-8;
 }
 
 .footer-links-container {
-	@apply flex flex-col gap-[30px];
-}
-
-.copyright-container {
-	@apply flex justify-center py-10 sm:pt-[80px] md:pt-[100px] lg:pt-[120px] md:pb-10;
-}
-
-.copyright-text {
-	@apply text-center font-semibold text-sm md:text-base uppercase tracking-wide;
-}
-
-.highlighted-text {
-	@apply text-orange-600;
+	@apply lg:col-span-6 flex flex-col space-y-2;
 }
 
 .contact-button {
-	@apply block w-fit px-[60px] py-[10px] rounded-[50px] border-dark-blue border-2 uppercase font-medium text-[35px] md:text-[45px] lg:text-[65px] xl:text-[80px] leading-none cursor-none hover:bg-dark-blue hover:text-light-green transition-colors duration-1000;
+	@apply inline-flex items-center gap-4 px-8 sm:px-12 py-4 sm:py-6 rounded-full border-2 border-dark-blue uppercase font-bold text-3xl sm:text-5xl lg:text-6xl leading-none cursor-none bg-transparent text-dark-blue hover:bg-dark-blue hover:text-light-green transition-all duration-500 shadow-sm active:scale-95;
+}
+
+.bottom-bar {
+	@apply max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono tracking-wider text-dark-blue/70;
 }
