@@ -165,7 +165,7 @@ const NavMenu: FC = () => {
 				)}
 
 				{/* Inner Scrollable Container */}
-				<div className='relative z-10 h-full w-full overflow-y-auto overflow-x-hidden flex flex-col justify-between px-6 sm:px-12 md:px-16 lg:px-24 pt-28 md:pt-32 pb-8 max-w-[1500px] mx-auto'>
+				<div className='relative z-10 h-full w-full overflow-y-auto overflow-x-hidden custom-scrollbar-1 flex flex-col justify-between px-6 sm:px-12 md:px-16 lg:px-24 pt-28 md:pt-32 pb-8 max-w-[1500px] mx-auto'>
 					
 					{/* Top Status & Directory Bar */}
 					<motion.div
@@ -342,7 +342,7 @@ const NavMenu: FC = () => {
 												rel='noopener noreferrer'
 												onMouseEnter={() => setIsInteractiveHovered(true)}
 												onMouseLeave={() => setIsInteractiveHovered(false)}
-												className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-mono border transition-all duration-300 ${
+												className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl group text-xs sm:text-sm font-mono border transition-all duration-300 ${
 													isBackgroundDark
 														? 'border-white/10 bg-white/[0.02] text-white/80 hover:bg-light-green hover:text-dark-blue hover:border-light-green hover:-translate-y-0.5'
 														: 'border-dark-blue/20 bg-dark-blue/[0.03] text-dark-blue hover:bg-dark-blue hover:text-light-green hover:border-dark-blue hover:-translate-y-0.5'
@@ -350,7 +350,7 @@ const NavMenu: FC = () => {
 											>
 												<Icon className='text-sm' />
 												<span>{social.name}</span>
-												<FiArrowUpRight className='text-xs opacity-60' />
+												<FiArrowUpRight className='text-xs opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-500' />
 											</a>
 										)
 									})}

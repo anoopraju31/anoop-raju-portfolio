@@ -25,3 +25,25 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
 	transition: background-color 0s 600000s, color 0s 600000s !important;
 }
+
+.custom-scrollbar-1::-webkit-scrollbar {
+	display: block;
+	width: 12px;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(9,14,22,0.2);
+	margin-block: 10px;
+
+	/* background-color: rgba(9,14,22,0.2); */
+	padding: 0;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	border: 2px solid transparent;
+    background-color: rgba(9,14,22,0.2);
+	background-clip: padding-box;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb:hover {
+	background: rgb(120, 120, 120);
+}
