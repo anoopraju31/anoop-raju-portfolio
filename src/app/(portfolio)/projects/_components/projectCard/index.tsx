@@ -5,59 +5,162 @@ import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa'
+import { FiArrowUpRight } from 'react-icons/fi'
 import styles from './styles.module.css'
 
 export type ProjectCardProps = {
 	id: number
+	number?: string
 	name: string
+	subtitle?: string
+	description?: string
 	img: string
 	alt: string
 	link: string
+	github?: string
 	year: string
-	tools: string
+	category?: string
+	tools: string | string[]
+	featured?: boolean
+	siteDomain?: string
 }
 
-const ProjectCard: FC<ProjectCardProps> = ({ id, name, img, alt, tools, year, link }) => {
+const ProjectCard: FC<ProjectCardProps> = ({
+	id,
+	number,
+	name,
+	subtitle,
+	description,
+	img,
+	alt,
+	tools,
+	year,
+	link,
+	github,
+	category,
+	featured,
+	siteDomain
+}) => {
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
+	const isHovered = currentCardId === id
+
+	const toolsList = Array.isArray(tools) ? tools : tools.split('•').map((t) => t.trim())
+	const displayDomain = siteDomain || link.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
 	return (
-		<div>
-			<motion.div
-				initial={{ borderRadius: 0 }}
-				animate={{
-					borderRadius: currentCardId == id ? '32px' : 0
-				}}
-				transition={{
-					duration: 0.7,
-					ease: 'easeInOut'
-				}}
-				className={styles.product__card}
-			>
-				<motion.div
-					initial={{
-						scale: 1
-					}}
-					animate={{
-						scale: currentCardId === id ? 1.05 : 1
-					}}
-					transition={{
-						duration: 0.7,
-						ease: 'easeInOut'
-					}}
-				>
-					<Image className={styles.img} src={img} alt={alt} width='800' height='600' />
-				</motion.div>
-			</motion.div>
-			<div className={styles.container}>
-				<div className={styles.tools__container}>
-					<p className={styles.tools__wrapper}>{year}</p>
-					<p className={styles.tools__wrapper}>{tools}</p>
-					<a href={link} className={styles.github}>
-						<FaGithub />
-					</a>
+		<div className={styles.cardWrapper}>
+			{/* Browser Chrome Header */}
+			<div className={`${styles.chromeBar} ${styles.chromeBarRegular}`}>
+				<div className={styles.windowDots}>
+					<span className={`${styles.windowDot} ${styles.windowDotRed}`} />
+					<span className={`${styles.windowDot} ${styles.windowDotYellow}`} />
+					<span className={`${styles.windowDot} ${styles.windowDotGreen}`} />
 				</div>
-				<div className={styles.name__container}>
-					<h3 className={styles.project__name}>{name}</h3>
+				<span className={`${styles.windowUrl} ${styles.windowUrlRegular}`}>
+					{displayDomain}
+				</span>
+				<span className='font-mono text-[11px] text-white/40'>{year}</span>
+			</div>
+
+			{/* Interactive Image Frame */}
+			<motion.div
+				animate={{
+					borderColor: isHovered ? 'rgba(76, 252, 15, 0.45)' : 'rgba(255, 255, 255, 0.1)',
+					boxShadow: isHovered
+						? '0 20px 40px -15px rgba(76, 252, 15, 0.15)'
+						: '0 10px 30px -15px rgba(0, 0, 0, 0.5)'
+				}}
+				transition={{ duration: 0.4 }}
+				className={`${styles.imageFrame} ${styles.imageFrameRegular}`}
+			>
+				{featured && (
+					<div className={`${styles.floatingBadge} ${styles.floatingBadgeRegular}`}>
+						<span className='w-1.5 h-1.5 rounded-full bg-light-green animate-ping' />
+						<span>Featured Case Study</span>
+					</div>
+				)}
+
+				<div className={styles.imageAspect}>
+					<motion.div
+						animate={{
+							scale: isHovered ? 1.05 : 1
+						}}
+						transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+						className='w-full h-full'
+					>
+						<Image
+							className={styles.img}
+							src={img}
+							alt={alt}
+							width={1200}
+							height={750}
+							priority={id === 1}
+						/>
+					</motion.div>
+					<div className={`${styles.imageOverlay} ${styles.imageOverlayRegular}`} />
+				</div>
+			</motion.div>
+
+			{/* Card Details & Metadata */}
+			<div className={styles.detailsContainer}>
+				<div className={`${styles.metaHeader} ${styles.metaHeaderRegular}`}>
+					<span className={styles.numberBadge}>{number || `0${id}`}</span>
+					{category && (
+						<span className={`${styles.categoryPill} ${styles.categoryPillRegular}`}>
+							{category}
+						</span>
+					)}
+				</div>
+
+				<div className={styles.titleGroup}>
+					<h3 className={`${styles.projectName} ${styles.projectNameRegular}`}>{name}</h3>
+					{subtitle && (
+						<p className={`${styles.projectSubtitle} ${styles.projectSubtitleRegular}`}>
+							{subtitle}
+						</p>
+					)}
+				</div>
+
+				{description && (
+					<p className={`${styles.projectDescription} ${styles.projectDescriptionRegular}`}>
+						{description}
+					</p>
+				)}
+
+				{/* Tech Stack Pills */}
+				<div className={styles.tagsContainer}>
+					{toolsList.map((tool, idx) => (
+						<span key={idx} className={`${styles.tagPill} ${styles.tagPillRegular}`}>
+							{tool}
+						</span>
+					))}
+				</div>
+
+				{/* Action Links */}
+				<div className={styles.actionsRow}>
+					{link && (
+						<a
+							href={link}
+							target='_blank'
+							rel='noopener noreferrer'
+							className={`${styles.actionButton} ${styles.actionPrimaryRegular}`}
+						>
+							<span>Live Preview</span>
+							<FiArrowUpRight size={16} />
+						</a>
+					)}
+					{github && (
+						<a
+							href={github}
+							target='_blank'
+							rel='noopener noreferrer'
+							className={`${styles.actionButton} ${styles.actionSecondaryRegular}`}
+							title='View Source Code'
+						>
+							<FaGithub size={16} />
+							<span>Repository</span>
+						</a>
+					)}
 				</div>
 			</div>
 		</div>
