@@ -3,7 +3,12 @@
 import { useEffect, useState } from 'react'
 
 const useWindowWidth = () => {
-	const [width, setWidth] = useState(window.innerWidth)
+	const [width, setWidth] = useState<number>(() => {
+		if (typeof window !== 'undefined') {
+			return window.innerWidth
+		}
+		return 1440
+	})
 
 	useEffect(() => {
 		setWidth(window.innerWidth)

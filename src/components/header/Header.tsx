@@ -43,8 +43,10 @@ const Header = () => {
 		if (!isMenuOpen && isHeaderColorDark)
 			return 'bg-white hover:bg-light-green border-white hover:border-light-green text-dark-blue hover:text-dark-blue'
 		if (isMenuOpen && !isHeaderColorDark)
-			return 'bg-dark-blue hover:bg-transparent border-dark-blue hover:border-dark-blue text-light-green hover:text-dark-blue'
-		else return 'bg-light-green hover:bg-transparent border-light-green text-dark-blue hover:text-light-green'
+			//  hover:bg-transparent  hover:text-dark-blue
+			return 'bg-dark-blue hover:bg-dark-blue/80 border-dark-blue hover:border-dark-blue text-light-green'
+		//  hover:bg-transparent 
+		else return 'bg-light-green hover:bg-light-green/80 border-light-green text-dark-blue hover:text-light-green'
 	}
 
 	const logoStyle = () => {
@@ -70,7 +72,9 @@ const Header = () => {
 					aria-label='logo'
 					href='/'
 					onClick={handleClose}
-					className={`uppercase ${logoStyle()} drop-shadow-lg cursor-pointer transition-colors duration-1000 text-2xl md:text-3xl outline-none ${gantari.className}`}
+					className={`uppercase ${logoStyle()} drop-shadow-lg ${
+						isMenuOpen ? 'cursor-none' : 'cursor-pointer'
+					} transition-colors duration-1000 text-2xl md:text-3xl outline-none ${gantari.className}`}
 				>
 					Anoopfolio
 				</Link>
@@ -79,7 +83,9 @@ const Header = () => {
 				<button
 					type='button'
 					onClick={handleMenuButtonClick}
-					className={`rounded-lg outline-none text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border-2 ${menuStyle()} cursor-pointer transition-colors duration-1000 backdrop-blur-lg  hover:bg-opacity-10 hover:border-opacity-10`}
+					className={`rounded-lg outline-none text-xl md:text-2xl p-1.5 md:p-2 flex justify-center items-center border-2 ${menuStyle()} ${
+						isMenuOpen ? 'cursor-none' : 'cursor-pointer'
+					} transition-colors duration-1000 backdrop-blur-lg hover:bg-opacity-10 hover:border-opacity-10`}
 				>
 					<span className='sr-only'> Menu </span>
 					{isMenuOpen ? <CgClose /> : <CgMenu />}
@@ -87,7 +93,9 @@ const Header = () => {
 				{/* </MagneticContainer> */}
 			</motion.header>
 
-			<AnimatePresence mode='wait'>{isMenuOpen && <NavMenu />}</AnimatePresence>
+			<AnimatePresence>
+				{isMenuOpen && <NavMenu key='nav-menu' />}
+			</AnimatePresence>
 		</>
 	)
 }
