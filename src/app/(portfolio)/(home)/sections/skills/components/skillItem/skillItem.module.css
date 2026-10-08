@@ -1,16 +1,21 @@
 .container {
-	@apply relative w-fit;
+  @apply relative w-fit;
 }
 
 .main-text,
-.mask-text {
-	@apply text-skill-sm md:text-skill leading-none font-extrabold whitespace-nowrap;
+.mask-text,
+.main-text-mask {
+  @apply whitespace-nowrap text-skill-sm font-extrabold leading-none md:text-skill;
 }
 
 .mask-text {
-	@apply absolute top-0 w-0 overflow-hidden;
+  @apply absolute top-0 w-0 overflow-hidden;
 }
 
 .main-text {
-	@apply opacity-10;
+  @apply opacity-10;
+}
+
+.main-text-mask {
+  @apply opacity-100;
 }

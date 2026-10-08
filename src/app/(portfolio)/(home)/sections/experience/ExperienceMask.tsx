@@ -1,36 +1,74 @@
-'use client'
+'use client';
 
-import { type FC } from 'react'
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
-import Link from 'next/link'
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
-import styles from './styles.module.css'
-import ExperienceAccordionMask from './components/ExperienceAccordion/ExperienceAccordionMask'
-import { accordionData } from '@/utills/constants'
+import { cn } from '@/utills';
+import { type FC } from 'react';
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import ExperienceAccordionMask from './components/ExperienceAccordion/ExperienceAccordionMask';
+import { accordionData } from '@/utills/constants';
+import styles from './styles.module.css';
 
 const ExperienceMask: FC = () => {
-	const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-	const handleMouseEnter = () => dispatch(mouseEnter())
-	const handleMouseLeave = () => dispatch(mouseLeave())
+  const handleMouseEnter = () => dispatch(mouseEnter());
+  const handleMouseLeave = () => dispatch(mouseLeave());
 
-	return (
-		<div className={styles.section}>
-			<div className={styles.container}>
-				<div className={styles['heading-container']}>
-					<h2 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.heading}>
-						My Experience
-					</h2>
-				</div>
+  return (
+    <div className={styles.section}>
+      <div className={styles.container}>
+        {/* Section Header */}
+        <header className={styles.headingContainer}>
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
+          >
+            <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
+            <span>Career Trajectory &bull; 2022 &mdash; Present</span>
+          </div>
 
-				<div className={styles['outter-container']}>
-					{accordionData.map((data) => (
-						<ExperienceAccordionMask key={data.id} {...data} />
-					))}
-				</div>
-			</div>
-		</div>
-	)
-}
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <h2 className={cn(styles.heading, styles.headingMask)}>
+              Work Experience <span className={styles.headingHighlightMask}>&amp; Roles</span>
+            </h2>
+          </div>
 
-export default ExperienceMask
+          <p
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={cn(styles.subtitle, styles.subtitleMask)}
+          >
+            Demonstrated track record of architecting scalable frontend solutions, responsive web applications, and
+            performance-driven interactive features.
+          </p>
+
+          {/* Timeline Highlights Bar */}
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.statsBar}>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
+              <span className={styles.statNumberMask}>02+</span>
+              <span>Years Experience</span>
+            </div>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
+              <span className={styles.statNumberMask}>Infigon Futures</span>
+              <span>Aug 2024 &mdash; Present</span>
+            </div>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
+              <span className={styles.statNumberMask}>Tridashay</span>
+              <span>Frontend Intern</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Accordion Showcase List */}
+        <div className={styles['outter-container']}>
+          {accordionData.map((data, idx) => (
+            <ExperienceAccordionMask key={data.id} index={idx} {...data} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ExperienceMask;

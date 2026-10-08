@@ -1,22 +1,47 @@
 .text-container {
-	@apply mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-24 z-50;
+  @apply grid select-none grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16 lg:gap-24;
 }
 
 .left-text-outter-container {
-	@apply space-y-6;
+  @apply md:sticky md:top-32;
 }
+
 .left-text-inner-container {
-	@apply space-y-3 2xl:space-y-10;
+  @apply space-y-4 lg:space-y-6;
+}
+
+.index-tag-regular {
+  @apply select-none font-mono text-xs font-bold uppercase tracking-wider text-light-green;
+}
+
+.index-tag-mask {
+  @apply select-none font-mono text-xs font-bold uppercase tracking-wider text-dark-blue;
 }
 
 .left-text-container-header {
-	@apply text-heading 2xl:text-7xl font-bold leading-tight;
+  @apply text-heading font-bold uppercase leading-tight tracking-tight 2xl:text-6xl;
+}
+
+.left-header-regular {
+  @apply text-white;
+}
+
+.left-header-mask {
+  @apply text-dark-blue;
 }
 
 .left-text-container-body {
-	@apply max-w-md xl:max-w-2xl text-body 2xl:text-3xl;
+  @apply max-w-md text-body leading-relaxed xl:max-w-xl 2xl:text-2xl;
+}
+
+.left-body-regular {
+  @apply text-white;
+}
+
+.left-body-mask {
+  @apply font-medium text-dark-blue;
 }
 
 .skills-container {
-	@apply select-none leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem] flex flex-col;
+  @apply flex select-none flex-col leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem];
 }

@@ -1,85 +1,108 @@
-// import { devProjectCard } from './projectDetails'
+'use client';
 
-import ProjectCard from '../_components/projectCard'
-import styles from './projects.module.css'
+import { cn } from '@/utills';
+import Link from 'next/link';
+import { FiArrowUpRight } from 'react-icons/fi';
+import MagneticContainer from '@/components/MagneticContainer';
+import ProjectCard from '../_components/projectCard';
+import { projectsList } from '../data/projectsData';
+import styles from './projects.module.css';
+
+const gridContainerClasses = [
+  styles.project1__container,
+  styles.project2__container,
+  styles.project3__container,
+  styles.project4__container,
+  styles.project5__container,
+];
 
 const RegularPage = () => {
-	return (
-		<main className={styles.regularPage}>
-			<section className={styles.container}>
-				<div className={styles.heading__container}>
-					<h1>All Projects</h1>
-				</div>
+  return (
+    <main className={styles.regularPage}>
+      <section className={styles.container}>
+        {/* Hero Header Section */}
+        <header className={styles.heroSection}>
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
+            <span>Selected Works &bull; 2023 &mdash; Present</span>
+          </div>
 
-				<div className={styles.project__container}>
-					{/* Project #1 */}
-					<div className={styles.project1__container}>
-						<ProjectCard
-							id={1}
-							link='https://eat-curious-wysm.vercel.app/'
-							img='/eat-curious.png'
-							alt='eat-curious'
-							name='Eat Curious'
-							year='2023'
-							tools='NextJS • ReactJS • TailwindCSS • Typescript'
-						/>
-					</div>
+          <h1 className={cn(styles.mainHeading, styles.headingRegular)}>
+            Featured Work <span className={styles.headingHighlightRegular}>&amp; Systems</span>
+          </h1>
 
-					{/* Project #2 */}
-					<div className={styles.project2__container}>
-						<ProjectCard
-							id={2}
-							link='https://react-ai-article-summarizer.netlify.app/'
-							img='/summerize.png'
-							alt='Summarizer'
-							name='Summarizer'
-							year='2023'
-							tools='ReactJS • TailwindCSS • JavaScript • OpenAI API'
-						/>
-					</div>
+          <p className={cn(styles.heroSubtitle, styles.heroSubtitleRegular)}>
+            A curated collection of full-stack web applications, bespoke user interfaces, and generative digital
+            experiments engineered with performance, accessibility, and kinetic craft.
+          </p>
 
-					{/* Project #3 */}
-					<div className={styles.project3__container}>
-						<ProjectCard
-							id={3}
-							link='https://github.com/anoopraju31/netflix-gpt'
-							img='/netflix-gpt.png'
-							alt='NetFlix GPT'
-							name='NetFlix GPT'
-							year='2023'
-							tools='ReactJS • TailwindCSS • JavaScript • OpenAI API'
-						/>
-					</div>
+          {/* Quick Metrics Bar */}
+          <div className={styles.statsBar}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
+              <span className={styles.statNumberRegular}>05</span>
+              <span>Curated Builds</span>
+            </div>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
+              <span className={styles.statNumberRegular}>100%</span>
+              <span>TypeScript</span>
+            </div>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
+              <span className={styles.statNumberRegular}>React &bull; Next.js</span>
+              <span>Core Stack</span>
+            </div>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
+              <span className={styles.statNumberRegular}>OpenAI &bull; WebGL</span>
+              <span>Integrations</span>
+            </div>
+          </div>
+        </header>
 
-					{/* Project #4 */}
-					<div className={styles.project4__container}>
-						<ProjectCard
-							id={4}
-							link='https://github.com/anoopraju31/nike-landing-page'
-							img='/nike.png'
-							alt='nike page mockup'
-							name='Nike LANDING PAGE CLONE'
-							year='2023'
-							tools='ReactJS • TailwindCSS • JavaScript'
-						/>
-					</div>
+        {/* Asymmetrical Project Showcase Grid */}
+        <div className={styles.project__container}>
+          {projectsList.map((project, index) => {
+            const containerClass = gridContainerClasses[index] || styles.project1__container;
+            return (
+              <div key={project.id} className={containerClass}>
+                <ProjectCard
+                  id={project.id}
+                  number={project.number}
+                  name={project.name}
+                  subtitle={project.subtitle}
+                  description={project.description}
+                  img={project.img}
+                  alt={project.alt}
+                  link={project.link}
+                  github={project.github}
+                  year={project.year}
+                  category={project.category}
+                  tools={project.tools}
+                  featured={project.featured}
+                  siteDomain={project.siteDomain}
+                />
+              </div>
+            );
+          })}
+        </div>
 
-					{/* Project #5 */}
-					<div className={styles.project5__container}>
-						<ProjectCard
-							id={5}
-							link='https://nextjs-dropbox-clone.vercel.app/'
-							img='/dropbox.png'
-							alt='Dropbox mockup'
-							name='Dropbox PAGE'
-							year='2023'
-							tools='NextJS • TailwindCSS • Typescript'
-						/>
-					</div>
-				</div>
-			</section>
-		</main>
-	)
-}
+        {/* Bottom Call To Action Banner */}
+        <section className={cn(styles.bottomCtaSection, styles.bottomCtaSectionRegular)}>
+          <span className={cn(styles.ctaEyebrow, styles.ctaEyebrowRegular)}>Have a vision in mind?</span>
+          <h2 className={cn(styles.ctaTitle, styles.ctaTitleRegular)}>
+            Let&apos;s build something extraordinary together
+          </h2>
+          <p className={cn(styles.ctaDescription, styles.ctaDescriptionRegular)}>
+            Available for select freelance contracts, high-impact frontend roles, and creative software collaborations.
+          </p>
+          <div className={styles.ctaButtonWrapper}>
+            <Link href="/contact" className={cn(styles.ctaButton, styles.ctaButtonRegular)}>
+              <span>Start a Conversation</span>
+              <FiArrowUpRight size={18} />
+            </Link>
+          </div>
+        </section>
+      </section>
+    </main>
+  );
+};
 
-export default RegularPage
+export default RegularPage;

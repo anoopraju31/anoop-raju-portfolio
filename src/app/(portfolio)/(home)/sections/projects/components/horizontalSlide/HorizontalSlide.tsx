@@ -1,42 +1,59 @@
-'use client'
+'use client';
 
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
-import { motion } from 'framer-motion'
-import ProjectCard from '../projectCard/ProjectCard'
-import styles from './horizontalSlide.module.css'
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import { projectCardMouseEnter } from '@/app/(portfolio)/features/projectCardSlice';
+import { motion } from 'framer-motion';
+import ProjectCard from '../projectCard/ProjectCard';
+import styles from './horizontalSlide.module.css';
 
 type HorizontalSlideProps = {
-	id: number
-	img: string
-	name: string
-	year: string
-}
+  id: number;
+  img: string;
+  name: string;
+  year: string;
+  deployedUrl?: string;
+  tools?: string[];
+};
 
 const HorizontalSlide = (props: HorizontalSlideProps) => {
-	const { id } = props
-	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
-	const initial = { opacity: 0, y: 0, width: '20vw' }
-	const animate = { width: id === currentCardId ? '100vw' : '20vw' }
-	const inViewAnimation = {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 1, ease: [0.17, 0.67, 0.83, 0.67] }
-	}
-	const viewPort = { once: true }
-	const transition = { duration: 1.5, ease: 'backOut' }
+  const { id, deployedUrl } = props;
+  const dispatch = useAppDispatch();
+  const currentCardId = useAppSelector((state) => state.projectCardHover.cardId);
+  const isHovered = id === currentCardId;
 
-	return (
-		<motion.div
-			initial={initial}
-			whileInView={inViewAnimation}
-			animate={animate}
-			viewport={viewPort}
-			transition={transition}
-			className={styles.container}
-		>
-			<ProjectCard {...props} />
-		</motion.div>
-	)
-}
+  const handleMouseEnter = () => {
+    if (currentCardId !== id) {
+      dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }));
+    }
+  };
 
-export default HorizontalSlide
+  const handleClick = () => {
+    if (deployedUrl) window.open(deployedUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <motion.div
+      onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseEnter}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      animate={{
+        flexGrow: isHovered ? 5 : 1,
+      }}
+      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        flexBasis: '0%',
+        flexShrink: 1,
+        willChange: 'flex-grow',
+      }}
+      className={styles.container}
+    >
+      <ProjectCard {...props} />
+    </motion.div>
+  );
+};
+
+export default HorizontalSlide;

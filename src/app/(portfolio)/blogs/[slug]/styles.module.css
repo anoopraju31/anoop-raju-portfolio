@@ -1,7 +1,7 @@
 .section {
-	@apply py-10 lg:px-2.5 min-h-screen;
+  @apply min-h-screen py-10 lg:px-2.5;
 }
 
 .container {
-	@apply max-w-[1400px] mx-auto px-[30px] pt-10 pb-20 md:py-20 flex flex-col gap-8;
+  @apply mx-auto flex max-w-[1400px] flex-col gap-8 px-[30px] pb-20 pt-10 md:py-20;
 }

@@ -1,109 +1,173 @@
-'use client'
+'use client';
 
-import { type ChangeEvent, useState, type FC, FormEvent, useEffect } from 'react'
-import InputField from './inputField'
-import TextareaField from './textareaField'
-import { submitContactMe } from '@/utills/actions'
-import { toast } from 'sonner'
+import { cn } from '@/utills';
+import { type ChangeEvent, useState, type FC, FormEvent, useEffect } from 'react';
+import { FiSend, FiCheckCircle } from 'react-icons/fi';
+import InputField from './inputField';
+import TextareaField from './textareaField';
+import { submitContactMe } from '@/utills/actions';
+import { toast } from 'sonner';
 
 export type ContactFormData = {
-	name: string
-	email: string
-	subject: string
-	message: string
-}
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 const initialFormData: ContactFormData = {
-	name: '',
-	email: '',
-	subject: '',
-	message: ''
-}
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+};
 
-type Status = 'DISABLED' | 'SUBMITTING' | 'SUCCESS' | 'ERROR' | 'ENABLED'
+type Status = 'DISABLED' | 'SUBMITTING' | 'SUCCESS' | 'ERROR' | 'ENABLED';
 
 const ContactForm: FC = () => {
-	const [formData, setFormData] = useState<ContactFormData>(initialFormData)
-	const [status, setStatus] = useState<Status>('DISABLED')
+  const [formData, setFormData] = useState<ContactFormData>(initialFormData);
+  const [status, setStatus] = useState<Status>('DISABLED');
 
-	useEffect(() => {
-		const { email, name, subject, message } = formData
-		const isDisabled = !email || !name || !subject || !message
+  useEffect(() => {
+    if (status === 'SUBMITTING') return;
 
-		setStatus(isDisabled ? 'DISABLED' : 'ENABLED')
-	}, [formData])
+    const { email, name, subject, message } = formData;
+    const isFilled = Boolean(email.trim() && name.trim() && subject.trim() && message.trim());
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-		setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    setStatus(isFilled ? 'ENABLED' : 'DISABLED');
+  }, [formData, status]);
 
-	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-		const response = await submitContactMe(formData)
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === 'DISABLED' || status === 'SUBMITTING') return;
 
-		if (!response) {
-			toast.error('Something went wrong. Please try again later.')
-			return
-		}
+    setStatus('SUBMITTING');
 
-		setStatus('SUCCESS')
-		setFormData(initialFormData)
-		toast.success('Message sent successfully!')
-	}
+    try {
+      const response = await submitContactMe(formData);
 
-	return (
-		<form onSubmit={handleSubmit} className='flex flex-col items-end gap-6 md:gap-8 self-stretch'>
-			<div className='flex flex-col items-start gap-4 sm:gap-5 md:gap-8 lg:gap-12 xl:gap-[60px] self-stretch'>
-				{/* Name */}
-				<InputField
-					form='Your name'
-					type='text'
-					id='name'
-					name='name'
-					value={formData.name}
-					onChange={handleChange}
-				/>
+      if (!response) {
+        toast.error('Something went wrong. Please try again later or email directly.');
+        setStatus('ENABLED');
+        return;
+      }
 
-				{/* Email */}
-				<InputField
-					form='Your email'
-					type='email'
-					id='email'
-					name='email'
-					value={formData.email}
-					onChange={handleChange}
-				/>
+      setStatus('SUCCESS');
+      setFormData(initialFormData);
+      toast.success('Message received! I will get back to you shortly.');
 
-				{/* Subject */}
-				<InputField
-					form='Your Subject'
-					type='text'
-					id='subject'
-					name='subject'
-					value={formData.subject}
-					onChange={handleChange}
-				/>
+      // Reset back to disabled after 4 seconds
+      setTimeout(() => {
+        setStatus('DISABLED');
+      }, 4000);
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to submit message. Please try emailing directly.');
+      setStatus('ENABLED');
+    }
+  };
 
-				{/* Message */}
-				<TextareaField
-					form='Your message'
-					id='message'
-					name='message'
-					rows={1}
-					value={formData.message}
-					onChange={handleChange}
-				/>
-			</div>
+  return (
+    <form onSubmit={handleSubmit} className="relative z-10 flex w-full flex-col gap-8">
+      <div className="flex w-full flex-col gap-8 sm:gap-10">
+        {/* Name */}
+        <InputField
+          label="Your Name"
+          type="text"
+          id="name"
+          name="name"
+          required
+          value={formData.name}
+          onChange={handleChange}
+          disabled={status === 'SUBMITTING'}
+        />
 
-			<button
-				type='submit'
-				disabled={status === 'DISABLED'}
-				className='flex w-full py-4 px-10 justify-center border-none outline-none items-center gap-5 rounded-lg cursor-pointer disabled:cursor-not-allowed bg-dark-blue dark:bg-white text-white dark:text-dark-blue hover:bg-light-green hover:text-dark-blue hover:dark:bg-light-green hover:dark:text-dark-blue transition-colors duration-300'
-			>
-				Send
-			</button>
-		</form>
-	)
-}
+        {/* Email */}
+        <InputField
+          label="Your Email"
+          type="email"
+          id="email"
+          name="email"
+          required
+          value={formData.email}
+          onChange={handleChange}
+          disabled={status === 'SUBMITTING'}
+        />
 
-export default ContactForm
+        {/* Subject */}
+        <InputField
+          label="Project / Subject"
+          type="text"
+          id="subject"
+          name="subject"
+          required
+          value={formData.subject}
+          onChange={handleChange}
+          disabled={status === 'SUBMITTING'}
+        />
+
+        {/* Message */}
+        <TextareaField
+          label="Your Message"
+          id="message"
+          name="message"
+          required
+          rows={3}
+          value={formData.message}
+          onChange={handleChange}
+          disabled={status === 'SUBMITTING'}
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={status === 'DISABLED' || status === 'SUBMITTING'}
+        className={cn(
+          'group relative flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 sm:text-base',
+          status === 'SUCCESS'
+            ? 'bg-light-green text-dark-blue shadow-[0_0_25px_rgba(76,252,15,0.4)]'
+            : status === 'SUBMITTING'
+              ? 'cursor-wait bg-light-green/70 text-dark-blue'
+              : status === 'ENABLED'
+                ? 'cursor-pointer bg-light-green text-dark-blue hover:scale-[1.01] hover:shadow-[0_0_25px_rgba(76,252,15,0.4)] active:scale-[0.99]'
+                : 'cursor-not-allowed border border-white/10 bg-white/10 text-white/40',
+        )}
+      >
+        {status === 'SUBMITTING' ? (
+          <>
+            <svg
+              className="h-5 w-5 animate-spin text-dark-blue"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+            <span>Sending Message...</span>
+          </>
+        ) : status === 'SUCCESS' ? (
+          <>
+            <FiCheckCircle className="text-xl" />
+            <span>Message Sent!</span>
+          </>
+        ) : (
+          <>
+            <span>Send Message</span>
+            <FiSend className="text-lg transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
+          </>
+        )}
+      </button>
+    </form>
+  );
+};
+
+export default ContactForm;

@@ -1,23 +1,35 @@
-import type { FC, InputHTMLAttributes } from 'react'
+import { cn } from '@/utills';
+import type { FC, InputHTMLAttributes } from 'react';
 
-type Props = InputHTMLAttributes<HTMLInputElement>
+type Props = InputHTMLAttributes<HTMLInputElement> & {
+  form?: string;
+  label?: string;
+};
 
-const InputField: FC<Props> = ({ ...rest }) => {
-	return (
-		<div className='flex-1 w-full relative z-0'>
-			<input
-				placeholder={rest.placeholder || ' '}
-				className='block py-2.5 px-0 w-full text-sm text-dark-blue bg-transparent border-0 border-b-2 border-dark-blue appearance-none dark:text-white dark:border-white dark:focus:border-light-green focus:outline-none focus:ring-0 focus:border-light-green peer'
-				{...rest}
-			/>
-			<label
-				htmlFor={rest.id}
-				className='absolute text-base text-dark-blue dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-light-green peer-focus:dark:text-light-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto'
-			>
-				{rest.form}
-			</label>
-		</div>
-	)
-}
+const InputField: FC<Props> = ({ form, label, id, className, ...rest }) => {
+  const displayLabel = label || form;
 
-export default InputField
+  return (
+    <div className="group relative z-0 w-full">
+      <input
+        id={id}
+        placeholder=" "
+        className={cn(
+          'peer block w-full appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
+          className || '',
+        )}
+        {...rest}
+      />
+      {displayLabel && (
+        <label
+          htmlFor={id}
+          className="pointer-events-none absolute top-3.5 origin-[0] -translate-y-6 scale-75 transform font-mono text-sm uppercase tracking-wider text-white/50 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-light-green sm:text-base"
+        >
+          {displayLabel}
+        </label>
+      )}
+    </div>
+  );
+};
+
+export default InputField;

@@ -3,25 +3,49 @@
 @tailwind utilities;
 
 :root {
-	--hero-image-width: calc(100vw * 0.1875);
-	--hero-text-size: calc((100vw * 0.19428571));
-	--skill-text-size-sm: calc(100vw * 0.06857142);
-	--skill-text-size: calc(100vw * 0.03857142);
-	/* --skill-text-size: calc(100vw * 0.09857142); */
-	--projects-container-height: calc(450vh + 64px);
-	--curveTransitionSvgHeight: calc(100vh + 600px);
-	--height-transition: calc(100vh - 80px);
+  --hero-image-width: calc(100vw * 0.1875);
+  --hero-text-size: calc((100vw * 0.19428571));
+  --skill-text-size-sm: calc(100vw * 0.06857142);
+  --skill-text-size: calc(100vw * 0.03857142);
+  /* --skill-text-size: calc(100vw * 0.09857142); */
+  --projects-container-height: calc(450vh + 64px);
+  --curveTransitionSvgHeight: calc(100vh + 600px);
+  --height-transition: calc(100vh - 80px);
 }
 
 body::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 body {
-	user-select: none;
+  user-select: none;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-	transition: background-color 0s 600000s, color 0s 600000s !important;
+  transition:
+    background-color 0s 600000s,
+    color 0s 600000s !important;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar {
+  display: block;
+  width: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(9, 14, 22, 0.2);
+  margin-block: 10px;
+
+  /* background-color: rgba(9,14,22,0.2); */
+  padding: 0;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: rgba(9, 14, 22, 0.2);
+  background-clip: padding-box;
+}
+
+.custom-scrollbar-1::-webkit-scrollbar-thumb:hover {
+  background: rgb(120, 120, 120);
 }

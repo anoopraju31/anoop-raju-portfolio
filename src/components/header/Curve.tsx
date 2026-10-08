@@ -1,43 +1,46 @@
-'use client'
+'use client';
 
-import useWindowWidth from '@/app/(portfolio)/hooks/useWindowWidth'
-import { motion } from 'framer-motion'
+import { cn } from '@/utills';
+import useWindowWidth from '@/app/(portfolio)/hooks/useWindowWidth';
+import { motion, type Variants } from 'framer-motion';
 
 type CurveProps = {
-	isBackgroundDark: boolean
-}
+  isBackgroundDark: boolean;
+};
 
 const Curve = (props: CurveProps) => {
-	const { isBackgroundDark } = props
-	const { width } = useWindowWidth()
+  const { isBackgroundDark } = props;
+  const { width } = useWindowWidth();
+  const safeWidth = width > 0 ? width : typeof window !== 'undefined' ? window.innerWidth : 1440;
 
-	const initialPath = `m0 100 L0 200 L${width} 200 L${width} 100 Q${width / 2} -100 0 100`
+  const initialPath = `m0 100 L0 200 L${safeWidth} 200 L${safeWidth} 100 Q${safeWidth / 2} -100 0 100`;
+  const targetPath = `m0 100 L0 200 L${safeWidth} 200 L${safeWidth} 100 Q${safeWidth / 2} 100 0 100`;
 
-	const targetPath = `m0 100 L0 200 L${width} 200 L${width} 100 Q${width / 2} 100 0 100`
+  const curve: Variants = {
+    initial: {
+      d: initialPath,
+    },
+    enter: {
+      d: targetPath,
+      transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] },
+    },
+    exit: {
+      d: initialPath,
+      transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] },
+    },
+  };
 
-	const curve = {
-		initial: {
-			d: initialPath
-		},
-		enter: {
-			d: targetPath,
-			transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
-		},
-		exit: {
-			d: initialPath,
-			transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
-		}
-	}
+  return (
+    <svg
+      className={cn(
+        'absolute -top-[99px] left-0 h-[100px] w-full overflow-visible',
+        isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green',
+        'pointer-events-none z-10 stroke-none',
+      )}
+    >
+      <motion.path variants={curve} />
+    </svg>
+  );
+};
 
-	return (
-		<svg
-			className={`absolute right-0 -top-[99px] w-screen h-[100px] ${
-				isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green'
-			} stroke-none`}
-		>
-			<motion.path variants={curve} initial='initial' animate='enter' exit='exit'></motion.path>
-		</svg>
-	)
-}
-
-export default Curve
+export default Curve;

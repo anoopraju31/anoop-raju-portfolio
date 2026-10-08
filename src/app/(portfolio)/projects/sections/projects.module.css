@@ -1,40 +1,184 @@
 .regularPage,
 .maskPage {
-	@apply pt-[140px] sm:pt-[160px] md:pt-[60px] pb-10 sm:pb-[60px] lg:py-[100px] px-[10px];
+  @apply px-4 pb-20 pt-[130px] sm:px-6 sm:pb-28 sm:pt-[150px] lg:px-8 lg:pb-36 lg:pt-[170px];
 }
 
 .container {
-	@apply w-full max-w-[1400px] mx-auto px-[10px];
+  @apply mx-auto w-full max-w-[1400px];
 }
 
-.heading__container {
-	@apply mt-[60px] flex justify-center items-center;
+/* Header & Hero Section */
+.heroSection {
+  @apply mx-auto mb-16 flex max-w-4xl flex-col items-center text-center sm:mb-24;
 }
 
-.heading__container h1 {
-	@apply text-3xl sm:text-4xl md:text-5xl font-semibold capitalize;
+.eyebrowBadge {
+  @apply mb-6 inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 font-mono text-xs uppercase tracking-wider backdrop-blur-md sm:text-sm;
 }
 
+.eyebrowBadgeRegular {
+  @apply border-light-green/30 bg-light-green/[0.06] text-light-green;
+}
+
+.eyebrowBadgeMask {
+  @apply border-dark-blue/40 bg-dark-blue/[0.08] font-bold text-dark-blue;
+}
+
+.pulseDot {
+  @apply h-2 w-2 rounded-full;
+}
+
+.pulseDotRegular {
+  @apply animate-pulse bg-light-green;
+}
+
+.pulseDotMask {
+  @apply animate-pulse bg-dark-blue;
+}
+
+.mainHeading {
+  @apply text-4xl font-normal uppercase leading-none tracking-wide sm:text-6xl md:text-7xl lg:text-8xl;
+}
+
+.headingRegular {
+  @apply text-white;
+}
+
+.headingMask {
+  @apply text-dark-blue;
+}
+
+.headingHighlightRegular {
+  @apply text-light-green;
+}
+
+.headingHighlightMask {
+  @apply text-dark-blue underline decoration-2 opacity-70;
+}
+
+.heroSubtitle {
+  @apply mt-6 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl;
+}
+
+.heroSubtitleRegular {
+  @apply text-white/70;
+}
+
+.heroSubtitleMask {
+  @apply font-medium text-dark-blue/85;
+}
+
+/* Quick Metrics & Stats Bar */
+.statsBar {
+  @apply mt-8 flex flex-wrap items-center justify-center gap-3 font-mono text-xs sm:gap-6 sm:text-sm;
+}
+
+.statItem {
+  @apply flex items-center gap-2 rounded-full border px-3.5 py-1.5;
+}
+
+.statItemRegular {
+  @apply border-white/10 bg-white/[0.02] text-white/60;
+}
+
+.statItemMask {
+  @apply border-dark-blue/20 bg-dark-blue/[0.05] font-medium text-dark-blue/80;
+}
+
+.statNumberRegular {
+  @apply font-bold text-light-green;
+}
+
+.statNumberMask {
+  @apply font-bold text-dark-blue;
+}
+
+/* Asymmetrical Project Grid */
 .project__container {
-	@apply my-16 grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12;
+  @apply my-10 grid grid-cols-1 items-start gap-12 sm:gap-16 md:grid-cols-12 md:gap-x-12 md:gap-y-24;
 }
 
 .project1__container {
-	@apply col-span-1 md:col-span-12;
+  @apply col-span-1 md:col-span-12;
 }
 
 .project2__container {
-	@apply col-span-1 pt-0 md:col-span-7 md:pt-16;
+  @apply col-span-1 pt-0 md:col-span-7 md:pt-10;
 }
 
 .project3__container {
-	@apply col-span-1 pt-0 md:col-span-5 md:pt-80;
+  @apply col-span-1 pt-0 md:col-span-5 md:pt-48;
 }
 
 .project4__container {
-	@apply col-span-1 h-fit pt-0 md:col-span-8 md:pt-20;
+  @apply col-span-1 pt-0 md:col-span-7 md:pt-12;
 }
 
 .project5__container {
-	@apply col-span-1 h-fit md:col-span-4;
+  @apply col-span-1 pt-0 md:col-span-5 md:pt-40;
+}
+
+/* Bottom CTA Banner */
+.bottomCtaSection {
+  @apply mt-28 flex flex-col items-center border-t pt-16 text-center sm:mt-36 sm:pt-20;
+}
+
+.bottomCtaSectionRegular {
+  @apply border-white/10;
+}
+
+.bottomCtaSectionMask {
+  @apply border-dark-blue/20;
+}
+
+.ctaEyebrow {
+  @apply mb-3 font-mono text-xs uppercase tracking-widest sm:text-sm;
+}
+
+.ctaEyebrowRegular {
+  @apply text-light-green;
+}
+
+.ctaEyebrowMask {
+  @apply font-bold text-dark-blue;
+}
+
+.ctaTitle {
+  @apply max-w-2xl text-3xl font-normal uppercase leading-tight tracking-tight sm:text-5xl md:text-6xl;
+}
+
+.ctaTitleRegular {
+  @apply text-white;
+}
+
+.ctaTitleMask {
+  @apply text-dark-blue;
+}
+
+.ctaDescription {
+  @apply mt-4 max-w-lg text-sm leading-relaxed sm:text-base;
+}
+
+.ctaDescriptionRegular {
+  @apply text-white/60;
+}
+
+.ctaDescriptionMask {
+  @apply text-dark-blue/80;
+}
+
+.ctaButtonWrapper {
+  @apply mt-8;
+}
+
+.ctaButton {
+  @apply inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-semibold shadow-xl transition-all duration-300 sm:text-base;
+}
+
+.ctaButtonRegular {
+  @apply bg-light-green text-dark-blue hover:shadow-light-green/20;
+}
+
+.ctaButtonMask {
+  @apply bg-dark-blue text-light-green hover:shadow-dark-blue/20;
 }

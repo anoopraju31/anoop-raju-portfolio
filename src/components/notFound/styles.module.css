@@ -1,41 +1,41 @@
 .body,
 .mask {
-	@apply m-0 h-screen w-full flex flex-col items-center justify-center px-5 py-8;
+  @apply m-0 flex h-screen w-full flex-col items-center justify-center px-5 py-8;
 }
 
 .body::-webkit-scrollbar,
 .mask::-webkit-scrollbar {
-	@apply hidden;
+  @apply hidden;
 }
 
 .mask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .body {
-	@apply text-white;
+  @apply text-white;
 }
 
 .container {
-	@apply text-center;
+  @apply text-center;
 }
 
 .heading {
-	@apply font-extrabold text-[200px] md:text-[272px] leading-none;
+  @apply text-[200px] font-extrabold leading-none md:text-[272px];
 }
 
 .desc {
-	@apply mb-8 font-semibold text-2xl mdlg:text-3xl;
+  @apply mb-8 text-2xl font-semibold mdlg:text-3xl;
 }
 
 .link {
-	@apply px-8 py-3 font-semibold rounded;
+  @apply rounded px-8 py-3 font-semibold;
 }
 
 .body .link {
-	@apply bg-light-green text-dark-blue;
+  @apply bg-light-green text-dark-blue;
 }
 
 .mask .link {
-	@apply bg-dark-blue text-light-green;
+  @apply bg-dark-blue text-light-green;
 }

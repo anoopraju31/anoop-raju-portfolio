@@ -1,36 +1,141 @@
-.card,
-.card__mask {
-	@apply flex flex-col gap-3;
+/* Blog Card Base Styles */
+.cardLink {
+  @apply block h-full select-none;
 }
 
-.card__mask {
-	@apply text-dark-blue;
+.card {
+  @apply relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border p-6 transition-all duration-500 sm:p-7;
+}
+
+.cardRegular {
+  @apply border-white/10 bg-white/[0.03] text-white hover:border-light-green/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-light-green/[0.08];
+}
+
+.cardMask {
+  @apply border-dark-blue/20 bg-dark-blue/[0.06] text-dark-blue hover:border-dark-blue;
+}
+
+/* Card Media / Image Header */
+.mediaContainer {
+  @apply relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border transition-all duration-500;
+}
+
+.mediaRegular {
+  @apply border-white/10 bg-black/30;
+}
+
+.mediaMask {
+  @apply border-dark-blue/20 bg-dark-blue/10;
+}
+
+.image {
+  @apply h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105;
+}
+
+.imageMask {
+  @apply h-full w-full select-none object-cover transition-transform duration-700 ease-out group-hover:scale-105;
+  filter: invert(1) !important;
+  -webkit-filter: invert(1) !important;
+  opacity: 1 !important;
+}
+
+.fallbackCover {
+  @apply relative flex h-full w-full items-center justify-center overflow-hidden;
+}
+
+.fallbackCoverRegular {
+  @apply bg-gradient-to-br from-white/[0.05] via-transparent to-light-green/[0.08];
+}
+
+.fallbackCoverMask {
+  @apply bg-gradient-to-br from-dark-blue/[0.05] via-transparent to-dark-blue/[0.12];
+  filter: invert(1) !important;
+  -webkit-filter: invert(1) !important;
+}
+
+/* Meta Pill Header */
+.metaHeader {
+  @apply mb-4 flex items-center justify-between gap-2;
 }
 
 .badge {
-	@apply flex justify-center items-center rounded-2xl px-2 py-1 border leading-none w-fit;
+  @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs font-medium leading-none tracking-wide;
 }
 
-.card .badge {
-	@apply border-white;
+.badgeRegular {
+  @apply border-light-green/30 bg-light-green/[0.08] text-light-green;
 }
 
-.card__mask .badge {
-	@apply border-dark-blue;
+.badgeMask {
+  @apply border-dark-blue/30 bg-dark-blue/10 font-bold text-dark-blue;
 }
 
-.card__title {
-	@apply text-2xl md:text-3xl mdlg:text-4xl font-bold leading-none;
+.readTime {
+  @apply flex items-center gap-1 font-mono text-xs tracking-wider;
 }
 
-.card__date {
-	@apply text-base;
+.readTimeRegular {
+  @apply text-white/50;
 }
 
-.card .card__date {
-	@apply text-gray-400;
+.readTimeMask {
+  @apply font-medium text-dark-blue/70;
 }
 
-.card__mask .card__date {
-	@apply text-dark-blue;
+/* Title & Body */
+.contentArea {
+  @apply flex flex-grow flex-col gap-2;
+}
+
+.title {
+  @apply text-xl font-bold leading-snug tracking-tight transition-colors duration-200 sm:text-2xl;
+}
+
+.titleRegular {
+  @apply text-white group-hover:text-light-green;
+}
+
+.titleMask {
+  @apply text-dark-blue group-hover:opacity-80;
+}
+
+/* Card Footer */
+.footer {
+  @apply mt-6 flex items-center justify-between border-t pt-5 font-mono text-xs transition-colors duration-300 sm:text-sm;
+}
+
+.footerRegular {
+  @apply border-white/10 text-white/50;
+}
+
+.footerMask {
+  @apply border-dark-blue/15 text-dark-blue/70;
+}
+
+.date {
+  @apply flex items-center gap-1.5;
+}
+
+.dateDot {
+  @apply h-1.5 w-1.5 rounded-full;
+}
+
+.dateDotRegular {
+  @apply bg-light-green/60;
+}
+
+.dateDotMask {
+  @apply bg-dark-blue/60;
+}
+
+.actionArrow {
+  @apply flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 group-hover:scale-110;
+}
+
+.actionArrowRegular {
+  @apply border-white/15 bg-white/[0.04] text-white group-hover:border-light-green group-hover:bg-light-green group-hover:text-dark-blue;
+}
+
+.actionArrowMask {
+  @apply border-dark-blue/20 bg-dark-blue/10 text-dark-blue group-hover:border-dark-blue group-hover:bg-dark-blue group-hover:text-light-green;
 }

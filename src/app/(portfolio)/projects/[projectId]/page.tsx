@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ProjectDetailPage = () => {
-	return <div>ProjectDetailPage</div>
-}
+  return <div>ProjectDetailPage</div>;
+};
 
-export default ProjectDetailPage
+export default ProjectDetailPage;

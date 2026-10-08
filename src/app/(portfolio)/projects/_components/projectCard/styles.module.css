@@ -1,58 +1,221 @@
-.product__card,
-.mask__product__card {
-	@apply inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl;
+/* Base Card Container */
+.cardWrapper {
+  @apply flex w-full flex-col transition-all duration-300;
+}
+
+/* Browser Window Chrome */
+.chromeBar {
+  @apply flex items-center justify-between rounded-t-2xl border-x border-t px-4 py-3 transition-colors duration-300;
+}
+
+.chromeBarRegular {
+  @apply border-white/10 bg-white/[0.04] text-white/50 backdrop-blur-md;
+}
+
+.chromeBarMask {
+  @apply border-dark-blue/20 bg-dark-blue/[0.08] text-dark-blue/70;
+}
+
+.windowDots {
+  @apply flex items-center gap-1.5;
+}
+
+.windowDot {
+  @apply h-2.5 w-2.5 rounded-full;
+}
+
+.windowDotRed {
+  @apply bg-[#ff5f56]/70;
+}
+
+.windowDotYellow {
+  @apply bg-[#ffbd2e]/70;
+}
+
+.windowDotGreen {
+  @apply bg-[#27c93f]/70;
+}
+
+.windowUrl {
+  @apply max-w-[180px] truncate rounded-md px-2.5 py-0.5 font-mono text-[11px] tracking-wider sm:max-w-[280px] sm:text-xs;
+}
+
+.windowUrlRegular {
+  @apply border border-white/5 bg-black/30 text-white/40;
+}
+
+.windowUrlMask {
+  @apply border border-dark-blue/10 bg-dark-blue/10 text-dark-blue/70;
+}
+
+/* Image Showcase Container */
+.imageFrame {
+  @apply relative w-full cursor-none overflow-hidden rounded-b-2xl border-x border-b transition-all duration-500;
+}
+
+.imageFrameRegular {
+  @apply border-white/10 bg-black/40;
+}
+
+.imageFrameMask {
+  @apply border-dark-blue/20 bg-dark-blue/10;
+}
+
+.imageAspect {
+  @apply relative aspect-[16/10] w-full overflow-hidden sm:aspect-[16/9];
 }
 
 .img {
-	@apply w-screen duration-700 ease-in-out hover:scale-105;
+  @apply h-full w-full object-cover object-top transition-transform duration-700 ease-out;
 }
 
-.mask__product__card .img {
-	@apply opacity-0 -z-50;
+.imgMask {
+  @apply pointer-events-none h-full w-full select-none object-cover object-top;
+  opacity: 1 !important;
 }
 
-.container {
-	@apply mt-4 w-fit;
+/* Subtle Overlay Glow */
+.imageOverlay {
+  @apply pointer-events-none absolute inset-0 transition-opacity duration-300;
 }
 
-.tools__container {
-	@apply mb-3 flex space-x-2;
+.imageOverlayRegular {
+  @apply bg-gradient-to-t from-dark-blue/80 via-transparent to-transparent opacity-60 hover:opacity-20;
 }
 
-.tools__wrapper,
-.tools__wrapper__mask {
-	@apply flex items-center justify-center rounded-full border bg-transparent px-4 py-1 text-body-4;
+.imageOverlayMask {
+  @apply opacity-0;
 }
 
-.tools__container {
-	@apply text-white border-white;
+/* Floating Status Pill */
+.floatingBadge {
+  @apply pointer-events-none absolute right-3.5 top-3.5 z-10 flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider backdrop-blur-md sm:text-xs;
 }
 
-.tools__wrapper__mask {
-	@apply text-dark-blue border-dark-blue;
+.floatingBadgeRegular {
+  @apply border-light-green/30 bg-dark-blue/70 text-light-green;
 }
 
-.github,
-.mask__github {
-	@apply flex items-center justify-center rounded-full border bg-transparent p-1 px-2 text-body-4;
+.floatingBadgeMask {
+  @apply border-dark-blue/30 bg-light-green/90 text-dark-blue;
 }
 
-.mask__github {
-	@apply text-dark-blue border-dark-blue;
+/* Card Information Body */
+.detailsContainer {
+  @apply mt-6 flex flex-col gap-4;
 }
 
-.name__container {
-	@apply 2xl:space-y-3;
+.metaHeader {
+  @apply flex items-center justify-between font-mono text-xs uppercase tracking-widest sm:text-sm;
 }
 
-.project__name {
-	@apply text-works-title font-medium uppercase 2xl:text-5xl;
+.metaHeaderRegular {
+  @apply text-white/50;
 }
 
-.mask__product__card .project__name {
-	@apply text-dark-blue;
+.metaHeaderMask {
+  @apply text-dark-blue/70;
 }
 
-.product__card .project__name {
-	@apply text-white;
+.numberBadge {
+  @apply font-bold text-light-green;
+}
+
+.numberBadgeMask {
+  @apply font-bold text-dark-blue;
+}
+
+.categoryPill {
+  @apply rounded-full border px-3 py-1 text-xs tracking-normal;
+}
+
+.categoryPillRegular {
+  @apply border-white/15 bg-white/[0.03] text-white/70;
+}
+
+.categoryPillMask {
+  @apply border-dark-blue/20 bg-dark-blue/5 text-dark-blue;
+}
+
+/* Title & Narrative */
+.titleGroup {
+  @apply flex flex-col gap-1;
+}
+
+.projectName {
+  @apply text-2xl font-semibold uppercase tracking-tight transition-colors duration-200 sm:text-3xl lg:text-4xl;
+}
+
+.projectNameRegular {
+  @apply text-white;
+}
+
+.projectNameMask {
+  @apply text-dark-blue;
+}
+
+.projectSubtitle {
+  @apply text-sm font-normal tracking-wide sm:text-base;
+}
+
+.projectSubtitleRegular {
+  @apply font-mono text-light-green/90;
+}
+
+.projectSubtitleMask {
+  @apply font-mono text-dark-blue/80;
+}
+
+.projectDescription {
+  @apply text-sm leading-relaxed sm:text-base;
+}
+
+.projectDescriptionRegular {
+  @apply text-white/65;
+}
+
+.projectDescriptionMask {
+  @apply text-dark-blue/85;
+}
+
+/* Tech Stack Tags */
+.tagsContainer {
+  @apply flex flex-wrap gap-2 pt-1;
+}
+
+.tagPill {
+  @apply rounded-full border px-3 py-1 font-mono text-[11px] transition-colors duration-200 sm:text-xs;
+}
+
+.tagPillRegular {
+  @apply border-white/10 bg-white/[0.02] text-white/75 hover:border-light-green/40 hover:text-white;
+}
+
+.tagPillMask {
+  @apply border-dark-blue/25 bg-dark-blue/[0.05] font-medium text-dark-blue;
+}
+
+/* Action Links & Buttons */
+.actionsRow {
+  @apply flex items-center gap-3 pt-2;
+}
+
+.actionButton {
+  @apply inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-xs font-medium transition-all duration-300 hover:scale-[1.03] sm:text-sm;
+}
+
+.actionPrimaryRegular {
+  @apply border-light-green bg-light-green font-semibold text-dark-blue shadow-lg shadow-light-green/10 hover:shadow-light-green/20;
+}
+
+.actionPrimaryMask {
+  @apply border-dark-blue bg-dark-blue font-semibold text-light-green;
+}
+
+.actionSecondaryRegular {
+  @apply border-white/15 bg-white/[0.03] text-white hover:border-white/40 hover:bg-white/[0.08];
+}
+
+.actionSecondaryMask {
+  @apply border-dark-blue/30 bg-transparent text-dark-blue hover:border-dark-blue hover:bg-dark-blue/10;
 }

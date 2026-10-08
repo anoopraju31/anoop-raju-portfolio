@@ -1,7 +1,31 @@
 .container {
-	@apply inline-flex items-center;
+  @apply mx-2 inline-flex items-center sm:mx-4;
+}
+
+.text {
+  @apply font-bold uppercase leading-none tracking-tight text-dark-blue transition-opacity duration-300;
 }
 
 .seperator {
-	@apply rounded-full mx-[10px] md:mx-5 w-[15px] md:w-[25px] lg:w-[50px] h-[15px] md:h-[25px] lg:h-[50px] bg-dark-blue;
+  @apply mx-3 inline-flex items-center justify-center sm:mx-5 md:mx-8;
+}
+
+.arrowBadge {
+  @apply flex h-8 w-8 items-center justify-center rounded-full border-2 border-dark-blue/25 text-dark-blue transition-all duration-500 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20;
+}
+
+.arrowIcon {
+  @apply text-base transition-transform duration-500 sm:text-2xl md:text-3xl lg:text-4xl;
+}
+
+:global(.group):hover .arrowBadge {
+  @apply border-dark-blue bg-dark-blue text-light-green;
+}
+
+:global(.group):hover .arrowIcon {
+  transform: rotate(45deg);
+}
+
+:global(.group):hover .text {
+  opacity: 0.85;
 }
