@@ -4,8 +4,10 @@ import { Gantari } from 'next/font/google'
 import { useEffect, useRef, useState, type FC } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { FiArrowUpRight, FiArrowUp, FiCopy, FiCheck, FiMail } from 'react-icons/fi'
-import { toast } from 'sonner'
+import { FiArrowUpRight, FiArrowUp,
+	//  FiCopy, FiCheck, FiMail
+	 } from 'react-icons/fi'
+// import { toast } from 'sonner'
 
 import FooterScrollText from './footerScrollText'
 import FooterLink from './footerLink'
@@ -27,7 +29,7 @@ const Footer: FC = () => {
 	const [isCursorInside, setIsCursorInside] = useState(false)
 	const [isInteractiveHovered, setIsInteractiveHovered] = useState(false)
 	const [hoveredLinkIndex, setHoveredLinkIndex] = useState<number | null>(null)
-	const [copiedEmail, setCopiedEmail] = useState(false)
+	// const [copiedEmail, setCopiedEmail] = useState(false)
 	const [liveTime, setLiveTime] = useState('')
 	const footerRef = useRef<HTMLElement | null>(null)
 
@@ -82,13 +84,13 @@ const Footer: FC = () => {
 		}
 	}, [isCursorInside])
 
-	const handleCopyEmail = (e: React.MouseEvent) => {
-		e.preventDefault()
-		navigator.clipboard.writeText('anoop2019@iiitkottayam.ac.in')
-		setCopiedEmail(true)
-		toast.success('Email copied to clipboard!')
-		setTimeout(() => setCopiedEmail(false), 2200)
-	}
+	// const handleCopyEmail = (e: React.MouseEvent) => {
+	// 	e.preventDefault()
+	// 	navigator.clipboard.writeText('anoop2019@iiitkottayam.ac.in')
+	// 	setCopiedEmail(true)
+	// 	toast.success('Email copied to clipboard!')
+	// 	setTimeout(() => setCopiedEmail(false), 2200)
+	// }
 
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -155,9 +157,9 @@ const Footer: FC = () => {
 						{/* Magnetic CTA Button */}
 						<div className='w-fit'>
 							<MagneticContainer>
-								<Link href='/contact' className={styles['contact-button']}>
+								<Link href='/contact' className={`${styles['contact-button']} group`}>
 									<span>Contact Me</span>
-									<FiArrowUpRight className='text-3xl sm:text-5xl transition-transform duration-500 hover:rotate-45' />
+									<FiArrowUpRight className='text-3xl sm:text-5xl transition-transform duration-500 group-hover:rotate-45' />
 								</Link>
 							</MagneticContainer>
 						</div>
