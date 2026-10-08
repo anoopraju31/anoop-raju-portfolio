@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useScroll } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 import Lenis from '@studio-freight/lenis';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import { projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice';
+import { slideToView } from '@/utills/animations';
 import HorizontalSlide from './components/horizontalSlide/HorizontalSlide';
 import VerticalSlide from './components/veticalSlide/VerticalSlide';
 import { projects } from '@/utills/constants';
@@ -34,7 +36,14 @@ const ProjectsMain = () => {
   });
 
   return (
-    <section ref={container} className={styles.projects}>
+    <motion.section
+      variants={slideToView}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      ref={container}
+      className={styles.projects}
+    >
       {/* For Large Screen */}
       <div className={styles.container}>
         {projects.map(({ id, img, name, year, deployedUrl }) => {
@@ -78,7 +87,7 @@ const ProjectsMain = () => {
           <FiArrowRight size={18} className={styles.arrowIcon} />
         </Link>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

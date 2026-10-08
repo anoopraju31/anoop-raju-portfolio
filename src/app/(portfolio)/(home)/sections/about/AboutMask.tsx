@@ -33,9 +33,7 @@ const AboutMask: FC = () => {
                 priority
               />
             </div>
-            <p className={cn(styles.imageCaption, styles.imageCaptionMask)}>
-              Kerala, IN &bull; SDE @ Infigon Futures
-            </p>
+            <p className={cn(styles.imageCaption, styles.imageCaptionMask)}>Kerala, IN &bull; SDE @ Infigon Futures</p>
           </div>
 
           {/* Story Column */}
