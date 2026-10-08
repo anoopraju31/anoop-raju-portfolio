@@ -16,10 +16,10 @@ const HorizontalSlideMask = (props: SlideLgMaskProps) => {
 	const cardId = useAppSelector((state) => state.projectCardHover.cardId)
 
 	const handleCardHoverStart = () => {
-		if (!cardId) dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
+		if (cardId !== id) dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
 	}
 	const handleCardHoverEnd = () => dispatch(projectCardMouseLeave())
-	const handleClick = () => window.open(deployedUrl)
+	const handleClick = () => window.open(deployedUrl, '_blank', 'noopener,noreferrer')
 	const initial = { opacity: 0, y: 0, width: '20vw' }
 	const animateOnhover = { width: '100vw' }
 	const transition = { duration: 0.4, ease: 'easeOut' }

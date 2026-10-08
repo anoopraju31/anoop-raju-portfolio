@@ -1,15 +1,98 @@
 .outter-container {
-	@apply w-full h-screen flex justify-center items-center sticky top-0;
+	@apply w-full h-[85vh] sm:h-screen flex justify-center items-center sticky top-0 px-3 sm:px-4;
 }
 
 .inner-container {
-	@apply w-full h-[80%] relative rounded-2xl;
+	@apply w-full max-w-[480px] h-[66vh] sm:h-[72vh] relative rounded-3xl overflow-hidden border shadow-2xl transition-all duration-300 flex flex-col justify-between;
 }
 
+.inner-container-regular {
+	@apply border-white/15 bg-dark-blue/90 shadow-black/80 text-white backdrop-blur-xl;
+}
+
+.inner-container-mask {
+	@apply border-dark-blue/20 bg-white shadow-black/20 text-dark-blue;
+}
+
+/* Header Bar */
+.card-header {
+	@apply relative z-20 flex items-center justify-between p-4 sm:p-5;
+}
+
+.index-pill {
+	@apply inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-xs uppercase tracking-wider border;
+}
+
+.index-pill-regular {
+	@apply border-white/15 bg-dark-blue/60 backdrop-blur-md text-white/80;
+}
+
+.index-pill-mask {
+	@apply border-dark-blue/20 bg-white/70 backdrop-blur-md text-dark-blue/80 font-bold;
+}
+
+.pulse-dot-regular {
+	@apply w-1.5 h-1.5 rounded-full bg-light-green animate-pulse;
+}
+
+.pulse-dot-mask {
+	@apply w-1.5 h-1.5 rounded-full bg-dark-blue animate-pulse;
+}
+
+.year-badge-regular {
+	@apply font-mono text-xs tracking-wider border border-white/10 bg-dark-blue/60 backdrop-blur-md text-white/60 px-2.5 py-1 rounded-full;
+}
+
+.year-badge-mask {
+	@apply font-mono text-xs tracking-wider border border-dark-blue/15 bg-white/70 backdrop-blur-md text-dark-blue/70 px-2.5 py-1 rounded-full font-semibold;
+}
+
+/* Image Background Frame */
 .img-container {
-	@apply w-full h-full;
+	@apply absolute inset-0 w-full h-full overflow-hidden;
 }
 
 .img {
-	@apply w-full h-full object-cover relative rounded-2xl;
+	@apply w-full h-full object-cover;
+}
+
+.img-overlay-regular {
+	@apply absolute inset-0 bg-gradient-to-t from-dark-blue via-dark-blue/50 to-dark-blue/30 z-10;
+}
+
+.img-overlay-mask {
+	@apply absolute inset-0 bg-gradient-to-t from-white via-white/60 to-white/40 z-10;
+}
+
+/* Bottom Content Area */
+.card-footer {
+	@apply relative z-20 p-5 sm:p-6 flex flex-col gap-3;
+}
+
+.card-title {
+	@apply text-2xl sm:text-3xl font-bold uppercase tracking-tight leading-tight;
+}
+
+.card-title-regular {
+	@apply text-white;
+}
+
+.card-title-mask {
+	@apply text-dark-blue;
+}
+
+.action-button {
+	@apply inline-flex items-center justify-between gap-2.5 px-4 sm:px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider border transition-all duration-300 w-fit select-none;
+}
+
+.action-button-regular {
+	@apply border-light-green/40 bg-light-green/10 text-light-green hover:bg-light-green hover:text-dark-blue;
+}
+
+.action-button-mask {
+	@apply border-dark-blue/40 bg-dark-blue/10 text-dark-blue hover:bg-dark-blue hover:text-light-green font-bold;
+}
+
+.action-arrow {
+	@apply text-sm transition-transform duration-300;
 }

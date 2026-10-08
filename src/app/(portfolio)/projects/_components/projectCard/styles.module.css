@@ -50,7 +50,7 @@
 
 /* Image Showcase Container */
 .imageFrame {
-	@apply relative w-full overflow-hidden border-x border-b transition-all duration-500 rounded-b-2xl cursor-pointer;
+	@apply relative w-full overflow-hidden border-x border-b transition-all duration-500 rounded-b-2xl cursor-none;
 }
 
 .imageFrameRegular {
@@ -71,8 +71,6 @@
 
 .imgMask {
 	@apply object-cover object-top w-full h-full select-none pointer-events-none;
-	filter: invert(1) !important;
-	-webkit-filter: invert(1) !important;
 	opacity: 1 !important;
 }
 

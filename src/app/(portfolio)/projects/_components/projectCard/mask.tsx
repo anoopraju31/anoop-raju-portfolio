@@ -35,7 +35,11 @@ const MaskProductCard: FC<ProjectCardProps> = ({
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
 	const isHovered = currentCardId === id
 
-	const handleMouseMove = () => dispatch(projectCardMouseEnter({ cardId: id, link }))
+	const handleMouseMove = () => {
+		if (currentCardId !== id) {
+			dispatch(projectCardMouseEnter({ cardId: id, link }))
+		}
+	}
 	const handleMouseLeaveImg = () => dispatch(projectCardMouseLeave())
 	const handleClick = () => {
 		if (link) window.open(link, '_blank', 'noopener,noreferrer')

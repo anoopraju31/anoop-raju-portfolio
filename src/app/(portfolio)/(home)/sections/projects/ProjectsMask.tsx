@@ -37,12 +37,16 @@ const ProjectsMask = () => {
 		<div ref={container} className={styles.projects}>
 			{/* Mask for small screen */}
 			<div className={styles.container}>
-				{projects.map(({ id }) => {
+				{projects.map(({ id, img, name, year, deployedUrl }) => {
 					const targetScale = 1 - (projects.length - id) * 0.05
 					return (
 						<VerticalSlideMask
 							key={id}
 							id={id}
+							img={img}
+							name={name}
+							year={year}
+							deployedUrl={deployedUrl}
 							progress={scrollYProgress}
 							range={[id * 0.16, 1]}
 							targetScale={targetScale}

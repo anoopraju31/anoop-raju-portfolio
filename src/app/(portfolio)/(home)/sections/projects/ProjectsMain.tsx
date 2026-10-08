@@ -34,13 +34,16 @@ const ProjectsMain = () => {
 		<section ref={container} className={styles.projects}>
 			{/* For Large Screen */}
 			<div className={styles.container}>
-				{projects.map(({ id, img }) => {
+				{projects.map(({ id, img, name, year, deployedUrl }) => {
 					const targetScale = 1 - (projects.length - id) * 0.05
 					return (
 						<VerticalSlide
 							key={id}
 							id={id}
 							img={img}
+							name={name}
+							year={year}
+							deployedUrl={deployedUrl}
 							progress={scrollYProgress}
 							range={[id * 0.16, 1]}
 							targetScale={targetScale}
