@@ -1,7 +1,11 @@
 .outter-container {
-	@apply w-full py-[15px] overflow-hidden  text-dark-blue font-extrabold uppercase tracking-[0.01em] leading-none whitespace-nowrap text-[10vw] md:text-[15vw];
+	@apply block w-full py-5 sm:py-7 md:py-9 overflow-hidden text-dark-blue leading-none whitespace-nowrap text-[9vw] sm:text-[11vw] md:text-[13vw] select-none cursor-none;
 }
 
 .inner-container {
-	@apply inline-block min-w-full animate-marquee;
+	@apply inline-flex items-center min-w-full animate-marquee;
+}
+
+:global(.group):hover .inner-container {
+	animation-play-state: paused;
 }

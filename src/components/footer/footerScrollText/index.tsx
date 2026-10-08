@@ -1,9 +1,17 @@
+import { Gantari } from 'next/font/google'
+import Link from 'next/link'
 import ScrollText from './scrollText'
 import styles from './styles.module.css'
 
+const gantari = Gantari({ weight: '400', subsets: ['latin'] })
+
 const FooterScrollText = () => {
 	return (
-		<div className={styles['outter-container']}>
+		<Link
+			href='/contact'
+			className={`group ${styles['outter-container']} ${gantari.className}`}
+			title="Let's talk - Get in touch"
+		>
 			<div className={styles['inner-container']}>
 				<ScrollText text="Let's talk" />
 				<ScrollText text="Let's talk" />
@@ -18,7 +26,7 @@ const FooterScrollText = () => {
 				<ScrollText text="Let's talk" />
 				<ScrollText text="Let's talk" />
 			</div>
-		</div>
+		</Link>
 	)
 }
 
