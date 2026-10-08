@@ -79,7 +79,7 @@ const RegularPage: FC = () => {
                 copyable
               />
 
-              <ContactWrapper id="location" label="Location" content="Bengaluru & Kerala, India" icon={<FiMapPin />} />
+              <ContactWrapper id="location" label="Location" content="Pathanamthitta, Kerala, India" icon={<FiMapPin />} />
             </div>
 
             {/* Social Media Links */}

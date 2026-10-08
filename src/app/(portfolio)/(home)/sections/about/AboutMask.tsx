@@ -34,7 +34,7 @@ const AboutMask: FC = () => {
               />
             </div>
             <p className={cn(styles.imageCaption, styles.imageCaptionMask)}>
-              Bengaluru, IN &bull; SDE @ Infigon Futures
+              Kerala, IN &bull; SDE @ Infigon Futures
             </p>
           </div>
 

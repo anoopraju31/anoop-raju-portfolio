@@ -45,7 +45,7 @@ const NavMenu: FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [localTime, setLocalTime] = useState('');
 
-  // Keep Bengaluru (IST) live clock updated
+  // Keep Kerala (IST) live clock updated
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -177,7 +177,7 @@ const NavMenu: FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span>BENGALURU, IN {localTime ? `• ${localTime} IST` : ''}</span>
+            <span>KERALA, IN {localTime ? `• ${localTime} IST` : ''}</span>
             <span className="hidden opacity-40 sm:inline">|</span>
             <span className="hidden sm:inline">[ 04 DESTINATIONS ]</span>
           </div>

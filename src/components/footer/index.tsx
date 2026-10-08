@@ -36,7 +36,7 @@ const Footer: FC = () => {
   const [liveTime, setLiveTime] = useState('');
   const footerRef = useRef<HTMLElement | null>(null);
 
-  // Live Bengaluru Clock
+  // Live Kerala Clock
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -250,7 +250,7 @@ const Footer: FC = () => {
 
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-dark-blue" />
-          <span>BENGALURU, INDIA {liveTime ? `• ${liveTime} IST` : ''}</span>
+          <span>Kerala, INDIA {liveTime ? `• ${liveTime} IST` : ''}</span>
         </div>
 
         <div className="w-fit">

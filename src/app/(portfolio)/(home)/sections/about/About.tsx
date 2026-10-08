@@ -23,7 +23,7 @@ const About: FC = () => {
               />
             </div>
             <p className={cn(styles.imageCaption, styles.imageCaptionRegular)}>
-              Bengaluru, IN &bull; SDE @ Infigon Futures
+              Kerala, IN &bull; SDE @ Infigon Futures
             </p>
           </div>
 
