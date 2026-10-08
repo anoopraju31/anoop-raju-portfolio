@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 type Props = { children: ReactNode }
 
 const slotDelays = [0.65, 0.73, 0.81, 0.89, 0.97]
-const slotNumbers = ['01', '02', '03', '04', '05']
+// const slotNumbers = ['01', '02', '03', '04', '05']
 const slotTags = ['DESIGN', 'ENGINEER', 'INTERACT', 'MOTION', 'CRAFT']
 
 export default function PageTransitionLoader({ children }: Props) {
@@ -105,11 +105,12 @@ export default function PageTransitionLoader({ children }: Props) {
 									delay,
 									ease: [0.76, 0, 0.24, 1]
 								}}
-								className='w-1/5 h-full bg-light-green relative border-r border-dark-blue/10 last:border-r-0 shadow-[0_25px_50px_rgba(0,0,0,0.25)] flex flex-col justify-between p-4 sm:p-6'
+								// shadow-[0_25px_50px_rgba(0,0,0,0.25)] border-r border-dark-blue/10 last:border-r-0 
+								className='w-1/5 h-full bg-light-green relative flex flex-col justify-between p-4 sm:p-6'
 							>
 								{/* Top Slot Index */}
 								<span className='font-mono text-[11px] sm:text-xs text-dark-blue/35 font-bold'>
-									[{slotNumbers[index]}]
+									{/* [{slotNumbers[index]}] */}
 								</span>
 
 								{/* Bottom Architectural Tag */}
