@@ -76,7 +76,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				{featured && (
 					<div className={`${styles.floatingBadge} ${styles.floatingBadgeRegular}`}>
 						<span className='w-1.5 h-1.5 rounded-full bg-light-green animate-ping' />
-						<span>Featured Case Study</span>
+						<span>Featured</span>
 					</div>
 				)}
 
