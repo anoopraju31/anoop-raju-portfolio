@@ -78,7 +78,7 @@ const VerticalSlideMask: FC<VerticalSlideMaskProps> = (props) => {
 				>
 					<div className={`${styles['index-pill']} ${styles['index-pill-mask']}`}>
 						<span className={styles['pulse-dot-mask']} />
-						<span>[{indexStr} // FEATURED]</span>
+						<span>[{indexStr} {'//'} FEATURED]</span>
 					</div>
 
 					{year && (

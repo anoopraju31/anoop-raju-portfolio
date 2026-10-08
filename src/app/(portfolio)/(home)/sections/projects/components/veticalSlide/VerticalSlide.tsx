@@ -45,7 +45,7 @@ const VerticalSlide: FC<VerticalSlideProps> = (props) => {
 				<div className={styles['card-header']}>
 					<div className={`${styles['index-pill']} ${styles['index-pill-regular']}`}>
 						<span className={styles['pulse-dot-regular']} />
-						<span>[{indexStr} // FEATURED]</span>
+						<span>[{indexStr} {'//'} FEATURED]</span>
 					</div>
 
 					{year && (
