@@ -3,7 +3,8 @@
 }
 
 .main-text,
-.mask-text {
+.mask-text,
+.main-text-mask {
 	@apply text-skill-sm md:text-skill leading-none font-extrabold whitespace-nowrap;
 }
 
@@ -13,4 +14,8 @@
 
 .main-text {
 	@apply opacity-10;
+}
+
+.main-text-mask {
+	@apply opacity-100;
 }

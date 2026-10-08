@@ -1,5 +1,4 @@
 import { type FC } from 'react'
-import { PT_Sans } from 'next/font/google'
 import SkillItem from '../skillItem/SkillItem'
 import styles from './styles.module.css'
 
@@ -7,23 +6,29 @@ type Props = {
 	title: string
 	description: string
 	skills: string[]
+	index?: number
 }
 
-const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
+const SkillsContainer: FC<Props> = ({ title, description, skills, index = 1 }) => {
+	const indexStr = String(index).padStart(2, '0')
 
-const SkillsContainer: FC<Props> = ({ title, description, skills }) => {
 	return (
 		<div className={styles['text-container']}>
-			<div className={`${styles['left-text-outter-container']} ${ptSans.className}`}>
+			<div className={styles['left-text-outter-container']}>
 				<div className={styles['left-text-inner-container']}>
-					<h3 className={styles['left-text-container-header']}>{title}</h3>
-					<p className={styles['left-text-container-body']}>{description}</p>
+					<div className={styles['index-tag-regular']}>[{indexStr}] &bull; FOCUS</div>
+					<h3 className={`${styles['left-text-container-header']} ${styles['left-header-regular']}`}>
+						{title}
+					</h3>
+					<p className={`${styles['left-text-container-body']} ${styles['left-body-regular']}`}>
+						{description}
+					</p>
 				</div>
 			</div>
 
 			<div className={styles['skills-container']}>
-				{skills.map((service, index) => (
-					<SkillItem key={index} skill={service} />
+				{skills.map((skill, idx) => (
+					<SkillItem key={idx} skill={skill} />
 				))}
 			</div>
 		</div>

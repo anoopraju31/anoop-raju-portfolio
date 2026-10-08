@@ -1,5 +1,6 @@
+'use client'
+
 import { type FC } from 'react'
-import { PT_Sans } from 'next/font/google'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import SkillItemMask from '../skillItem/SkillItemMask'
@@ -9,31 +10,38 @@ type Props = {
 	title: string
 	description: string
 	skills: string[]
+	index?: number
 }
 
-const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
-
-const SkillsContainerMask: FC<Props> = ({ title, description, skills }) => {
+const SkillsContainerMask: FC<Props> = ({ title, description, skills, index = 1 }) => {
 	const dispatch = useAppDispatch()
+	const indexStr = String(index).padStart(2, '0')
 
 	const handleMouseEnter = () => dispatch(mouseEnter())
 	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
 		<div className={styles['text-container']}>
-			<div className={`${styles['left-text-outter-container']} ${ptSans.className}`}>
+			<div className={styles['left-text-outter-container']}>
 				<div className={styles['left-text-inner-container']}>
+					<div
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+						className={styles['index-tag-mask']}
+					>
+						[{indexStr}] &bull; FOCUS
+					</div>
 					<h3
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						className={styles['left-text-container-header']}
+						className={`${styles['left-text-container-header']} ${styles['left-header-mask']}`}
 					>
 						{title}
 					</h3>
 					<p
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						className={styles['left-text-container-body']}
+						className={`${styles['left-text-container-body']} ${styles['left-body-mask']}`}
 					>
 						{description}
 					</p>
@@ -41,8 +49,8 @@ const SkillsContainerMask: FC<Props> = ({ title, description, skills }) => {
 			</div>
 
 			<div className={styles['skills-container']}>
-				{skills.map((service, index) => (
-					<SkillItemMask key={index} skill={service} />
+				{skills.map((skill, idx) => (
+					<SkillItemMask key={idx} skill={skill} />
 				))}
 			</div>
 		</div>

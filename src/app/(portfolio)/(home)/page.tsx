@@ -6,7 +6,8 @@ import MaskPage from './MaskPage'
 import RegularPage from './RegularPage'
 
 export default async function Home() {
-	const blogsData: Blogs[] = await (await sanityFetch({ query: AllBlogsQuery2 })).data.slice(0, 3)
+	const blogsData: Blogs[] = [];
+	// await (await sanityFetch({ query: AllBlogsQuery2 })).data.slice(0, 3)
 
 	return (
 		<main className='bg-dark-blue text-white relative'>

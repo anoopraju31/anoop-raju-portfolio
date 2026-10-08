@@ -3,6 +3,7 @@
 import { type FC } from 'react'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
+import styles from './skillItem.module.css'
 
 type Props = {
 	skill: string
@@ -15,13 +16,13 @@ const SkillItemMask: FC<Props> = ({ skill }) => {
 	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
-		<p
+		<div
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			className='text-skill-sm md:text-skill leading-none font-extrabold'
+			className={styles.container}
 		>
-			{skill}
-		</p>
+			<p className={styles['main-text-mask']}>{skill}</p>
+		</div>
 	)
 }
 
