@@ -1,127 +1,127 @@
 .section {
-	@apply py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8;
+  @apply px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-28;
 }
 
 .container {
-	@apply max-w-[1280px] mx-auto;
+  @apply mx-auto max-w-[1280px];
 }
 
 .gridContainer {
-	@apply grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center;
+  @apply grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-12 lg:gap-16;
 }
 
 /* Image Column */
 .imageWrapper {
-	@apply md:col-span-5 flex flex-col gap-3.5;
+  @apply flex flex-col gap-3.5 md:col-span-5;
 }
 
 .imageFrame {
-	@apply relative w-full aspect-[4/5] max-w-[400px] mx-auto md:mx-0 rounded-2xl sm:rounded-3xl overflow-hidden border shadow-xl;
+  @apply relative mx-auto aspect-[4/5] w-full max-w-[400px] overflow-hidden rounded-2xl border shadow-xl sm:rounded-3xl md:mx-0;
 }
 
 .imageFrameRegular {
-	@apply border-white bg-white;
+  @apply border-white bg-white;
 }
 
 .imageFrameMask {
-	@apply border-dark-blue bg-dark-blue;
+  @apply border-dark-blue bg-dark-blue;
 }
 
 .image {
-	@apply w-full h-full object-cover;
+  @apply h-full w-full object-cover;
 }
 
 .imageCaption {
-	@apply font-mono text-xs tracking-wider uppercase text-center md:text-left select-none;
+  @apply select-none text-center font-mono text-xs uppercase tracking-wider md:text-left;
 }
 
 .imageCaptionRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .imageCaptionMask {
-	@apply text-dark-blue font-semibold;
+  @apply font-semibold text-dark-blue;
 }
 
 /* Content Column */
 .contentWrapper {
-	@apply md:col-span-7 flex flex-col text-left;
+  @apply flex flex-col text-left md:col-span-7;
 }
 
 .tagline {
-	@apply font-mono text-xs uppercase tracking-wider mb-3 select-none flex items-center gap-2;
+  @apply mb-3 flex select-none items-center gap-2 font-mono text-xs uppercase tracking-wider;
 }
 
 .taglineRegular {
-	@apply text-light-green font-semibold;
+  @apply font-semibold text-light-green;
 }
 
 .taglineMask {
-	@apply text-dark-blue font-bold;
+  @apply font-bold text-dark-blue;
 }
 
 .heading {
-	@apply text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight leading-none mb-6;
+  @apply mb-6 text-4xl font-bold uppercase leading-none tracking-tight sm:text-5xl lg:text-6xl;
 }
 
 .headingRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .headingMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .headingDotRegular {
-	@apply text-light-green;
+  @apply text-light-green;
 }
 
 .headingDotMask {
-	@apply text-dark-blue opacity-50;
+  @apply text-dark-blue opacity-50;
 }
 
 .paragraphs {
-	@apply flex flex-col gap-4 text-base sm:text-lg leading-relaxed;
+  @apply flex flex-col gap-4 text-base leading-relaxed sm:text-lg;
 }
 
 .paragraphRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .paragraphMask {
-	@apply text-dark-blue font-normal;
+  @apply font-normal text-dark-blue;
 }
 
 .linkContainer {
-	@apply mt-6 pt-6 border-t flex items-center gap-6;
+  @apply mt-6 flex items-center gap-6 border-t pt-6;
 
-	.arrowIcon {
-		@apply transition-all duration-300;
-	}
+  .arrowIcon {
+    @apply transition-all duration-300;
+  }
 
-	&:hover {
-		.arrowIcon {
-			@apply rotate-45;
-		}
-	}
+  &:hover {
+    .arrowIcon {
+      @apply rotate-45;
+    }
+  }
 }
 
 .linkContainerRegular {
-	@apply border-white;
+  @apply border-white;
 }
 
 .linkContainerMask {
-	@apply border-dark-blue;
+  @apply border-dark-blue;
 }
 
 .contactLink {
-	@apply inline-flex items-center gap-2 font-mono text-xs sm:text-sm uppercase tracking-wider transition-all duration-300;
+  @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider transition-all duration-300 sm:text-sm;
 }
 
 .contactLinkRegular {
-	@apply text-light-green;
+  @apply text-light-green;
 }
 
 .contactLinkMask {
-	@apply text-dark-blue font-bold;
+  @apply font-bold text-dark-blue;
 }

@@ -1,144 +1,144 @@
 /* Experience Accordion Card Styles */
 .card {
-	@apply w-full rounded-2xl sm:rounded-3xl border p-6 sm:p-8 transition-colors duration-300 text-left select-none;
+  @apply w-full select-none rounded-2xl border p-6 text-left transition-colors duration-300 sm:rounded-3xl sm:p-8;
 }
 
 .cardRegular {
-	@apply bg-white/[0.02] border-white/10 hover:border-light-green/40 hover:bg-white/[0.04] text-white shadow-lg shadow-black/20;
+  @apply border-white/10 bg-white/[0.02] text-white shadow-lg shadow-black/20 hover:border-light-green/40 hover:bg-white/[0.04];
 }
 
 .cardMask {
-	@apply bg-dark-blue/[0.05] border-dark-blue/20 hover:border-dark-blue text-dark-blue;
+  @apply border-dark-blue/20 bg-dark-blue/[0.05] text-dark-blue hover:border-dark-blue;
 }
 
 /* Header Trigger Area */
 .accordionHeader {
-	@apply w-full flex items-start sm:items-center justify-between gap-4 cursor-pointer;
+  @apply flex w-full cursor-pointer items-start justify-between gap-4 sm:items-center;
 }
 
 .leftInfo {
-	@apply flex flex-col gap-2.5;
+  @apply flex flex-col gap-2.5;
 }
 
 .indexRow {
-	@apply flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider;
+  @apply flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider;
 }
 
 .indexNumberRegular {
-	@apply text-light-green font-bold;
+  @apply font-bold text-light-green;
 }
 
 .indexNumberMask {
-	@apply text-dark-blue font-bold;
+  @apply font-bold text-dark-blue;
 }
 
 .companyName {
-	@apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight uppercase leading-none text-left;
+  @apply text-left text-2xl font-semibold uppercase leading-none tracking-tight sm:text-3xl lg:text-4xl;
 }
 
 .companyNameRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .companyNameMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 /* Meta Pills: Role & Duration */
 .metaPillsRow {
-	@apply flex flex-wrap items-center gap-2.5 pt-1;
+  @apply flex flex-wrap items-center gap-2.5 pt-1;
 }
 
 .rolePill {
-	@apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs sm:text-sm font-mono border leading-none;
+  @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs leading-none sm:text-sm;
 }
 
 .rolePillRegular {
-	@apply border-light-green/30 bg-light-green/[0.08] text-light-green font-medium;
+  @apply border-light-green/30 bg-light-green/[0.08] font-medium text-light-green;
 }
 
 .rolePillMask {
-	@apply border-dark-blue/30 bg-dark-blue/10 text-dark-blue font-bold;
+  @apply border-dark-blue/30 bg-dark-blue/10 font-bold text-dark-blue;
 }
 
 .roleDot {
-	@apply w-1.5 h-1.5 rounded-full;
+  @apply h-1.5 w-1.5 rounded-full;
 }
 
 .roleDotRegular {
-	@apply bg-light-green animate-pulse;
+  @apply animate-pulse bg-light-green;
 }
 
 .roleDotMask {
-	@apply bg-dark-blue animate-pulse;
+  @apply animate-pulse bg-dark-blue;
 }
 
 .durationPill {
-	@apply font-mono text-xs sm:text-sm tracking-wider;
+  @apply font-mono text-xs tracking-wider sm:text-sm;
 }
 
 .durationRegular {
-	@apply text-white/50;
+  @apply text-white/50;
 }
 
 .durationMask {
-	@apply text-dark-blue/70 font-medium;
+  @apply font-medium text-dark-blue/70;
 }
 
 /* Toggle Button Icon */
 .toggleButton {
-	@apply flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center transition-all duration-300;
+  @apply flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 sm:h-12 sm:w-12;
 }
 
 .toggleButtonRegular {
-	@apply border-white/15 bg-white/[0.04] text-white hover:border-light-green hover:bg-light-green hover:text-dark-blue;
+  @apply border-white/15 bg-white/[0.04] text-white hover:border-light-green hover:bg-light-green hover:text-dark-blue;
 }
 
 .toggleButtonMask {
-	@apply border-dark-blue/25 bg-dark-blue/10 text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
+  @apply border-dark-blue/25 bg-dark-blue/10 text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
 }
 
 /* Expandable Body */
 .bodyWrapper {
-	@apply overflow-hidden;
+  @apply overflow-hidden;
 }
 
 .bodyContent {
-	@apply pt-6 border-t flex flex-col gap-3;
+  @apply flex flex-col gap-3 border-t pt-6;
 }
 
 .bodyContentRegular {
-	@apply border-white/10;
+  @apply border-white/10;
 }
 
 .bodyContentMask {
-	@apply border-dark-blue/15;
+  @apply border-dark-blue/15;
 }
 
 .achievementsList {
-	@apply flex flex-col gap-3 text-sm sm:text-base leading-relaxed;
+  @apply flex flex-col gap-3 text-sm leading-relaxed sm:text-base;
 }
 
 .achievementItem {
-	@apply flex items-start gap-3;
+  @apply flex items-start gap-3;
 }
 
 .bulletIcon {
-	@apply flex-shrink-0 mt-1.5 text-xs;
+  @apply mt-1.5 flex-shrink-0 text-xs;
 }
 
 .bulletIconRegular {
-	@apply text-light-green;
+  @apply text-light-green;
 }
 
 .bulletIconMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .achievementTextRegular {
-	@apply text-white/80;
+  @apply text-white/80;
 }
 
 .achievementTextMask {
-	@apply text-dark-blue font-normal;
+  @apply font-normal text-dark-blue;
 }

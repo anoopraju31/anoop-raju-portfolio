@@ -1,11 +1,11 @@
-import PageTransitionLoader from '@/components/pageTransitionLoader'
+import PageTransitionLoader from '@/components/pageTransitionLoader';
 
 type Props = {
-	children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function RootLayout(props: Props) {
-	const { children } = props
+  const { children } = props;
 
-	return <PageTransitionLoader>{children}</PageTransitionLoader>
+  return <PageTransitionLoader>{children}</PageTransitionLoader>;
 }

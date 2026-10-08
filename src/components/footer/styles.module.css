@@ -1,31 +1,31 @@
 .footer {
-	@apply bg-light-green h-full text-dark-blue overflow-hidden relative cursor-none select-none;
+  @apply relative h-full cursor-none select-none overflow-hidden bg-light-green text-dark-blue;
 }
 
 .divider {
-	@apply h-[1.5px] bg-dark-blue/30 w-full;
+  @apply h-[1.5px] w-full bg-dark-blue/30;
 }
 
 .outter-container {
-	@apply max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 bg-light-green h-full py-12 md:py-20;
+  @apply mx-auto h-full max-w-[1400px] bg-light-green px-6 py-12 sm:px-10 md:px-14 md:py-20 lg:px-20;
 }
 
 .inner-container {
-	@apply grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start;
+  @apply grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16;
 }
 
 .contact-me-wrapper {
-	@apply lg:col-span-6 flex flex-col space-y-8;
+  @apply flex flex-col space-y-8 lg:col-span-6;
 }
 
 .footer-links-container {
-	@apply lg:col-span-6 flex flex-col space-y-2;
+  @apply flex flex-col space-y-2 lg:col-span-6;
 }
 
 .contact-button {
-	@apply inline-flex items-center gap-4 px-8 sm:px-12 py-4 sm:py-6 rounded-full border-2 border-dark-blue uppercase font-bold text-3xl sm:text-5xl lg:text-6xl leading-none cursor-none bg-transparent text-dark-blue hover:bg-dark-blue hover:text-light-green transition-all duration-500 shadow-sm active:scale-95;
+  @apply inline-flex cursor-none items-center gap-4 rounded-full border-2 border-dark-blue bg-transparent px-8 py-4 text-3xl font-bold uppercase leading-none text-dark-blue shadow-sm transition-all duration-500 hover:bg-dark-blue hover:text-light-green active:scale-95 sm:px-12 sm:py-6 sm:text-5xl lg:text-6xl;
 }
 
 .bottom-bar {
-	@apply max-w-[1400px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono tracking-wider text-dark-blue/70;
+  @apply mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-8 font-mono text-xs tracking-wider text-dark-blue/70 sm:flex-row sm:px-10 md:px-14 lg:px-20;
 }

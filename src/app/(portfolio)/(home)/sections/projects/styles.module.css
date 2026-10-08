@@ -1,37 +1,37 @@
 .projects {
-	@apply mdlg:mb-10 z-30 cursor-none relative mdlg:top-0 px-4;
+  @apply relative z-30 cursor-none px-4 mdlg:top-0 mdlg:mb-10;
 }
 
 .container {
-	@apply relative mdlg:hidden;
+  @apply relative mdlg:hidden;
 }
 
 .container-mdlg {
-	@apply hidden mdlg:h-full mdlg:flex mdlg:gap-4;
+  @apply hidden mdlg:flex mdlg:h-full mdlg:gap-4;
 }
 
 .all-projects-container {
-	@apply py-8 sm:py-12 mdlg:py-16 flex justify-center items-center;
+  @apply flex items-center justify-center py-8 sm:py-12 mdlg:py-16;
 }
 
 .all-projects-link-body,
 .all-projects-link-mask {
-	@apply mt-24 mdlg:mt-0 inline-flex items-center gap-3 px-8 py-4 rounded-full font-mono text-sm sm:text-base uppercase tracking-wider border transition-all duration-300 select-none cursor-none;
+  @apply mt-24 inline-flex cursor-none select-none items-center gap-3 rounded-full border px-8 py-4 font-mono text-sm uppercase tracking-wider transition-all duration-300 sm:text-base mdlg:mt-0;
 }
 
 .all-projects-link-body {
-	@apply border-white/20 bg-white/[0.03] text-white hover:border-light-green hover:bg-light-green/[0.08] hover:text-light-green shadow-lg shadow-black/20;
+  @apply border-white/20 bg-white/[0.03] text-white shadow-lg shadow-black/20 hover:border-light-green hover:bg-light-green/[0.08] hover:text-light-green;
 }
 
 .all-projects-link-mask {
-	@apply border-dark-blue/30 bg-dark-blue/[0.06] text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
+  @apply border-dark-blue/30 bg-dark-blue/[0.06] text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
 }
 
 .arrowIcon {
-	@apply transition-transform duration-300;
+  @apply transition-transform duration-300;
 }
 
 .all-projects-link-body:hover .arrowIcon,
 .all-projects-link-mask:hover .arrowIcon {
-	transform: translateX(6px);
+  transform: translateX(6px);
 }

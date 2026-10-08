@@ -1,31 +1,31 @@
-import type { FC, InputHTMLAttributes } from 'react'
+import type { FC, InputHTMLAttributes } from 'react';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
-	form?: string
-	label?: string
-}
+  form?: string;
+  label?: string;
+};
 
 const InputField: FC<Props> = ({ form, label, id, className, ...rest }) => {
-	const displayLabel = label || form
+  const displayLabel = label || form;
 
-	return (
-		<div className='w-full relative z-0 group'>
-			<input
-				id={id}
-				placeholder=' '
-				className={`block py-3 px-0 w-full text-base sm:text-lg text-white bg-transparent border-0 border-b-2 border-white/20 appearance-none focus:outline-none focus:ring-0 focus:border-light-green peer transition-colors duration-300 ${className || ''}`}
-				{...rest}
-			/>
-			{displayLabel && (
-				<label
-					htmlFor={id}
-					className='absolute text-sm sm:text-base text-white/50 duration-300 transform -translate-y-6 scale-75 top-3.5 origin-[0] pointer-events-none peer-focus:start-0 peer-focus:text-light-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 font-mono tracking-wider uppercase'
-				>
-					{displayLabel}
-				</label>
-			)}
-		</div>
-	)
-}
+  return (
+    <div className="group relative z-0 w-full">
+      <input
+        id={id}
+        placeholder=" "
+        className={`peer block w-full appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg ${className || ''}`}
+        {...rest}
+      />
+      {displayLabel && (
+        <label
+          htmlFor={id}
+          className="pointer-events-none absolute top-3.5 origin-[0] -translate-y-6 scale-75 transform font-mono text-sm uppercase tracking-wider text-white/50 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-light-green sm:text-base"
+        >
+          {displayLabel}
+        </label>
+      )}
+    </div>
+  );
+};
 
-export default InputField
+export default InputField;

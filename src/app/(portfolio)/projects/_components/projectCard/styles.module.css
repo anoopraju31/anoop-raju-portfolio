@@ -1,221 +1,221 @@
 /* Base Card Container */
 .cardWrapper {
-	@apply w-full flex flex-col transition-all duration-300;
+  @apply flex w-full flex-col transition-all duration-300;
 }
 
 /* Browser Window Chrome */
 .chromeBar {
-	@apply flex items-center justify-between px-4 py-3 rounded-t-2xl border-t border-x transition-colors duration-300;
+  @apply flex items-center justify-between rounded-t-2xl border-x border-t px-4 py-3 transition-colors duration-300;
 }
 
 .chromeBarRegular {
-	@apply bg-white/[0.04] border-white/10 text-white/50 backdrop-blur-md;
+  @apply border-white/10 bg-white/[0.04] text-white/50 backdrop-blur-md;
 }
 
 .chromeBarMask {
-	@apply bg-dark-blue/[0.08] border-dark-blue/20 text-dark-blue/70;
+  @apply border-dark-blue/20 bg-dark-blue/[0.08] text-dark-blue/70;
 }
 
 .windowDots {
-	@apply flex items-center gap-1.5;
+  @apply flex items-center gap-1.5;
 }
 
 .windowDot {
-	@apply w-2.5 h-2.5 rounded-full;
+  @apply h-2.5 w-2.5 rounded-full;
 }
 
 .windowDotRed {
-	@apply bg-[#ff5f56]/70;
+  @apply bg-[#ff5f56]/70;
 }
 
 .windowDotYellow {
-	@apply bg-[#ffbd2e]/70;
+  @apply bg-[#ffbd2e]/70;
 }
 
 .windowDotGreen {
-	@apply bg-[#27c93f]/70;
+  @apply bg-[#27c93f]/70;
 }
 
 .windowUrl {
-	@apply font-mono text-[11px] sm:text-xs tracking-wider truncate max-w-[180px] sm:max-w-[280px] px-2.5 py-0.5 rounded-md;
+  @apply max-w-[180px] truncate rounded-md px-2.5 py-0.5 font-mono text-[11px] tracking-wider sm:max-w-[280px] sm:text-xs;
 }
 
 .windowUrlRegular {
-	@apply bg-black/30 text-white/40 border border-white/5;
+  @apply border border-white/5 bg-black/30 text-white/40;
 }
 
 .windowUrlMask {
-	@apply bg-dark-blue/10 text-dark-blue/70 border border-dark-blue/10;
+  @apply border border-dark-blue/10 bg-dark-blue/10 text-dark-blue/70;
 }
 
 /* Image Showcase Container */
 .imageFrame {
-	@apply relative w-full overflow-hidden border-x border-b transition-all duration-500 rounded-b-2xl cursor-none;
+  @apply relative w-full cursor-none overflow-hidden rounded-b-2xl border-x border-b transition-all duration-500;
 }
 
 .imageFrameRegular {
-	@apply border-white/10 bg-black/40;
+  @apply border-white/10 bg-black/40;
 }
 
 .imageFrameMask {
-	@apply border-dark-blue/20 bg-dark-blue/10;
+  @apply border-dark-blue/20 bg-dark-blue/10;
 }
 
 .imageAspect {
-	@apply relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden;
+  @apply relative aspect-[16/10] w-full overflow-hidden sm:aspect-[16/9];
 }
 
 .img {
-	@apply object-cover object-top w-full h-full transition-transform duration-700 ease-out;
+  @apply h-full w-full object-cover object-top transition-transform duration-700 ease-out;
 }
 
 .imgMask {
-	@apply object-cover object-top w-full h-full select-none pointer-events-none;
-	opacity: 1 !important;
+  @apply pointer-events-none h-full w-full select-none object-cover object-top;
+  opacity: 1 !important;
 }
 
 /* Subtle Overlay Glow */
 .imageOverlay {
-	@apply absolute inset-0 pointer-events-none transition-opacity duration-300;
+  @apply pointer-events-none absolute inset-0 transition-opacity duration-300;
 }
 
 .imageOverlayRegular {
-	@apply bg-gradient-to-t from-dark-blue/80 via-transparent to-transparent opacity-60 hover:opacity-20;
+  @apply bg-gradient-to-t from-dark-blue/80 via-transparent to-transparent opacity-60 hover:opacity-20;
 }
 
 .imageOverlayMask {
-	@apply opacity-0;
+  @apply opacity-0;
 }
 
 /* Floating Status Pill */
 .floatingBadge {
-	@apply absolute top-3.5 right-3.5 font-mono text-[10px] sm:text-xs uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md pointer-events-none flex items-center gap-1.5 z-10;
+  @apply pointer-events-none absolute right-3.5 top-3.5 z-10 flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider backdrop-blur-md sm:text-xs;
 }
 
 .floatingBadgeRegular {
-	@apply bg-dark-blue/70 text-light-green border-light-green/30;
+  @apply border-light-green/30 bg-dark-blue/70 text-light-green;
 }
 
 .floatingBadgeMask {
-	@apply bg-light-green/90 text-dark-blue border-dark-blue/30;
+  @apply border-dark-blue/30 bg-light-green/90 text-dark-blue;
 }
 
 /* Card Information Body */
 .detailsContainer {
-	@apply mt-6 flex flex-col gap-4;
+  @apply mt-6 flex flex-col gap-4;
 }
 
 .metaHeader {
-	@apply flex items-center justify-between text-xs sm:text-sm font-mono tracking-widest uppercase;
+  @apply flex items-center justify-between font-mono text-xs uppercase tracking-widest sm:text-sm;
 }
 
 .metaHeaderRegular {
-	@apply text-white/50;
+  @apply text-white/50;
 }
 
 .metaHeaderMask {
-	@apply text-dark-blue/70;
+  @apply text-dark-blue/70;
 }
 
 .numberBadge {
-	@apply font-bold text-light-green;
+  @apply font-bold text-light-green;
 }
 
 .numberBadgeMask {
-	@apply font-bold text-dark-blue;
+  @apply font-bold text-dark-blue;
 }
 
 .categoryPill {
-	@apply px-3 py-1 rounded-full text-xs border tracking-normal;
+  @apply rounded-full border px-3 py-1 text-xs tracking-normal;
 }
 
 .categoryPillRegular {
-	@apply border-white/15 text-white/70 bg-white/[0.03];
+  @apply border-white/15 bg-white/[0.03] text-white/70;
 }
 
 .categoryPillMask {
-	@apply border-dark-blue/20 text-dark-blue bg-dark-blue/5;
+  @apply border-dark-blue/20 bg-dark-blue/5 text-dark-blue;
 }
 
 /* Title & Narrative */
 .titleGroup {
-	@apply flex flex-col gap-1;
+  @apply flex flex-col gap-1;
 }
 
 .projectName {
-	@apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight uppercase transition-colors duration-200;
+  @apply text-2xl font-semibold uppercase tracking-tight transition-colors duration-200 sm:text-3xl lg:text-4xl;
 }
 
 .projectNameRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .projectNameMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .projectSubtitle {
-	@apply text-sm sm:text-base font-normal tracking-wide;
+  @apply text-sm font-normal tracking-wide sm:text-base;
 }
 
 .projectSubtitleRegular {
-	@apply text-light-green/90 font-mono;
+  @apply font-mono text-light-green/90;
 }
 
 .projectSubtitleMask {
-	@apply text-dark-blue/80 font-mono;
+  @apply font-mono text-dark-blue/80;
 }
 
 .projectDescription {
-	@apply text-sm sm:text-base leading-relaxed;
+  @apply text-sm leading-relaxed sm:text-base;
 }
 
 .projectDescriptionRegular {
-	@apply text-white/65;
+  @apply text-white/65;
 }
 
 .projectDescriptionMask {
-	@apply text-dark-blue/85;
+  @apply text-dark-blue/85;
 }
 
 /* Tech Stack Tags */
 .tagsContainer {
-	@apply flex flex-wrap gap-2 pt-1;
+  @apply flex flex-wrap gap-2 pt-1;
 }
 
 .tagPill {
-	@apply text-[11px] sm:text-xs font-mono px-3 py-1 rounded-full border transition-colors duration-200;
+  @apply rounded-full border px-3 py-1 font-mono text-[11px] transition-colors duration-200 sm:text-xs;
 }
 
 .tagPillRegular {
-	@apply bg-white/[0.02] border-white/10 text-white/75 hover:border-light-green/40 hover:text-white;
+  @apply border-white/10 bg-white/[0.02] text-white/75 hover:border-light-green/40 hover:text-white;
 }
 
 .tagPillMask {
-	@apply bg-dark-blue/[0.05] border-dark-blue/25 text-dark-blue font-medium;
+  @apply border-dark-blue/25 bg-dark-blue/[0.05] font-medium text-dark-blue;
 }
 
 /* Action Links & Buttons */
 .actionsRow {
-	@apply flex items-center gap-3 pt-2;
+  @apply flex items-center gap-3 pt-2;
 }
 
 .actionButton {
-	@apply inline-flex items-center gap-2 text-xs sm:text-sm font-medium px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03];
+  @apply inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-xs font-medium transition-all duration-300 hover:scale-[1.03] sm:text-sm;
 }
 
 .actionPrimaryRegular {
-	@apply bg-light-green text-dark-blue font-semibold border-light-green shadow-lg shadow-light-green/10 hover:shadow-light-green/20;
+  @apply border-light-green bg-light-green font-semibold text-dark-blue shadow-lg shadow-light-green/10 hover:shadow-light-green/20;
 }
 
 .actionPrimaryMask {
-	@apply bg-dark-blue text-light-green font-semibold border-dark-blue;
+  @apply border-dark-blue bg-dark-blue font-semibold text-light-green;
 }
 
 .actionSecondaryRegular {
-	@apply bg-white/[0.03] text-white border-white/15 hover:border-white/40 hover:bg-white/[0.08];
+  @apply border-white/15 bg-white/[0.03] text-white hover:border-white/40 hover:bg-white/[0.08];
 }
 
 .actionSecondaryMask {
-	@apply bg-transparent text-dark-blue border-dark-blue/30 hover:border-dark-blue hover:bg-dark-blue/10;
+  @apply border-dark-blue/30 bg-transparent text-dark-blue hover:border-dark-blue hover:bg-dark-blue/10;
 }

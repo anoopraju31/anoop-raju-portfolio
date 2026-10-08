@@ -1,33 +1,33 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const useFooterScrollOverViewport = () => {
-	const [isFooterCrossedViewport, setIsFooterCrossedViewport] = useState<boolean>(false)
+  const [isFooterCrossedViewport, setIsFooterCrossedViewport] = useState<boolean>(false);
 
-	useEffect(() => {
-		const footer = document.getElementById('footer')
+  useEffect(() => {
+    const footer = document.getElementById('footer');
 
-		const footerRect = footer?.getBoundingClientRect()
+    const footerRect = footer?.getBoundingClientRect();
 
-		if (!footerRect) return
+    if (!footerRect) return;
 
-		setIsFooterCrossedViewport(footerRect.top <= 74)
+    setIsFooterCrossedViewport(footerRect.top <= 74);
 
-		const handleHeaderColorChangeOnScroll = () => {
-			const footerRect = footer?.getBoundingClientRect()
+    const handleHeaderColorChangeOnScroll = () => {
+      const footerRect = footer?.getBoundingClientRect();
 
-			if (!footerRect) return
+      if (!footerRect) return;
 
-			setIsFooterCrossedViewport(footerRect.top <= 74)
-		}
+      setIsFooterCrossedViewport(footerRect.top <= 74);
+    };
 
-		document.addEventListener('scroll', handleHeaderColorChangeOnScroll)
+    document.addEventListener('scroll', handleHeaderColorChangeOnScroll);
 
-		return () => document.removeEventListener('scroll', handleHeaderColorChangeOnScroll)
-	}, [])
+    return () => document.removeEventListener('scroll', handleHeaderColorChangeOnScroll);
+  }, []);
 
-	return isFooterCrossedViewport
-}
+  return isFooterCrossedViewport;
+};
 
-export default useFooterScrollOverViewport
+export default useFooterScrollOverViewport;

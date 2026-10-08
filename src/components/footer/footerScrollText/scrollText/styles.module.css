@@ -1,31 +1,31 @@
 .container {
-	@apply inline-flex items-center mx-2 sm:mx-4;
+  @apply mx-2 inline-flex items-center sm:mx-4;
 }
 
 .text {
-	@apply font-bold uppercase tracking-tight text-dark-blue leading-none transition-opacity duration-300;
+  @apply font-bold uppercase leading-none tracking-tight text-dark-blue transition-opacity duration-300;
 }
 
 .seperator {
-	@apply inline-flex items-center justify-center mx-3 sm:mx-5 md:mx-8;
+  @apply mx-3 inline-flex items-center justify-center sm:mx-5 md:mx-8;
 }
 
 .arrowBadge {
-	@apply w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full border-2 border-dark-blue/25 flex items-center justify-center transition-all duration-500 text-dark-blue;
+  @apply flex h-8 w-8 items-center justify-center rounded-full border-2 border-dark-blue/25 text-dark-blue transition-all duration-500 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20;
 }
 
 .arrowIcon {
-	@apply text-base sm:text-2xl md:text-3xl lg:text-4xl transition-transform duration-500;
+  @apply text-base transition-transform duration-500 sm:text-2xl md:text-3xl lg:text-4xl;
 }
 
 :global(.group):hover .arrowBadge {
-	@apply border-dark-blue bg-dark-blue text-light-green;
+  @apply border-dark-blue bg-dark-blue text-light-green;
 }
 
 :global(.group):hover .arrowIcon {
-	transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 :global(.group):hover .text {
-	opacity: 0.85;
+  opacity: 0.85;
 }

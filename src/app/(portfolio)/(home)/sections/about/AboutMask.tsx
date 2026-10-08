@@ -1,115 +1,98 @@
-'use client'
+'use client';
 
-import { type FC } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FiArrowUpRight } from 'react-icons/fi'
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
-import styles from './about.module.css'
+import { type FC } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FiArrowUpRight } from 'react-icons/fi';
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import styles from './about.module.css';
 
 const AboutMask: FC = () => {
-	const dispatch = useAppDispatch()
-	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
+  const dispatch = useAppDispatch();
+  const currentCardId = useAppSelector((state) => state.projectCardHover.cardId);
 
-	const handleMouseEnter = () => dispatch(mouseEnter())
-	const handleMouseLeave = () => dispatch(mouseLeave())
+  const handleMouseEnter = () => dispatch(mouseEnter());
+  const handleMouseLeave = () => dispatch(mouseLeave());
 
-	return (
-		<div className={`${styles.section} ${currentCardId ? 'invisible' : ''}`} aria-label='about me mask'>
-			<div className={styles.container}>
-				<div className={styles.gridContainer}>
-					{/* Portrait Column */}
-					<div
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-						className={styles.imageWrapper}
-					>
-						<div className={`${styles.imageFrame} ${styles.imageFrameMask}`}>
-							<Image
-								src='/anoop-raju.jpg'
-								alt='Anoop Raju'
-								width={500}
-								height={625}
-								className={`${styles.image} filter invert`}
-								priority
-							/>
-						</div>
-						<p className={`${styles.imageCaption} ${styles.imageCaptionMask}`}>
-							Bengaluru, IN &bull; SDE @ Infigon Futures
-						</p>
-					</div>
+  return (
+    <div className={`${styles.section} ${currentCardId ? 'invisible' : ''}`} aria-label="about me mask">
+      <div className={styles.container}>
+        <div className={styles.gridContainer}>
+          {/* Portrait Column */}
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.imageWrapper}>
+            <div className={`${styles.imageFrame} ${styles.imageFrameMask}`}>
+              <Image
+                src="/anoop-raju.jpg"
+                alt="Anoop Raju"
+                width={500}
+                height={625}
+                className={`${styles.image} invert filter`}
+                priority
+              />
+            </div>
+            <p className={`${styles.imageCaption} ${styles.imageCaptionMask}`}>
+              Bengaluru, IN &bull; SDE @ Infigon Futures
+            </p>
+          </div>
 
-					{/* Story Column */}
-					<div className={styles.contentWrapper}>
-						<div
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className={`${styles.tagline} ${styles.taglineMask}`}
-						>
-							<span>[ 02 // BACKGROUND ]</span>
-						</div>
+          {/* Story Column */}
+          <div className={styles.contentWrapper}>
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`${styles.tagline} ${styles.taglineMask}`}
+            >
+              <span>[ 02 // BACKGROUND ]</span>
+            </div>
 
-						<div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-							<h2 className={`${styles.heading} ${styles.headingMask}`}>
-								About Me<span className={styles.headingDotMask}>.</span>
-							</h2>
-						</div>
+            <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <h2 className={`${styles.heading} ${styles.headingMask}`}>
+                About Me<span className={styles.headingDotMask}>.</span>
+              </h2>
+            </div>
 
-						<div className={styles.paragraphs}>
-							<p
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-								className={styles.paragraphMask}
-							>
-								Hello! I&apos;m <strong className='text-dark-blue font-bold'>Anoop Raju</strong>,
-								a passionate Software Developer specialized in building sleek, scalable frontend
-								applications. With an eye for clean UI design and a dedication to seamless user
-								experiences, I turn ideas into visually engaging, functional digital realities.
-							</p>
+            <div className={styles.paragraphs}>
+              <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.paragraphMask}>
+                Hello! I&apos;m <strong className="font-bold text-dark-blue">Anoop Raju</strong>, a passionate Software
+                Developer specialized in building sleek, scalable frontend applications. With an eye for clean UI design
+                and a dedication to seamless user experiences, I turn ideas into visually engaging, functional digital
+                realities.
+              </p>
 
-							<p
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-								className={styles.paragraphMask}
-							>
-								As a graduate of the{' '}
-								<strong className='text-dark-blue font-bold'>
-									Indian Institute of Information Technology, Kottayam
-								</strong>
-								, I&apos;ve honed my craft in both the theoretical and practical foundations of web
-								engineering. Currently crafting frontend solutions at Infigon Futures, I focus on
-								modern React ecosystems, TypeScript, performance, and modular design.
-							</p>
+              <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.paragraphMask}>
+                As a graduate of the{' '}
+                <strong className="font-bold text-dark-blue">
+                  Indian Institute of Information Technology, Kottayam
+                </strong>
+                , I&apos;ve honed my craft in both the theoretical and practical foundations of web engineering.
+                Currently crafting frontend solutions at Infigon Futures, I focus on modern React ecosystems,
+                TypeScript, performance, and modular design.
+              </p>
 
-							<p
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-								className={styles.paragraphMask}
-							>
-								When I&apos;m not coding, you&apos;ll find me exploring modern design trends,
-								experimenting with interactive web technologies, and finding creative ways to elevate
-								the digital experience.
-							</p>
-						</div>
+              <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.paragraphMask}>
+                When I&apos;m not coding, you&apos;ll find me exploring modern design trends, experimenting with
+                interactive web technologies, and finding creative ways to elevate the digital experience.
+              </p>
+            </div>
 
-						<div className={`${styles.linkContainer} ${styles.linkContainerMask}`}>
-							<Link
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-								href='/contact'
-								className={`${styles.contactLink} ${styles.contactLinkMask}`}
-							>
-								<span>Let&apos;s build something together</span>
-								<FiArrowUpRight size={16} className={styles.arrowIcon} />
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-}
+            <div className={`${styles.linkContainer} ${styles.linkContainerMask}`}>
+              <Link
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                href="/contact"
+                className={`${styles.contactLink} ${styles.contactLinkMask}`}
+              >
+                <span>Let&apos;s build something together</span>
+                <FiArrowUpRight size={16} className={styles.arrowIcon} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default AboutMask
+export default AboutMask;

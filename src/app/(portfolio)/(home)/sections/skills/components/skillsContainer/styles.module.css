@@ -1,47 +1,47 @@
 .text-container {
-	@apply grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-start select-none;
+  @apply grid select-none grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16 lg:gap-24;
 }
 
 .left-text-outter-container {
-	@apply md:sticky md:top-32;
+  @apply md:sticky md:top-32;
 }
 
 .left-text-inner-container {
-	@apply space-y-4 lg:space-y-6;
+  @apply space-y-4 lg:space-y-6;
 }
 
 .index-tag-regular {
-	@apply font-mono text-xs uppercase tracking-wider text-light-green font-bold select-none;
+  @apply select-none font-mono text-xs font-bold uppercase tracking-wider text-light-green;
 }
 
 .index-tag-mask {
-	@apply font-mono text-xs uppercase tracking-wider text-dark-blue font-bold select-none;
+  @apply select-none font-mono text-xs font-bold uppercase tracking-wider text-dark-blue;
 }
 
 .left-text-container-header {
-	@apply text-heading 2xl:text-6xl font-bold leading-tight uppercase tracking-tight;
+  @apply text-heading font-bold uppercase leading-tight tracking-tight 2xl:text-6xl;
 }
 
 .left-header-regular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .left-header-mask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .left-text-container-body {
-	@apply max-w-md xl:max-w-xl text-body 2xl:text-2xl leading-relaxed;
+  @apply max-w-md text-body leading-relaxed xl:max-w-xl 2xl:text-2xl;
 }
 
 .left-body-regular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .left-body-mask {
-	@apply text-dark-blue font-medium;
+  @apply font-medium text-dark-blue;
 }
 
 .skills-container {
-	@apply select-none leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem] flex flex-col;
+  @apply flex select-none flex-col leading-[2.3rem] md:leading-[2.5rem] lg:leading-[3.4rem];
 }

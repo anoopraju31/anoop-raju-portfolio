@@ -1,63 +1,63 @@
 export const maskAnimation = (x: number, y: number, size: number) => ({
-	WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-	WebkitMaskSize: `${size}px`
-})
+  WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+  WebkitMaskSize: `${size}px`,
+});
 export const maskInitialAnimation = {
-	WebkitMaskPosition: '-1000px -1000px',
-	WebkitMaskSize: '0px'
-}
+  WebkitMaskPosition: '-1000px -1000px',
+  WebkitMaskSize: '0px',
+};
 export const maskTransition = {
-	type: 'tween',
-	ease: 'backOut',
-	duration: 0.0001,
-	WebkitMaskSize: {
-		duration: 0.1,
-		type: 'spring',
-		damping: 15
-	}
-}
+  type: 'tween',
+  ease: 'backOut',
+  duration: 0.0001,
+  WebkitMaskSize: {
+    duration: 0.1,
+    type: 'spring',
+    damping: 15,
+  },
+};
 export const menuSlide = {
-	initial: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
-	enter: { y: 'calc(0% + 0px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
-	exit: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } }
-}
+  initial: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
+  enter: { y: 'calc(0% + 0px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
+  exit: { y: 'calc(100% + 100px)', transition: { duration: 0.8, ease: [0.73, 0.06, 0.42, 0.835] } },
+};
 
 export const showAnimation = {
-	initial: { opacity: 0 },
-	animate: {
-		opacity: 1
-	},
-	exit: {
-		opacity: 0
-	}
-}
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
 export const showTransition = {
-	duration: 1,
-	delay: 0.5,
-	ease: [0.73, 0.06, 0.42, 0.835]
-}
+  duration: 1,
+  delay: 0.5,
+  ease: [0.73, 0.06, 0.42, 0.835],
+};
 
 export const slideToView = {
-	initial: { opacity: 0 },
-	animate: {
-		opacity: 1,
-		transition: {
-			delay: 1.25,
-			duration: 1,
-			ease: [0.73, 0.06, 0.42, 0.835]
-		}
-	}
-}
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      delay: 1.25,
+      duration: 1,
+      ease: [0.73, 0.06, 0.42, 0.835],
+    },
+  },
+};
 
 export const panelVariants = {
-	open: {
-		opacity: 1,
-		width: '100%',
-		height: '100%'
-	},
-	closed: {
-		opacity: 0,
-		width: '100%',
-		height: '0%'
-	}
-}
+  open: {
+    opacity: 1,
+    width: '100%',
+    height: '100%',
+  },
+  closed: {
+    opacity: 0,
+    width: '100%',
+    height: '0%',
+  },
+};

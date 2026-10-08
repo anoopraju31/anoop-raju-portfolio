@@ -5,7 +5,6 @@ import { type LenisOptions } from 'lenis';
 import ReactLenis from 'lenis/react';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 
-
 type Props = {
   children: ReactNode;
 };

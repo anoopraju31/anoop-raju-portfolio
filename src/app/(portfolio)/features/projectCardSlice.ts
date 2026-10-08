@@ -1,30 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 type projectCardHover = {
-	cardId: number | null
-	link: string | null
-}
+  cardId: number | null;
+  link: string | null;
+};
 
 const initialState: projectCardHover = {
-	cardId: null,
-	link: null
-}
+  cardId: null,
+  link: null,
+};
 
 const projectCardhoverSlice = createSlice({
-	name: 'projectCardHover',
-	initialState,
-	reducers: {
-		projectCardMouseEnter: (state, action) => {
-			state.cardId = action.payload.cardId
-			state.link = action.payload.link
-		},
-		projectCardMouseLeave: (state) => {
-			state.cardId = null
-			state.link = null
-		}
-	}
-})
+  name: 'projectCardHover',
+  initialState,
+  reducers: {
+    projectCardMouseEnter: (state, action) => {
+      state.cardId = action.payload.cardId;
+      state.link = action.payload.link;
+    },
+    projectCardMouseLeave: (state) => {
+      state.cardId = null;
+      state.link = null;
+    },
+  },
+});
 
-export const { projectCardMouseEnter, projectCardMouseLeave } = projectCardhoverSlice.actions
+export const { projectCardMouseEnter, projectCardMouseLeave } = projectCardhoverSlice.actions;
 
-export default projectCardhoverSlice.reducer
+export default projectCardhoverSlice.reducer;

@@ -231,7 +231,7 @@ const Ferrofluid: React.FC<FerrofluidProps> = ({
   mouseStrength = 1,
   mouseRadius = 0.35,
   mouseDampening = 0.15,
-  mixBlendMode
+  mixBlendMode,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -249,7 +249,7 @@ const Ferrofluid: React.FC<FerrofluidProps> = ({
     const renderer = new Renderer({
       dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
       alpha: true,
-      antialias: true
+      antialias: true,
     });
     rendererRef.current = renderer;
     const gl = renderer.gl;
@@ -288,7 +288,7 @@ const Ferrofluid: React.FC<FerrofluidProps> = ({
       uOpacity: { value: opacity },
       uMouseEnabled: { value: mouseInteraction ? 1 : 0 },
       uMouseStrength: { value: mouseStrength },
-      uMouseRadius: { value: mouseRadius }
+      uMouseRadius: { value: mouseRadius },
     };
 
     const program = new Program(gl, { vertex, fragment, uniforms });
@@ -389,15 +389,15 @@ const Ferrofluid: React.FC<FerrofluidProps> = ({
     mouseInteraction,
     mouseStrength,
     mouseRadius,
-    mouseDampening
+    mouseDampening,
   ]);
 
   return (
     <div
       ref={containerRef}
-      className={`w-full h-full overflow-hidden fixed top-0 left-0 ${className ?? ''}`}
+      className={`fixed left-0 top-0 h-full w-full overflow-hidden ${className ?? ''}`}
       style={{
-        ...(mixBlendMode && { mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] })
+        ...(mixBlendMode && { mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }),
       }}
     />
   );

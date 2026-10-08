@@ -1,141 +1,141 @@
 /* Blog Card Base Styles */
 .cardLink {
-	@apply block h-full select-none;
+  @apply block h-full select-none;
 }
 
 .card {
-	@apply relative h-full flex flex-col justify-between rounded-3xl border p-6 sm:p-7 transition-all duration-500 overflow-hidden;
+  @apply relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border p-6 transition-all duration-500 sm:p-7;
 }
 
 .cardRegular {
-	@apply bg-white/[0.03] border-white/10 hover:border-light-green/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-light-green/[0.08] text-white;
+  @apply border-white/10 bg-white/[0.03] text-white hover:border-light-green/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-light-green/[0.08];
 }
 
 .cardMask {
-	@apply bg-dark-blue/[0.06] border-dark-blue/20 hover:border-dark-blue text-dark-blue;
+  @apply border-dark-blue/20 bg-dark-blue/[0.06] text-dark-blue hover:border-dark-blue;
 }
 
 /* Card Media / Image Header */
 .mediaContainer {
-	@apply relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border transition-all duration-500;
+  @apply relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border transition-all duration-500;
 }
 
 .mediaRegular {
-	@apply border-white/10 bg-black/30;
+  @apply border-white/10 bg-black/30;
 }
 
 .mediaMask {
-	@apply border-dark-blue/20 bg-dark-blue/10;
+  @apply border-dark-blue/20 bg-dark-blue/10;
 }
 
 .image {
-	@apply object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105;
+  @apply h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105;
 }
 
 .imageMask {
-	@apply object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 select-none;
-	filter: invert(1) !important;
-	-webkit-filter: invert(1) !important;
-	opacity: 1 !important;
+  @apply h-full w-full select-none object-cover transition-transform duration-700 ease-out group-hover:scale-105;
+  filter: invert(1) !important;
+  -webkit-filter: invert(1) !important;
+  opacity: 1 !important;
 }
 
 .fallbackCover {
-	@apply w-full h-full flex items-center justify-center relative overflow-hidden;
+  @apply relative flex h-full w-full items-center justify-center overflow-hidden;
 }
 
 .fallbackCoverRegular {
-	@apply bg-gradient-to-br from-white/[0.05] via-transparent to-light-green/[0.08];
+  @apply bg-gradient-to-br from-white/[0.05] via-transparent to-light-green/[0.08];
 }
 
 .fallbackCoverMask {
-	@apply bg-gradient-to-br from-dark-blue/[0.05] via-transparent to-dark-blue/[0.12];
-	filter: invert(1) !important;
-	-webkit-filter: invert(1) !important;
+  @apply bg-gradient-to-br from-dark-blue/[0.05] via-transparent to-dark-blue/[0.12];
+  filter: invert(1) !important;
+  -webkit-filter: invert(1) !important;
 }
 
 /* Meta Pill Header */
 .metaHeader {
-	@apply flex items-center justify-between gap-2 mb-4;
+  @apply mb-4 flex items-center justify-between gap-2;
 }
 
 .badge {
-	@apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide border leading-none;
+  @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs font-medium leading-none tracking-wide;
 }
 
 .badgeRegular {
-	@apply border-light-green/30 bg-light-green/[0.08] text-light-green;
+  @apply border-light-green/30 bg-light-green/[0.08] text-light-green;
 }
 
 .badgeMask {
-	@apply border-dark-blue/30 bg-dark-blue/10 text-dark-blue font-bold;
+  @apply border-dark-blue/30 bg-dark-blue/10 font-bold text-dark-blue;
 }
 
 .readTime {
-	@apply text-xs font-mono tracking-wider flex items-center gap-1;
+  @apply flex items-center gap-1 font-mono text-xs tracking-wider;
 }
 
 .readTimeRegular {
-	@apply text-white/50;
+  @apply text-white/50;
 }
 
 .readTimeMask {
-	@apply text-dark-blue/70 font-medium;
+  @apply font-medium text-dark-blue/70;
 }
 
 /* Title & Body */
 .contentArea {
-	@apply flex flex-col gap-2 flex-grow;
+  @apply flex flex-grow flex-col gap-2;
 }
 
 .title {
-	@apply text-xl sm:text-2xl font-bold tracking-tight leading-snug transition-colors duration-200;
+  @apply text-xl font-bold leading-snug tracking-tight transition-colors duration-200 sm:text-2xl;
 }
 
 .titleRegular {
-	@apply text-white group-hover:text-light-green;
+  @apply text-white group-hover:text-light-green;
 }
 
 .titleMask {
-	@apply text-dark-blue group-hover:opacity-80;
+  @apply text-dark-blue group-hover:opacity-80;
 }
 
 /* Card Footer */
 .footer {
-	@apply mt-6 pt-5 border-t flex items-center justify-between text-xs sm:text-sm font-mono transition-colors duration-300;
+  @apply mt-6 flex items-center justify-between border-t pt-5 font-mono text-xs transition-colors duration-300 sm:text-sm;
 }
 
 .footerRegular {
-	@apply border-white/10 text-white/50;
+  @apply border-white/10 text-white/50;
 }
 
 .footerMask {
-	@apply border-dark-blue/15 text-dark-blue/70;
+  @apply border-dark-blue/15 text-dark-blue/70;
 }
 
 .date {
-	@apply flex items-center gap-1.5;
+  @apply flex items-center gap-1.5;
 }
 
 .dateDot {
-	@apply w-1.5 h-1.5 rounded-full;
+  @apply h-1.5 w-1.5 rounded-full;
 }
 
 .dateDotRegular {
-	@apply bg-light-green/60;
+  @apply bg-light-green/60;
 }
 
 .dateDotMask {
-	@apply bg-dark-blue/60;
+  @apply bg-dark-blue/60;
 }
 
 .actionArrow {
-	@apply w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 group-hover:scale-110;
+  @apply flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 group-hover:scale-110;
 }
 
 .actionArrowRegular {
-	@apply border-white/15 bg-white/[0.04] text-white group-hover:border-light-green group-hover:bg-light-green group-hover:text-dark-blue;
+  @apply border-white/15 bg-white/[0.04] text-white group-hover:border-light-green group-hover:bg-light-green group-hover:text-dark-blue;
 }
 
 .actionArrowMask {
-	@apply border-dark-blue/20 bg-dark-blue/10 text-dark-blue group-hover:border-dark-blue group-hover:bg-dark-blue group-hover:text-light-green;
+  @apply border-dark-blue/20 bg-dark-blue/10 text-dark-blue group-hover:border-dark-blue group-hover:bg-dark-blue group-hover:text-light-green;
 }

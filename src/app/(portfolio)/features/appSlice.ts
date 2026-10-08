@@ -4,7 +4,6 @@ export type AppStateSlice = {
   lenisScrollRoot: boolean;
 };
 
-
 const initialState: AppStateSlice = {
   lenisScrollRoot: true,
 };
@@ -19,8 +18,6 @@ const appStateSlice = createSlice({
   },
 });
 
-export const {
-  toggleLenisScrollRoot,
-} = appStateSlice.actions;
+export const { toggleLenisScrollRoot } = appStateSlice.actions;
 
 export default appStateSlice.reducer;

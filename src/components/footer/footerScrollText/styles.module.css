@@ -1,11 +1,11 @@
 .outter-container {
-	@apply block w-full py-5 sm:py-7 md:py-9 overflow-hidden text-dark-blue leading-none whitespace-nowrap text-[9vw] sm:text-[11vw] md:text-[13vw] select-none cursor-none;
+  @apply block w-full cursor-none select-none overflow-hidden whitespace-nowrap py-5 text-[9vw] leading-none text-dark-blue sm:py-7 sm:text-[11vw] md:py-9 md:text-[13vw];
 }
 
 .inner-container {
-	@apply inline-flex items-center min-w-full animate-marquee;
+  @apply inline-flex min-w-full animate-marquee items-center;
 }
 
 :global(.group):hover .inner-container {
-	animation-play-state: paused;
+  animation-play-state: paused;
 }

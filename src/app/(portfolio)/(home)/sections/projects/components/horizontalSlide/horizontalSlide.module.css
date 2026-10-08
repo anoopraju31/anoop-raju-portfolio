@@ -1,7 +1,7 @@
 .container {
-	@apply h-[78vh] min-h-[560px] max-h-[800px] min-w-0 select-none cursor-none relative;
+  @apply relative h-[78vh] max-h-[800px] min-h-[560px] min-w-0 cursor-none select-none;
 }
 
 .img {
-	@apply w-full h-full object-cover rounded-xl;
+  @apply h-full w-full rounded-xl object-cover;
 }

@@ -1,36 +1,36 @@
 .mask,
 .body {
-	@apply w-full text-white  h-[65vh] md:h-[80vh] lg:h-[90vh] md:py-[50px] lg:py-[100px] px-[2%] overflow-hidden flex justify-center items-center;
+  @apply flex h-[65vh] w-full items-center justify-center overflow-hidden px-[2%] text-white md:h-[80vh] md:py-[50px] lg:h-[90vh] lg:py-[100px];
 }
 
 .hero-container {
-	@apply p-5 grid grid-cols-1 gap-5;
+  @apply grid grid-cols-1 gap-5 p-5;
 }
 
 .hero-heading-container {
-	@apply flex justify-center items-center gap-[10px];
+  @apply flex items-center justify-center gap-[10px];
 }
 
 .hero-heading {
-	@apply uppercase font-bold leading-none text-hero-text xl:text-[17em];
+  @apply text-hero-text font-bold uppercase leading-none xl:text-[17em];
 }
 
 .body .hero-image {
-	@apply flex-shrink-0 rounded-full overflow-hidden w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px] object-cover;
+  @apply h-[var(--hero-image-width)] w-[var(--hero-image-width)] flex-shrink-0 overflow-hidden rounded-full object-cover xl:h-[240px] xl:w-[240px];
 }
 
 .mask .hero-image {
-	@apply flex-shrink-0 w-[var(--hero-image-width)] xl:w-[240px] h-[var(--hero-image-width)] xl:h-[240px];
+  @apply h-[var(--hero-image-width)] w-[var(--hero-image-width)] flex-shrink-0 xl:h-[240px] xl:w-[240px];
 }
 
 .hero-subheading-container {
-	@apply flex justify-between items-center gap-5 uppercase;
+  @apply flex items-center justify-between gap-5 uppercase;
 }
 
 .hero-subheading {
-	@apply w-1/2 flex-shrink-0 text-center text-base sm:text-2xl lg:text-[2rem] leading-none;
+  @apply w-1/2 flex-shrink-0 text-center text-base leading-none sm:text-2xl lg:text-[2rem];
 }
 
 .mask {
-	@apply text-[black];
+  @apply text-[black];
 }

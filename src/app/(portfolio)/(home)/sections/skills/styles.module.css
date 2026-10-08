@@ -1,73 +1,73 @@
 .section {
-	@apply py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8;
+  @apply px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
 }
 
 .container {
-	@apply max-w-[1400px] mx-auto;
+  @apply mx-auto max-w-[1400px];
 }
 
 /* Header Section */
 .headingContainer {
-	@apply flex flex-col items-center text-center max-w-4xl mx-auto mb-16 sm:mb-20;
+  @apply mx-auto mb-16 flex max-w-4xl flex-col items-center text-center sm:mb-20;
 }
 
 .eyebrowBadge {
-	@apply inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border text-xs sm:text-sm font-mono tracking-wider uppercase mb-5 backdrop-blur-md select-none;
+  @apply mb-5 inline-flex select-none items-center gap-2.5 rounded-full border px-4 py-1.5 font-mono text-xs uppercase tracking-wider backdrop-blur-md sm:text-sm;
 }
 
 .eyebrowBadgeRegular {
-	@apply border-light-green/30 bg-light-green/[0.06] text-light-green;
+  @apply border-light-green/30 bg-light-green/[0.06] text-light-green;
 }
 
 .eyebrowBadgeMask {
-	@apply border-dark-blue/40 bg-dark-blue/[0.08] text-dark-blue font-bold;
+  @apply border-dark-blue/40 bg-dark-blue/[0.08] font-bold text-dark-blue;
 }
 
 .pulseDot {
-	@apply w-2 h-2 rounded-full;
+  @apply h-2 w-2 rounded-full;
 }
 
 .pulseDotRegular {
-	@apply bg-light-green animate-pulse;
+  @apply animate-pulse bg-light-green;
 }
 
 .pulseDotMask {
-	@apply bg-dark-blue animate-pulse;
+  @apply animate-pulse bg-dark-blue;
 }
 
 .heading {
-	@apply text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-wide uppercase leading-none;
+  @apply text-4xl font-normal uppercase leading-none tracking-wide sm:text-6xl md:text-7xl lg:text-8xl;
 }
 
 .headingRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .headingMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .headingHighlightRegular {
-	@apply text-light-green;
+  @apply text-light-green;
 }
 
 .headingHighlightMask {
-	@apply text-dark-blue;
+  @apply text-dark-blue;
 }
 
 .subtitle {
-	@apply mt-6 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed;
+  @apply mt-6 max-w-2xl text-base leading-relaxed sm:text-lg md:text-xl;
 }
 
 .subtitleRegular {
-	@apply text-white;
+  @apply text-white;
 }
 
 .subtitleMask {
-	@apply text-dark-blue font-medium;
+  @apply font-medium text-dark-blue;
 }
 
 /* Blocks Wrapper */
 .blocksWrapper {
-	@apply flex flex-col gap-16 lg:gap-24;
+  @apply flex flex-col gap-16 lg:gap-24;
 }
