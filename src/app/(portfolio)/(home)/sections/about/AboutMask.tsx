@@ -1,15 +1,15 @@
 'use client'
 
-import { PT_Sans } from 'next/font/google'
+import { type FC } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { FiArrowUpRight } from 'react-icons/fi'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
 import styles from './about.module.css'
 
-const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] })
-
-const AboutMask = () => {
+const AboutMask: FC = () => {
 	const dispatch = useAppDispatch()
 	const currentCardId = useAppSelector((state) => state.projectCardHover.cardId)
 
@@ -17,75 +17,94 @@ const AboutMask = () => {
 	const handleMouseLeave = () => dispatch(mouseLeave())
 
 	return (
-		<div className={`${styles.mask} ${currentCardId && 'invisible'} text-black ${ptSans.className}`}>
-			<div className={styles['inner-container']}>
-				<div className={styles.wrapper}>
+		<div className={`${styles.section} ${currentCardId ? 'invisible' : ''}`} aria-label='about me mask'>
+			<div className={styles.container}>
+				<div className={styles.gridContainer}>
+					{/* Portrait Column */}
 					<div
 						onMouseEnter={handleMouseEnter}
 						onMouseLeave={handleMouseLeave}
-						className={`hidden md:block ${styles['img-container']}`}
+						className={styles.imageWrapper}
 					>
-						<Image
-							src='/anoop-raju.jpg'
-							alt='anoop raju'
-							width={400}
-							height={400}
-							className={`${styles.img} filter invert`}
-						/>
+						<div className={`${styles.imageFrame} ${styles.imageFrameMask}`}>
+							<Image
+								src='/anoop-raju.jpg'
+								alt='Anoop Raju'
+								width={500}
+								height={625}
+								className={`${styles.image} filter invert`}
+								priority
+							/>
+						</div>
+						<p className={`${styles.imageCaption} ${styles.imageCaptionMask}`}>
+							Bengaluru, IN &bull; SDE @ Infigon Futures
+						</p>
 					</div>
-				</div>
 
-				<div className={styles.wrapper}>
-					<div className={styles['text-container']}>
-						<h2 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.heading}>
-							{' '}
-							About Me{' '}
-						</h2>
-
+					{/* Story Column */}
+					<div className={styles.contentWrapper}>
 						<div
 							onMouseEnter={handleMouseEnter}
 							onMouseLeave={handleMouseLeave}
-							className={`md:hidden ${styles['img-container']} mb-10`}
+							className={`${styles.tagline} ${styles.taglineMask}`}
 						>
-							<Image
-								src='/anoop-raju.jpg'
-								alt='anoop raju'
-								width={400}
-								height={400}
-								className={`${styles.img} aspect-square filter invert`}
-							/>
+							<span>[ 02 // BACKGROUND ]</span>
 						</div>
 
-						<p
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className={styles.description}
-						>
-							Hello! I&apos;m a passionate Software Developer with a knack for crafting sleek and scalable
-							frontend applications. With a flair for web design and a dedication to creating seamless
-							user experiences, I turn ideas into visually appealing and functional digital realities.
-						</p>
+						<div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+							<h2 className={`${styles.heading} ${styles.headingMask}`}>
+								About Me<span className={styles.headingDotMask}>.</span>
+							</h2>
+						</div>
 
-						<p
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className={styles.description}
-						>
-							As a recent graduate of the Indian Institute of Information Technology, Kottayam, I&apos;ve
-							honed my skills in both the theoretical and practical aspects of web development. My journey
-							in tech is fueled by a constant quest for knowledge and growth, always ready to embrace the
-							next big challenge.
-						</p>
+						<div className={styles.paragraphs}>
+							<p
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+								className={styles.paragraphMask}
+							>
+								Hello! I&apos;m <strong className='text-dark-blue font-bold'>Anoop Raju</strong>,
+								a passionate Software Developer specialized in building sleek, scalable frontend
+								applications. With an eye for clean UI design and a dedication to seamless user
+								experiences, I turn ideas into visually engaging, functional digital realities.
+							</p>
 
-						<p
-							onMouseEnter={handleMouseEnter}
-							onMouseLeave={handleMouseLeave}
-							className={styles.description}
-						>
-							When I&apos;m not coding, you can find me exploring the latest design trends, diving into
-							new technologies, or dreaming up innovative ways to improve the digital landscape.
-							Let&apos;s build something amazing together!
-						</p>
+							<p
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+								className={styles.paragraphMask}
+							>
+								As a graduate of the{' '}
+								<strong className='text-dark-blue font-bold'>
+									Indian Institute of Information Technology, Kottayam
+								</strong>
+								, I&apos;ve honed my craft in both the theoretical and practical foundations of web
+								engineering. Currently crafting frontend solutions at Infigon Futures, I focus on
+								modern React ecosystems, TypeScript, performance, and modular design.
+							</p>
+
+							<p
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+								className={styles.paragraphMask}
+							>
+								When I&apos;m not coding, you&apos;ll find me exploring modern design trends,
+								experimenting with interactive web technologies, and finding creative ways to elevate
+								the digital experience.
+							</p>
+						</div>
+
+						<div className={`${styles.linkContainer} ${styles.linkContainerMask}`}>
+							<Link
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+								href='/contact'
+								className={`${styles.contactLink} ${styles.contactLinkMask}`}
+							>
+								<span>Let&apos;s build something together</span>
+								<FiArrowUpRight size={16} className={styles.arrowIcon} />
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
