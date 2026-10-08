@@ -1,15 +1,14 @@
-import { cn } from '@/utills';
+'use client';
+
 /**
  * This component uses Portable Text to render a post body.
- *
+*
  * You can learn more about Portable Text on:
  * https://www.sanity.io/docs/block-content
  * https://github.com/portabletext/react-portabletext
  * https://portabletext.org/
- *
- */
-
-('use client');
+*
+*/
 
 import { useEffect } from 'react';
 import { urlForImage } from '@/sanity/lib/utils';
@@ -17,6 +16,8 @@ import Image from 'next/image';
 import { PortableText, type PortableTextComponents, type PortableTextBlock } from 'next-sanity';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
+
+import { cn } from '@/utills';
 
 interface TableRow {
   _key: string;
