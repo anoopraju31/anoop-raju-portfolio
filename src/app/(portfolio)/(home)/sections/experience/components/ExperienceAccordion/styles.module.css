@@ -33,7 +33,7 @@
 }
 
 .companyName {
-	@apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight uppercase leading-none;
+	@apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight uppercase leading-none text-left;
 }
 
 .companyNameRegular {

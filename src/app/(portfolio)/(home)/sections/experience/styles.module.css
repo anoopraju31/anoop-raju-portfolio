@@ -60,11 +60,11 @@
 }
 
 .subtitleRegular {
-	@apply text-white/70;
+	@apply text-white;
 }
 
 .subtitleMask {
-	@apply text-dark-blue/85 font-medium;
+	@apply text-dark-blue font-medium;
 }
 
 /* Stats / Timeline Bar */
