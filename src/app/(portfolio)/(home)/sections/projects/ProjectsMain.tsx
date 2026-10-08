@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useScroll } from 'framer-motion'
 import Link from 'next/link'
+import { FiArrowRight } from 'react-icons/fi'
 import Lenis from '@studio-freight/lenis'
 import HorizontalSlide from './components/horizontalSlide/HorizontalSlide'
 import VerticalSlide from './components/veticalSlide/VerticalSlide'
@@ -65,7 +66,8 @@ const ProjectsMain = () => {
 
 			<div className={styles['all-projects-container']}>
 				<Link href='/projects' className={styles['all-projects-link-body']}>
-					View More Projects
+					<span>View More Projects</span>
+					<FiArrowRight size={18} className={styles.arrowIcon} />
 				</Link>
 			</div>
 		</section>

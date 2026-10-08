@@ -11,18 +11,27 @@
 }
 
 .all-projects-container {
-	@apply py-5 lg:py-10 flex justify-center items-center;
+	@apply py-8 sm:py-12 mdlg:py-16 flex justify-center items-center;
 }
 
 .all-projects-link-body,
 .all-projects-link-mask {
-	@apply mt-32 mdlg:mt-0 px-5 py-[15px] cursor-none text-lg lg:text-xl rounded-3xl uppercase border;
+	@apply mt-24 mdlg:mt-0 inline-flex items-center gap-3 px-8 py-4 rounded-full font-mono text-sm sm:text-base uppercase tracking-wider border transition-all duration-300 select-none cursor-none;
 }
 
 .all-projects-link-body {
-	@apply border-white;
+	@apply border-white/20 bg-white/[0.03] text-white hover:border-light-green hover:bg-light-green/[0.08] hover:text-light-green shadow-lg shadow-black/20;
 }
 
 .all-projects-link-mask {
-	@apply border-dark-blue;
+	@apply border-dark-blue/30 bg-dark-blue/[0.06] text-dark-blue hover:border-dark-blue hover:bg-dark-blue hover:text-light-green;
+}
+
+.arrowIcon {
+	@apply transition-transform duration-300;
+}
+
+.all-projects-link-body:hover .arrowIcon,
+.all-projects-link-mask:hover .arrowIcon {
+	transform: translateX(6px);
 }

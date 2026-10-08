@@ -5,6 +5,7 @@ import { useScroll } from 'framer-motion'
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
 import Link from 'next/link'
+import { FiArrowRight } from 'react-icons/fi'
 import Lenis from '@studio-freight/lenis'
 import VerticalSlideMask from './components/veticalSlide/VerticalSlideMask'
 import HorizontalSlideMask from './components/horizontalSlide/HorizontalSlideMask'
@@ -78,7 +79,8 @@ const ViewMoreProject = () => {
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
 			>
-				View More Projects
+				<span>View More Projects</span>
+				<FiArrowRight size={18} className={styles.arrowIcon} />
 			</Link>
 		</div>
 	)
