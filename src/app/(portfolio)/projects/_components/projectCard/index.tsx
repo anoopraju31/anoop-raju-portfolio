@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import Image from 'next/image';
@@ -50,13 +51,13 @@ const ProjectCard: FC<ProjectCardProps> = ({
   return (
     <div className={styles.cardWrapper}>
       {/* Browser Chrome Header */}
-      <div className={`${styles.chromeBar} ${styles.chromeBarRegular}`}>
+      <div className={cn(styles.chromeBar, styles.chromeBarRegular)}>
         <div className={styles.windowDots}>
-          <span className={`${styles.windowDot} ${styles.windowDotRed}`} />
-          <span className={`${styles.windowDot} ${styles.windowDotYellow}`} />
-          <span className={`${styles.windowDot} ${styles.windowDotGreen}`} />
+          <span className={cn(styles.windowDot, styles.windowDotRed)} />
+          <span className={cn(styles.windowDot, styles.windowDotYellow)} />
+          <span className={cn(styles.windowDot, styles.windowDotGreen)} />
         </div>
-        <span className={`${styles.windowUrl} ${styles.windowUrlRegular}`}>{displayDomain}</span>
+        <span className={cn(styles.windowUrl, styles.windowUrlRegular)}>{displayDomain}</span>
         <span className="font-mono text-[11px] text-white/40">{year}</span>
       </div>
 
@@ -67,10 +68,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
           boxShadow: isHovered ? '0 20px 40px -15px rgba(76, 252, 15, 0.15)' : '0 10px 30px -15px rgba(0, 0, 0, 0.5)',
         }}
         transition={{ duration: 0.4 }}
-        className={`${styles.imageFrame} ${styles.imageFrameRegular}`}
+        className={cn(styles.imageFrame, styles.imageFrameRegular)}
       >
         {featured && (
-          <div className={`${styles.floatingBadge} ${styles.floatingBadgeRegular}`}>
+          <div className={cn(styles.floatingBadge, styles.floatingBadgeRegular)}>
             <span className="h-1.5 w-1.5 animate-ping rounded-full bg-light-green" />
             <span>Featured</span>
           </div>
@@ -86,30 +87,30 @@ const ProjectCard: FC<ProjectCardProps> = ({
           >
             <Image className={styles.img} src={img} alt={alt} width={1200} height={750} priority={id === 1} />
           </motion.div>
-          <div className={`${styles.imageOverlay} ${styles.imageOverlayRegular}`} />
+          <div className={cn(styles.imageOverlay, styles.imageOverlayRegular)} />
         </div>
       </motion.div>
 
       {/* Card Details & Metadata */}
       <div className={styles.detailsContainer}>
-        <div className={`${styles.metaHeader} ${styles.metaHeaderRegular}`}>
+        <div className={cn(styles.metaHeader, styles.metaHeaderRegular)}>
           <span className={styles.numberBadge}>{number || `0${id}`}</span>
-          {category && <span className={`${styles.categoryPill} ${styles.categoryPillRegular}`}>{category}</span>}
+          {category && <span className={cn(styles.categoryPill, styles.categoryPillRegular)}>{category}</span>}
         </div>
 
         <div className={styles.titleGroup}>
-          <h3 className={`${styles.projectName} ${styles.projectNameRegular}`}>{name}</h3>
-          {subtitle && <p className={`${styles.projectSubtitle} ${styles.projectSubtitleRegular}`}>{subtitle}</p>}
+          <h3 className={cn(styles.projectName, styles.projectNameRegular)}>{name}</h3>
+          {subtitle && <p className={cn(styles.projectSubtitle, styles.projectSubtitleRegular)}>{subtitle}</p>}
         </div>
 
         {description && (
-          <p className={`${styles.projectDescription} ${styles.projectDescriptionRegular}`}>{description}</p>
+          <p className={cn(styles.projectDescription, styles.projectDescriptionRegular)}>{description}</p>
         )}
 
         {/* Tech Stack Pills */}
         <div className={styles.tagsContainer}>
           {toolsList.map((tool, idx) => (
-            <span key={idx} className={`${styles.tagPill} ${styles.tagPillRegular}`}>
+            <span key={idx} className={cn(styles.tagPill, styles.tagPillRegular)}>
               {tool}
             </span>
           ))}
@@ -122,7 +123,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.actionButton} ${styles.actionPrimaryRegular}`}
+              className={cn(styles.actionButton, styles.actionPrimaryRegular)}
             >
               <span>Live Preview</span>
               <FiArrowUpRight size={16} />
@@ -133,7 +134,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.actionButton} ${styles.actionSecondaryRegular}`}
+              className={cn(styles.actionButton, styles.actionSecondaryRegular)}
               title="View Source Code"
             >
               <FaGithub size={16} />

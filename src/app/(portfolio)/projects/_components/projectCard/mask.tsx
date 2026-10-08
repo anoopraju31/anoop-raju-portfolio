@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { type ProjectCardProps } from '.';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
@@ -50,13 +51,13 @@ const MaskProductCard: FC<ProjectCardProps> = ({
   return (
     <div className={styles.cardWrapper}>
       {/* Browser Chrome Header */}
-      <div className={`${styles.chromeBar} ${styles.chromeBarMask}`}>
+      <div className={cn(styles.chromeBar, styles.chromeBarMask)}>
         <div className={styles.windowDots}>
-          <span className={`${styles.windowDot} ${styles.windowDotRed}`} />
-          <span className={`${styles.windowDot} ${styles.windowDotYellow}`} />
-          <span className={`${styles.windowDot} ${styles.windowDotGreen}`} />
+          <span className={cn(styles.windowDot, styles.windowDotRed)} />
+          <span className={cn(styles.windowDot, styles.windowDotYellow)} />
+          <span className={cn(styles.windowDot, styles.windowDotGreen)} />
         </div>
-        <span className={`${styles.windowUrl} ${styles.windowUrlMask}`}>{displayDomain}</span>
+        <span className={cn(styles.windowUrl, styles.windowUrlMask)}>{displayDomain}</span>
         <span className="font-mono text-[11px] text-dark-blue/60">{year}</span>
       </div>
 
@@ -65,10 +66,10 @@ const MaskProductCard: FC<ProjectCardProps> = ({
         onClick={handleClick}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeaveImg}
-        className={`${styles.imageFrame} ${styles.imageFrameMask}`}
+        className={cn(styles.imageFrame, styles.imageFrameMask)}
       >
         {featured && (
-          <div className={`${styles.floatingBadge} ${styles.floatingBadgeMask}`}>
+          <div className={cn(styles.floatingBadge, styles.floatingBadgeMask)}>
             <span className="h-1.5 w-1.5 rounded-full bg-dark-blue" />
             <span>Featured Case Study</span>
           </div>
@@ -83,7 +84,7 @@ const MaskProductCard: FC<ProjectCardProps> = ({
             className="h-full w-full"
           >
             <Image
-              className={`${styles.img} ${styles.imgMask}`}
+              className={cn(styles.img, styles.imgMask)}
               src={img}
               alt={alt}
               width={1200}
@@ -91,30 +92,28 @@ const MaskProductCard: FC<ProjectCardProps> = ({
               priority={id === 1}
             />
           </motion.div>
-          <div className={`${styles.imageOverlay} ${styles.imageOverlayMask}`} />
+          <div className={cn(styles.imageOverlay, styles.imageOverlayMask)} />
         </div>
       </div>
 
       {/* Card Details & Metadata */}
       <div onMouseEnter={handleTextMouseEnter} onMouseLeave={handleTextMouseLeave} className={styles.detailsContainer}>
-        <div className={`${styles.metaHeader} ${styles.metaHeaderMask}`}>
+        <div className={cn(styles.metaHeader, styles.metaHeaderMask)}>
           <span className={styles.numberBadgeMask}>{number || `0${id}`}</span>
-          {category && <span className={`${styles.categoryPill} ${styles.categoryPillMask}`}>{category}</span>}
+          {category && <span className={cn(styles.categoryPill, styles.categoryPillMask)}>{category}</span>}
         </div>
 
         <div className={styles.titleGroup}>
-          <h3 className={`${styles.projectName} ${styles.projectNameMask}`}>{name}</h3>
-          {subtitle && <p className={`${styles.projectSubtitle} ${styles.projectSubtitleMask}`}>{subtitle}</p>}
+          <h3 className={cn(styles.projectName, styles.projectNameMask)}>{name}</h3>
+          {subtitle && <p className={cn(styles.projectSubtitle, styles.projectSubtitleMask)}>{subtitle}</p>}
         </div>
 
-        {description && (
-          <p className={`${styles.projectDescription} ${styles.projectDescriptionMask}`}>{description}</p>
-        )}
+        {description && <p className={cn(styles.projectDescription, styles.projectDescriptionMask)}>{description}</p>}
 
         {/* Tech Stack Pills */}
         <div className={styles.tagsContainer}>
           {toolsList.map((tool, idx) => (
-            <span key={idx} className={`${styles.tagPill} ${styles.tagPillMask}`}>
+            <span key={idx} className={cn(styles.tagPill, styles.tagPillMask)}>
               {tool}
             </span>
           ))}
@@ -127,7 +126,7 @@ const MaskProductCard: FC<ProjectCardProps> = ({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.actionButton} ${styles.actionPrimaryMask}`}
+              className={cn(styles.actionButton, styles.actionPrimaryMask)}
             >
               <span>Live Preview</span>
               <FiArrowUpRight size={16} />
@@ -138,7 +137,7 @@ const MaskProductCard: FC<ProjectCardProps> = ({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.actionButton} ${styles.actionSecondaryMask}`}
+              className={cn(styles.actionButton, styles.actionSecondaryMask)}
               title="View Source Code"
             >
               <FaGithub size={16} />

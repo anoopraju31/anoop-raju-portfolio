@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { useEffect, useRef } from 'react';
 import { useScroll } from 'framer-motion';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
@@ -77,7 +78,7 @@ const ViewMoreProject = () => {
   const handleClick = () => dispatch(mouseLeave());
 
   return (
-    <div className={`${styles['all-projects-container']} ${currentCardId && 'invisible'}`}>
+    <div className={cn(styles['all-projects-container'], currentCardId && 'invisible')}>
       <Link
         href="/projects"
         className={styles['all-projects-link-mask']}

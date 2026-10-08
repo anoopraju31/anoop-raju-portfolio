@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 type FooterLinkProps = {
@@ -23,9 +24,10 @@ const FooterLink = ({ title, link, index, isHovered, isAnyHovered, onHoverStart,
         href={link}
         onMouseEnter={onHoverStart}
         onMouseLeave={onHoverEnd}
-        className={`flex cursor-none select-none items-center justify-between py-3 transition-all duration-300 sm:py-4 ${
-          isAnyHovered && !isHovered ? 'opacity-35' : 'opacity-100'
-        }`}
+        className={cn(
+          'flex cursor-none select-none items-center justify-between py-3 transition-all duration-300 sm:py-4',
+          isAnyHovered && !isHovered ? 'opacity-35' : 'opacity-100',
+        )}
       >
         <div className="flex transform items-baseline gap-3 transition-transform duration-300 ease-out group-hover:translate-x-2 sm:gap-6 sm:group-hover:translate-x-4">
           {formattedIndex && (

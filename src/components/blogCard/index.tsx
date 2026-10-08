@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -44,23 +45,21 @@ const BlogCard: FC<Props> = ({ isMask, blog }) => {
       href={`/blogs/${blog.slug}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`${styles.cardLink} group`}
+      className={cn(styles.cardLink, 'group')}
     >
-      <article className={`${styles.card} ${isMask ? styles.cardMask : styles.cardRegular}`}>
+      <article className={cn(styles.card, isMask ? styles.cardMask : styles.cardRegular)}>
         {/* Media Preview Frame */}
-        <div className={`${styles.mediaContainer} ${isMask ? styles.mediaMask : styles.mediaRegular}`}>
+        <div className={cn(styles.mediaContainer, isMask ? styles.mediaMask : styles.mediaRegular)}>
           {imageUrl ? (
             <Image
               src={imageUrl}
               alt={blog.title || 'Blog cover image'}
               width={800}
               height={500}
-              className={`${styles.image} ${isMask ? styles.imageMask : ''}`}
+              className={cn(styles.image, isMask ? styles.imageMask : '')}
             />
           ) : (
-            <div
-              className={`${styles.fallbackCover} ${isMask ? styles.fallbackCoverMask : styles.fallbackCoverRegular}`}
-            >
+            <div className={cn(styles.fallbackCover, isMask ? styles.fallbackCoverMask : styles.fallbackCoverRegular)}>
               <FiFileText size={40} className={isMask ? 'text-dark-blue/20' : 'text-white/20'} />
             </div>
           )}
@@ -68,8 +67,8 @@ const BlogCard: FC<Props> = ({ isMask, blog }) => {
 
         {/* Metadata Header */}
         <div className={styles.metaHeader}>
-          <span className={`${styles.badge} ${isMask ? styles.badgeMask : styles.badgeRegular}`}>{tag}</span>
-          <div className={`${styles.readTime} ${isMask ? styles.readTimeMask : styles.readTimeRegular}`}>
+          <span className={cn(styles.badge, isMask ? styles.badgeMask : styles.badgeRegular)}>{tag}</span>
+          <div className={cn(styles.readTime, isMask ? styles.readTimeMask : styles.readTimeRegular)}>
             <FiClock size={12} />
             <span>{readTimeText}</span>
           </div>
@@ -77,17 +76,17 @@ const BlogCard: FC<Props> = ({ isMask, blog }) => {
 
         {/* Content Body */}
         <div className={styles.contentArea}>
-          <h3 className={`${styles.title} ${isMask ? styles.titleMask : styles.titleRegular}`}>{blog.title}</h3>
+          <h3 className={cn(styles.title, isMask ? styles.titleMask : styles.titleRegular)}>{blog.title}</h3>
         </div>
 
         {/* Footer Meta Row */}
-        <footer className={`${styles.footer} ${isMask ? styles.footerMask : styles.footerRegular}`}>
+        <footer className={cn(styles.footer, isMask ? styles.footerMask : styles.footerRegular)}>
           <div className={styles.date}>
-            <span className={`${styles.dateDot} ${isMask ? styles.dateDotMask : styles.dateDotRegular}`} />
+            <span className={cn(styles.dateDot, isMask ? styles.dateDotMask : styles.dateDotRegular)} />
             <time dateTime={blog.date}>{formattedDate}</time>
           </div>
 
-          <div className={`${styles.actionArrow} ${isMask ? styles.actionArrowMask : styles.actionArrowRegular}`}>
+          <div className={cn(styles.actionArrow, isMask ? styles.actionArrowMask : styles.actionArrowRegular)}>
             <FiArrowUpRight size={16} />
           </div>
         </footer>

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { MotionValue, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
@@ -45,7 +46,7 @@ const VerticalSlideMask: FC<VerticalSlideMaskProps> = (props) => {
     <div className={styles['outter-container']}>
       <motion.div
         style={{ top: `calc(-0% + ${id * 32}px)`, scale }}
-        className={`${styles['inner-container']} ${styles['inner-container-mask']}`}
+        className={cn(styles['inner-container'], styles['inner-container-mask'])}
       >
         {/* Image and Gradient Background */}
         {img && (
@@ -53,7 +54,7 @@ const VerticalSlideMask: FC<VerticalSlideMaskProps> = (props) => {
             onClick={handleImageClick}
             onMouseMove={handleImageMouseMove}
             onMouseLeave={handleImageMouseLeave}
-            className={`${styles['img-container']} cursor-none`}
+            className={cn(styles['img-container'], 'cursor-none')}
           >
             <Image src={img} alt={name || img} width={1000} height={1000} priority className={styles.img} />
             <div className={styles['img-overlay-mask']} />
@@ -62,7 +63,7 @@ const VerticalSlideMask: FC<VerticalSlideMaskProps> = (props) => {
 
         {/* Card Header Bar */}
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles['card-header']}>
-          <div className={`${styles['index-pill']} ${styles['index-pill-mask']}`}>
+          <div className={cn(styles['index-pill'], styles['index-pill-mask'])}>
             <span className={styles['pulse-dot-mask']} />
             <span>
               [{indexStr} {'//'} FEATURED]
@@ -74,14 +75,14 @@ const VerticalSlideMask: FC<VerticalSlideMaskProps> = (props) => {
 
         {/* Card Footer Content */}
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles['card-footer']}>
-          {name && <h3 className={`${styles['card-title']} ${styles['card-title-mask']}`}>{name}</h3>}
+          {name && <h3 className={cn(styles['card-title'], styles['card-title-mask'])}>{name}</h3>}
 
           {deployedUrl && (
             <a
               href={deployedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles['action-button']} ${styles['action-button-mask']}`}
+              className={cn(styles['action-button'], styles['action-button-mask'])}
             >
               <span>View Project</span>
               <FiArrowUpRight className={styles['action-arrow']} />

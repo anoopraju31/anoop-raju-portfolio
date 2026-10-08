@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import Image from 'next/image';
 import { FiArrowDown } from 'react-icons/fi';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
@@ -15,7 +16,7 @@ const HeroMask = () => {
   const handleMouseLeave = () => dispatch(mouseLeave());
 
   return (
-    <div className={`${styles.mask} ${currentCardId && 'invisible'}`}>
+    <div className={cn(styles.mask, currentCardId && 'invisible')}>
       <div className={styles['hero-container']}>
         {/* Status Eyebrow Badge */}
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="mb-1 flex justify-center">

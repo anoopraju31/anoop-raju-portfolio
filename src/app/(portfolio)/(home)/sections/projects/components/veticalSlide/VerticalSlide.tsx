@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { MotionValue, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
@@ -26,7 +27,7 @@ const VerticalSlide: FC<VerticalSlideProps> = (props) => {
     <div className={styles['outter-container']}>
       <motion.div
         style={{ top: `calc(-0% + ${id * 32}px)`, scale }}
-        className={`${styles['inner-container']} ${styles['inner-container-regular']}`}
+        className={cn(styles['inner-container'], styles['inner-container-regular'])}
       >
         {/* Image and Gradient Background */}
         <div className={styles['img-container']}>
@@ -36,7 +37,7 @@ const VerticalSlide: FC<VerticalSlideProps> = (props) => {
 
         {/* Card Header Bar */}
         <div className={styles['card-header']}>
-          <div className={`${styles['index-pill']} ${styles['index-pill-regular']}`}>
+          <div className={cn(styles['index-pill'], styles['index-pill-regular'])}>
             <span className={styles['pulse-dot-regular']} />
             <span>
               [{indexStr} {'//'} FEATURED]
@@ -48,14 +49,14 @@ const VerticalSlide: FC<VerticalSlideProps> = (props) => {
 
         {/* Card Footer Content */}
         <div className={styles['card-footer']}>
-          {name && <h3 className={`${styles['card-title']} ${styles['card-title-regular']}`}>{name}</h3>}
+          {name && <h3 className={cn(styles['card-title'], styles['card-title-regular'])}>{name}</h3>}
 
           {deployedUrl && (
             <a
               href={deployedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles['action-button']} ${styles['action-button-regular']}`}
+              className={cn(styles['action-button'], styles['action-button-regular'])}
             >
               <span>View Project</span>
               <FiArrowUpRight className={styles['action-arrow']} />

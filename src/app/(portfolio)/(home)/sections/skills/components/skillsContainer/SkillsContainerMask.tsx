@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
@@ -30,14 +31,14 @@ const SkillsContainerMask: FC<Props> = ({ title, description, skills, index = 1 
           <h3
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles['left-text-container-header']} ${styles['left-header-mask']}`}
+            className={cn(styles['left-text-container-header'], styles['left-header-mask'])}
           >
             {title}
           </h3>
           <p
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles['left-text-container-body']} ${styles['left-body-mask']}`}
+            className={cn(styles['left-text-container-body'], styles['left-body-mask'])}
           >
             {description}
           </p>

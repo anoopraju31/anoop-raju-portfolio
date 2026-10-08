@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { type PortableTextBlock } from 'next-sanity';
 import { type PostQueryResult } from '../../../../../sanity.types';
@@ -18,7 +19,7 @@ const RegularPage: FC<Props> = ({ post }) => {
   if (!post?._id || !post.slug) return null;
 
   return (
-    <div className={`${styles.section} ${ptSans.className}`}>
+    <div className={cn(styles.section, ptSans.className)}>
       <div className={styles.container}>
         {/* Breadcrumbs */}
         <div className="flex w-full items-center gap-2 px-4 sm:px-0">

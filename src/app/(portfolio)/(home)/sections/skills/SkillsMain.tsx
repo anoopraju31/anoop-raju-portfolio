@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { services, skills } from '@/utills/constants';
 import SkillsContainer from './components/skillsContainer/SkillsContainer';
@@ -9,16 +10,16 @@ const SkillsMain: FC = () => {
       <div className={styles.container}>
         {/* Section Header */}
         <header className={styles.headingContainer}>
-          <div className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeRegular}`}>
-            <span className={`${styles.pulseDot} ${styles.pulseDotRegular}`} />
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
             <span>Capabilities &bull; Disciplines &amp; Stack</span>
           </div>
 
-          <h2 className={`${styles.heading} ${styles.headingRegular}`}>
+          <h2 className={cn(styles.heading, styles.headingRegular)}>
             Services <span className={styles.headingHighlightRegular}>&amp; Skills</span>
           </h2>
 
-          <p className={`${styles.subtitle} ${styles.subtitleRegular}`}>
+          <p className={cn(styles.subtitle, styles.subtitleRegular)}>
             A breakdown of specialized design and web engineering services, paired with my go-to technology stack for
             creating impactful digital experiences.
           </p>

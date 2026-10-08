@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa6';
@@ -30,7 +31,7 @@ const ExperienceAccordionMask: FC<Props> = ({ id, companyName, position, duratio
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`${styles.card} ${styles.cardMask}`}
+      className={cn(styles.card, styles.cardMask)}
       id={`mask-${id}`}
     >
       <button type="button" onClick={toggle} aria-expanded={isOpen} className={styles.accordionHeader}>
@@ -40,19 +41,19 @@ const ExperienceAccordionMask: FC<Props> = ({ id, companyName, position, duratio
             <span className="font-medium text-dark-blue/60">ROLE &bull; CAREER</span>
           </div>
 
-          <h3 className={`${styles.companyName} ${styles.companyNameMask}`}>{companyName}</h3>
+          <h3 className={cn(styles.companyName, styles.companyNameMask)}>{companyName}</h3>
 
           <div className={styles.metaPillsRow}>
-            <div className={`${styles.rolePill} ${styles.rolePillMask}`}>
-              {isCurrent && <span className={`${styles.roleDot} ${styles.roleDotMask}`} />}
+            <div className={cn(styles.rolePill, styles.rolePillMask)}>
+              {isCurrent && <span className={cn(styles.roleDot, styles.roleDotMask)} />}
               <span>{position}</span>
             </div>
 
-            <span className={`${styles.durationPill} ${styles.durationMask}`}>{duration}</span>
+            <span className={cn(styles.durationPill, styles.durationMask)}>{duration}</span>
           </div>
         </div>
 
-        <div className={`${styles.toggleButton} ${styles.toggleButtonMask}`}>
+        <div className={cn(styles.toggleButton, styles.toggleButtonMask)}>
           <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
             <FaPlus size={14} />
           </motion.div>
@@ -84,11 +85,11 @@ const ExperienceAccordionMask: FC<Props> = ({ id, companyName, position, duratio
             className={styles.bodyWrapper}
           >
             <div className="pt-6">
-              <div className={`${styles.bodyContent} ${styles.bodyContentMask}`}>
+              <div className={cn(styles.bodyContent, styles.bodyContentMask)}>
                 <ul className={styles.achievementsList}>
                   {description.map((item, idx) => (
                     <li key={idx} className={styles.achievementItem}>
-                      <FiCheckCircle size={16} className={`${styles.bulletIcon} ${styles.bulletIconMask}`} />
+                      <FiCheckCircle size={16} className={cn(styles.bulletIcon, styles.bulletIconMask)} />
                       <span className={styles.achievementTextMask}>{item}</span>
                     </li>
                   ))}

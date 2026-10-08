@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import type { FC, TextareaHTMLAttributes } from 'react';
 
 type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
@@ -14,7 +15,10 @@ const TextareaField: FC<Props> = ({ form, label, id, className, rows = 3, ...res
         id={id}
         placeholder=" "
         rows={rows}
-        className={`peer block w-full resize-none appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg ${className || ''}`}
+        className={cn(
+          'peer block w-full resize-none appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
+          className || '',
+        )}
         {...rest}
       />
       {displayLabel && (

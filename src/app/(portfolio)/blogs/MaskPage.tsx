@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import { FiArrowUpRight, FiBookOpen } from 'react-icons/fi';
@@ -32,14 +33,14 @@ const MaskPage: FC<Props> = ({ blogs }) => {
               <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeMask}`}
+                className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
               >
-                <span className={`${styles.pulseDot} ${styles.pulseDotMask}`} />
+                <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
                 <span>Engineering Journal &bull; Insights &amp; Tech</span>
               </div>
 
               <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <h1 className={`${styles.mainHeading} ${styles.headingMask}`}>
+                <h1 className={cn(styles.mainHeading, styles.headingMask)}>
                   Articles, Notes <span className={styles.headingHighlightMask}>&amp; Studies</span>
                 </h1>
               </div>
@@ -47,7 +48,7 @@ const MaskPage: FC<Props> = ({ blogs }) => {
               <p
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.heroSubtitle} ${styles.heroSubtitleMask}`}
+                className={cn(styles.heroSubtitle, styles.heroSubtitleMask)}
               >
                 Technical deep-dives into modern web architecture, frontend performance, React internals, generative UI,
                 and software engineering philosophy.
@@ -55,15 +56,15 @@ const MaskPage: FC<Props> = ({ blogs }) => {
 
               {/* Quick Stats Bar */}
               <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.statsBar}>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>{countDisplay}</span>
                   <span>Articles Published</span>
                 </div>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>Next.js &bull; React</span>
                   <span>Frontend Core</span>
                 </div>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>WebGL &bull; Kinetic</span>
                   <span>Interactive UI</span>
                 </div>
@@ -85,7 +86,7 @@ const MaskPage: FC<Props> = ({ blogs }) => {
                 ))}
               </div>
             ) : (
-              <div className={`${styles.emptyState} ${styles.emptyStateMask}`}>
+              <div className={cn(styles.emptyState, styles.emptyStateMask)}>
                 <FiBookOpen size={48} className="mb-4 text-dark-blue opacity-70" />
                 <h3 className={styles.emptyTitle}>New Articles in Progress</h3>
                 <p className={styles.emptyDescription}>
@@ -96,32 +97,32 @@ const MaskPage: FC<Props> = ({ blogs }) => {
             )}
 
             {/* Bottom CTA Banner */}
-            <section className={`${styles.bottomCtaSection} ${styles.bottomCtaSectionMask}`}>
+            <section className={cn(styles.bottomCtaSection, styles.bottomCtaSectionMask)}>
               <span
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaEyebrow} ${styles.ctaEyebrowMask}`}
+                className={cn(styles.ctaEyebrow, styles.ctaEyebrowMask)}
               >
                 Have questions or thoughts?
               </span>
               <h2
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaTitle} ${styles.ctaTitleMask}`}
+                className={cn(styles.ctaTitle, styles.ctaTitleMask)}
               >
                 Let&apos;s start a conversation
               </h2>
               <p
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaDescription} ${styles.ctaDescriptionMask}`}
+                className={cn(styles.ctaDescription, styles.ctaDescriptionMask)}
               >
                 Interested in discussing an engineering topic, technical collaboration, or exploring opportunities
                 together?
               </p>
               <div className={styles.ctaButtonWrapper}>
                 <MagneticContainer>
-                  <Link href="/contact" className={`${styles.ctaButton} ${styles.ctaButtonMask}`}>
+                  <Link href="/contact" className={cn(styles.ctaButton, styles.ctaButtonMask)}>
                     <span>Get in Touch</span>
                     <FiArrowUpRight size={18} />
                   </Link>

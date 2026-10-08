@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
 import SkillsContainerMask from './components/skillsContainer/SkillsContainerMask';
@@ -20,16 +21,16 @@ const SkillsMask = () => {
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeMask}`}
+            className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
           >
-            <span className={`${styles.pulseDot} ${styles.pulseDotMask}`} />
+            <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
             <span>Capabilities &bull; Disciplines &amp; Stack</span>
           </div>
 
           <h2
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.heading} ${styles.headingMask}`}
+            className={cn(styles.heading, styles.headingMask)}
           >
             Services <span className={styles.headingHighlightMask}>&amp; Skills</span>
           </h2>
@@ -37,7 +38,7 @@ const SkillsMask = () => {
           <p
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.subtitle} ${styles.subtitleMask}`}
+            className={cn(styles.subtitle, styles.subtitleMask)}
           >
             A breakdown of specialized design and web engineering services, paired with my go-to technology stack for
             creating impactful digital experiences.

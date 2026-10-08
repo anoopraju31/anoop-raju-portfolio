@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,22 +18,22 @@ const AboutMask: FC = () => {
   const handleMouseLeave = () => dispatch(mouseLeave());
 
   return (
-    <div className={`${styles.section} ${currentCardId ? 'invisible' : ''}`} aria-label="about me mask">
+    <div className={cn(styles.section, currentCardId ? 'invisible' : '')} aria-label="about me mask">
       <div className={styles.container}>
         <div className={styles.gridContainer}>
           {/* Portrait Column */}
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.imageWrapper}>
-            <div className={`${styles.imageFrame} ${styles.imageFrameMask}`}>
+            <div className={cn(styles.imageFrame, styles.imageFrameMask)}>
               <Image
                 src="/anoop-raju.jpg"
                 alt="Anoop Raju"
                 width={500}
                 height={625}
-                className={`${styles.image} invert filter`}
+                className={cn(styles.image, 'invert filter')}
                 priority
               />
             </div>
-            <p className={`${styles.imageCaption} ${styles.imageCaptionMask}`}>
+            <p className={cn(styles.imageCaption, styles.imageCaptionMask)}>
               Bengaluru, IN &bull; SDE @ Infigon Futures
             </p>
           </div>
@@ -42,13 +43,13 @@ const AboutMask: FC = () => {
             <div
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`${styles.tagline} ${styles.taglineMask}`}
+              className={cn(styles.tagline, styles.taglineMask)}
             >
               <span>[ 02 // BACKGROUND ]</span>
             </div>
 
             <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <h2 className={`${styles.heading} ${styles.headingMask}`}>
+              <h2 className={cn(styles.heading, styles.headingMask)}>
                 About Me<span className={styles.headingDotMask}>.</span>
               </h2>
             </div>
@@ -77,12 +78,12 @@ const AboutMask: FC = () => {
               </p>
             </div>
 
-            <div className={`${styles.linkContainer} ${styles.linkContainerMask}`}>
+            <div className={cn(styles.linkContainer, styles.linkContainerMask)}>
               <Link
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 href="/contact"
-                className={`${styles.contactLink} ${styles.contactLinkMask}`}
+                className={cn(styles.contactLink, styles.contactLinkMask)}
               >
                 <span>Let&apos;s build something together</span>
                 <FiArrowUpRight size={16} className={styles.arrowIcon} />

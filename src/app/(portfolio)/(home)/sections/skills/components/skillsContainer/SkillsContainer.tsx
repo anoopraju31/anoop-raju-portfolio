@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import SkillItem from '../skillItem/SkillItem';
 import styles from './styles.module.css';
@@ -17,8 +18,8 @@ const SkillsContainer: FC<Props> = ({ title, description, skills, index = 1 }) =
       <div className={styles['left-text-outter-container']}>
         <div className={styles['left-text-inner-container']}>
           <div className={styles['index-tag-regular']}>[{indexStr}] &bull; FOCUS</div>
-          <h3 className={`${styles['left-text-container-header']} ${styles['left-header-regular']}`}>{title}</h3>
-          <p className={`${styles['left-text-container-body']} ${styles['left-body-regular']}`}>{description}</p>
+          <h3 className={cn(styles['left-text-container-header'], styles['left-header-regular'])}>{title}</h3>
+          <p className={cn(styles['left-text-container-body'], styles['left-body-regular'])}>{description}</p>
         </div>
       </div>
 

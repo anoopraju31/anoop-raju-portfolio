@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import type { FC, InputHTMLAttributes } from 'react';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
@@ -13,7 +14,10 @@ const InputField: FC<Props> = ({ form, label, id, className, ...rest }) => {
       <input
         id={id}
         placeholder=" "
-        className={`peer block w-full appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg ${className || ''}`}
+        className={cn(
+          'peer block w-full appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
+          className || '',
+        )}
         {...rest}
       />
       {displayLabel && (

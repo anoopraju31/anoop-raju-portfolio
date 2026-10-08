@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { type Metadata } from 'next';
 import { Gantari } from 'next/font/google';
@@ -22,7 +23,7 @@ const BlogsPage: FC = async () => {
 
   return (
     <SmoothScrollLenis>
-      <main className={`relative min-h-screen overflow-x-hidden bg-dark-blue text-white ${gantari.className}`}>
+      <main className={cn('relative min-h-screen overflow-x-hidden bg-dark-blue text-white', gantari.className)}>
         {/* High-tech interactive Particle Canvas Background */}
         <Particles className="pointer-events-auto fixed inset-0 z-0 h-screen" />
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import { FiArrowUpRight, FiBookOpen } from 'react-icons/fi';
@@ -25,31 +26,31 @@ const RegularPage: FC<Props> = ({ blogs }) => {
       <div className={styles.container}>
         {/* Hero Header Section */}
         <header className={styles.heroSection}>
-          <div className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeRegular}`}>
-            <span className={`${styles.pulseDot} ${styles.pulseDotRegular}`} />
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
             <span>Engineering Journal &bull; Insights &amp; Tech</span>
           </div>
 
-          <h1 className={`${styles.mainHeading} ${styles.headingRegular}`}>
+          <h1 className={cn(styles.mainHeading, styles.headingRegular)}>
             Articles, Notes <span className={styles.headingHighlightRegular}>&amp; Studies</span>
           </h1>
 
-          <p className={`${styles.heroSubtitle} ${styles.heroSubtitleRegular}`}>
+          <p className={cn(styles.heroSubtitle, styles.heroSubtitleRegular)}>
             Technical deep-dives into modern web architecture, frontend performance, React internals, generative UI, and
             software engineering philosophy.
           </p>
 
           {/* Quick Stats Bar */}
           <div className={styles.statsBar}>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>{countDisplay}</span>
               <span>Articles Published</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>Next.js &bull; React</span>
               <span>Frontend Core</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>WebGL &bull; Kinetic</span>
               <span>Interactive UI</span>
             </div>
@@ -66,7 +67,7 @@ const RegularPage: FC<Props> = ({ blogs }) => {
             ))}
           </div>
         ) : (
-          <div className={`${styles.emptyState} ${styles.emptyStateRegular}`}>
+          <div className={cn(styles.emptyState, styles.emptyStateRegular)}>
             <FiBookOpen size={48} className="mb-4 text-light-green opacity-70" />
             <h3 className={styles.emptyTitle}>New Articles in Progress</h3>
             <p className={styles.emptyDescription}>
@@ -77,15 +78,15 @@ const RegularPage: FC<Props> = ({ blogs }) => {
         )}
 
         {/* Bottom CTA Banner */}
-        <section className={`${styles.bottomCtaSection} ${styles.bottomCtaSectionRegular}`}>
-          <span className={`${styles.ctaEyebrow} ${styles.ctaEyebrowRegular}`}>Have questions or thoughts?</span>
-          <h2 className={`${styles.ctaTitle} ${styles.ctaTitleRegular}`}>Let&apos;s start a conversation</h2>
-          <p className={`${styles.ctaDescription} ${styles.ctaDescriptionRegular}`}>
+        <section className={cn(styles.bottomCtaSection, styles.bottomCtaSectionRegular)}>
+          <span className={cn(styles.ctaEyebrow, styles.ctaEyebrowRegular)}>Have questions or thoughts?</span>
+          <h2 className={cn(styles.ctaTitle, styles.ctaTitleRegular)}>Let&apos;s start a conversation</h2>
+          <p className={cn(styles.ctaDescription, styles.ctaDescriptionRegular)}>
             Interested in discussing an engineering topic, technical collaboration, or exploring opportunities together?
           </p>
           <div className={styles.ctaButtonWrapper}>
             <MagneticContainer>
-              <Link href="/contact" className={`${styles.ctaButton} ${styles.ctaButtonRegular}`}>
+              <Link href="/contact" className={cn(styles.ctaButton, styles.ctaButtonRegular)}>
                 <span>Get in Touch</span>
                 <FiArrowUpRight size={18} />
               </Link>

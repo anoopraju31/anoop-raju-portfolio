@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { Gantari } from 'next/font/google';
 import { useEffect, useRef, useState, type FC } from 'react';
 import { motion } from 'framer-motion';
@@ -153,7 +154,7 @@ const Footer: FC = () => {
             {/* Magnetic CTA Button */}
             <div className="w-fit">
               <MagneticContainer>
-                <Link href="/contact" className={`${styles['contact-button']} group`}>
+                <Link href="/contact" className={cn(styles['contact-button'], 'group')}>
                   <span>Contact Me</span>
                   <FiArrowUpRight className="text-3xl transition-transform duration-500 group-hover:rotate-45 sm:text-5xl" />
                 </Link>
@@ -171,7 +172,7 @@ const Footer: FC = () => {
                   Available for new opportunities
                 </span>
               </div>
-              <p className={`text-sm leading-relaxed text-dark-blue/80 sm:text-base ${gantari.className}`}>
+              <p className={cn('text-sm leading-relaxed text-dark-blue/80 sm:text-base', gantari.className)}>
                 Looking to build cutting-edge web applications, interactive 3D experiences, or scale your digital
                 engineering? Let&apos;s build something impactful.
               </p>
@@ -223,7 +224,7 @@ const Footer: FC = () => {
             <span className="mb-2 font-mono text-xs uppercase tracking-widest text-dark-blue/60">
               {'//'} DIRECTORY & SOCIALS
             </span>
-            <ul className={`flex flex-col ${gantari.className}`}>
+            <ul className={cn('flex flex-col', gantari.className)}>
               {SOCIAL_LINKS.map((item, idx) => (
                 <FooterLink
                   key={item.title}

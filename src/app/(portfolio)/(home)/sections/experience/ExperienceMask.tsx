@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
@@ -21,14 +22,14 @@ const ExperienceMask: FC = () => {
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeMask}`}
+            className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
           >
-            <span className={`${styles.pulseDot} ${styles.pulseDotMask}`} />
+            <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
             <span>Career Trajectory &bull; 2022 &mdash; Present</span>
           </div>
 
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <h2 className={`${styles.heading} ${styles.headingMask}`}>
+            <h2 className={cn(styles.heading, styles.headingMask)}>
               Work Experience <span className={styles.headingHighlightMask}>&amp; Roles</span>
             </h2>
           </div>
@@ -36,7 +37,7 @@ const ExperienceMask: FC = () => {
           <p
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.subtitle} ${styles.subtitleMask}`}
+            className={cn(styles.subtitle, styles.subtitleMask)}
           >
             Demonstrated track record of architecting scalable frontend solutions, responsive web applications, and
             performance-driven interactive features.
@@ -44,15 +45,15 @@ const ExperienceMask: FC = () => {
 
           {/* Timeline Highlights Bar */}
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.statsBar}>
-            <div className={`${styles.statItem} ${styles.statItemMask}`}>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
               <span className={styles.statNumberMask}>02+</span>
               <span>Years Experience</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemMask}`}>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
               <span className={styles.statNumberMask}>Infigon Futures</span>
               <span>Aug 2024 &mdash; Present</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemMask}`}>
+            <div className={cn(styles.statItem, styles.statItemMask)}>
               <span className={styles.statNumberMask}>Tridashay</span>
               <span>Frontend Intern</span>
             </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC, useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
@@ -114,9 +115,10 @@ const NavMenu: FC = () => {
         <>
           {/* Outer Magnetic Ring */}
           <motion.div
-            className={`pointer-events-none fixed left-0 top-0 z-[150] hidden rounded-full border md:block ${
-              isBackgroundDark ? 'border-light-green' : 'border-dark-blue'
-            }`}
+            className={cn(
+              'pointer-events-none fixed left-0 top-0 z-[150] hidden rounded-full border md:block',
+              isBackgroundDark ? 'border-light-green' : 'border-dark-blue',
+            )}
             animate={{
               x: mousePos.x - (isInteractiveHovered ? 24 : 16),
               y: mousePos.y - (isInteractiveHovered ? 24 : 16),
@@ -129,9 +131,10 @@ const NavMenu: FC = () => {
 
           {/* Precision Center Dot */}
           <motion.div
-            className={`pointer-events-none fixed left-0 top-0 z-[150] hidden rounded-full md:block ${
-              isBackgroundDark ? 'bg-light-green' : 'bg-dark-blue'
-            }`}
+            className={cn(
+              'pointer-events-none fixed left-0 top-0 z-[150] hidden rounded-full md:block',
+              isBackgroundDark ? 'bg-light-green' : 'bg-dark-blue',
+            )}
             animate={{
               x: mousePos.x - (isInteractiveHovered ? 4 : 3),
               y: mousePos.y - (isInteractiveHovered ? 4 : 3),
@@ -157,15 +160,18 @@ const NavMenu: FC = () => {
         {/* Top Status & Directory Bar */}
         <motion.div
           variants={secondaryFadeVariants}
-          className={`flex flex-wrap items-center justify-between gap-4 border-b pb-4 font-mono text-xs uppercase tracking-widest sm:text-sm ${
-            isBackgroundDark ? 'border-white/10 text-white/50' : 'border-dark-blue/15 text-dark-blue/60'
-          }`}
+          className={cn(
+            'flex flex-wrap items-center justify-between gap-4 border-b pb-4 font-mono text-xs uppercase tracking-widest sm:text-sm',
+            isBackgroundDark ? 'border-white/10 text-white/50' : 'border-dark-blue/15 text-dark-blue/60',
+          )}
         >
           <div className="flex items-center gap-2">
             <span
-              className={`inline-block h-2 w-2 rounded-full ${
-                isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80'
-              } animate-pulse`}
+              className={cn(
+                'inline-block h-2 w-2 rounded-full',
+                isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80',
+                'animate-pulse',
+              )}
             />
             <span>{'//'} NAVIGATION DIRECTORY</span>
           </div>
@@ -217,37 +223,44 @@ const NavMenu: FC = () => {
           >
             {/* Availability & Bio Card */}
             <div
-              className={`rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 ${
+              className={cn(
+                'rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300',
                 isBackgroundDark
                   ? 'border-white/10 bg-white/[0.03] hover:border-light-green/40'
-                  : 'border-dark-blue/15 bg-dark-blue/5 hover:border-dark-blue/30'
-              }`}
+                  : 'border-dark-blue/15 bg-dark-blue/5 hover:border-dark-blue/30',
+              )}
             >
               <div className="mb-3 flex items-center gap-2">
                 <span className="relative flex h-5 w-5 items-center justify-center">
                   <span
-                    className={`absolute left-[5px] top-[5px] inline-flex h-2.5 w-2.5 animate-ping rounded-full ${
-                      isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80'
-                    } opacity-75`}
+                    className={cn(
+                      'absolute left-[5px] top-[5px] inline-flex h-2.5 w-2.5 animate-ping rounded-full',
+                      isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80',
+                      'opacity-75',
+                    )}
                   />
                   <span
-                    className={`relative inline-flex h-2.5 w-2.5 rounded-full ${
-                      isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80'
-                    }`}
+                    className={cn(
+                      'relative inline-flex h-2.5 w-2.5 rounded-full',
+                      isBackgroundDark ? 'bg-white/80' : 'bg-dark-blue/80',
+                    )}
                   />
                 </span>
                 <span
-                  className={`font-mono text-xs font-semibold uppercase tracking-wider ${
-                    isBackgroundDark ? 'text-white/80' : 'text-dark-blue/80'
-                  }`}
+                  className={cn(
+                    'font-mono text-xs font-semibold uppercase tracking-wider',
+                    isBackgroundDark ? 'text-white/80' : 'text-dark-blue/80',
+                  )}
                 >
                   Available for new opportunities
                 </span>
               </div>
               <p
-                className={`text-sm leading-relaxed sm:text-base ${gantari.className} ${
-                  isBackgroundDark ? 'text-white/80' : 'text-dark-blue/80'
-                }`}
+                className={cn(
+                  'text-sm leading-relaxed sm:text-base',
+                  gantari.className,
+                  isBackgroundDark ? 'text-white/80' : 'text-dark-blue/80',
+                )}
               >
                 Creative Full Stack Engineer specializing in bespoke web applications, high-performance interactive
                 visuals, and resilient cloud architectures.
@@ -257,9 +270,10 @@ const NavMenu: FC = () => {
             {/* Quick Direct Inquiries */}
             <div>
               <span
-                className={`mb-3 block font-mono text-xs uppercase tracking-widest ${
-                  isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50'
-                }`}
+                className={cn(
+                  'mb-3 block font-mono text-xs uppercase tracking-widest',
+                  isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50',
+                )}
               >
                 {'//'} SAY HELLO
               </span>
@@ -268,11 +282,12 @@ const NavMenu: FC = () => {
                   href="mailto:anoop2019@iiitkottayam.ac.in"
                   onMouseEnter={() => setIsInteractiveHovered(true)}
                   onMouseLeave={() => setIsInteractiveHovered(false)}
-                  className={`group inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 transition-colors duration-300 sm:text-lg ${
+                  className={cn(
+                    'group inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 transition-colors duration-300 sm:text-lg',
                     isBackgroundDark
                       ? 'text-white decoration-white/30 hover:text-light-green hover:decoration-light-green'
-                      : 'text-dark-blue decoration-dark-blue/30 hover:opacity-75'
-                  }`}
+                      : 'text-dark-blue decoration-dark-blue/30 hover:opacity-75',
+                  )}
                 >
                   <FiMail className="text-light-green" />
                   <span>anoop2019@iiitkottayam.ac.in</span>
@@ -285,13 +300,14 @@ const NavMenu: FC = () => {
                   onClick={handleCopyEmail}
                   onMouseEnter={() => setIsInteractiveHovered(true)}
                   onMouseLeave={() => setIsInteractiveHovered(false)}
-                  className={`flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs transition-all duration-300 ${
+                  className={cn(
+                    'flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs transition-all duration-300',
                     copiedEmail
                       ? 'border-light-green bg-light-green font-bold text-dark-blue'
                       : isBackgroundDark
                         ? 'border-white/20 text-white/70 hover:border-light-green hover:text-light-green'
-                        : 'border-dark-blue/30 text-dark-blue hover:bg-dark-blue/10'
-                  }`}
+                        : 'border-dark-blue/30 text-dark-blue hover:bg-dark-blue/10',
+                  )}
                   title="Copy email address"
                 >
                   {copiedEmail ? (
@@ -312,9 +328,10 @@ const NavMenu: FC = () => {
             {/* Social Media Links */}
             <div>
               <span
-                className={`mb-3 block font-mono text-xs uppercase tracking-widest ${
-                  isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50'
-                }`}
+                className={cn(
+                  'mb-3 block font-mono text-xs uppercase tracking-widest',
+                  isBackgroundDark ? 'text-white/40' : 'text-dark-blue/50',
+                )}
               >
                 {'//'} CONNECT
               </span>
@@ -329,11 +346,12 @@ const NavMenu: FC = () => {
                       rel="noopener noreferrer"
                       onMouseEnter={() => setIsInteractiveHovered(true)}
                       onMouseLeave={() => setIsInteractiveHovered(false)}
-                      className={`group inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono text-xs transition-all duration-300 sm:text-sm ${
+                      className={cn(
+                        'group inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-mono text-xs transition-all duration-300 sm:text-sm',
                         isBackgroundDark
                           ? 'border-white/10 bg-white/[0.02] text-white/80 hover:-translate-y-0.5 hover:border-light-green hover:bg-light-green hover:text-dark-blue'
-                          : 'border-dark-blue/20 bg-dark-blue/[0.03] text-dark-blue hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:text-light-green'
-                      }`}
+                          : 'border-dark-blue/20 bg-dark-blue/[0.03] text-dark-blue hover:-translate-y-0.5 hover:border-dark-blue hover:bg-dark-blue hover:text-light-green',
+                      )}
                     >
                       <Icon className="text-sm" />
                       <span>{social.name}</span>
@@ -349,9 +367,10 @@ const NavMenu: FC = () => {
         {/* Bottom Meta & Copyright */}
         <motion.div
           variants={secondaryFadeVariants}
-          className={`flex flex-wrap items-center justify-between gap-4 border-t pt-4 font-mono text-xs tracking-wider ${
-            isBackgroundDark ? 'border-white/10 text-white/40' : 'border-dark-blue/15 text-dark-blue/50'
-          }`}
+          className={cn(
+            'flex flex-wrap items-center justify-between gap-4 border-t pt-4 font-mono text-xs tracking-wider',
+            isBackgroundDark ? 'border-white/10 text-white/40' : 'border-dark-blue/15 text-dark-blue/50',
+          )}
         >
           <p>© {currentYear} ANOOP RAJU. ALL RIGHTS RESERVED.</p>
           <p className="hidden sm:block">DESIGNED & ENGINEERED FOR HIGH IMPACT</p>

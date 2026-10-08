@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { Gantari } from 'next/font/google';
 import Link from 'next/link';
 import ScrollText from './scrollText';
@@ -9,7 +10,7 @@ const FooterScrollText = () => {
   return (
     <Link
       href="/contact"
-      className={`group ${styles['outter-container']} ${gantari.className}`}
+      className={cn('group', styles['outter-container'], gantari.className)}
       title="Let's talk - Get in touch"
     >
       <div className={styles['inner-container']}>

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import useMousePosition from '@/app/(portfolio)/hooks/useMousePostion';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import { ImArrowUpRight2 } from 'react-icons/im';
@@ -21,7 +22,7 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
         initial={maskInitialAnimation}
         animate={currentCardId ? maskInitialAnimation : maskAnimation(x, y, size)}
         transition={maskTransition}
-        className={`${styles.mask} ${styles.m}`}
+        className={cn(styles.mask, styles.m)}
       >
         {children}
       </motion.div>

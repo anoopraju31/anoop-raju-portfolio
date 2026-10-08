@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import { FiArrowRight, FiBookOpen } from 'react-icons/fi';
@@ -35,14 +36,14 @@ const BlogMask: FC<Props> = ({ blogs }) => {
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeMask}`}
+            className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
           >
-            <span className={`${styles.pulseDot} ${styles.pulseDotMask}`} />
+            <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
             <span>Editorial &bull; Thoughts, Architecture &amp; Code</span>
           </div>
 
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <h2 className={`${styles.heading} ${styles.headingMask}`}>
+            <h2 className={cn(styles.heading, styles.headingMask)}>
               Latest Articles <span className={styles.headingHighlightMask}>&amp; Writings</span>
             </h2>
           </div>
@@ -50,7 +51,7 @@ const BlogMask: FC<Props> = ({ blogs }) => {
           <p
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`${styles.subtitle} ${styles.subtitleMask}`}
+            className={cn(styles.subtitle, styles.subtitleMask)}
           >
             Deep dives into engineering architecture, web animations, UI/UX aesthetics, and scalable fullstack software
             development.
@@ -59,7 +60,7 @@ const BlogMask: FC<Props> = ({ blogs }) => {
           {/* Topic Highlights Bar */}
           <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.topicPillsRow}>
             {TOPICS.map((topic, i) => (
-              <div key={i} className={`${styles.topicPill} ${styles.topicPillMask}`}>
+              <div key={i} className={cn(styles.topicPill, styles.topicPillMask)}>
                 <span className={styles.topicTagMask}>#{topic.label}</span>
                 <span>&bull; {topic.count}</span>
               </div>
@@ -88,7 +89,7 @@ const BlogMask: FC<Props> = ({ blogs }) => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               href="/blogs"
-              className={`${styles.ctaButton} ${styles.ctaButtonMask}`}
+              className={cn(styles.ctaButton, styles.ctaButtonMask)}
             >
               <span>Explore All Articles</span>
               <FiArrowRight size={18} className={styles.ctaArrow} />

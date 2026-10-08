@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +12,7 @@ const About: FC = () => {
         <div className={styles.gridContainer}>
           {/* Portrait Column */}
           <div className={styles.imageWrapper}>
-            <div className={`${styles.imageFrame} ${styles.imageFrameRegular}`}>
+            <div className={cn(styles.imageFrame, styles.imageFrameRegular)}>
               <Image
                 src="/anoop-raju.jpg"
                 alt="Anoop Raju"
@@ -21,18 +22,18 @@ const About: FC = () => {
                 priority
               />
             </div>
-            <p className={`${styles.imageCaption} ${styles.imageCaptionRegular}`}>
+            <p className={cn(styles.imageCaption, styles.imageCaptionRegular)}>
               Bengaluru, IN &bull; SDE @ Infigon Futures
             </p>
           </div>
 
           {/* Story Column */}
           <div className={styles.contentWrapper}>
-            <div className={`${styles.tagline} ${styles.taglineRegular}`}>
+            <div className={cn(styles.tagline, styles.taglineRegular)}>
               <span>[ 02 // BACKGROUND ]</span>
             </div>
 
-            <h2 className={`${styles.heading} ${styles.headingRegular}`}>
+            <h2 className={cn(styles.heading, styles.headingRegular)}>
               About Me<span className={styles.headingDotRegular}>.</span>
             </h2>
 
@@ -60,8 +61,8 @@ const About: FC = () => {
               </p>
             </div>
 
-            <div className={`${styles.linkContainer} ${styles.linkContainerRegular}`}>
-              <Link href="/contact" className={`${styles.contactLink} ${styles.contactLinkRegular}`}>
+            <div className={cn(styles.linkContainer, styles.linkContainerRegular)}>
+              <Link href="/contact" className={cn(styles.contactLink, styles.contactLinkRegular)}>
                 <span>Let&apos;s build something together</span>
                 <FiArrowUpRight size={16} className={styles.arrowIcon} />
               </Link>

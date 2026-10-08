@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import type { FC } from 'react';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import Image from 'next/image';
@@ -37,11 +38,12 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.2, ease: 'easeInOut' }}
       viewport={{ once: true }}
-      className={`relative flex h-full w-full flex-col justify-between overflow-hidden rounded-3xl border transition-all duration-500 ${
+      className={cn(
+        'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-3xl border transition-all duration-500',
         isHovered
           ? 'border-light-green/45 bg-dark-blue shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(76,252,15,0.15)]'
-          : 'border-white/15 bg-dark-blue/90 shadow-2xl'
-      }`}
+          : 'border-white/15 bg-dark-blue/90 shadow-2xl',
+      )}
     >
       {/* Image Background & Zoom */}
       <div className="absolute inset-0 h-full w-full overflow-hidden">
@@ -65,11 +67,12 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
         {/* Multi-tier Gradient Vignette Overlays */}
         <div className="pointer-events-none absolute inset-0 h-32 bg-gradient-to-b from-dark-blue/80 via-transparent to-transparent" />
         <div
-          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
+          className={cn(
+            'pointer-events-none absolute inset-0 transition-opacity duration-500',
             isHovered
               ? 'bg-gradient-to-t from-dark-blue via-dark-blue/60 to-dark-blue/20 opacity-95'
-              : 'bg-gradient-to-t from-dark-blue/95 via-dark-blue/60 to-black/30 opacity-90'
-          }`}
+              : 'bg-gradient-to-t from-dark-blue/95 via-dark-blue/60 to-black/30 opacity-90',
+          )}
         />
       </div>
 

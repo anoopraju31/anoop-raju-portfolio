@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import { FiArrowRight, FiBookOpen } from 'react-icons/fi';
@@ -24,16 +25,16 @@ const Blog: FC<Props> = ({ blogs }) => {
       <div className={styles.container}>
         {/* Section Header */}
         <header className={styles.headingContainer}>
-          <div className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeRegular}`}>
-            <span className={`${styles.pulseDot} ${styles.pulseDotRegular}`} />
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
             <span>Editorial &bull; Thoughts, Architecture &amp; Code</span>
           </div>
 
-          <h2 className={`${styles.heading} ${styles.headingRegular}`}>
+          <h2 className={cn(styles.heading, styles.headingRegular)}>
             Latest Articles <span className={styles.headingHighlightRegular}>&amp; Writings</span>
           </h2>
 
-          <p className={`${styles.subtitle} ${styles.subtitleRegular}`}>
+          <p className={cn(styles.subtitle, styles.subtitleRegular)}>
             Deep dives into engineering architecture, web animations, UI/UX aesthetics, and scalable fullstack software
             development.
           </p>
@@ -41,7 +42,7 @@ const Blog: FC<Props> = ({ blogs }) => {
           {/* Topic Highlights Bar */}
           <div className={styles.topicPillsRow}>
             {TOPICS.map((topic, i) => (
-              <div key={i} className={`${styles.topicPill} ${styles.topicPillRegular}`}>
+              <div key={i} className={cn(styles.topicPill, styles.topicPillRegular)}>
                 <span className={styles.topicTagRegular}>#{topic.label}</span>
                 <span>&bull; {topic.count}</span>
               </div>
@@ -66,7 +67,7 @@ const Blog: FC<Props> = ({ blogs }) => {
 
           {/* CTA Button */}
           <div className={styles.linkWrapper}>
-            <Link href="/blogs" className={`${styles.ctaButton} ${styles.ctaButtonRegular}`}>
+            <Link href="/blogs" className={cn(styles.ctaButton, styles.ctaButtonRegular)}>
               <span>Explore All Articles</span>
               <FiArrowRight size={18} className={styles.ctaArrow} />
             </Link>

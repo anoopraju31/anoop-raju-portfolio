@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { FC } from 'react';
 import ExperienceAccordion from './components/ExperienceAccordion/ExperienceAccordion';
 import { accordionData } from '@/utills/constants';
@@ -9,31 +10,31 @@ const Experience: FC = () => {
       <div className={styles.container}>
         {/* Section Header */}
         <header className={styles.headingContainer}>
-          <div className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeRegular}`}>
-            <span className={`${styles.pulseDot} ${styles.pulseDotRegular}`} />
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
             <span>Career Trajectory &bull; 2022 &mdash; Present</span>
           </div>
 
-          <h2 className={`${styles.heading} ${styles.headingRegular}`}>
+          <h2 className={cn(styles.heading, styles.headingRegular)}>
             Work Experience <span className={styles.headingHighlightRegular}>&amp; Roles</span>
           </h2>
 
-          <p className={`${styles.subtitle} ${styles.subtitleRegular}`}>
+          <p className={cn(styles.subtitle, styles.subtitleRegular)}>
             Demonstrated track record of architecting scalable frontend solutions, responsive web applications, and
             performance-driven interactive features.
           </p>
 
           {/* Timeline Highlights Bar */}
           <div className={styles.statsBar}>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>02+</span>
               <span>Years Experience</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>Infigon Futures</span>
               <span>Aug 2024 &mdash; Present</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>Tridashay</span>
               <span>Frontend Intern</span>
             </div>

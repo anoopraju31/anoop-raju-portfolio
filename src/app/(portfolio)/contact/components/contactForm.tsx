@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type ChangeEvent, useState, type FC, FormEvent, useEffect } from 'react';
 import { FiSend, FiCheckCircle } from 'react-icons/fi';
 import InputField from './inputField';
@@ -125,15 +126,16 @@ const ContactForm: FC = () => {
       <button
         type="submit"
         disabled={status === 'DISABLED' || status === 'SUBMITTING'}
-        className={`group relative flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 sm:text-base ${
+        className={cn(
+          'group relative flex w-full items-center justify-center gap-3 rounded-xl px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 sm:text-base',
           status === 'SUCCESS'
             ? 'bg-light-green text-dark-blue shadow-[0_0_25px_rgba(76,252,15,0.4)]'
             : status === 'SUBMITTING'
               ? 'cursor-wait bg-light-green/70 text-dark-blue'
               : status === 'ENABLED'
                 ? 'cursor-pointer bg-light-green text-dark-blue hover:scale-[1.01] hover:shadow-[0_0_25px_rgba(76,252,15,0.4)] active:scale-[0.99]'
-                : 'cursor-not-allowed border border-white/10 bg-white/10 text-white/40'
-        }`}
+                : 'cursor-not-allowed border border-white/10 bg-white/10 text-white/40',
+        )}
       >
         {status === 'SUBMITTING' ? (
           <>

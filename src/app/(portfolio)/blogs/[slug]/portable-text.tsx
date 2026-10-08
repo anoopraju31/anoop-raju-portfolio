@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 /**
  * This component uses Portable Text to render a post body.
  *
@@ -8,7 +9,7 @@
  *
  */
 
-'use client';
+('use client');
 
 import { useEffect } from 'react';
 import { urlForImage } from '@/sanity/lib/utils';
@@ -133,7 +134,7 @@ export default function CustomPortableText({ className, value }: { className?: s
           <div className="relative w-full">
             <figure>
               <Image
-                className={`w-full object-contain`}
+                className={cn('w-full object-contain')}
                 alt={value?.alt || ''}
                 src={urlForImage(value)?.url() as string}
                 priority={true}
@@ -150,8 +151,8 @@ export default function CustomPortableText({ className, value }: { className?: s
       code: ({ value }) => {
         const lang = value.language || 'javascript';
         return (
-          <pre className={`language-${lang} my-4 overflow-auto rounded-md !bg-gray-900 p-4 text-white`}>
-            <code className={`language-${lang}`}>{value.code}</code>
+          <pre className={cn('language-', lang, 'my-4 overflow-auto rounded-md !bg-gray-900 p-4 text-white')}>
+            <code className={cn('language-', lang)}>{value.code}</code>
           </pre>
         );
       },
@@ -166,7 +167,11 @@ export default function CustomPortableText({ className, value }: { className?: s
                   {row.cells.map((cell, index) => (
                     <td
                       key={index}
-                      className={`border-grey-950 text-grey-950 border p-2 ${idx === 0 ? 'font-semibold' : 'font-light'} text-base`}
+                      className={cn(
+                        'border-grey-950 text-grey-950 border p-2',
+                        idx === 0 ? 'font-semibold' : 'font-light',
+                        'text-base',
+                      )}
                     >
                       {cell}
                     </td>

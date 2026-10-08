@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
@@ -70,21 +71,23 @@ const NavLink = ({
         onMouseLeave={onHoverEnd}
         onFocus={onHoverStart}
         onBlur={onHoverEnd}
-        className={`group relative flex select-none items-center gap-4 outline-none transition-opacity duration-300 sm:gap-6 md:gap-8 ${
-          isAnyHovered && !isHovered ? 'opacity-30' : 'opacity-100'
-        }`}
+        className={cn(
+          'group relative flex select-none items-center gap-4 outline-none transition-opacity duration-300 sm:gap-6 md:gap-8',
+          isAnyHovered && !isHovered ? 'opacity-30' : 'opacity-100',
+        )}
       >
         {/* Numeric Index */}
         <span
-          className={`font-mono text-xs tracking-widest transition-colors duration-300 sm:text-sm ${
+          className={cn(
+            'font-mono text-xs tracking-widest transition-colors duration-300 sm:text-sm',
             isHovered || isActive
               ? isBackgroundDark
                 ? 'text-light-green'
                 : 'font-bold text-dark-blue'
               : isBackgroundDark
                 ? 'text-white/40'
-                : 'text-dark-blue/50'
-          }`}
+                : 'text-dark-blue/50',
+          )}
         >
           {formattedIndex}
         </span>
@@ -92,43 +95,46 @@ const NavLink = ({
         {/* Title and Kinetic Arrow */}
         <div className="flex items-center gap-3 overflow-visible sm:gap-5">
           <span
-            className={`transform text-4xl font-black uppercase tracking-tight transition-all duration-300 ease-out sm:text-6xl md:text-7xl lg:text-8xl ${
-              isHovered ? 'translate-x-3 sm:translate-x-6' : 'translate-x-0'
-            } ${
+            className={cn(
+              'transform text-4xl font-black uppercase tracking-tight transition-all duration-300 ease-out sm:text-6xl md:text-7xl lg:text-8xl',
+              isHovered ? 'translate-x-3 sm:translate-x-6' : 'translate-x-0',
               isActive
                 ? isBackgroundDark
                   ? 'text-light-green drop-shadow-[0_0_24px_rgba(76,252,15,0.35)]'
                   : 'text-dark-blue underline decoration-4 underline-offset-8'
                 : isBackgroundDark
                   ? 'text-white group-hover:text-light-green'
-                  : 'text-dark-blue group-hover:opacity-80'
-            }`}
+                  : 'text-dark-blue group-hover:opacity-80',
+            )}
           >
             {title}
           </span>
 
           {/* Kinetic Indicator: Arrow or Active Dot */}
           <div
-            className={`flex items-center justify-center transition-all duration-300 ease-out ${
+            className={cn(
+              'flex items-center justify-center transition-all duration-300 ease-out',
               isHovered
                 ? 'translate-x-3 scale-100 opacity-100 sm:translate-x-6'
                 : isActive
                   ? 'translate-x-0 scale-100 opacity-100'
-                  : 'pointer-events-none -translate-x-4 scale-75 opacity-0'
-            }`}
+                  : 'pointer-events-none -translate-x-4 scale-75 opacity-0',
+            )}
           >
             {isHovered ? (
               <FiArrowUpRight
-                className={`text-3xl transition-transform duration-300 group-hover:rotate-45 sm:text-5xl md:text-6xl ${
-                  isBackgroundDark ? 'text-light-green' : 'text-dark-blue'
-                }`}
+                className={cn(
+                  'text-3xl transition-transform duration-300 group-hover:rotate-45 sm:text-5xl md:text-6xl',
+                  isBackgroundDark ? 'text-light-green' : 'text-dark-blue',
+                )}
               />
             ) : isActive ? (
               <span className="flex items-center gap-2 rounded-full border border-light-green/30 px-3 py-1 font-mono text-xs uppercase tracking-wider backdrop-blur-md">
                 <span
-                  className={`h-2 w-2 animate-ping rounded-full ${
-                    isBackgroundDark ? 'bg-light-green' : 'bg-dark-blue'
-                  }`}
+                  className={cn(
+                    'h-2 w-2 animate-ping rounded-full',
+                    isBackgroundDark ? 'bg-light-green' : 'bg-dark-blue',
+                  )}
                 />
                 <span className={isBackgroundDark ? 'text-light-green' : 'text-dark-blue'}>Active</span>
               </span>

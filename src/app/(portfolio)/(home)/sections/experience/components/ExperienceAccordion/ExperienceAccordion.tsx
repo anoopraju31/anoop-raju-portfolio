@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa6';
@@ -23,7 +24,7 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
   const isCurrent = duration.toLowerCase().includes('present');
 
   return (
-    <div className={`${styles.card} ${styles.cardRegular}`} id={id}>
+    <div className={cn(styles.card, styles.cardRegular)} id={id}>
       <button type="button" onClick={toggle} aria-expanded={isOpen} className={styles.accordionHeader}>
         <div className={styles.leftInfo}>
           <div className={styles.indexRow}>
@@ -31,19 +32,19 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
             <span className="text-white/40">ROLE &bull; CAREER</span>
           </div>
 
-          <h3 className={`${styles.companyName} ${styles.companyNameRegular}`}>{companyName}</h3>
+          <h3 className={cn(styles.companyName, styles.companyNameRegular)}>{companyName}</h3>
 
           <div className={styles.metaPillsRow}>
-            <div className={`${styles.rolePill} ${styles.rolePillRegular}`}>
-              {isCurrent && <span className={`${styles.roleDot} ${styles.roleDotRegular}`} />}
+            <div className={cn(styles.rolePill, styles.rolePillRegular)}>
+              {isCurrent && <span className={cn(styles.roleDot, styles.roleDotRegular)} />}
               <span>{position}</span>
             </div>
 
-            <span className={`${styles.durationPill} ${styles.durationRegular}`}>{duration}</span>
+            <span className={cn(styles.durationPill, styles.durationRegular)}>{duration}</span>
           </div>
         </div>
 
-        <div className={`${styles.toggleButton} ${styles.toggleButtonRegular}`}>
+        <div className={cn(styles.toggleButton, styles.toggleButtonRegular)}>
           <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
             <FaPlus size={14} />
           </motion.div>
@@ -75,11 +76,11 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
             className={styles.bodyWrapper}
           >
             <div className="pt-6">
-              <div className={`${styles.bodyContent} ${styles.bodyContentRegular}`}>
+              <div className={cn(styles.bodyContent, styles.bodyContentRegular)}>
                 <ul className={styles.achievementsList}>
                   {description.map((item, idx) => (
                     <li key={idx} className={styles.achievementItem}>
-                      <FiCheckCircle size={16} className={`${styles.bulletIcon} ${styles.bulletIconRegular}`} />
+                      <FiCheckCircle size={16} className={cn(styles.bulletIcon, styles.bulletIconRegular)} />
                       <span className={styles.achievementTextRegular}>{item}</span>
                     </li>
                   ))}

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 import MagneticContainer from '@/components/MagneticContainer';
@@ -21,35 +22,35 @@ const RegularPage = () => {
       <section className={styles.container}>
         {/* Hero Header Section */}
         <header className={styles.heroSection}>
-          <div className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeRegular}`}>
-            <span className={`${styles.pulseDot} ${styles.pulseDotRegular}`} />
+          <div className={cn(styles.eyebrowBadge, styles.eyebrowBadgeRegular)}>
+            <span className={cn(styles.pulseDot, styles.pulseDotRegular)} />
             <span>Selected Works &bull; 2023 &mdash; Present</span>
           </div>
 
-          <h1 className={`${styles.mainHeading} ${styles.headingRegular}`}>
+          <h1 className={cn(styles.mainHeading, styles.headingRegular)}>
             Featured Work <span className={styles.headingHighlightRegular}>&amp; Systems</span>
           </h1>
 
-          <p className={`${styles.heroSubtitle} ${styles.heroSubtitleRegular}`}>
+          <p className={cn(styles.heroSubtitle, styles.heroSubtitleRegular)}>
             A curated collection of full-stack web applications, bespoke user interfaces, and generative digital
             experiments engineered with performance, accessibility, and kinetic craft.
           </p>
 
           {/* Quick Metrics Bar */}
           <div className={styles.statsBar}>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>05</span>
               <span>Curated Builds</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>100%</span>
               <span>TypeScript</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>React &bull; Next.js</span>
               <span>Core Stack</span>
             </div>
-            <div className={`${styles.statItem} ${styles.statItemRegular}`}>
+            <div className={cn(styles.statItem, styles.statItemRegular)}>
               <span className={styles.statNumberRegular}>OpenAI &bull; WebGL</span>
               <span>Integrations</span>
             </div>
@@ -84,16 +85,16 @@ const RegularPage = () => {
         </div>
 
         {/* Bottom Call To Action Banner */}
-        <section className={`${styles.bottomCtaSection} ${styles.bottomCtaSectionRegular}`}>
-          <span className={`${styles.ctaEyebrow} ${styles.ctaEyebrowRegular}`}>Have a vision in mind?</span>
-          <h2 className={`${styles.ctaTitle} ${styles.ctaTitleRegular}`}>
+        <section className={cn(styles.bottomCtaSection, styles.bottomCtaSectionRegular)}>
+          <span className={cn(styles.ctaEyebrow, styles.ctaEyebrowRegular)}>Have a vision in mind?</span>
+          <h2 className={cn(styles.ctaTitle, styles.ctaTitleRegular)}>
             Let&apos;s build something extraordinary together
           </h2>
-          <p className={`${styles.ctaDescription} ${styles.ctaDescriptionRegular}`}>
+          <p className={cn(styles.ctaDescription, styles.ctaDescriptionRegular)}>
             Available for select freelance contracts, high-impact frontend roles, and creative software collaborations.
           </p>
           <div className={styles.ctaButtonWrapper}>
-            <Link href="/contact" className={`${styles.ctaButton} ${styles.ctaButtonRegular}`}>
+            <Link href="/contact" className={cn(styles.ctaButton, styles.ctaButtonRegular)}>
               <span>Start a Conversation</span>
               <FiArrowUpRight size={18} />
             </Link>

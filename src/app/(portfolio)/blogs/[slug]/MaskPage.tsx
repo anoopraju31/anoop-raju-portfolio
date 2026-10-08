@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import { type FC } from 'react';
 import { type PostQueryResult } from '../../../../../sanity.types';
 import type { PortableTextBlock } from 'next-sanity';
@@ -21,7 +22,7 @@ const MaskPage: FC<Props> = ({ post }) => {
   return (
     <div className="absolute left-0 right-0 top-0 w-full">
       <Mask>
-        <div className={`${styles.section} ${ptSans.className}`} aria-label="skills">
+        <div className={cn(styles.section, ptSans.className)} aria-label="skills">
           <div className={styles.container}>
             {/* Breadcrumbs */}
             <div className="flex w-full items-center gap-2 px-4 sm:px-0">

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 
@@ -395,7 +396,7 @@ const Ferrofluid: React.FC<FerrofluidProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`fixed left-0 top-0 h-full w-full overflow-hidden ${className ?? ''}`}
+      className={cn('fixed left-0 top-0 h-full w-full overflow-hidden', className ?? '')}
       style={{
         ...(mixBlendMode && { mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] }),
       }}

@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import useWindowWidth from '@/app/(portfolio)/hooks/useWindowWidth';
 import { motion, type Variants } from 'framer-motion';
 
@@ -31,9 +32,11 @@ const Curve = (props: CurveProps) => {
 
   return (
     <svg
-      className={`absolute -top-[99px] left-0 h-[100px] w-full overflow-visible ${
-        isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green'
-      } pointer-events-none z-10 stroke-none`}
+      className={cn(
+        'absolute -top-[99px] left-0 h-[100px] w-full overflow-visible',
+        isBackgroundDark ? 'fill-dark-blue' : 'fill-light-green',
+        'pointer-events-none z-10 stroke-none',
+      )}
     >
       <motion.path variants={curve} />
     </svg>

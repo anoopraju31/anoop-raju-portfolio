@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utills';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
@@ -34,14 +35,14 @@ const MaskPage = () => {
               <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.eyebrowBadge} ${styles.eyebrowBadgeMask}`}
+                className={cn(styles.eyebrowBadge, styles.eyebrowBadgeMask)}
               >
-                <span className={`${styles.pulseDot} ${styles.pulseDotMask}`} />
+                <span className={cn(styles.pulseDot, styles.pulseDotMask)} />
                 <span>Selected Works &bull; 2023 &mdash; Present</span>
               </div>
 
               <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <h1 className={`${styles.mainHeading} ${styles.headingMask}`}>
+                <h1 className={cn(styles.mainHeading, styles.headingMask)}>
                   Featured Work <span className={styles.headingHighlightMask}>&amp; Systems</span>
                 </h1>
               </div>
@@ -49,7 +50,7 @@ const MaskPage = () => {
               <p
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.heroSubtitle} ${styles.heroSubtitleMask}`}
+                className={cn(styles.heroSubtitle, styles.heroSubtitleMask)}
               >
                 A curated collection of full-stack web applications, bespoke user interfaces, and generative digital
                 experiments engineered with performance, accessibility, and kinetic craft.
@@ -57,19 +58,19 @@ const MaskPage = () => {
 
               {/* Quick Metrics Bar */}
               <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.statsBar}>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>05</span>
                   <span>Curated Builds</span>
                 </div>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>100%</span>
                   <span>TypeScript</span>
                 </div>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>React &bull; Next.js</span>
                   <span>Core Stack</span>
                 </div>
-                <div className={`${styles.statItem} ${styles.statItemMask}`}>
+                <div className={cn(styles.statItem, styles.statItemMask)}>
                   <span className={styles.statNumberMask}>OpenAI &bull; WebGL</span>
                   <span>Integrations</span>
                 </div>
@@ -104,25 +105,25 @@ const MaskPage = () => {
             </div>
 
             {/* Bottom Call To Action Banner */}
-            <section className={`${styles.bottomCtaSection} ${styles.bottomCtaSectionMask}`}>
+            <section className={cn(styles.bottomCtaSection, styles.bottomCtaSectionMask)}>
               <span
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaEyebrow} ${styles.ctaEyebrowMask}`}
+                className={cn(styles.ctaEyebrow, styles.ctaEyebrowMask)}
               >
                 Have a vision in mind?
               </span>
               <h2
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaTitle} ${styles.ctaTitleMask}`}
+                className={cn(styles.ctaTitle, styles.ctaTitleMask)}
               >
                 Let&apos;s build something extraordinary together
               </h2>
               <p
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${styles.ctaDescription} ${styles.ctaDescriptionMask}`}
+                className={cn(styles.ctaDescription, styles.ctaDescriptionMask)}
               >
                 Available for select freelance contracts, high-impact frontend roles, and creative software
                 collaborations.
@@ -132,7 +133,7 @@ const MaskPage = () => {
                   href="/contact"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className={`${styles.ctaButton} ${styles.ctaButtonMask}`}
+                  className={cn(styles.ctaButton, styles.ctaButtonMask)}
                 >
                   <span>Start a Conversation</span>
                   <FiArrowUpRight size={18} />

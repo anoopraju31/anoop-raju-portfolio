@@ -1,3 +1,4 @@
+import { cn } from '@/utills';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Bebas_Neue } from 'next/font/google';
@@ -53,7 +54,7 @@ export default function RootLayout(props: Props) {
 
   return (
     <html lang="en">
-      <body className={`${bebasNeue.className} antialiased`}>
+      <body className={cn(bebasNeue.className, 'antialiased')}>
         <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
