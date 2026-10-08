@@ -94,5 +94,5 @@
 
 /* Accordion Outer Container */
 .outter-container {
-	@apply flex flex-col gap-5 sm:gap-6 max-w-5xl mx-auto;
+	@apply flex flex-col gap-5 sm:gap-6 mx-auto;
 }
