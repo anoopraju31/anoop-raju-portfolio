@@ -4,6 +4,7 @@ type Project = {
 	deployedUrl: string
 	name: string
 	year: string
+	tools?: string[]
 }
 
 export const projects: Project[] = [
@@ -12,35 +13,40 @@ export const projects: Project[] = [
 		img: '/dropbox.png',
 		deployedUrl: 'https://github.com/anoopraju31/nextjs-dropbox-clone',
 		name: 'Dropbox Clone',
-		year: '2023'
+		year: '2023',
+		tools: ['Next.js', 'Firebase', 'TailwindCSS']
 	},
 	{
 		id: 2,
 		img: '/eat-curious.png',
 		deployedUrl: 'https://github.com/anoopraju31/eat-curious',
 		name: 'Eat Curious',
-		year: '2023'
+		year: '2023',
+		tools: ['Next.js', 'TypeScript', 'Framer Motion']
 	},
 	{
 		id: 3,
 		img: '/summerize.png',
 		deployedUrl: 'https://github.com/anoopraju31/ai-article-summarizer',
 		name: 'Summerize',
-		year: '2023'
+		year: '2023',
+		tools: ['React', 'OpenAI GPT', 'TailwindCSS']
 	},
 	{
 		id: 4,
 		img: '/netflix-gpt.png',
 		deployedUrl: 'https://github.com/anoopraju31/netflix-gpt',
 		name: 'Netflix GPT',
-		year: '2023'
+		year: '2023',
+		tools: ['React', 'OpenAI GPT', 'TMDB API']
 	},
 	{
 		id: 5,
 		img: '/nike.png',
 		deployedUrl: 'https://github.com/anoopraju31/nike-landing-page',
 		name: 'Nike Landing Page',
-		year: '2023'
+		year: '2023',
+		tools: ['React', 'TailwindCSS', 'JavaScript']
 	}
 ]
 

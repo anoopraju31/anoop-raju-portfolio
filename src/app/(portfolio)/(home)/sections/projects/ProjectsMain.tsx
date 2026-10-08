@@ -5,12 +5,15 @@ import { useScroll } from 'framer-motion'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
 import Lenis from '@studio-freight/lenis'
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
+import { projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice'
 import HorizontalSlide from './components/horizontalSlide/HorizontalSlide'
 import VerticalSlide from './components/veticalSlide/VerticalSlide'
 import { projects } from '@/utills/constants'
 import styles from './styles.module.css'
 
 const ProjectsMain = () => {
+	const dispatch = useAppDispatch()
 	const container = useRef<HTMLElement | null>(null)
 	const { scrollYProgress } = useScroll({
 		layoutEffect: false,
@@ -52,9 +55,12 @@ const ProjectsMain = () => {
 				})}
 			</div>
 
-			{/* For Small Screen */}
-			<div className={styles['container-mdlg']}>
-				{projects.map(({ id, img, name, year }) => {
+			{/* For Large Screen (Desktop Horizontal Accordion) */}
+			<div
+				className={styles['container-mdlg']}
+				onMouseLeave={() => dispatch(projectCardMouseLeave())}
+			>
+				{projects.map(({ id, img, name, year, deployedUrl, tools }) => {
 					return (
 						<HorizontalSlide
 							key={id}
@@ -62,6 +68,8 @@ const ProjectsMain = () => {
 							img={img}
 							name={name}
 							year={year}
+							deployedUrl={deployedUrl}
+							tools={tools}
 						/>
 					)
 				})}

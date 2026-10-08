@@ -1,5 +1,5 @@
 .container {
-	@apply w-[20vw] h-[90vh] whitespace-nowrap break-normal;
+	@apply h-[78vh] min-h-[560px] max-h-[800px] min-w-0 select-none cursor-none relative;
 }
 
 .img {

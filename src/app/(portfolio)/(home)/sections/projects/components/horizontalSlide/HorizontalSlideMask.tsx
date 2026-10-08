@@ -2,37 +2,45 @@
 
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch'
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector'
+import { projectCardMouseEnter } from '@/app/(portfolio)/features/projectCardSlice'
 import { motion } from 'framer-motion'
-import { projectCardMouseEnter, projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice'
 import styles from './horizontalSlide.module.css'
 
 type SlideLgMaskProps = {
 	id: number
 	deployedUrl: string
 }
+
 const HorizontalSlideMask = (props: SlideLgMaskProps) => {
 	const { id, deployedUrl } = props
 	const dispatch = useAppDispatch()
 	const cardId = useAppSelector((state) => state.projectCardHover.cardId)
+	const isHovered = cardId === id
 
 	const handleCardHoverStart = () => {
-		if (cardId !== id) dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
+		if (cardId !== id) {
+			dispatch(projectCardMouseEnter({ cardId: id, link: deployedUrl }))
+		}
 	}
-	const handleCardHoverEnd = () => dispatch(projectCardMouseLeave())
-	const handleClick = () => window.open(deployedUrl, '_blank', 'noopener,noreferrer')
-	const initial = { opacity: 0, y: 0, width: '20vw' }
-	const animateOnhover = { width: '100vw' }
-	const transition = { duration: 0.4, ease: 'easeOut' }
+
+	const handleClick = () => {
+		if (deployedUrl) window.open(deployedUrl, '_blank', 'noopener,noreferrer')
+	}
 
 	return (
 		<motion.div
 			onClick={handleClick}
-			initial={initial}
-			whileHover={animateOnhover}
-			transition={transition}
-			// onHoverStart={handleCardHoverStart}
-			onHoverEnd={handleCardHoverEnd}
+			onMouseEnter={handleCardHoverStart}
 			onMouseMove={handleCardHoverStart}
+			animate={{
+				flexGrow: isHovered ? 5 : 1
+			}}
+			transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+			style={{
+				flexBasis: '0%',
+				flexShrink: 1,
+				willChange: 'flex-grow'
+			}}
 			className={styles.container}
 		/>
 	)

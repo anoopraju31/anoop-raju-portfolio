@@ -10,10 +10,12 @@ import Lenis from '@studio-freight/lenis'
 import VerticalSlideMask from './components/veticalSlide/VerticalSlideMask'
 import HorizontalSlideMask from './components/horizontalSlide/HorizontalSlideMask'
 import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice'
+import { projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice'
 import { projects } from '@/utills/constants'
 import styles from './styles.module.css'
 
 const ProjectsMask = () => {
+	const dispatch = useAppDispatch()
 	const container = useRef<HTMLDivElement | null>(null)
 	const { scrollYProgress } = useScroll({
 		layoutEffect: false,
@@ -56,7 +58,10 @@ const ProjectsMask = () => {
 			</div>
 
 			{/* Mask for large screen */}
-			<div className={styles['container-mdlg']}>
+			<div
+				className={styles['container-mdlg']}
+				onMouseLeave={() => dispatch(projectCardMouseLeave())}
+			>
 				{projects.map(({ id, deployedUrl }) => (
 					<HorizontalSlideMask deployedUrl={deployedUrl} key={id} id={id} />
 				))}
