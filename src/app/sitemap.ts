@@ -19,11 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      link: '/blogs/posts/a-comprehensive-guide-to-react-hooks',
+      link: '/blogs/a-comprehensive-guide-to-react-hooks',
       priority: 0.6,
     },
     {
-      link: '/blogs/posts/solid-principle-in-react-js-and-next-js',
+      link: '/blogs/solid-principle-in-react-js-and-next-js',
       priority: 0.6,
     },
   ];
