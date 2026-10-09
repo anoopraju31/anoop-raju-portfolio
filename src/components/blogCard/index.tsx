@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { FiArrowUpRight, FiClock, FiFileText } from 'react-icons/fi';
 
 import type { Blogs } from '../../../types';
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { cn } from '@/utills';
 import { urlFor } from '@/sanity/lib/image';

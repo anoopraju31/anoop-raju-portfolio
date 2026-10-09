@@ -1,7 +1,7 @@
 'use client';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppDispatch from '@/hooks/useAddDispatch';
+import useAppSelector from '@/hooks/useAppSelector';
 import { projectCardMouseEnter } from '@/redux/features/projectCardSlice';
 import { motion } from 'framer-motion';
 import styles from './horizontalSlide.module.css';

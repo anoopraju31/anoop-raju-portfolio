@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, type FC, type ReactNode } from 'react';
 import { type LenisOptions } from 'lenis';
 import ReactLenis from 'lenis/react';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppSelector from '@/hooks/useAppSelector';
 
 type Props = {
   children: ReactNode;

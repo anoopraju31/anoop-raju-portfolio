@@ -2,7 +2,7 @@
 
 import { cn } from '@/utills';
 import type { FC } from 'react';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppSelector from '@/hooks/useAppSelector';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';

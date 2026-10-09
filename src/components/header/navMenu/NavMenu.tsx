@@ -3,7 +3,7 @@
 import { cn } from '@/utills';
 import { type FC, useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
+import useFooterScrollOverViewport from '@/hooks/useFooterScrollOverViewport';
 import { motion, type Variants } from 'framer-motion';
 import { Gantari } from 'next/font/google';
 import { FiArrowUpRight, FiCopy, FiCheck, FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi';

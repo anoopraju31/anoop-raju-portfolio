@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useRef, useLayoutEffect } from 'react';
+
 import useAppDispatch from './useAddDispatch';
 import useAppSelector from './useAppSelector';
-import { projectCardMouseLeave } from '../../../redux/features/projectCardSlice';
+import { projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 
 type MousePosition = {
   x: number;

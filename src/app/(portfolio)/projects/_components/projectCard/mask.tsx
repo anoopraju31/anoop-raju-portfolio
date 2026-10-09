@@ -3,14 +3,14 @@
 import { cn } from '@/utills';
 import { type FC } from 'react';
 import { type ProjectCardProps } from '.';
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { projectCardMouseEnter, projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 import styles from './styles.module.css';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppSelector from '@/hooks/useAppSelector';
 import { motion } from 'framer-motion';
 
 const MaskProductCard: FC<ProjectCardProps> = ({

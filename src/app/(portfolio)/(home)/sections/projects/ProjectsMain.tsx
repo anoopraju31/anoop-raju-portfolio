@@ -6,7 +6,7 @@ import Lenis from '@studio-freight/lenis';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import { projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 import { slideToView } from '@/utills/animations';
 import HorizontalSlide from './components/horizontalSlide/HorizontalSlide';

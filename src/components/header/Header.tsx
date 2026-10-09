@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 
-import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useFooterScrollOverViewport from '@/hooks/useFooterScrollOverViewport';
+import useAppSelector from '@/hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
 import { closeMenu, toggleMenu } from '@/redux/features/navbarSlice';
 import { cn } from '@/utills';

@@ -2,7 +2,7 @@
 
 import { type FC } from 'react';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { cn } from '@/utills';
 import SkillItemMask from '../skillItem/SkillItemMask';

@@ -2,7 +2,7 @@
 
 import { type FC } from 'react';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import ExperienceAccordionMask from './components/ExperienceAccordion/ExperienceAccordionMask';
 import { cn } from '@/utills';

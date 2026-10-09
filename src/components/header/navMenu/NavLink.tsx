@@ -4,7 +4,7 @@ import { motion, type Variants } from 'framer-motion';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppDispatch from '@/hooks/useAddDispatch';
 import { cn } from '@/utills';
 import { closeMenu } from '@/redux/features/navbarSlice';
 

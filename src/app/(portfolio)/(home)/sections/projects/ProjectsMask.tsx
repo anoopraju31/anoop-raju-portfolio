@@ -6,8 +6,8 @@ import Lenis from '@studio-freight/lenis';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppDispatch from '@/hooks/useAddDispatch';
+import useAppSelector from '@/hooks/useAppSelector';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 import { cn } from '@/utills';

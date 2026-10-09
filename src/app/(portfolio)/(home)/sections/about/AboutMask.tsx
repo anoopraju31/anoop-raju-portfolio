@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppDispatch from '@/hooks/useAddDispatch';
+import useAppSelector from '@/hooks/useAppSelector';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { cn } from '@/utills';
 

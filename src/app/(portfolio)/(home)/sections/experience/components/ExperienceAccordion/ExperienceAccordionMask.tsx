@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa6';
 import { FiCheckCircle } from 'react-icons/fi';
 
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useAppDispatch from '@/hooks/useAddDispatch';
+import useAppSelector from '@/hooks/useAppSelector';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { toggleAccordion } from '@/redux/features/accordionSlice';
 import { cn } from '@/utills';
