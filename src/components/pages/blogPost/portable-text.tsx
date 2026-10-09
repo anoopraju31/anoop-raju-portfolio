@@ -20,7 +20,6 @@ import { cn } from '@/utills';
 
 import 'prismjs/themes/prism-tomorrow.css';
 
-
 interface TableRow {
   _key: string;
   cells: string[];
