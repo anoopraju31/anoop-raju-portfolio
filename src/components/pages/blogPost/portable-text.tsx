@@ -15,9 +15,11 @@ import { urlForImage } from '@/sanity/lib/utils';
 import Image from 'next/image';
 import { PortableText, type PortableTextComponents, type PortableTextBlock } from 'next-sanity';
 import Prism from 'prismjs';
-import 'prismjs/themes/prism-tomorrow.css';
 
 import { cn } from '@/utills';
+
+import 'prismjs/themes/prism-tomorrow.css';
+
 
 interface TableRow {
   _key: string;

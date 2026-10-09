@@ -1,14 +1,16 @@
-import { cn } from '@/utills';
 import { type FC } from 'react';
-import { type PostQueryResult } from '../../../../../sanity.types';
-import type { PortableTextBlock } from 'next-sanity';
 import { PT_Sans } from 'next/font/google';
 import Link from 'next/link';
-import Mask from '@/components/mask';
-import { MdArrowForwardIos } from 'react-icons/md';
-import CustomPortableText from './portable-text';
-import styles from './styles.module.css';
 import Image from 'next/image';
+import { MdArrowForwardIos } from 'react-icons/md';
+
+import type { PostQueryResult } from '../../../../sanity.types';
+import type { PortableTextBlock } from 'next-sanity';
+import { cn } from '@/utills';
+import Mask from '@/components/mask';
+import CustomPortableText from './portable-text';
+
+import styles from './styles.module.css';
 
 const ptSans = PT_Sans({ weight: ['700', '400'], subsets: ['latin'] });
 

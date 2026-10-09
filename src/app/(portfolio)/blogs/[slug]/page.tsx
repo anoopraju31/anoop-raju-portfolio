@@ -1,9 +1,10 @@
 import { type FC } from 'react';
+import { notFound } from 'next/navigation';
+
 import type { PostQueryResult } from '../../../../../sanity.types';
 import { sanityFetch } from '@/sanity/lib/live';
 import { postQuery } from '@/sanity/query';
-import { notFound } from 'next/navigation';
-import RegularPage from './RegularPage';
+import RegularPage from '@/components/pages/blogPost/RegularPage';
 
 // export const dynamic = 'force-dynamic'
 
@@ -11,7 +12,7 @@ import RegularPage from './RegularPage';
 export const dynamicParams = true;
 
 // Cache invalidation interval
-export const revalidate = 300;
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ slug: string }>;
