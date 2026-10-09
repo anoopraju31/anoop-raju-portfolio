@@ -1,22 +1,22 @@
-import { cn } from '@/utills';
-import type { FC, TextareaHTMLAttributes } from 'react';
+import type { FC, InputHTMLAttributes } from 'react';
 
-type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
+import { cn } from '@/utills';
+
+type Props = InputHTMLAttributes<HTMLInputElement> & {
   form?: string;
   label?: string;
 };
 
-const TextareaField: FC<Props> = ({ form, label, id, className, rows = 3, ...rest }) => {
+const InputField: FC<Props> = ({ form, label, id, className, ...rest }) => {
   const displayLabel = label || form;
 
   return (
     <div className="group relative z-0 w-full">
-      <textarea
+      <input
         id={id}
         placeholder=" "
-        rows={rows}
         className={cn(
-          'peer block w-full resize-none appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
+          'peer block w-full appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
           className || '',
         )}
         {...rest}
@@ -33,4 +33,4 @@ const TextareaField: FC<Props> = ({ form, label, id, className, rows = 3, ...res
   );
 };
 
-export default TextareaField;
+export default InputField;

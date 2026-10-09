@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, type FC, type ReactNode } from 'react';
-import { FiCopy, FiCheck, FiArrowUpRight } from 'react-icons/fi';
 import { toast } from 'sonner';
+import { FiCopy, FiCheck, FiArrowUpRight } from 'react-icons/fi';
 
 type Props = {
   id?: string;

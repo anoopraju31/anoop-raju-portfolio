@@ -2,8 +2,10 @@
 
 import { type FC } from 'react';
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiInstagram, FiArrowUpRight } from 'react-icons/fi';
-import ContactForm from './components/contactForm';
-import ContactWrapper from './components/contactWrapper/ContactWrapper';
+
+import ContactWrapper from './contactWrapper/ContactWrapper';
+import ContactForm from './contactForm';
+
 import styles from './styles.module.css';
 
 const SOCIALS = [

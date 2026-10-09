@@ -1,7 +1,7 @@
 'use server';
 
 import { client } from '@/sanity/lib/client';
-import { type ContactFormData } from '@/app/(portfolio)/contact/components/contactForm';
+import { type ContactFormData } from '@/components/pages/contact/contactForm';
 
 export const submitContactMe = async (data: ContactFormData) => {
   const updatedData = {

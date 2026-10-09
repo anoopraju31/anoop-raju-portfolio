@@ -1,11 +1,11 @@
-import { cn } from '@/utills';
-import { type FC } from 'react';
 import { type Metadata } from 'next';
+import { type FC } from 'react';
 import { Gantari } from 'next/font/google';
 
-import { Particles } from '@/components/Particles';
-import RegularPage from './RegularPage';
 import SmoothScrollLenis from '@/components/SmoothScrollLenis';
+import { cn } from '@/utills';
+import { Particles } from '@/components/Particles';
+import RegularPage from '@/components/pages/contact/RegularPage';
 
 const gantari = Gantari({ weight: ['400', '700'], subsets: ['latin'] });
 
