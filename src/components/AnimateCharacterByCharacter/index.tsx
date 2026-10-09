@@ -36,11 +36,7 @@ export default function AnimateCharacterByCharacter({
   let globalCharCount = 0;
 
   return (
-    <span
-      ref={container}
-      style={{ gap: wordGap }}
-      className={cn('flex flex-wrap', className)}
-    >
+    <span ref={container} style={{ gap: wordGap }} className={cn('flex flex-wrap', className)}>
       {words.map((word, wordIdx) => {
         const startCharIndex = globalCharCount;
         globalCharCount += word.length;
@@ -72,15 +68,7 @@ type WordProps = {
   yOffset: number | string;
 };
 
-const Word: FC<WordProps> = ({
-  word,
-  isInView,
-  startCharIndex,
-  delay,
-  duration,
-  stagger,
-  yOffset,
-}) => {
+const Word: FC<WordProps> = ({ word, isInView, startCharIndex, delay, duration, stagger, yOffset }) => {
   return (
     <span className="relative inline-block whitespace-nowrap">
       {word.split('').map((char, charIdx) => {
@@ -110,21 +98,11 @@ type CharProps = {
   yOffset: number | string;
 };
 
-const Char: FC<CharProps> = ({
-  char,
-  isInView,
-  delay,
-  duration,
-  yOffset,
-}) => {
+const Char: FC<CharProps> = ({ char, isInView, delay, duration, yOffset }) => {
   return (
     <motion.span
       initial={{ opacity: 0, y: yOffset }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0 }
-          : { opacity: 0, y: yOffset }
-      }
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset }}
       transition={{
         duration,
         delay,

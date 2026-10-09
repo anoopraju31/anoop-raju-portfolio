@@ -128,12 +128,7 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
 
               {/* Project Name (Animated word by word) */}
               <h3 className="text-3xl font-extrabold capitalize leading-tight tracking-tight text-white drop-shadow-lg lg:text-5xl">
-                {name ? (
-                  <AnimateCharacterByCharacter
-                    wordGap={10}
-                    paragraph={name}
-                  />
-                ) : null}
+                {name ? <AnimateCharacterByCharacter wordGap={10} paragraph={name} /> : null}
               </h3>
 
               <div className="flex items-center gap-3 pt-2">
