@@ -14,7 +14,7 @@ type SlideLgMaskProps = {
   deployedUrl: string;
 };
 
-const HorizontalSlideMask:FC<SlideLgMaskProps> = (props) => {
+const HorizontalSlideMask: FC<SlideLgMaskProps> = (props) => {
   const { id, deployedUrl } = props;
   const dispatch = useAppDispatch();
   const cardId = useAppSelector((state) => state.projectCardHover.cardId);

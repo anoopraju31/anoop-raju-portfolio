@@ -9,7 +9,7 @@ import { slideToView } from '@/utills/animations';
 
 import styles from './hero.module.css';
 
-const Hero:FC = () => {
+const Hero: FC = () => {
   return (
     <section className={styles.body}>
       <div className={styles['hero-container']}>

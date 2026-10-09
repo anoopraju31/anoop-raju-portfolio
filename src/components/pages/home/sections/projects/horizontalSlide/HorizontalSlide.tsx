@@ -19,7 +19,7 @@ type HorizontalSlideProps = {
   tools?: string[];
 };
 
-const HorizontalSlide:FC<HorizontalSlideProps> = (props) => {
+const HorizontalSlide: FC<HorizontalSlideProps> = (props) => {
   const { id, deployedUrl } = props;
   const dispatch = useAppDispatch();
   const currentCardId = useAppSelector((state) => state.projectCardHover.cardId);
