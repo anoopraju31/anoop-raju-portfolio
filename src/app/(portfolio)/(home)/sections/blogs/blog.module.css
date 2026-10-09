@@ -52,7 +52,7 @@
 }
 
 .headingHighlightMask {
-  @apply text-dark-blue underline decoration-2 opacity-75;
+  @apply text-dark-blue;
 }
 
 .subtitle {
@@ -60,11 +60,11 @@
 }
 
 .subtitleRegular {
-  @apply text-white/70;
+  @apply text-white/90;
 }
 
 .subtitleMask {
-  @apply font-medium text-dark-blue/85;
+  @apply font-medium text-dark-blue;
 }
 
 /* Topic Pills Bar */
