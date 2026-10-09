@@ -81,7 +81,7 @@ const Header = () => {
               />
               <span
                 className={cn(
-                  'relative inline-flex h-2 w-2 rounded-full',
+                  'relative inline-flex h-2 shrink-0 w-2 rounded-full',
                   isDarkBackground ? 'bg-light-green' : 'bg-dark-blue group-hover:bg-light-green',
                 )}
               />
@@ -138,7 +138,7 @@ const Header = () => {
             {/* Menu Status Indicator */}
             <span
               className={cn(
-                'inline-block h-1.5 w-1.5 rounded-full transition-colors duration-300',
+                'inline-block h-1.5 w-1.5 shrink-0 rounded-full transition-colors duration-300',
                 isMenuOpen
                   ? 'animate-pulse bg-light-green'
                   : isDarkBackground
@@ -163,7 +163,7 @@ const Header = () => {
               <span
                 className={cn(
                   'h-[1.5px] w-full transform rounded-full bg-current transition-all duration-300 ease-out',
-                  isMenuOpen ? '-translate-y-[6px] -rotate-45' : 'translate-y-0 rotate-0 group-hover:translate-x-0.5',
+                  isMenuOpen ? '-translate-y-[7px] -rotate-45' : 'translate-y-0 rotate-0 group-hover:translate-x-0.5',
                 )}
               />
             </div>
