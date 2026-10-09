@@ -1,14 +1,15 @@
-import { cn } from '@/utills';
-import { type FC } from 'react';
 import { type Metadata } from 'next';
+import { type FC } from 'react';
 import { Gantari } from 'next/font/google';
-import { type Blogs } from '../../../../types';
+
 import { sanityFetch } from '@/sanity/lib/live';
 import { AllBlogsQuery2 } from '@/sanity/query';
-import { Particles } from '@/components/Particles';
-import MaskPage from './MaskPage';
-import RegularPage from './RegularPage';
+import { type Blogs } from '../../../../types';
 import SmoothScrollLenis from '@/components/SmoothScrollLenis';
+import { cn } from '@/utills';
+import { Particles } from '@/components/Particles';
+import MaskPage from '@/components/pages/blogs/MaskPage';
+import RegularPage from '@/components/pages/blogs/RegularPage';
 
 const gantari = Gantari({ weight: ['400', '700'], subsets: ['latin'] });
 
