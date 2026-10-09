@@ -7,6 +7,7 @@ import { FiHome, FiArrowUpRight } from 'react-icons/fi';
 import useAppDispatch from '@/hooks/useAddDispatch';
 import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { cn } from '@/utills';
+
 import styles from './styles.module.css';
 
 const NotFoundMask: FC = () => {
@@ -66,7 +67,7 @@ const NotFoundMask: FC = () => {
             href="/"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={styles.primaryBtn}
+            className={cn('group', styles.primaryBtn)}
           >
             <FiHome className="text-sm" />
             <span>Return to Base</span>
@@ -76,7 +77,7 @@ const NotFoundMask: FC = () => {
             href="/projects"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={styles.secondaryBtn}
+            className={cn('group', styles.secondaryBtn)}
           >
             <span>Explore Projects</span>
             <FiArrowUpRight className="text-sm" />
