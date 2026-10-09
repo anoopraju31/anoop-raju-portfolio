@@ -17,7 +17,7 @@ export default function PageTransitionLoader({ children }: Props) {
 
   // Format the current destination route for display
   const getPageLabel = () => {
-    if (!pathname || pathname === '/') return 'INDEX';
+    if (!pathname || pathname === '/') return 'HOME';
     const segment = pathname.split('/').filter(Boolean)[0];
     return segment ? segment.toUpperCase() : 'PORTFOLIO';
   };

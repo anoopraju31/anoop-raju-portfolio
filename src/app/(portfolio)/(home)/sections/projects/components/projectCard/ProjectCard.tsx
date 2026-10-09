@@ -6,6 +6,7 @@ import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
+import AnimateCharacterByCharacter from '@/components/AnimateCharacterByCharacter';
 
 type ProjectCardProps = {
   img: string;
@@ -98,35 +99,67 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
           {isHovered ? (
             <motion.div
               key="expanded"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               className="flex flex-col gap-3"
             >
-              {/* Tech Stack Pills (Max 3) */}
+              {/* Tech Stack Pills (Animated one at a time) */}
               <div className="flex flex-wrap items-center gap-2">
                 {displayTools.map((tool, idx) => (
-                  <span
+                  <motion.span
                     key={idx}
+                    initial={{ opacity: 0, y: 12, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.95 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: 0.04 + idx * 0.07,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
                     className="inline-flex items-center gap-1.5 rounded-full border border-light-green/30 bg-light-green/10 px-3 py-1 font-mono text-[11px] tracking-wider text-light-green shadow-sm backdrop-blur-md"
                   >
                     <span className="h-1 w-1 rounded-full bg-light-green" />
                     <span>{tool}</span>
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
+              {/* Project Name (Animated word by word) */}
               <h3 className="text-3xl font-extrabold capitalize leading-tight tracking-tight text-white drop-shadow-lg lg:text-5xl">
-                {name}
+                {name ? <AnimateCharacterByCharacter wordGap={10} paragraph={name} /> : null}
               </h3>
 
               <div className="flex items-center gap-3 pt-2">
-                <div className="inline-flex items-center gap-2 rounded-full border border-light-green/40 bg-light-green/10 px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-light-green shadow-lg shadow-black/40 backdrop-blur-md">
+                <motion.div
+                  initial={{ opacity: 0, y: 12, scale: 0.92 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.95 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.04 + displayTools.length * 0.06 + (name ? name.split(' ').length : 1) * 0.06 + 0.05,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="inline-flex items-center gap-2 rounded-full border border-light-green/40 bg-light-green/10 px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-light-green shadow-lg shadow-black/40 backdrop-blur-md"
+                >
                   <span>Explore Project</span>
                   <FiArrowUpRight size={15} />
-                </div>
-                <span className="font-mono text-xs text-white/50">[Click to launch]</span>
+                </motion.div>
+
+                <motion.span
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.04 + displayTools.length * 0.06 + (name ? name.split(' ').length : 1) * 0.06 + 0.14,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="font-mono text-xs text-white/50"
+                >
+                  [Click to launch]
+                </motion.span>
               </div>
             </motion.div>
           ) : (
