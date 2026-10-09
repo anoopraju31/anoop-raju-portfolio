@@ -4,7 +4,9 @@ import { type FC } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiHome, FiArrowUpRight } from 'react-icons/fi';
+
 import { cn } from '@/utills';
+
 import styles from './styles.module.css';
 
 const NotFoundBody: FC = () => {
