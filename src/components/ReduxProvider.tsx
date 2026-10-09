@@ -9,7 +9,7 @@ type Props = {
   children: ReactNode;
 };
 
-const ReduxProvider:FC<Props> = ({ children }) => {
+const ReduxProvider: FC<Props> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 };
 

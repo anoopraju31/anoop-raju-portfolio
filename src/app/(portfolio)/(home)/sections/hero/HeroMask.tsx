@@ -11,7 +11,7 @@ import { cn } from '@/utills';
 
 import styles from './hero.module.css';
 
-const HeroMask:FC = () => {
+const HeroMask: FC = () => {
   const dispatch = useAppDispatch();
   const currentCardId = useAppSelector((state) => state.projectCardHover.cardId);
 

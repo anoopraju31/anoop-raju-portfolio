@@ -10,7 +10,7 @@ import { services, skills } from '@/utills/constants';
 
 import styles from './styles.module.css';
 
-const SkillsMask:FC = () => {
+const SkillsMask: FC = () => {
   const dispatch = useAppDispatch();
 
   const handleMouseEnter = () => dispatch(mouseEnter());
