@@ -46,8 +46,8 @@ const NotFoundBody: FC = () => {
         >
           <h2 className={styles.title}>Lost in the Digital Void</h2>
           <p className={styles.desc}>
-            The coordinates you requested do not exist or were moved to another dimension.
-            Let&apos;s get you back on track.
+            The coordinates you requested do not exist or were moved to another dimension. Let&apos;s get you back on
+            track.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ const NotFoundBody: FC = () => {
 
           <Link href="/projects" className={cn('group', styles.secondaryBtn)}>
             <span>Explore Projects</span>
-            <FiArrowUpRight className="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <FiArrowUpRight className="text-sm transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </motion.div>
 

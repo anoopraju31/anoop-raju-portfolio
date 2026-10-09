@@ -111,11 +111,11 @@
 }
 
 .body .secondaryBtn {
-  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-mono text-xs uppercase tracking-wider text-white/90 backdrop-blur-md transition-all duration-300 hover:border-light-green/50 hover:bg-white/10 hover:text-light-green hover:scale-105 active:scale-95;
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-mono text-xs uppercase tracking-wider text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-light-green/50 hover:bg-white/10 hover:text-light-green active:scale-95;
 }
 
 .mask .secondaryBtn {
-  @apply inline-flex items-center gap-2 rounded-full border border-dark-blue/30 bg-dark-blue/10 px-6 py-3 font-mono text-xs uppercase tracking-wider text-dark-blue backdrop-blur-md transition-all duration-300 hover:border-dark-blue hover:bg-dark-blue/20 hover:scale-105 active:scale-95;
+  @apply inline-flex items-center gap-2 rounded-full border border-dark-blue/30 bg-dark-blue/10 px-6 py-3 font-mono text-xs uppercase tracking-wider text-dark-blue backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-dark-blue hover:bg-dark-blue/20 active:scale-95;
 }
 
 /* Quick Nav Strip */

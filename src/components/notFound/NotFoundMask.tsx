@@ -23,41 +23,25 @@ const NotFoundMask: FC = () => {
 
       <div className={styles.container}>
         {/* Status Eyebrow Badge */}
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={styles.badge}
-        >
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.badge}>
           <span className={styles.statusDot} />
           <span>[ 404 // SIGNAL LOST ]</span>
         </div>
 
         {/* 404 Hero Heading */}
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={styles.headingContainer}
-        >
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.headingContainer}>
           <div className={styles.heading}>404</div>
           <span className={styles.headingTag}>ERR_COORDINATE_NOT_FOUND</span>
         </div>
 
         {/* Title & Description */}
         <div>
-          <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={styles.title}
-          >
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.title}>
             Lost in the Digital Void
           </div>
-          <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={styles.desc}
-          >
-            The coordinates you requested do not exist or were moved to another dimension.
-            Let&apos;s get you back on track.
+          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.desc}>
+            The coordinates you requested do not exist or were moved to another dimension. Let&apos;s get you back on
+            track.
           </div>
         </div>
 
@@ -87,12 +71,7 @@ const NotFoundMask: FC = () => {
         {/* Quick Navigation Terminal Strip */}
         <div className={styles.navStrip}>
           <span className={styles.navLabel}>[ DIRECTORY ]</span>
-          <Link
-            href="/"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={styles.navLink}
-          >
+          <Link href="/" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.navLink}>
             ~/home
           </Link>
           <Link
