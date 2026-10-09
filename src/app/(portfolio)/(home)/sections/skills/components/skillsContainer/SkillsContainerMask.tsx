@@ -14,8 +14,11 @@ type Props = {
   index?: number;
 };
 
-const SkillsContainerMask: FC<Props> = ({ title, description, skills, 
-  // index = 1 
+const SkillsContainerMask: FC<Props> = ({
+  title,
+  description,
+  skills,
+  // index = 1
 }) => {
   const dispatch = useAppDispatch();
   // const indexStr = String(index).padStart(2, '0');

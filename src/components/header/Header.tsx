@@ -81,7 +81,7 @@ const Header = () => {
               />
               <span
                 className={cn(
-                  'relative inline-flex h-2 shrink-0 w-2 rounded-full',
+                  'relative inline-flex h-2 w-2 shrink-0 rounded-full',
                   isDarkBackground ? 'bg-light-green' : 'bg-dark-blue group-hover:bg-light-green',
                 )}
               />

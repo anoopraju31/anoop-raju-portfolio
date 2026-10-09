@@ -81,7 +81,10 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
       <div className="relative z-20 flex flex-wrap items-center justify-between gap-2 p-5 lg:p-6">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-dark-blue/70 px-3 py-1 font-mono text-xs uppercase tracking-wider text-white/90 backdrop-blur-md">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-light-green" />
-          <span>[{indexStr}{isHovered ? ' // FEATURED' : ''}]</span>
+          <span>
+            [{indexStr}
+            {isHovered ? ' // FEATURED' : ''}]
+          </span>
         </div>
 
         {year && (

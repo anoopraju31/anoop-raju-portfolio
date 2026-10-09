@@ -10,9 +10,12 @@ type Props = {
   index?: number;
 };
 
-const SkillsContainer: FC<Props> = ({ title, description, skills, 
+const SkillsContainer: FC<Props> = ({
+  title,
+  description,
+  skills,
   // index = 1
- }) => {
+}) => {
   // const indexStr = String(index).padStart(2, '0');
 
   return (
