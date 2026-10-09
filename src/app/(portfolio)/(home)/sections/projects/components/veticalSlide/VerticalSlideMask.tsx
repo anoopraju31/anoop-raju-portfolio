@@ -7,8 +7,8 @@ import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
-import { projectCardMouseEnter, projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { projectCardMouseEnter, projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 import styles from './verticalSlide.module.css';
 
 type VerticalSlideMaskProps = {

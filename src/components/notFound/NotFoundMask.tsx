@@ -1,9 +1,11 @@
 'use client';
 
 import { type FC } from 'react';
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import Link from 'next/link';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+
 import styles from './styles.module.css';
 
 const NotFoundMask: FC = () => {

@@ -1,14 +1,16 @@
 'use client';
 
-import { cn } from '@/utills';
+import type { FC } from 'react';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
 import SkillsContainerMask from './components/skillsContainer/SkillsContainerMask';
 import { services, skills } from '@/utills/constants';
 
 import styles from './styles.module.css';
 
-const SkillsMask = () => {
+const SkillsMask:FC = () => {
   const dispatch = useAppDispatch();
 
   const handleMouseEnter = () => dispatch(mouseEnter());

@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+
+import appStateReducer from './features/appSlice';
+import navbarReducer from './features/navbarSlice';
 import textHoverReducer from './features/textHoverSlice';
 import projectCardhoverReducer from './features/projectCardSlice';
-import navbarReducer from './features/navbarSlice';
 import accordionReducer from './features/accordionSlice';
-import appStateReducer from './features/appSlice';
 
 export const store = configureStore({
   reducer: {

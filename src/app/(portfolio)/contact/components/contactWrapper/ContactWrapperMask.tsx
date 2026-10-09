@@ -1,8 +1,9 @@
 'use Client';
 
 import { type FC } from 'react';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 
 type Props = {
   id: string;

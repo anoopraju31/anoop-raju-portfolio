@@ -1,11 +1,12 @@
 'use client';
 
-import { cn } from '@/utills';
-import Link from 'next/link';
 import { motion, type Variants } from 'framer-motion';
+import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { closeMenu } from '@/app/(portfolio)/features/navbarSlice';
+import { cn } from '@/utills';
+import { closeMenu } from '@/redux/features/navbarSlice';
 
 type NavLinkProps = {
   title: string;

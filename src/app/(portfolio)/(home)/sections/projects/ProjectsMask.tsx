@@ -1,18 +1,20 @@
 'use client';
 
-import { cn } from '@/utills';
 import { useEffect, useRef } from 'react';
 import { useScroll } from 'framer-motion';
-import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import Lenis from '@studio-freight/lenis';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
-import Lenis from '@studio-freight/lenis';
+
+import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
+import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { projectCardMouseLeave } from '@/redux/features/projectCardSlice';
+import { cn } from '@/utills';
 import VerticalSlideMask from './components/veticalSlide/VerticalSlideMask';
 import HorizontalSlideMask from './components/horizontalSlide/HorizontalSlideMask';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
-import { projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice';
 import { projects } from '@/utills/constants';
+
 import styles from './styles.module.css';
 
 const ProjectsMask = () => {

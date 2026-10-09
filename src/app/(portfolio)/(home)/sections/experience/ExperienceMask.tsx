@@ -1,11 +1,13 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import ExperienceAccordionMask from './components/ExperienceAccordion/ExperienceAccordionMask';
+import { cn } from '@/utills';
 import { accordionData } from '@/utills/constants';
+
 import styles from './styles.module.css';
 
 const ExperienceMask: FC = () => {

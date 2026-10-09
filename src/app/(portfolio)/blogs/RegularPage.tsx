@@ -1,14 +1,16 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
 import Link from 'next/link';
 import { FiArrowUpRight, FiBookOpen } from 'react-icons/fi';
+
+import type { Blogs } from '../../../../types';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
 import BlogCard from '@/components/blogCard';
 import MagneticContainer from '@/components/MagneticContainer';
-import { Blogs } from '../../../../types';
+
 import styles from './styles.module.css';
 
 type Props = {

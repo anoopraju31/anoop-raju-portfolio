@@ -1,14 +1,16 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPlus } from 'react-icons/fa6';
 import { FiCheckCircle } from 'react-icons/fi';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
-import { toggleAccordion } from '@/app/(portfolio)/features/accordionSlice';
+import { cn } from '@/utills';
+import { toggleAccordion } from '@/redux/features/accordionSlice';
 import { Experience } from '@/utills/constants';
+
 import styles from './styles.module.css';
 
 interface Props extends Experience {

@@ -2,7 +2,7 @@
 
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
-import { projectCardMouseEnter } from '@/app/(portfolio)/features/projectCardSlice';
+import { projectCardMouseEnter } from '@/redux/features/projectCardSlice';
 import { motion } from 'framer-motion';
 import ProjectCard from '../projectCard/ProjectCard';
 import styles from './horizontalSlide.module.css';

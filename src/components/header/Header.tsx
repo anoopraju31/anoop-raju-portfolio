@@ -9,7 +9,7 @@ import Link from 'next/link';
 import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
-import { closeMenu, toggleMenu } from '@/app/(portfolio)/features/navbarSlice';
+import { closeMenu, toggleMenu } from '@/redux/features/navbarSlice';
 import { cn } from '@/utills';
 import { menuSlide } from '@/utills/animations';
 // import MagneticContainer from '../MagneticContainer';

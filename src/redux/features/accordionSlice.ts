@@ -1,5 +1,6 @@
-import { accordionData } from '@/utills/constants';
 import { createSlice } from '@reduxjs/toolkit';
+
+import { accordionData } from '@/utills/constants';
 
 const initialState = () =>
   accordionData.map((data) => ({

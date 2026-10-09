@@ -1,10 +1,12 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
 import SkillItemMask from '../skillItem/SkillItemMask';
+
 import styles from './styles.module.css';
 
 type Props = {

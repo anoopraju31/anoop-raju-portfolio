@@ -1,15 +1,17 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
+import { format } from 'date-fns';
 import Link from 'next/link';
 import Image from 'next/image';
-import { format } from 'date-fns';
 import { FiArrowUpRight, FiClock, FiFileText } from 'react-icons/fi';
-import { Blogs } from '../../../types';
-import { urlFor } from '@/sanity/lib/image';
+
+import type { Blogs } from '../../../types';
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
+import { urlFor } from '@/sanity/lib/image';
+
 import styles from './styles.module.css';
 
 type Props = {

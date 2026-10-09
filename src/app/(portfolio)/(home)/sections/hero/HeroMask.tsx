@@ -1,14 +1,17 @@
 'use client';
 
-import { cn } from '@/utills';
+import type { FC } from 'react';
 import Image from 'next/image';
 import { FiArrowDown } from 'react-icons/fi';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
+
 import styles from './hero.module.css';
 
-const HeroMask = () => {
+const HeroMask:FC = () => {
   const dispatch = useAppDispatch();
   const currentCardId = useAppSelector((state) => state.projectCardHover.cardId);
 

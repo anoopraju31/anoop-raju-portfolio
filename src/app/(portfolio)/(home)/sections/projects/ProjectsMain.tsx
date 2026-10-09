@@ -2,16 +2,17 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
+import Lenis from '@studio-freight/lenis';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
-import Lenis from '@studio-freight/lenis';
 
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
-import { projectCardMouseLeave } from '@/app/(portfolio)/features/projectCardSlice';
+import { projectCardMouseLeave } from '@/redux/features/projectCardSlice';
 import { slideToView } from '@/utills/animations';
 import HorizontalSlide from './components/horizontalSlide/HorizontalSlide';
 import VerticalSlide from './components/veticalSlide/VerticalSlide';
 import { projects } from '@/utills/constants';
+
 import styles from './styles.module.css';
 
 const ProjectsMain = () => {

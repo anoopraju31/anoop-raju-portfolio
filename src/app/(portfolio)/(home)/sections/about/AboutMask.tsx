@@ -1,13 +1,15 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
+
 import useAppDispatch from '@/app/(portfolio)/hooks/useAddDispatch';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
-import { mouseEnter, mouseLeave } from '@/app/(portfolio)/features/textHoverSlice';
+import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
+import { cn } from '@/utills';
+
 import styles from './about.module.css';
 
 const AboutMask: FC = () => {
