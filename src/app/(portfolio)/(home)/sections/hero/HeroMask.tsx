@@ -65,7 +65,7 @@ const HeroMask = () => {
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="mt-6 flex justify-center sm:mt-8"
+          className="mt-10 flex justify-center sm:mt-14 lg:mt-16"
         >
           <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-dark-blue sm:text-sm">
             <span>Explore Projects</span>

@@ -91,7 +91,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mt-6 flex justify-center sm:mt-8"
+          className="mt-10 flex justify-center sm:mt-14 lg:mt-16"
         >
           <a
             href="#projects"
