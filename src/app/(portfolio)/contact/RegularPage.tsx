@@ -64,8 +64,8 @@ const RegularPage: FC = () => {
               <ContactWrapper
                 id="email_address"
                 label="Email"
-                content="anoop2019@iiitkottayam.ac.in"
-                href="mailto:anoop2019@iiitkottayam.ac.in"
+                content="anoopraju31@gmail.com"
+                href="mailto:anoopraju31@gmail.com"
                 icon={<FiMail />}
                 copyable
               />
