@@ -1,12 +1,14 @@
 'use client';
 
-import { cn } from '@/utills';
 import { type FC } from 'react';
-import useAppSelector from '@/hooks/useAppSelector';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
+
+import useAppSelector from '@/hooks/useAppSelector';
+import { cn } from '@/utills';
+
 import styles from './styles.module.css';
 
 export type ProjectCardProps = {

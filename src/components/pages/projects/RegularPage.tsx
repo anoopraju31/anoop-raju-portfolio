@@ -1,11 +1,14 @@
 'use client';
 
-import { cn } from '@/utills';
+import type { FC } from 'react';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
-import MagneticContainer from '@/components/MagneticContainer';
-import ProjectCard from '../_components/projectCard';
-import { projectsList } from '../data/projectsData';
+
+// import MagneticContainer from '@/components/MagneticContainer';
+import { cn } from '@/utills';
+import { projectsList } from '@/constants/projectsData';
+import ProjectCard from './projectCard';
+
 import styles from './projects.module.css';
 
 const gridContainerClasses = [
@@ -16,7 +19,7 @@ const gridContainerClasses = [
   styles.project5__container,
 ];
 
-const RegularPage = () => {
+const RegularPage:FC = () => {
   return (
     <main className={styles.regularPage}>
       <section className={styles.container}>

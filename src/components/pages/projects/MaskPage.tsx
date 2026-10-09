@@ -8,8 +8,8 @@ import { mouseEnter, mouseLeave } from '@/redux/features/textHoverSlice';
 import { cn } from '@/utills';
 import Mask from '@/components/mask';
 // import MagneticContainer from '@/components/MagneticContainer';
-import MaskProductCard from '../_components/projectCard/mask';
-import { projectsList } from '../data/projectsData';
+import { projectsList } from '@/constants/projectsData';
+import MaskProductCard from './projectCard/mask';
 
 import styles from './projects.module.css';
 
