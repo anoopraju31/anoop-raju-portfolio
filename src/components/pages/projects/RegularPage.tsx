@@ -19,7 +19,7 @@ const gridContainerClasses = [
   styles.project5__container,
 ];
 
-const RegularPage:FC = () => {
+const RegularPage: FC = () => {
   return (
     <main className={styles.regularPage}>
       <section className={styles.container}>
