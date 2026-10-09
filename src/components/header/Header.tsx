@@ -1,18 +1,19 @@
 'use client';
 
-import { cn } from '@/utills';
+import { Gantari } from 'next/font/google';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import Link from 'next/link';
+
 import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
 import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { Gantari } from 'next/font/google';
-import Link from 'next/link';
-import MagneticContainer from '../MagneticContainer';
-import NavMenu from './navMenu/NavMenu';
-import { menuSlide } from '@/utills/animations';
 import { closeMenu, toggleMenu } from '@/app/(portfolio)/features/navbarSlice';
+import { cn } from '@/utills';
+import { menuSlide } from '@/utills/animations';
+// import MagneticContainer from '../MagneticContainer';
+import NavMenu from './navMenu/NavMenu';
 
 const gantari = Gantari({ weight: ['400', '700'], subsets: ['latin'] });
 
@@ -57,7 +58,7 @@ const Header = () => {
       >
         {/* Left: Magnetic Logo Pill */}
         <div className="pointer-events-auto">
-          <MagneticContainer>
+          {/* <MagneticContainer> */}
             <Link
               aria-label="logo"
               href="/"
@@ -116,12 +117,12 @@ const Header = () => {
                 [ DEV ]
               </span>
             </Link>
-          </MagneticContainer>
+          {/* </MagneticContainer> */}
         </div>
 
         {/* Right: Magnetic Menu Toggle Pill */}
         <div className="pointer-events-auto">
-          <MagneticContainer>
+          {/* <MagneticContainer> */}
             <button
               type="button"
               onClick={handleMenuButtonClick}
@@ -167,7 +168,7 @@ const Header = () => {
                 />
               </div>
             </button>
-          </MagneticContainer>
+          {/* </MagneticContainer> */}
         </div>
       </motion.header>
 
