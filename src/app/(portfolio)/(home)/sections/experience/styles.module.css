@@ -60,7 +60,7 @@
 }
 
 .subtitleRegular {
-  @apply text-white;
+  @apply text-white/90;
 }
 
 .subtitleMask {

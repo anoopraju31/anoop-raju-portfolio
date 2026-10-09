@@ -35,7 +35,7 @@
 }
 
 .left-body-regular {
-  @apply text-white;
+  @apply text-white/90;
 }
 
 .left-body-mask {

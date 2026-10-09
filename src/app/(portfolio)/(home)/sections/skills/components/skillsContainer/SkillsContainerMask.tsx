@@ -14,9 +14,11 @@ type Props = {
   index?: number;
 };
 
-const SkillsContainerMask: FC<Props> = ({ title, description, skills, index = 1 }) => {
+const SkillsContainerMask: FC<Props> = ({ title, description, skills, 
+  // index = 1 
+}) => {
   const dispatch = useAppDispatch();
-  const indexStr = String(index).padStart(2, '0');
+  // const indexStr = String(index).padStart(2, '0');
 
   const handleMouseEnter = () => dispatch(mouseEnter());
   const handleMouseLeave = () => dispatch(mouseLeave());
@@ -25,9 +27,9 @@ const SkillsContainerMask: FC<Props> = ({ title, description, skills, index = 1 
     <div className={styles['text-container']}>
       <div className={styles['left-text-outter-container']}>
         <div className={styles['left-text-inner-container']}>
-          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles['index-tag-mask']}>
+          {/* <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles['index-tag-mask']}>
             [{indexStr}] &bull; FOCUS
-          </div>
+          </div> */}
           <h3
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

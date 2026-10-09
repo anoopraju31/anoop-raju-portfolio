@@ -34,7 +34,8 @@ const About: FC = () => {
             </div>
 
             <h2 className={cn(styles.heading, styles.headingRegular)}>
-              About Me<span className={styles.headingDotRegular}>.</span>
+              About Me
+              {/* <span className={styles.headingDotRegular}>.</span> */}
             </h2>
 
             <div className={styles.paragraphs}>

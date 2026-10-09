@@ -85,7 +85,7 @@
 }
 
 .paragraphRegular {
-  @apply text-white;
+  @apply text-white/90;
 }
 
 .paragraphMask {
