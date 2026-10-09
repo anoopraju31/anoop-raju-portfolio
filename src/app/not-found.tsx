@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+
 import { Particles } from '@/components/Particles';
 import Mask from '@/components/mask';
 import NotFoundMask from '@/components/notFound/NotFoundMask';

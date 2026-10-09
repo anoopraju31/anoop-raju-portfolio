@@ -1,6 +1,6 @@
 .body,
 .mask {
-  @apply m-0 flex h-screen w-full flex-col items-center justify-center px-5 py-8;
+  @apply relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-4 py-12;
 }
 
 .body::-webkit-scrollbar,
@@ -8,34 +8,141 @@
   @apply hidden;
 }
 
-.mask {
-  @apply text-dark-blue;
-}
-
 .body {
   @apply text-white;
 }
 
+.mask {
+  @apply text-dark-blue;
+}
+
+/* Ambient Radial Glow */
+.body .glow {
+  @apply pointer-events-none absolute h-[320px] w-[320px] rounded-full bg-light-green/10 blur-[130px] sm:h-[480px] sm:w-[480px];
+}
+
+.mask .glow {
+  @apply pointer-events-none absolute h-[320px] w-[320px] rounded-full bg-dark-blue/10 blur-[130px] sm:h-[480px] sm:w-[480px];
+}
+
+/* Content Container */
 .container {
-  @apply text-center;
+  @apply relative z-10 flex max-w-2xl flex-col items-center text-center;
+}
+
+/* Status Eyebrow Badge */
+.body .badge {
+  @apply mb-6 inline-flex items-center gap-2.5 rounded-full border border-light-green/30 bg-light-green/[0.06] px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-light-green shadow-sm backdrop-blur-md sm:text-sm;
+}
+
+.mask .badge {
+  @apply mb-6 inline-flex items-center gap-2.5 rounded-full border border-dark-blue/40 bg-dark-blue/[0.08] px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-dark-blue shadow-sm backdrop-blur-md sm:text-sm;
+}
+
+.body .statusDot {
+  @apply h-2 w-2 animate-pulse rounded-full bg-light-green;
+}
+
+.mask .statusDot {
+  @apply h-2 w-2 animate-pulse rounded-full bg-dark-blue;
+}
+
+/* 404 Hero Heading */
+.headingContainer {
+  @apply relative select-none;
 }
 
 .heading {
-  @apply text-[200px] font-extrabold leading-none md:text-[272px];
+  @apply font-mono text-8xl font-black leading-none tracking-tighter sm:text-[140px] md:text-[190px] lg:text-[220px];
+}
+
+.body .heading {
+  @apply bg-gradient-to-b from-white via-white/90 to-white/30 bg-clip-text text-transparent drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)];
+}
+
+.mask .heading {
+  @apply bg-gradient-to-b from-dark-blue via-dark-blue/90 to-dark-blue/50 bg-clip-text text-transparent;
+}
+
+.body .headingTag {
+  @apply absolute -bottom-1 right-2 rounded border border-light-green/40 bg-dark-blue/90 px-2 py-0.5 font-mono text-[10px] tracking-widest text-light-green shadow-sm backdrop-blur-md sm:bottom-2 sm:right-4 sm:text-xs;
+}
+
+.mask .headingTag {
+  @apply absolute -bottom-1 right-2 rounded border border-dark-blue/40 bg-light-green/90 px-2 py-0.5 font-mono text-[10px] tracking-widest text-dark-blue shadow-sm backdrop-blur-md sm:bottom-2 sm:right-4 sm:text-xs;
+}
+
+/* Title & Description */
+.title {
+  @apply mt-6 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl;
+}
+
+.body .title {
+  @apply text-white;
+}
+
+.mask .title {
+  @apply text-dark-blue;
 }
 
 .desc {
-  @apply mb-8 text-2xl font-semibold mdlg:text-3xl;
+  @apply mt-3 max-w-md font-mono text-xs leading-relaxed sm:text-sm;
 }
 
-.link {
-  @apply rounded px-8 py-3 font-semibold;
+.body .desc {
+  @apply text-white/60;
 }
 
-.body .link {
-  @apply bg-light-green text-dark-blue;
+.mask .desc {
+  @apply text-dark-blue/70;
 }
 
-.mask .link {
-  @apply bg-dark-blue text-light-green;
+/* Button Group */
+.buttonGroup {
+  @apply mt-8 flex flex-wrap items-center justify-center gap-4;
+}
+
+.body .primaryBtn {
+  @apply inline-flex items-center gap-2.5 rounded-full border border-light-green bg-light-green px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-dark-blue shadow-[0_0_25px_rgba(76,252,15,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(76,252,15,0.5)] active:scale-95;
+}
+
+.mask .primaryBtn {
+  @apply inline-flex items-center gap-2.5 rounded-full border border-dark-blue bg-dark-blue px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-light-green shadow-[0_0_25px_rgba(11,15,25,0.3)] transition-all duration-300 hover:scale-105 active:scale-95;
+}
+
+.body .secondaryBtn {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-mono text-xs uppercase tracking-wider text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-light-green/50 hover:bg-white/10 hover:text-light-green active:scale-95;
+}
+
+.mask .secondaryBtn {
+  @apply inline-flex items-center gap-2 rounded-full border border-dark-blue/30 bg-dark-blue/10 px-6 py-3 font-mono text-xs uppercase tracking-wider text-dark-blue backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-dark-blue hover:bg-dark-blue/20 active:scale-95;
+}
+
+/* Quick Nav Strip */
+.navStrip {
+  @apply mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs;
+}
+
+.body .navStrip {
+  @apply text-white/40;
+}
+
+.mask .navStrip {
+  @apply text-dark-blue/50;
+}
+
+.body .navLink {
+  @apply transition-colors hover:text-light-green;
+}
+
+.mask .navLink {
+  @apply font-semibold transition-colors hover:text-dark-blue;
+}
+
+.body .navLabel {
+  @apply font-bold text-light-green/80;
+}
+
+.mask .navLabel {
+  @apply font-bold text-dark-blue;
 }

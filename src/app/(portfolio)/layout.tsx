@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
+import { Toaster } from 'sonner';
+
 import ScrollToTopOnReload from '@/components/ScrollToTopOnReload';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer';
-import { Toaster } from 'sonner';
 
 type Props = {
   children: ReactNode;

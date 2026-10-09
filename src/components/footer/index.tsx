@@ -24,7 +24,7 @@ const SOCIAL_LINKS = [
   { title: 'Linked In', link: 'https://www.linkedin.com/in/anoop-raju' },
   { title: 'GitHub', link: 'https://github.com/anoopraju31' },
   { title: 'Instagram', link: 'https://www.instagram.com/_a.n.o.o.p_r.a.j.u_/' },
-  { title: 'Email', link: 'mailto:anoop2019@iiitkottayam.ac.in' },
+  { title: 'Email', link: 'mailto:anoopraju31@gmail.com' },
 ];
 
 const Footer: FC = () => {
@@ -89,7 +89,7 @@ const Footer: FC = () => {
 
   // const handleCopyEmail = (e: React.MouseEvent) => {
   // 	e.preventDefault()
-  // 	navigator.clipboard.writeText('anoop2019@iiitkottayam.ac.in')
+  // 	navigator.clipboard.writeText('anoopraju31@gmail.com')
   // 	setCopiedEmail(true)
   // 	toast.success('Email copied to clipboard!')
   // 	setTimeout(() => setCopiedEmail(false), 2200)
@@ -185,11 +185,11 @@ const Footer: FC = () => {
 							</span>
 							<div className='flex flex-wrap items-center gap-3'>
 								<a
-									href='mailto:anoop2019@iiitkottayam.ac.in'
+									href='mailto:anoopraju31@gmail.com'
 									className='group inline-flex items-center gap-2 text-base sm:text-lg font-bold text-dark-blue underline underline-offset-4 decoration-dark-blue/40 hover:opacity-75 transition-opacity'
 								>
 									<FiMail className='text-dark-blue text-lg' />
-									<span>anoop2019@iiitkottayam.ac.in</span>
+									<span>anoopraju31@gmail.com</span>
 									<FiArrowUpRight className='text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' />
 								</a>
 

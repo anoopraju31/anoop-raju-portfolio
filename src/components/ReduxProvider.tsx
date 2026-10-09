@@ -1,8 +1,15 @@
 'use client';
-import { store } from '@/app/(portfolio)/store';
+
+import type { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
-const ReduxProvider = ({ children }: { children: React.ReactNode }) => {
+import { store } from '@/redux/store';
+
+type Props = {
+  children: ReactNode;
+};
+
+const ReduxProvider: FC<Props> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 };
 

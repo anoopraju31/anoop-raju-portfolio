@@ -3,7 +3,7 @@
 import { cn } from '@/utills';
 import { type FC, useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
+import useFooterScrollOverViewport from '@/hooks/useFooterScrollOverViewport';
 import { motion, type Variants } from 'framer-motion';
 import { Gantari } from 'next/font/google';
 import { FiArrowUpRight, FiCopy, FiCheck, FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi';
@@ -101,7 +101,7 @@ const NavMenu: FC = () => {
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigator.clipboard.writeText('anoop2019@iiitkottayam.ac.in');
+    navigator.clipboard.writeText('anoopraju31@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2200);
   };
@@ -279,7 +279,7 @@ const NavMenu: FC = () => {
               </span>
               <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href="mailto:anoop2019@iiitkottayam.ac.in"
+                  href="mailto:anoopraju31@gmail.com"
                   onMouseEnter={() => setIsInteractiveHovered(true)}
                   onMouseLeave={() => setIsInteractiveHovered(false)}
                   className={cn(
@@ -290,7 +290,7 @@ const NavMenu: FC = () => {
                   )}
                 >
                   <FiMail className="text-light-green" />
-                  <span>anoop2019@iiitkottayam.ac.in</span>
+                  <span>anoopraju31@gmail.com</span>
                   <FiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
 

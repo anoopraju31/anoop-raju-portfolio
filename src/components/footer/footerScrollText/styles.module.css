@@ -6,6 +6,6 @@
   @apply inline-flex min-w-full animate-marquee items-center;
 }
 
-:global(.group):hover .inner-container {
+/* :global(.group):hover .inner-container {
   animation-play-state: paused;
-}
+} */

@@ -1,8 +1,8 @@
 'use client';
 
 import { cn } from '@/utills';
-import useMousePosition from '@/app/(portfolio)/hooks/useMousePostion';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useMousePosition from '@/hooks/useMousePostion';
+import useAppSelector from '@/hooks/useAppSelector';
 import { ImArrowUpRight2 } from 'react-icons/im';
 import { motion, AnimatePresence } from 'framer-motion';
 import { maskAnimation, maskInitialAnimation, maskTransition } from '@/utills/animations';

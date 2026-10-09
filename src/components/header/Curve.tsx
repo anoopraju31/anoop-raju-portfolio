@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/utills';
-import useWindowWidth from '@/app/(portfolio)/hooks/useWindowWidth';
+import useWindowWidth from '@/hooks/useWindowWidth';
 import { motion, type Variants } from 'framer-motion';
 
 type CurveProps = {

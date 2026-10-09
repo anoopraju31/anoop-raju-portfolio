@@ -6,10 +6,10 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 
-import useFooterScrollOverViewport from '@/app/(portfolio)/hooks/useFooterScrollOverViewport';
-import useAppSelector from '@/app/(portfolio)/hooks/useAppSelector';
+import useFooterScrollOverViewport from '@/hooks/useFooterScrollOverViewport';
+import useAppSelector from '@/hooks/useAppSelector';
 import { useDispatch } from 'react-redux';
-import { closeMenu, toggleMenu } from '@/app/(portfolio)/features/navbarSlice';
+import { closeMenu, toggleMenu } from '@/redux/features/navbarSlice';
 import { cn } from '@/utills';
 import { menuSlide } from '@/utills/animations';
 // import MagneticContainer from '../MagneticContainer';
@@ -81,7 +81,7 @@ const Header = () => {
               />
               <span
                 className={cn(
-                  'relative inline-flex h-2 shrink-0 w-2 rounded-full',
+                  'relative inline-flex h-2 w-2 shrink-0 rounded-full',
                   isDarkBackground ? 'bg-light-green' : 'bg-dark-blue group-hover:bg-light-green',
                 )}
               />

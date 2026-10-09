@@ -8,19 +8,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       link: '/contact',
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       link: '/blogs',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       link: '/projects',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       link: '/blogs/a-comprehensive-guide-to-react-hooks',
-      priority: 0.8,
+      priority: 0.6,
+    },
+    {
+      link: '/blogs/solid-principle-in-react-js-and-next-js',
+      priority: 0.6,
     },
   ];
 
