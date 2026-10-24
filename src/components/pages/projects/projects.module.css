@@ -61,7 +61,7 @@
 }
 
 .heroSubtitleRegular {
-  @apply text-white/70;
+  @apply font-normal text-white/90;
 }
 
 .heroSubtitleMask {
@@ -70,15 +70,15 @@
 
 /* Quick Metrics & Stats Bar */
 .statsBar {
-  @apply mt-8 flex flex-wrap items-center justify-center gap-3 font-mono text-xs sm:gap-6 sm:text-sm;
+  @apply mt-8 flex flex-wrap items-center justify-center gap-3 font-mono text-xs sm:gap-4 sm:text-sm;
 }
 
 .statItem {
-  @apply flex items-center gap-2 rounded-full border px-3.5 py-1.5;
+  @apply flex items-center gap-2 rounded-full border px-4 py-2;
 }
 
 .statItemRegular {
-  @apply border-white/10 bg-white/[0.02] text-white/60;
+  @apply border-white/15 bg-white/[0.04] text-white/85;
 }
 
 .statItemMask {
@@ -95,7 +95,7 @@
 
 /* Asymmetrical Project Grid */
 .project__container {
-  @apply my-10 grid grid-cols-1 items-start gap-12 sm:gap-16 md:grid-cols-12 md:gap-x-12 md:gap-y-24;
+  @apply my-12 grid grid-cols-1 items-start gap-12 sm:gap-16 md:grid-cols-12 md:gap-x-12 md:gap-y-24 lg:my-16;
 }
 
 .project1__container {
@@ -160,7 +160,7 @@
 }
 
 .ctaDescriptionRegular {
-  @apply text-white/60;
+  @apply font-normal text-white/85;
 }
 
 .ctaDescriptionMask {

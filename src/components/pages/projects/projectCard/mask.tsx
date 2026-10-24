@@ -73,7 +73,7 @@ const MaskProductCard: FC<ProjectCardProps> = ({
         {featured && (
           <div className={cn(styles.floatingBadge, styles.floatingBadgeMask)}>
             <span className="h-1.5 w-1.5 rounded-full bg-dark-blue" />
-            <span>Featured Case Study</span>
+            <span>Featured</span>
           </div>
         )}
 

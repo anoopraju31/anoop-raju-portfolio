@@ -60,7 +60,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           <span className={cn(styles.windowDot, styles.windowDotGreen)} />
         </div>
         <span className={cn(styles.windowUrl, styles.windowUrlRegular)}>{displayDomain}</span>
-        <span className="font-mono text-[11px] text-white/40">{year}</span>
+        <span className="font-mono text-[11px] text-white/70">{year}</span>
       </div>
 
       {/* Interactive Image Frame */}

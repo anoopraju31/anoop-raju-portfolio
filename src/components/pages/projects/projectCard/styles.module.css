@@ -9,7 +9,7 @@
 }
 
 .chromeBarRegular {
-  @apply border-white/10 bg-white/[0.04] text-white/50 backdrop-blur-md;
+  @apply border-white/15 bg-white/[0.04] text-white/70 backdrop-blur-md;
 }
 
 .chromeBarMask {
@@ -41,7 +41,7 @@
 }
 
 .windowUrlRegular {
-  @apply border border-white/5 bg-black/30 text-white/40;
+  @apply border border-white/10 bg-black/40 text-white/75;
 }
 
 .windowUrlMask {
@@ -110,7 +110,7 @@
 }
 
 .metaHeaderRegular {
-  @apply text-white/50;
+  @apply text-white/70;
 }
 
 .metaHeaderMask {
@@ -130,7 +130,7 @@
 }
 
 .categoryPillRegular {
-  @apply border-white/15 bg-white/[0.03] text-white/70;
+  @apply border-white/15 bg-white/[0.04] text-white/85;
 }
 
 .categoryPillMask {
@@ -139,7 +139,7 @@
 
 /* Title & Narrative */
 .titleGroup {
-  @apply flex flex-col gap-1;
+  @apply flex flex-col gap-1.5;
 }
 
 .projectName {
@@ -159,7 +159,7 @@
 }
 
 .projectSubtitleRegular {
-  @apply font-mono text-light-green/90;
+  @apply font-mono font-medium text-light-green;
 }
 
 .projectSubtitleMask {
@@ -171,7 +171,7 @@
 }
 
 .projectDescriptionRegular {
-  @apply text-white/65;
+  @apply font-normal text-white/90 leading-relaxed;
 }
 
 .projectDescriptionMask {
@@ -180,7 +180,7 @@
 
 /* Tech Stack Tags */
 .tagsContainer {
-  @apply flex flex-wrap gap-2 pt-1;
+  @apply flex flex-wrap gap-2 pt-2;
 }
 
 .tagPill {
@@ -188,7 +188,7 @@
 }
 
 .tagPillRegular {
-  @apply border-white/10 bg-white/[0.02] text-white/75 hover:border-light-green/40 hover:text-white;
+  @apply border-white/15 bg-white/[0.04] text-white/85 hover:border-light-green/40 hover:text-white;
 }
 
 .tagPillMask {
@@ -197,7 +197,7 @@
 
 /* Action Links & Buttons */
 .actionsRow {
-  @apply flex items-center gap-3 pt-2;
+  @apply flex items-center gap-3 pt-3;
 }
 
 .actionButton {
@@ -213,7 +213,7 @@
 }
 
 .actionSecondaryRegular {
-  @apply border-white/15 bg-white/[0.03] text-white hover:border-white/40 hover:bg-white/[0.08];
+  @apply border-white/15 bg-white/[0.04] text-white/90 hover:border-white/40 hover:bg-white/[0.08] hover:text-white;
 }
 
 .actionSecondaryMask {
