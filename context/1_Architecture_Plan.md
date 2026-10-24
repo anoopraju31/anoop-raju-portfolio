@@ -2,100 +2,118 @@
 
 ## System Architecture
 
-This is a **Next.js 15 App Router** portfolio website with **Sanity CMS** as the headless content backend. The architecture is designed around immersive visual effects, smooth interactions, and server-side content delivery.
+This is a **Next.js 15 App Router** portfolio and administration web application backed by **Sanity CMS** for editorial blog content and **MongoDB via Prisma ORM** for user management and contact message responses. The public application features an immersive dark-mode visual experience with dual-layer SVG mask interactions and smooth scrolling, while the admin panel provides secure, cookie-authenticated access to dashboard metrics and contact inquiries.
 
 ---
 
 ## High-Level Architecture Diagram
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│                        CLIENT (Browser)                              │
-│                                                                      │
-│  ┌──────────────────────────────────────────────────────────────┐    │
-│  │                     Next.js App Router                       │    │
-│  │                                                              │    │
-│  │  RootLayout (Bebas Neue font, ReduxProvider)                 │    │
-│  │    ├── (portfolio) Layout (Header, Footer, Toaster)          │    │
-│  │    │     ├── template.tsx (PageTransitionLoader)              │    │
-│  │    │     ├── (home)/page.tsx  ──── SSR ────┐                 │    │
-│  │    │     ├── projects/page.tsx              │                 │    │
-│  │    │     ├── contact/page.tsx               │                 │    │
-│  │    │     ├── blogs/page.tsx    ──── SSR ────┤                 │    │
-│  │    │     └── blogs/[slug]/page.tsx ── ISR ──┤                 │    │
-│  │    └── studio/[[...tool]]/page.tsx          │                 │    │
-│  └─────────────────────────────────────────────┼────────────────┘    │
-│                                                │                     │
-│  ┌─────────────────────┐  ┌───────────────┐    │                     │
-│  │   Redux Store       │  │  Lenis Smooth │    │                     │
-│  │   (UI state only)   │  │  Scrolling    │    │                     │
-│  │   - navbar          │  └───────────────┘    │                     │
-│  │   - textHover       │                       │                     │
-│  │   - projectCardHover│  ┌───────────────┐    │                     │
-│  │   - accordion       │  │  Framer Motion│    │                     │
-│  │   - appState        │  │  (Animations) │    │                     │
-│  └─────────────────────┘  └───────────────┘    │                     │
-│                                                │                     │
-│  ┌─────────────────────┐  ┌───────────────┐    │                     │
-│  │  Canvas 2D Particles│  │  OGL WebGL    │    │                     │
-│  │  (mouse-reactive)   │  │  FerroFluid   │    │                     │
-│  └─────────────────────┘  └───────────────┘    │                     │
-│                                                │                     │
-└────────────────────────────────────────────────┼─────────────────────┘
-                                                 │
-                                    ┌────────────▼────────────┐
-                                    │    Sanity CMS (Cloud)   │
-                                    │                         │
-                                    │  ┌───────────────────┐  │
-                                    │  │  Content Schemas   │  │
-                                    │  │  - post (blogs)    │  │
-                                    │  │  - author          │  │
-                                    │  │  - tag             │  │
-                                    │  │  - contactMe       │  │
-                                    │  │  - projects        │  │
-                                    │  └───────────────────┘  │
-                                    │                         │
-                                    │  ┌───────────────────┐  │
-                                    │  │  APIs              │  │
-                                    │  │  - GROQ queries    │  │
-                                    │  │  - Live content    │  │
-                                    │  │  - Image CDN       │  │
-                                    │  │  - Mutations       │  │
-                                    │  └───────────────────┘  │
-                                    └─────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                                  CLIENT (Browser)                                      │
+│                                                                                        │
+│  ┌──────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                               Next.js App Router                                 │  │
+│  │                                                                                  │  │
+│  │  RootLayout (Bebas Neue font, ReduxProvider)                                     │  │
+│  │    ├── (portfolio) Layout (Header, Footer, Toaster)                              │  │
+│  │    │     ├── template.tsx (PageTransitionLoader)                                 │  │
+│  │    │     ├── (home)/page.tsx          ── SSR ──┐                                 │  │
+│  │    │     ├── projects/page.tsx                 │                                 │  │
+│  │    │     ├── contact/page.tsx                  │                                 │  │
+│  │    │     ├── blogs/page.tsx           ── SSR ──┤                                 │  │
+│  │    │     └── blogs/[slug]/page.tsx    ── ISR ──┤                                 │  │
+│  │    │                                           │                                 │  │
+│  │    ├── (admin) Route Group                     │                                 │  │
+│  │    │     ├── login/page.tsx (Public)           │                                 │  │
+│  │    │     └── (dashboard) Layout                │                                 │  │
+│  │    │           ├── AuthProvider (Auth Guard)   │                                 │  │
+│  │    │           ├── dashboard/page.tsx (Private)│                                 │  │
+│  │    │           └── contact-me-response/ (Priv) │                                 │  │
+│  │    │                                           │                                 │  │
+│  │    ├── studio/[[...tool]]/page.tsx             │                                 │  │
+│  │    └── api/v1/users/ (Route Handlers)          │                                 │  │
+│  └────────────────────────────────────────────────┼─────────────────────────────────┘  │
+│                                                   │                                    │
+│  ┌─────────────────────┐  ┌───────────────┐       │                                    │
+│  │   Redux Store       │  │  Lenis Smooth │       │                                    │
+│  │   (UI & Auth state) │  │  Scrolling    │       │                                    │
+│  │   - navbar          │  └───────────────┘       │                                    │
+│  │   - textHover       │                          │                                    │
+│  │   - projectCardHover│  ┌───────────────┐       │                                    │
+│  │   - accordion       │  │  Framer Motion│       │                                    │
+│  │   - appState        │  │  (Animations) │       │                                    │
+│  │   - userAuth        │  └───────────────┘       │                                    │
+│  └─────────────────────┘                          │                                    │
+│                                                   │                                    │
+│  ┌─────────────────────┐  ┌───────────────┐       │                                    │
+│  │  Canvas 2D Particles│  │  OGL WebGL    │       │                                    │
+│  │  (mouse-reactive)   │  │  FerroFluid   │       │                                    │
+│  └─────────────────────┘  └───────────────┘       │                                    │
+└───────────────────────────────────────────────────┼────────────────────────────────────┘
+                                                    │
+                 ┌──────────────────────────────────┴──────────────────────────────────┐
+                 │                                                                     │
+    ┌────────────▼────────────┐                                           ┌────────────▼────────────┐
+    │    Sanity CMS (Cloud)   │                                           │    MongoDB (Prisma ORM) │
+    │                         │                                           │                         │
+    │  ┌───────────────────┐  │                                           │  ┌───────────────────┐  │
+    │  │  Content Schemas  │  │                                           │  │  Database Models  │  │
+    │  │  - post (blogs)   │  │                                           │  │  - User           │  │
+    │  │  - author         │  │                                           │  │  - ContactMessage │  │
+    │  │  - tag            │  │                                           │  └───────────────────┘  │
+    │  │  - projects       │  │                                           │                         │
+    │  └───────────────────┘  │                                           │  ┌───────────────────┐  │
+    │                         │                                           │  │  Client Singleton │  │
+    │  ┌───────────────────┐  │                                           │  │  - prisma.user    │  │
+    │  │  APIs             │  │                                           │  │  - prisma.contact │  │
+    │  │  - GROQ queries   │  │                                           │  └───────────────────┘  │
+    │  │  - Live content   │  │                                           └─────────────────────────┘
+    │  │  - Image CDN      │  │
+    │  └───────────────────┘  │
+    └─────────────────────────┘
 ```
 
 ---
 
-## Rendering Strategy
+## Rendering & Access Strategy
 
-| Route                    | Strategy                | Data Source               |
-| ------------------------ | ----------------------- | ------------------------- |
-| `/` (Home)               | Server Component (SSR)  | Sanity (blogs), constants |
-| `/projects`              | Static (client render)  | Hardcoded constants       |
-| `/contact`               | Static (client render)  | N/A (form only)           |
-| `/blogs`                 | Server Component (SSR)  | Sanity (all blogs)        |
-| `/blogs/[slug]`          | ISR (revalidate: 3600)  | Sanity (single post)      |
-| `/studio/[[...tool]]`    | Client-only             | Sanity Studio embedded    |
+| Route                               | Access    | Strategy               | Data Source & Middleware              |
+| ----------------------------------- | --------- | ---------------------- | ------------------------------------- |
+| `/` (Home)                          | Public    | Server Component (SSR) | Sanity (blogs), static constants      |
+| `/projects`                         | Public    | Static (client render) | Hardcoded `projectsData.ts`           |
+| `/contact`                          | Public    | Static (client render) | Server Action (`prisma.contactMessage`)|
+| `/blogs`                            | Public    | Server Component (SSR) | Sanity (all published blogs)          |
+| `/blogs/[slug]`                     | Public    | ISR (revalidate: 3600) | Sanity (single post via GROQ)         |
+| `/login`                            | Public    | Client Component       | Redux `userAuth`, redirect if authed  |
+| `/dashboard`                        | Private   | Client Component       | Protected by `AuthProvider`           |
+| `/contact-me-response`              | Private   | Client Component       | Protected by `AuthProvider`, Prisma   |
+| `/studio/[[...tool]]`               | Public    | Client-only            | Sanity Studio embedded                |
 
 ---
 
 ## Data Flow Patterns
 
-### Blog Content (Server → Client)
+### 1. Blog Editorial Content (Server → Client)
 ```
-Sanity CMS → sanityFetch(GROQ) → page.tsx (Server Component) → props → MaskPage/RegularPage (Client)
+Sanity CMS → sanityFetch(GROQ) → page.tsx (Server Component) → props → MaskPage / RegularPage (Client)
 ```
 
-### Contact Form (Client → Server → Sanity)
+### 2. Public Contact Inquiries (Client → Database)
 ```
 ContactForm (Client, useForm + Zod) → submitContactMe() (Server Action) → prisma.contactMessage.create() → MongoDB
-
 ```
 
-### UI State (Client-only)
+### 3. Admin Authentication & Session Management
 ```
-User interaction → Redux dispatch → Redux slice → useAppSelector → Component re-render
+Login Form → POST /v1/users/auth/login → Verify bcrypt password → Issue HttpOnly session cookie
+Page Load  → GET /v1/users/auth (with cookie) → Redux userAuth dispatch → AuthProvider route gating
+Logout     → POST /v1/users/auth/logout → Clear HttpOnly cookie → Redux setLogout → Redirect /login
+```
+
+### 4. Admin Contact Responses Query
+```
+Admin Dashboard → GET /v1/users/contact-response (Cookie validated) → prisma.contactMessage.findMany() → Table View
 ```
 
 ---
@@ -104,9 +122,9 @@ User interaction → Redux dispatch → Redux slice → useAppSelector → Compo
 
 ```
 src/app/
-├── layout.tsx                    # Root: <html>, <body>, font, Redux provider
-├── (portfolio)/                  # Route group (no URL segment)
-│   ├── layout.tsx                # Shared: Header + Footer + Toaster
+├── layout.tsx                    # Root: <html>, <body>, fonts, Redux provider
+├── (portfolio)/                  # Public portfolio route group (no URL segment)
+│   ├── layout.tsx                # Shared: Header + Footer + Sonner Toaster
 │   ├── template.tsx              # Per-navigation: Page transition loader
 │   ├── (home)/page.tsx           # / → Home page
 │   ├── projects/page.tsx         # /projects
@@ -114,56 +132,93 @@ src/app/
 │   ├── blogs/
 │   │   ├── page.tsx              # /blogs
 │   │   └── [slug]/page.tsx       # /blogs/:slug
+│   └── not-found.tsx             # 404 error page
+├── (admin)/                      # Admin panel route group
+│   ├── login/
+│   │   └── page.tsx              # /login (PUBLIC route)
+│   └── (dashboard)/              # Protected dashboard group
+│       ├── layout.tsx            # AuthProvider wrapper + admin layout shell
+│       ├── dashboard/
+│       │   └── page.tsx          # /dashboard (PRIVATE route)
+│       └── contact-me-response/
+│           └── page.tsx          # /contact-me-response (PRIVATE route)
+├── api/                          # Next.js App Router API endpoints
+│   └── v1/
+│       └── users/
+│           ├── auth/
+│           │   ├── route.ts      # GET: Current authenticated user details
+│           │   ├── login/
+│           │   │   └── route.ts  # POST: Login & set HttpOnly cookie
+│           │   └── logout/
+│           │       └── route.ts  # POST: Logout & invalidate cookie
+│           ├── contact-response/
+│           │   └── route.ts      # GET: Fetch all contact submissions
+│           └── contact/
+│               └── route.ts      # POST: Submit contact inquiry
 └── studio/                       # Sanity Studio (excluded from portfolio layout)
     ├── layout.tsx                # Minimal layout for studio
     └── [[...tool]]/page.tsx      # Catch-all for studio routes
 ```
 
-The `(portfolio)` route group ensures that Header/Footer/Toaster are shared across all portfolio pages but NOT the Sanity Studio. The `template.tsx` ensures page transition animations fire on every route change.
-
 ---
 
-## Component Composition Pattern
+## Database Architecture (Prisma + MongoDB)
 
-Each major page follows a **dual-layer composition**:
+```prisma
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
 
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName  String
+  middleName String?
+  lastName   String
+  email      String   @unique
+  phone      String?
+  role       Role     @default(ADMIN)
+  password   String   // Hashed with bcrypt
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 ```
-Page (Server Component)
-├── SmoothScrollLenis
-│   └── <main>
-│       ├── Particles (fixed background)
-│       ├── Ambient glows (fixed decorative divs)
-│       ├── MaskPage (absolute positioned)
-│       │   └── Mask (mouse-following webkit-mask)
-│       │       ├── SectionMask components (inverted colors)
-│       │       └── ...
-│       └── RegularPage (relative positioned)
-│           ├── Section components (normal colors)
-│           └── ...
-```
 
 ---
 
-## Key Dependencies & Their Roles
+## Key Dependencies & Roles
 
-| Package                   | Purpose                                              |
-| ------------------------- | ---------------------------------------------------- |
-| `next-sanity`             | Sanity integration, GROQ queries, live content API   |
-| `framer-motion`           | Page transitions, mask animations, scroll animations |
-| `@reduxjs/toolkit`        | UI state management (5 slices)                       |
-| `lenis`                   | Hardware-accelerated smooth scrolling                |
-| `ogl`                     | WebGL renderer for FerroFluid shader effect           |
-| `sonner`                  | Toast notifications (contact form feedback)          |
-| `clsx` + `tailwind-merge` | Conditional className composition                    |
-| `date-fns`                | Date formatting in Sanity schema previews            |
-| `prismjs`                 | Code syntax highlighting in blog posts               |
-| `react-icons`             | Icon library (FontAwesome, Feather, Simple Icons)    |
-
----
-
-## Build & Deployment
-
-- **Build**: `next build` produces a production-optimized bundle
-- **Image optimization**: Sanity CDN images whitelisted via `next.config.js` (`domains: ['cdn.sanity.io']`)
-- **ISR**: Blog post pages revalidate every 3600 seconds (1 hour)
-- **SEO**: robots.ts disallows `/studio`, sitemap.ts lists all public routes
+| Package                   | Purpose                                                        |
+| ------------------------- | -------------------------------------------------------------- |
+| `@prisma/client` & `prisma`| MongoDB ORM with type-safe models for Users & ContactMessages |
+| `axios`                   | Client HTTP client for `/v1/users/*` endpoints with credentials|
+| `next-sanity`             | Sanity v3 integration, GROQ queries, live content API          |
+| `framer-motion`           | Dual-layer mask animations, transitions, and accordions        |
+| `@reduxjs/toolkit`        | UI & Auth state management (`userAuth`, `navbar`, `mask`, ...) |
+| `lenis`                   | Smooth inertia scrolling on portfolio routes                   |
+| `ogl`                     | WebGL renderer for FerroFluid shader effect                    |
+| `sonner`                  | Toast notifications for form feedback and auth alerts          |
+| `zod` & `react-hook-form` | Schema validation and form management (contact & login)        |
+| `clsx` + `tailwind-merge` | Conditional className composition utility                      |
+| `date-fns`                | Timestamp formatting in contact responses and blog posts       |
+| `react-icons`             | Icon set (FontAwesome, Feather, Simple Icons)                  |
