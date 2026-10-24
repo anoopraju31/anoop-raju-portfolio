@@ -149,8 +149,41 @@ npx prisma generate
 ### 5. Run the development server
 
 ```bash
+git clone https://github.com/anoopraju31/anoop-raju-portfolio.git
+cd anoop-raju-portfolio
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set up environment variables
+
+Create a .env file by copying the example:
+
+```bash
+cp .env.example .env
+```
+
+Edit .env with your Sanity project credentials:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=your_dataset
+NEXT_PUBLIC_SANITY_API_KEY=your_sanity_api_key
+```
+
+### 4. Start the development server
+
+```bash
 npm run dev
 ```
+
+Open http://localhost:3000 to view the app.
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser.  
 To access the embedded Sanity Studio, navigate to [http://localhost:3000/studio](http://localhost:3000/studio).
