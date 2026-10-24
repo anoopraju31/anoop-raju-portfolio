@@ -6,7 +6,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: '*',
         allow: ['/', '/projects', '/contact', '/blogs'],
-        disallow: ['/studio'],
+        disallow: ['/studio', '/dashboard', '/login', '/contact-enquire', '/manage-blogs', '/api'],
       },
     ],
     sitemap: 'https://www.anoopraju.xyz/sitemap.xml',
