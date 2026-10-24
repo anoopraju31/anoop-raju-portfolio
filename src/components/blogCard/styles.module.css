@@ -20,7 +20,6 @@
   @apply relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border transition-[border-color,transform] duration-200 ease-out;
 }
 
-
 .mediaRegular {
   @apply border-white/10 bg-black/30;
 }
