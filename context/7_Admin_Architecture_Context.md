@@ -153,7 +153,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
     }
     ```
 
-### 4. `GET /v1/users/contact-enquire` (and `/v1/users/contact-response`)
+### 4. `GET /v1/users/contact-enquire`
 - **Purpose**: Retrieve all contact form inquiries from MongoDB (Chronological order, newest first).
 - **Security**: Requires active `ADMIN` cookie session.
 - **Query Parameters (optional)**:

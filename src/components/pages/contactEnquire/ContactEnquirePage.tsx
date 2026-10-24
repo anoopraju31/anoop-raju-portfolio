@@ -41,19 +41,10 @@ const ContactEnquirePage: FC = () => {
     setErrorMessage(null);
 
     try {
-      // Primary endpoint /v1/users/contact-enquire with fallback to /v1/users/contact-response
-      let response;
-      try {
-        response = await axios.get<ContactMessageItem[] | { data: ContactMessageItem[] }>(
-          '/v1/users/contact-enquire',
-          { withCredentials: true }
-        );
-      } catch {
-        response = await axios.get<ContactMessageItem[] | { data: ContactMessageItem[] }>(
-          '/v1/users/contact-response',
-          { withCredentials: true }
-        );
-      }
+      const response = await axios.get<ContactMessageItem[] | { data: ContactMessageItem[] }>(
+        '/v1/users/contact-enquire',
+        { withCredentials: true }
+      );
 
       const items: ContactMessageItem[] = Array.isArray(response.data)
         ? response.data
