@@ -4,27 +4,27 @@
 
 A high-fidelity, interactive personal portfolio website for **Anoop Raju**, a frontend developer based in Kerala, India. The site is built with **Next.js 15 (App Router)** and **Sanity CMS**, featuring an immersive dark-themed UI with particle effects, SVG mask interactions, Framer Motion animations, and WebGL shaders.
 
-**Live URL:** `https://anoopraju31.xyz`
+**Live URL:** `https://www.anoopraju.xyz`
 
 ---
 
 ## Tech Stack
 
-| Layer              | Technology                                                                 |
-| ------------------ | -------------------------------------------------------------------------- |
-| Framework          | Next.js 15 (App Router, React 18)                                         |
-| Language           | TypeScript (strict mode)                                                   |
-| Styling            | TailwindCSS 3 + CSS Modules (`.module.css`)                                |
-| Animations         | Framer Motion 10, custom CSS keyframes                                     |
-| CMS                | Sanity v3 (embedded Studio at `/studio`, GROQ queries, live content API)   |
-| State Management   | Redux Toolkit (RTK)                                                        |
-| Smooth Scrolling   | Lenis (`@studio-freight/lenis`)                                            |
-| WebGL / 3D         | OGL (FerroFluid shader), Canvas 2D (Particles), Three.js (types only)      |
-| Icons              | React Icons (FontAwesome, Feather, Simple Icons)                           |
-| Fonts              | Bebas Neue (root), Gantari (body/pages), PT Sans (blog posts)              |
-| Toast Notifications| Sonner                                                                     |
-| Utilities          | clsx, tailwind-merge, date-fns                                             |
-| Linting/Formatting | ESLint (Next.js config), Prettier (with Tailwind plugin)                   |
+| Layer               | Technology                                                               |
+| ------------------- | ------------------------------------------------------------------------ |
+| Framework           | Next.js 15 (App Router, React 18)                                        |
+| Language            | TypeScript (strict mode)                                                 |
+| Styling             | TailwindCSS 3 + CSS Modules (`.module.css`)                              |
+| Animations          | Framer Motion 10, custom CSS keyframes                                   |
+| CMS                 | Sanity v3 (embedded Studio at `/studio`, GROQ queries, live content API) |
+| State Management    | Redux Toolkit (RTK)                                                      |
+| Smooth Scrolling    | Lenis (`@studio-freight/lenis`)                                          |
+| WebGL / 3D          | OGL (FerroFluid shader), Canvas 2D (Particles), Three.js (types only)    |
+| Icons               | React Icons (FontAwesome, Feather, Simple Icons)                         |
+| Fonts               | Bebas Neue (root), Gantari (body/pages), PT Sans (blog posts)            |
+| Toast Notifications | Sonner                                                                   |
+| Utilities           | clsx, tailwind-merge, date-fns                                           |
+| Linting/Formatting  | ESLint (Next.js config), Prettier (with Tailwind plugin)                 |
 
 ---
 
@@ -124,20 +124,25 @@ A high-fidelity, interactive personal portfolio website for **Anoop Raju**, a fr
 ## Architecture Patterns
 
 ### Dual-Layer Rendering (Mask + Regular)
+
 Every major page (Home, Projects, Blogs) renders two parallel layers:
+
 1. **MaskPage** — Identical content with inverted color scheme, revealed through a mouse-following SVG `webkit-mask` spotlight. Positioned absolutely on top.
 2. **RegularPage** — Standard content layer underneath.
 
 The `Mask` component (`src/components/mask/`) tracks mouse position via `useMousePosition` hook and applies CSS `webkit-mask-position` / `webkit-mask-size` animations via Framer Motion. When hovering project cards, the mask switches to an arrow-cursor mode.
 
 ### Data Flow
+
 - **Blog data**: Fetched server-side via `sanityFetch()` (live content API) using GROQ queries. Pages are server components; data is passed as props to client components.
 - **Projects data**: Hardcoded in `src/constants/projectsData.ts` (not fetched from Sanity, despite a Sanity projects schema existing).
 - **Contact form**: Client-side form → `submitContactMe()` server action → Sanity `client.create()` to store submissions as `contactMe` documents.
 - **Experience/Skills**: Hardcoded in `src/utills/constants.ts`.
 
 ### State Management (Redux)
+
 Redux is used exclusively for **UI state** (not data fetching):
+
 - `appSlice`: Lenis smooth scroll toggle
 - `navbarSlice`: Mobile menu open/close, hover tracking
 - `textHoverSlice`: Text hover → mask size expansion
@@ -145,9 +150,11 @@ Redux is used exclusively for **UI state** (not data fetching):
 - `accordionSlice`: Experience section accordion toggles
 
 ### Smooth Scrolling
+
 Lenis (`@studio-freight/lenis`) wraps all portfolio pages via the `SmoothScrollLenis` component.
 
 ### Page Transitions
+
 The `template.tsx` file wraps all portfolio routes in a `PageTransitionLoader` component that provides animated route transitions.
 
 ---
@@ -155,6 +162,7 @@ The `template.tsx` file wraps all portfolio routes in a `PageTransitionLoader` c
 ## Environment Variables
 
 Required in `.env.local` (see `.env.example`):
+
 ```
 NEXT_PUBLIC_SANITY_PROJECT_ID=<sanity-project-id>
 NEXT_PUBLIC_SANITY_DATASET=<production|development>

@@ -31,12 +31,12 @@ export const metadata: Metadata = {
     title: 'Anoop Raju | Frontend Developer & Web Creator',
     description:
       'Dive into the portfolio of Anoop Raju, showcasing interactive frontend projects built with React, TypeScript, and modern UI tools.',
-    url: 'https://anoopraju31.xyz',
+    url: 'https://www.anoopraju.xyz',
     type: 'website',
     siteName: 'Anoop Raju Portfolio',
     images: [
       {
-        url: 'https://anoopraju31.xyz/og-image.png',
+        url: 'https://www.anoopraju.xyz/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Anoop Raju Portfolio Preview',
