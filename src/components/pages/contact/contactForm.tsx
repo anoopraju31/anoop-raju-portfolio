@@ -27,7 +27,7 @@ const ContactForm: FC = () => {
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
+      // phone: '',
       subject: '',
       message: '',
     },
@@ -89,14 +89,14 @@ const ContactForm: FC = () => {
         />
 
         {/* Phone (Optional) */}
-        <InputField
+        {/* <InputField
           label="Phone Number (Optional)"
           type="tel"
           id="phone"
           disabled={isSubmitting}
           error={errors.phone?.message}
           {...register('phone')}
-        />
+        /> */}
 
         {/* Subject */}
         <InputField
