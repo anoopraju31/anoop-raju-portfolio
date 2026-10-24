@@ -5,6 +5,7 @@ import navbarReducer from './features/navbarSlice';
 import textHoverReducer from './features/textHoverSlice';
 import projectCardhoverReducer from './features/projectCardSlice';
 import accordionReducer from './features/accordionSlice';
+import userAuthReducer from './features/userAuth';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     projectCardHover: projectCardhoverReducer,
     navbar: navbarReducer,
     accordion: accordionReducer,
+    userAuth: userAuthReducer
   },
 });
 

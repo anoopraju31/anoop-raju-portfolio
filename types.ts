@@ -34,3 +34,19 @@ export interface Blogs {
     };
   };
 }
+
+export type UserStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'FAILURE' | 'LOGOUT';
+
+export type UserAuth = {
+
+};
+
+export type AuthSlice = {
+  user: UserAuth | null;
+  status: UserStatus;
+};
+
+export type LogoutResponse = {
+  message: string;
+  success: boolean;
+};

@@ -168,6 +168,8 @@ Required in `.env.local` (see `.env.example`):
 NEXT_PUBLIC_SANITY_PROJECT_ID=<sanity-project-id>
 NEXT_PUBLIC_SANITY_DATASET=<production|development>
 NEXT_PUBLIC_SANITY_API_KEY=<sanity-api-token>
+DATABASE_URL=<mongodb-uri>
+NEXT_PUBLIC_BACKEND_URL=<backend-url>
 ```
 
 ---

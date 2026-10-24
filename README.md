@@ -1,10 +1,10 @@
 # Anoop Raju — Personal Portfolio
 
 [![Live Site](https://img.shields.io/badge/Live_Site-anoopraju.xyz-4cfc0f?style=for-the-badge&logo=googlechrome&logoColor=090e16)](https://www.anoopraju.xyz)
-[![Next.js 15](https://img.shields.io/badge/Next.js-15_(App_Router)-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Next.js 15](<https://img.shields.io/badge/Next.js-15_(App_Router)-black?style=for-the-badge&logo=next.js>)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Sanity v3](https://img.shields.io/badge/Sanity-v3_(CMS)-F03E2F?style=for-the-badge&logo=sanity&logoColor=white)](https://www.sanity.io/)
+[![Sanity v3](<https://img.shields.io/badge/Sanity-v3_(CMS)-F03E2F?style=for-the-badge&logo=sanity&logoColor=white>)](https://www.sanity.io/)
 [![Prisma ORM](https://img.shields.io/badge/Prisma-MongoDB-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
 
 A high-fidelity, interactive personal portfolio website for **Anoop Raju**, a Software Developer based in Kerala, India. Built with **Next.js 15 (App Router)**, **Sanity CMS**, and **Prisma ORM**, featuring an immersive dark-mode aesthetic with dual-layer SVG mask effects, interactive particle canvas, Framer Motion micro-interactions, and WebGL shaders.
@@ -34,20 +34,20 @@ A high-fidelity, interactive personal portfolio website for **Anoop Raju**, a So
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Framework** | Next.js 15 (App Router, React 18) |
-| **Language** | TypeScript (Strict mode) |
-| **Styling** | TailwindCSS 3 + Scoped CSS Modules (`.module.css`) |
-| **CMS** | Sanity v3 (Studio embedded at `/studio`, GROQ queries, Live API) |
-| **Database & ORM** | MongoDB via Prisma ORM |
-| **Animations** | Framer Motion 10, Canvas 2D, custom CSS keyframes |
-| **WebGL & 3D** | OGL (FerroFluid shader), Three.js types |
-| **State Management** | Redux Toolkit (RTK) for UI mask & interactive state |
-| **Smooth Scroll** | Lenis (`@studio-freight/lenis`) |
-| **Form & Validation** | React Hook Form, Zod |
-| **Notifications** | Sonner |
-| **Icons & Fonts** | React Icons, Bebas Neue, Gantari, PT Sans |
+| Layer                 | Technology                                                       |
+| --------------------- | ---------------------------------------------------------------- |
+| **Framework**         | Next.js 15 (App Router, React 18)                                |
+| **Language**          | TypeScript (Strict mode)                                         |
+| **Styling**           | TailwindCSS 3 + Scoped CSS Modules (`.module.css`)               |
+| **CMS**               | Sanity v3 (Studio embedded at `/studio`, GROQ queries, Live API) |
+| **Database & ORM**    | MongoDB via Prisma ORM                                           |
+| **Animations**        | Framer Motion 10, Canvas 2D, custom CSS keyframes                |
+| **WebGL & 3D**        | OGL (FerroFluid shader), Three.js types                          |
+| **State Management**  | Redux Toolkit (RTK) for UI mask & interactive state              |
+| **Smooth Scroll**     | Lenis (`@studio-freight/lenis`)                                  |
+| **Form & Validation** | React Hook Form, Zod                                             |
+| **Notifications**     | Sonner                                                           |
+| **Icons & Fonts**     | React Icons, Bebas Neue, Gantari, PT Sans                        |
 
 ---
 
@@ -124,6 +124,8 @@ Create a `.env.local` file in the root directory (based on `.env.example`):
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_SANITY_API_KEY=your_sanity_api_read_token
+DATABASE_URL=mongodb_uri
+NEXT_PUBLIC_BACKEND_URL=backend_uri
 
 # MongoDB Connection String (Prisma)
 DATABASE_URL="mongodb+srv://<username>:<password>@cluster.mongodb.net/portfolio?retryWrites=true&w=majority"
@@ -150,13 +152,13 @@ To access the embedded Sanity Studio, navigate to [http://localhost:3000/studio]
 
 ## 📜 Available Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Starts the Next.js development server at `localhost:3000` |
-| `npm run build` | Builds the optimized production application bundle |
-| `npm run start` | Runs the built production server |
-| `npm run lint` | Runs ESLint to check for code quality and convention issues |
-| `npm run format` | Runs Prettier with the Tailwind CSS sorting plugin |
+| Command          | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `npm run dev`    | Starts the Next.js development server at `localhost:3000`   |
+| `npm run build`  | Builds the optimized production application bundle          |
+| `npm run start`  | Runs the built production server                            |
+| `npm run lint`   | Runs ESLint to check for code quality and convention issues |
+| `npm run format` | Runs Prettier with the Tailwind CSS sorting plugin          |
 
 ---
 
