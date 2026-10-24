@@ -170,6 +170,10 @@ NEXT_PUBLIC_SANITY_DATASET=<production|development>
 NEXT_PUBLIC_SANITY_API_KEY=<sanity-api-token>
 DATABASE_URL=<mongodb-uri>
 NEXT_PUBLIC_BACKEND_URL=<backend-url>
+ADMIN_EMAIL=<seed-user-email>
+ADMIN_PASSWORD=<seed-user-password>
+ADMIN_FIRST_NAME=<seed-user-first-name>
+ADMIN_LAST_NAME=<seed-user-last-name>
 ```
 
 ---

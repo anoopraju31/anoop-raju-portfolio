@@ -126,6 +126,10 @@ NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_SANITY_API_KEY=your_sanity_api_read_token
 DATABASE_URL=mongodb_uri
 NEXT_PUBLIC_BACKEND_URL=backend_uri
+ADMIN_EMAIL=seed_user_email
+ADMIN_PASSWORD=seed_user_password
+ADMIN_FIRST_NAME=seed_user_first_name
+ADMIN_LAST_NAME=seed_user_last_name
 
 # MongoDB Connection String (Prisma)
 DATABASE_URL="mongodb+srv://<username>:<password>@cluster.mongodb.net/portfolio?retryWrites=true&w=majority"

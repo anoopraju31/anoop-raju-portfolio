@@ -16,32 +16,37 @@ async function main() {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const existingUser = await prisma.user.findUnique({
-    where: { email },
-  });
-
-  if (existingUser) {
-    const updated = await prisma.user.update({
+  try {
+    const existingUser = await prisma.user.findUnique({
       where: { email },
-      data: {
-        firstName,
-        lastName,
-        role: Role.ADMIN,
-        password: hashedPassword,
-      },
     });
-    console.log(`Updated existing admin user: ${updated.email} (ID: ${updated.id})`);
-  } else {
-    const created = await prisma.user.create({
-      data: {
-        firstName,
-        lastName,
-        email,
-        role: Role.ADMIN,
-        password: hashedPassword,
-      },
-    });
-    console.log(`Created new admin user: ${created.email} (ID: ${created.id})`);
+  
+    if (existingUser) {
+      const updated = await prisma.user.update({
+        where: { email },
+        data: {
+          firstName,
+          lastName,
+          role: Role.ADMIN,
+          password: hashedPassword,
+        },
+      });
+      console.log(`Updated existing admin user: ${updated.email} (ID: ${updated.id})`);
+    } else {
+      const created = await prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          email,
+          role: Role.ADMIN,
+          password: hashedPassword,
+        },
+      });
+      console.log(`Created new admin user: ${created.email} (ID: ${created.id})`);
+    }
+  } catch(error) {
+    console.error('Failed to seed admin user:', error);
+    process.exit(1);
   }
 
   console.log('\n--- Admin Credentials ---');
