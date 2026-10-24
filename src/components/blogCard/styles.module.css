@@ -75,7 +75,7 @@
 }
 
 .readTimeRegular {
-  @apply text-white/50;
+  @apply text-white/80;
 }
 
 .readTimeMask {
@@ -105,7 +105,7 @@
 }
 
 .footerRegular {
-  @apply border-white/10 text-white/50;
+  @apply border-white/10 text-white/80;
 }
 
 .footerMask {

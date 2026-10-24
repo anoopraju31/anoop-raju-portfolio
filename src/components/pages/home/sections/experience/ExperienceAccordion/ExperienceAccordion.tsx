@@ -31,7 +31,7 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
         <div className={styles.leftInfo}>
           <div className={styles.indexRow}>
             <span className={styles.indexNumberRegular}>[{indexDisplay}]</span>
-            <span className="text-white/40">ROLE &bull; CAREER</span>
+            <span className="font-mono text-white/75">ROLE &bull; CAREER</span>
           </div>
 
           <h3 className={cn(styles.companyName, styles.companyNameRegular)}>{companyName}</h3>

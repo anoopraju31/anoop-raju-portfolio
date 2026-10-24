@@ -35,11 +35,11 @@
 }
 
 .left-body-regular {
-  @apply text-white/70;
+  @apply text-white/90 leading-relaxed;
 }
 
 .left-body-mask {
-  @apply font-medium text-dark-blue;
+  @apply font-medium text-dark-blue/80 leading-relaxed;
 }
 
 .skills-container {

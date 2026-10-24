@@ -78,11 +78,11 @@
 }
 
 .durationRegular {
-  @apply text-white/50;
+  @apply text-white/80;
 }
 
 .durationMask {
-  @apply font-medium text-dark-blue/70;
+  @apply font-medium text-dark-blue/80;
 }
 
 /* Toggle Button Icon */
@@ -104,7 +104,7 @@
 }
 
 .bodyContent {
-  @apply flex flex-col gap-3 border-t pt-6;
+  @apply flex flex-col gap-3 border-t pt-5;
 }
 
 .bodyContentRegular {
@@ -116,7 +116,7 @@
 }
 
 .achievementsList {
-  @apply flex flex-col gap-3 text-sm leading-relaxed sm:text-base;
+  @apply flex flex-col gap-3.5 text-sm leading-relaxed sm:text-base;
 }
 
 .achievementItem {
@@ -136,9 +136,9 @@
 }
 
 .achievementTextRegular {
-  @apply text-white/80;
+  @apply text-white/95 leading-relaxed;
 }
 
 .achievementTextMask {
-  @apply font-normal text-dark-blue;
+  @apply font-normal text-dark-blue leading-relaxed;
 }
