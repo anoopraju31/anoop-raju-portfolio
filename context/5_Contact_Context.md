@@ -61,75 +61,85 @@ ContactPage (Static FC)
 
 ### Component: `src/components/pages/contact/contactForm.tsx`
 
-**Fields**:
+The form is powered by **`react-hook-form`** with **Zod** schema validation (`@hookform/resolvers/zod`), submitting directly to MongoDB through Prisma ORM via Next.js Server Actions.
 
-| Field     | Type     | Required | Validation      |
-| --------- | -------- | -------- | --------------- |
-| `name`    | text     | ✅       | Client-side     |
-| `email`   | email    | ✅       | Client-side     |
-| `subject` | text     | ✅       | Client-side     |
-| `message` | textarea | ✅       | Client-side     |
+**Fields & Schema**:
 
-**Form State Machine**:
+| Field       | Type     | Required | Validation Rules                              | Stored In MongoDB |
+| ----------- | -------- | -------- | --------------------------------------------- | ----------------- |
+| `name`      | text     | ✅       | Zod string, min 2, max 100 chars              | `name: String`    |
+| `email`     | email    | ✅       | Zod valid email format                        | `email: String`   |
+| `phone`     | tel      | ❌       | Optional, valid phone format if provided      | `phone: String?`  |
+| `subject`   | text     | ✅       | Zod string, min 3, max 150 chars              | `subject: String` |
+| `message`   | textarea | ❌       | Optional string                               | `message: String?`|
+
+### Form Validation & State
+- Real-time client-side validation triggers on touch (`mode: 'onTouched'`).
+- Inline error messages appear immediately beneath invalid inputs in red (`text-red-400`).
+- Fields use `forwardRef` to connect seamlessly with `register()` from `react-hook-form`.
+- During submission, inputs and button are disabled with an animated loading spinner (`Saving Message...`).
+
+### Notifications: Custom Sonner Toasts
+Rather than plain generic toasts, the form uses custom-styled Sonner toasts (`contactToast.tsx`):
+- **Success Toast**: Dark glassmorphic badge with glowing emerald border (`border-light-green/40`), checkmark icon, and confirmation title.
+- **Error Toast**: Dark glassmorphic badge with red warning border (`border-red-500/40`), alert icon, and actionable error description.
+
+### Submit Flow & Database Architecture
 
 ```
-DISABLED → (all fields filled) → ENABLED → (submit) → SUBMITTING → SUCCESS → (4s timeout) → DISABLED
-                                                       ↘ ERROR → ENABLED
+Client Form (useForm + Zod) → submitContactMe() Server Action → Prisma Client → MongoDB (ContactMessage)
 ```
 
-| Status      | Button State                                    | Visual                          |
-| ----------- | ----------------------------------------------- | ------------------------------- |
-| `DISABLED`  | Disabled, ghost style                           | Outlined, muted text            |
-| `ENABLED`   | Clickable, primary green                        | Green bg, hover scale + glow    |
-| `SUBMITTING`| Disabled, loading                               | Green/70 bg, spinner + text     |
-| `SUCCESS`   | Disabled, success state                         | Green bg, checkmark icon        |
-| `ERROR`     | → Returns to `ENABLED`                          | Toast error notification        |
+**Prisma Schema** (`prisma/schema.prisma`):
+```prisma
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
 
-### Submit Flow
+generator client {
+  provider = "prisma-client-js"
+}
 
-```
-Client form data → submitContactMe() server action → Sanity client.create() → Sanity CMS
+model ContactMessage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 ```
 
 **Server Action** (`src/utills/actions.ts`):
-```typescript
-export const submitContactMe = async (data: ContactFormData) => {
-  const updatedData = {
-    _type: 'contactMe',
-    ...data,
-    submittedAt: new Date().toISOString(),
-  };
-  const response = await client.create(updatedData);
-  return response;
-};
-```
-
-This creates a `contactMe` document in Sanity with the form data + timestamp.
-
-### Sanity Schema: `contactMe`
-
-| Field         | Type     | Validation                     |
-| ------------- | -------- | ------------------------------ |
-| `name`        | string   | Required, 2-50 chars           |
-| `email`       | string   | Required, valid email          |
-| `subject`     | string   | Required, 2-100 chars          |
-| `message`     | string   | Required, 10-500 chars         |
-| `submittedAt` | datetime | Auto-filled, read-only         |
+- Performs server-side Zod validation on incoming payloads using `contactFormSchema.safeParse()`.
+- Persists valid submissions into the `ContactMessage` collection via `prisma.contactMessage.create()`.
+- Returns a structured response `{ success: boolean, message: string, id?: string, errors?: Record<string, string[]> }`.
 
 ---
 
 ## Component Architecture
 
 ```
-src/components/pages/contact/
-├── RegularPage.tsx          # Main page layout (editorial header + 2-column grid)
-├── contactForm.tsx          # Form component with state machine
-├── inputField.tsx           # Reusable styled text input
-├── textareaField.tsx        # Reusable styled textarea
-├── contactWrapper/
-│   └── ContactWrapper.tsx   # Contact info item (icon + label + content + optional copy)
-└── styles.module.css        # CSS Module for layout structure
+src/
+├── lib/
+│   └── prisma.ts                # PrismaClient singleton instance
+├── utills/
+│   ├── actions.ts               # Server actions (submitContactMe → Prisma MongoDB)
+│   └── contactValidation.ts     # Zod contactFormSchema & TypeScript types
+└── components/pages/contact/
+    ├── RegularPage.tsx          # Main page layout (editorial header + 2-column grid)
+    ├── contactForm.tsx          # Form component (useForm + Zod + Prisma)
+    ├── contactToast.tsx         # Custom glassmorphic Sonner toast components
+    ├── inputField.tsx           # ForwardRef styled input with error message
+    ├── textareaField.tsx        # ForwardRef styled textarea with error message
+    ├── contactWrapper/
+    │   └── ContactWrapper.tsx   # Contact info item (icon + label + content + optional copy)
+    └── styles.module.css        # CSS Module for layout structure
 ```
+
 
 ### ContactWrapper Component
 Renders individual contact information items with:

@@ -89,7 +89,8 @@ Sanity CMS → sanityFetch(GROQ) → page.tsx (Server Component) → props → M
 
 ### Contact Form (Client → Server → Sanity)
 ```
-ContactForm (Client) → submitContactMe() (Server Action) → client.create() → Sanity CMS
+ContactForm (Client, useForm + Zod) → submitContactMe() (Server Action) → prisma.contactMessage.create() → MongoDB
+
 ```
 
 ### UI State (Client-only)

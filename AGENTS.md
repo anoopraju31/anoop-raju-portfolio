@@ -136,7 +136,8 @@ The `Mask` component (`src/components/mask/`) tracks mouse position via `useMous
 
 - **Blog data**: Fetched server-side via `sanityFetch()` (live content API) using GROQ queries. Pages are server components; data is passed as props to client components.
 - **Projects data**: Hardcoded in `src/constants/projectsData.ts` (not fetched from Sanity, despite a Sanity projects schema existing).
-- **Contact form**: Client-side form → `submitContactMe()` server action → Sanity `client.create()` to store submissions as `contactMe` documents.
+- **Contact form**: Client-side form (`useForm` + Zod) → `submitContactMe()` server action → Prisma ORM `prisma.contactMessage.create()` to store submissions in MongoDB.
+
 - **Experience/Skills**: Hardcoded in `src/utills/constants.ts`.
 
 ### State Management (Redux)
