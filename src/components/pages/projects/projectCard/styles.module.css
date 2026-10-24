@@ -175,7 +175,7 @@
 }
 
 .projectDescriptionMask {
-  @apply text-dark-blue/85;
+  @apply text-dark-blue/85 leading-relaxed;
 }
 
 /* Tech Stack Tags */
