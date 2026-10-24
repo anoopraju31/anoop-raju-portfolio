@@ -34,3 +34,40 @@ export interface Blogs {
     };
   };
 }
+
+export type UserStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'FAILURE' | 'LOGOUT';
+
+export type UserRole = 'ADMIN' | 'MEMBER';
+
+export type UserAuth = {
+  id: string;
+  firstName: string;
+  middleName?: string | null;
+  lastName: string;
+  email: string;
+  phone?: string | null;
+  role: UserRole;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type AuthSlice = {
+  user: UserAuth | null;
+  status: UserStatus;
+};
+
+export type LogoutResponse = {
+  message: string;
+  success: boolean;
+};
+
+export type ContactMessageItem = {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string | null;
+  subject: string;
+  message?: string | null;
+  createdAt: string;
+  updatedAt: string;
+};

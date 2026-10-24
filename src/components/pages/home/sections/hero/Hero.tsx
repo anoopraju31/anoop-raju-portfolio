@@ -72,7 +72,7 @@ const Hero: FC = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ duration: 0.45, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
             className={styles['hero-subheading']}
           >
             Full Stack Developer
@@ -82,7 +82,7 @@ const Hero: FC = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ duration: 0.45, delay: 0.18, ease: [0.23, 1, 0.32, 1] }}
             className={styles['hero-subheading']}
           >
             Living in Kerala, India
@@ -93,7 +93,7 @@ const Hero: FC = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.35, duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
           className="mt-10 flex justify-center sm:mt-14 lg:mt-16"
         >
           <a

@@ -1,5 +1,5 @@
 .section {
-  @apply px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
+  @apply px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32;
 }
 
 .container {
@@ -60,14 +60,14 @@
 }
 
 .subtitleRegular {
-  @apply text-white/90;
+  @apply font-normal text-white/90;
 }
 
 .subtitleMask {
-  @apply font-medium text-dark-blue;
+  @apply font-medium text-dark-blue/80;
 }
 
 /* Blocks Wrapper */
 .blocksWrapper {
-  @apply flex flex-col gap-16 lg:gap-24;
+  @apply flex flex-col gap-20 lg:gap-28;
 }

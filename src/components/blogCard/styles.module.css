@@ -4,11 +4,11 @@
 }
 
 .card {
-  @apply relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border p-6 transition-all duration-500 sm:p-7;
+  @apply relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border p-6 transition-[border-color,background-color,box-shadow,transform] duration-200 ease-out active:scale-[0.99] sm:p-7;
 }
 
 .cardRegular {
-  @apply border-white/10 bg-white/[0.03] text-white hover:border-light-green/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-light-green/[0.08];
+  @apply border-white/10 bg-white/[0.03] text-white hover:border-light-green/40 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-light-green/[0.08];
 }
 
 .cardMask {
@@ -17,7 +17,7 @@
 
 /* Card Media / Image Header */
 .mediaContainer {
-  @apply relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border transition-all duration-500;
+  @apply relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-2xl border transition-[border-color,transform] duration-200 ease-out;
 }
 
 .mediaRegular {
@@ -75,7 +75,7 @@
 }
 
 .readTimeRegular {
-  @apply text-white/50;
+  @apply text-white/80;
 }
 
 .readTimeMask {
@@ -105,7 +105,7 @@
 }
 
 .footerRegular {
-  @apply border-white/10 text-white/50;
+  @apply border-white/10 text-white/80;
 }
 
 .footerMask {

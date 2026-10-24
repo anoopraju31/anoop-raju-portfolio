@@ -31,7 +31,7 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
         <div className={styles.leftInfo}>
           <div className={styles.indexRow}>
             <span className={styles.indexNumberRegular}>[{indexDisplay}]</span>
-            <span className="text-white/40">ROLE &bull; CAREER</span>
+            <span className="font-mono text-white/75">ROLE &bull; CAREER</span>
           </div>
 
           <h3 className={cn(styles.companyName, styles.companyNameRegular)}>{companyName}</h3>
@@ -47,7 +47,7 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
         </div>
 
         <div className={cn(styles.toggleButton, styles.toggleButtonRegular)}>
-          <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+          <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}>
             <FaPlus size={14} />
           </motion.div>
         </div>
@@ -62,16 +62,16 @@ const ExperienceAccordion: FC<Props> = ({ id, companyName, position, duration, d
               height: 'auto',
               opacity: 1,
               transition: {
-                height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 0.25, delay: 0.05 },
+                height: { duration: 0.28, ease: [0.23, 1, 0.32, 1] },
+                opacity: { duration: 0.2, delay: 0.04 },
               },
             }}
             exit={{
               height: 0,
               opacity: 0,
               transition: {
-                height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
-                opacity: { duration: 0.2 },
+                height: { duration: 0.22, ease: [0.23, 1, 0.32, 1] },
+                opacity: { duration: 0.14 },
               },
             }}
             style={{ overflow: 'hidden' }}

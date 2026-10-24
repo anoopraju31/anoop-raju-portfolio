@@ -1,37 +1,50 @@
-import type { FC, TextareaHTMLAttributes } from 'react';
+import { forwardRef, type TextareaHTMLAttributes } from 'react';
 
 import { cn } from '@/utills';
 
 type Props = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   form?: string;
   label?: string;
+  error?: string;
 };
 
-const TextareaField: FC<Props> = ({ form, label, id, className, rows = 3, ...rest }) => {
-  const displayLabel = label || form;
+const TextareaField = forwardRef<HTMLTextAreaElement, Props>(
+  ({ form, label, id, className, rows = 3, error, ...rest }, ref) => {
+    const displayLabel = label || form;
 
-  return (
-    <div className="group relative z-0 w-full">
-      <textarea
-        id={id}
-        placeholder=" "
-        rows={rows}
-        className={cn(
-          'peer block w-full resize-none appearance-none border-0 border-b-2 border-white/20 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:border-light-green focus:outline-none focus:ring-0 sm:text-lg',
-          className || '',
+    return (
+      <div className="group relative z-0 w-full">
+        <textarea
+          ref={ref}
+          id={id}
+          placeholder=" "
+          rows={rows}
+          className={cn(
+            'peer block w-full resize-none appearance-none border-0 border-b-2 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:outline-none focus:ring-0 sm:text-lg',
+            error ? 'border-red-500/80 focus:border-red-400' : 'border-white/20 focus:border-light-green',
+            className || '',
+          )}
+          {...rest}
+        />
+        {displayLabel && (
+          <label
+            htmlFor={id}
+            className={cn(
+              'pointer-events-none absolute top-3.5 origin-[0] -translate-y-6 scale-75 transform font-mono text-sm uppercase tracking-wider duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 sm:text-base',
+              error ? 'text-red-400 peer-focus:text-red-400' : 'text-white/50 peer-focus:text-light-green',
+            )}
+          >
+            {displayLabel}
+          </label>
         )}
-        {...rest}
-      />
-      {displayLabel && (
-        <label
-          htmlFor={id}
-          className="pointer-events-none absolute top-3.5 origin-[0] -translate-y-6 scale-75 transform font-mono text-sm uppercase tracking-wider text-white/50 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-light-green sm:text-base"
-        >
-          {displayLabel}
-        </label>
-      )}
-    </div>
-  );
-};
+        {error && (
+          <p className="mt-1.5 font-mono text-xs tracking-wide text-red-400 transition-opacity duration-200">{error}</p>
+        )}
+      </div>
+    );
+  },
+);
+
+TextareaField.displayName = 'TextareaField';
 
 export default TextareaField;

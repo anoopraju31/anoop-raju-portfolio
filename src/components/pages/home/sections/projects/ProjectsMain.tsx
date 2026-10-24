@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import Lenis from '@studio-freight/lenis';
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 
@@ -22,18 +21,6 @@ const ProjectsMain = () => {
     layoutEffect: false,
     target: container,
     offset: ['start start', 'end end'],
-  });
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    // @ts-ignore
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
   });
 
   return (

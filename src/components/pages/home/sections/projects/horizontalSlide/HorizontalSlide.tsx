@@ -46,7 +46,7 @@ const HorizontalSlide: FC<HorizontalSlideProps> = (props) => {
       animate={{
         flexGrow: isHovered ? 5 : 1,
       }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.32, ease: [0.23, 1, 0.32, 1] }}
       style={{
         flexBasis: '0%',
         flexShrink: 1,

@@ -1,5 +1,5 @@
 .section {
-  @apply px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
+  @apply px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32;
 }
 
 .container {
@@ -8,7 +8,7 @@
 
 /* Header Section */
 .headingContainer {
-  @apply mx-auto mb-12 flex max-w-4xl flex-col items-center text-center sm:mb-16;
+  @apply mx-auto mb-14 flex max-w-4xl flex-col items-center text-center sm:mb-20;
 }
 
 .eyebrowBadge {
@@ -60,24 +60,24 @@
 }
 
 .subtitleRegular {
-  @apply text-white/90;
+  @apply font-normal text-white/90;
 }
 
 .subtitleMask {
-  @apply font-medium text-dark-blue;
+  @apply font-medium text-dark-blue/80;
 }
 
 /* Stats / Timeline Bar */
 .statsBar {
-  @apply mt-8 flex flex-wrap items-center justify-center gap-3 font-mono text-xs sm:gap-6 sm:text-sm;
+  @apply mt-8 flex flex-wrap items-center justify-center gap-3 font-mono text-xs sm:gap-4 sm:text-sm;
 }
 
 .statItem {
-  @apply flex items-center gap-2 rounded-full border px-3.5 py-1.5;
+  @apply flex items-center gap-2 rounded-full border px-4 py-2;
 }
 
 .statItemRegular {
-  @apply border-white/10 bg-white/[0.02] text-white/60;
+  @apply border-white/15 bg-white/[0.04] text-white/85;
 }
 
 .statItemMask {

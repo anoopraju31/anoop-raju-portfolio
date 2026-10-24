@@ -17,7 +17,7 @@ export default function PortfolioLayout(props: Props) {
       <Header />
       {children}
       <Footer />
-      <Toaster />
+      <Toaster theme="dark" position="bottom-right" />
     </ScrollToTopOnReload>
   );
 }

@@ -36,7 +36,7 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
             initial={{
               x: x - 32,
               y: y - 32,
-              scale: 0,
+              scale: 0.85,
               opacity: 0,
             }}
             animate={{
@@ -46,12 +46,12 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
               opacity: 1,
             }}
             exit={{
-              scale: 0,
+              scale: 0.85,
               opacity: 0,
             }}
             transition={{
-              scale: { duration: 0.18, ease: 'easeOut' },
-              opacity: { duration: 0.15 },
+              scale: { duration: 0.16, ease: [0.23, 1, 0.32, 1] },
+              opacity: { duration: 0.14 },
               x: { duration: 0 },
               y: { duration: 0 },
             }}

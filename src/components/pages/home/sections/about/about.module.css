@@ -1,5 +1,5 @@
 .section {
-  @apply px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-28;
+  @apply px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32;
 }
 
 .container {
@@ -20,11 +20,11 @@
 }
 
 .imageFrameRegular {
-  @apply border-white bg-white;
+  @apply border-white/15 bg-white/[0.03] backdrop-blur-sm;
 }
 
 .imageFrameMask {
-  @apply border-dark-blue bg-dark-blue;
+  @apply border-dark-blue/20 bg-dark-blue/10;
 }
 
 .image {
@@ -36,11 +36,11 @@
 }
 
 .imageCaptionRegular {
-  @apply text-white;
+  @apply text-white/75;
 }
 
 .imageCaptionMask {
-  @apply font-semibold text-dark-blue;
+  @apply font-medium text-dark-blue/80;
 }
 
 /* Content Column */
@@ -81,11 +81,11 @@
 }
 
 .paragraphs {
-  @apply flex flex-col gap-4 text-base leading-relaxed sm:text-lg;
+  @apply flex flex-col gap-5 text-base leading-relaxed sm:gap-6 sm:text-lg;
 }
 
 .paragraphRegular {
-  @apply text-white/90;
+  @apply font-normal text-white/90;
 }
 
 .paragraphMask {
@@ -93,7 +93,7 @@
 }
 
 .linkContainer {
-  @apply mt-6 flex items-center gap-6 border-t pt-6;
+  @apply mt-8 flex items-center gap-6 border-t pt-8;
 
   .arrowIcon {
     @apply transition-all duration-300;
@@ -107,11 +107,11 @@
 }
 
 .linkContainerRegular {
-  @apply border-white;
+  @apply border-white/10;
 }
 
 .linkContainerMask {
-  @apply border-dark-blue;
+  @apply border-dark-blue/20;
 }
 
 .contactLink {
