@@ -17,7 +17,7 @@
    - Recent messages from the last 24-48 hours.
    - Total published blogs in Sanity CMS.
    - Portfolio telemetry overview.
-3. **Quick Navigation Hub**: Fast shortcuts to `/contact-me-response` and external CMS tools (Sanity Studio at `/studio`).
+3. **Quick Navigation Hub**: Fast shortcuts to `/contact-enquire` and external CMS tools (Sanity Studio at `/studio`).
 4. **Session Management**: Displays current logged-in user identity (name, role, email) and provides an immediate Logout action.
 
 ---
@@ -27,7 +27,7 @@
 The page is encapsulated within `AdminLayout` (`src/app/(admin)/(dashboard)/layout.tsx`):
 - Background: `#F9FBFF` (clean administrative canvas).
 - Top navigation / Header bar: Brand badge, active page indicator, user profile chip, and Logout button.
-- Sidebar or Tab Bar: Links between `/dashboard` and `/contact-me-response`.
+- Sidebar or Tab Bar: Links between `/dashboard` and `/contact-enquire`.
 
 ```
 DashboardPage (Client Component)
@@ -44,7 +44,7 @@ DashboardPage (Client Component)
 │   ├── Recent Messages Card
 │   │   ├── Value (e.g. "4")
 │   │   ├── Metric description ("Pending review")
-│   │   └── Direct Link to /contact-me-response
+│   │   └── Direct Link to /contact-enquire
 │   ├── Published Blogs Card
 │   │   ├── Value (e.g. "6")
 │   │   ├── Metric description ("Live articles on Sanity")
@@ -61,7 +61,7 @@ DashboardPage (Client Component)
 │   └── "View All Responses →" navigation link
 │
 └── Quick Actions Panel
-    ├── Open Contact Inquiries (/contact-me-response)
+    ├── Open Contact Inquiries (/contact-enquire)
     ├── Open Sanity CMS Studio (/studio)
     └── Open Public Portfolio (/)
 ```
@@ -88,6 +88,6 @@ User visits /dashboard
 ## Data Fetching & State
 
 - **User Data**: Populated from Redux `state.userAuth.user`.
-- **Metrics & Inquiries Data**: Fetched on mount via `axios.get('/v1/users/contact-response?limit=5', { withCredentials: true })` or dedicated dashboard telemetry summary.
+- **Metrics & Inquiries Data**: Fetched on mount via `axios.get('/v1/users/contact-enquire?limit=5', { withCredentials: true })` or dedicated dashboard telemetry summary.
 - **Loading State**: Skeleton cards while metrics resolve.
 - **Error Handling**: Non-blocking toast notification via Sonner if background telemetry fails.

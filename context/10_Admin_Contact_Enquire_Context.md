@@ -1,9 +1,9 @@
-# 10. Admin Contact Responses Page Context
+# 10. Admin Contact Enquire Page Context
 
 ## Route & File Location
 
-- **URL**: `/contact-me-response`
-- **Page File**: `src/app/(admin)/(dashboard)/contact-me-response/page.tsx`
+- **URL**: `/contact-enquire`
+- **Page File**: `src/app/(admin)/(dashboard)/contact-enquire/page.tsx`
 - **Route Access**: **PRIVATE** (Requires authenticated session)
 - **Parent Layout**: `src/app/(admin)/(dashboard)/layout.tsx` (wrapped by `<AuthProvider>`)
 
@@ -11,26 +11,26 @@
 
 ## Page Purpose & Responsibilities
 
-1. **Submission Review**: Primary administrative interface to view, inspect, search, and manage all contact form responses submitted by visitors on the public `/contact` page.
-2. **Data Source**: Fetches directly from MongoDB via `GET /v1/users/contact-response` (using Prisma model `ContactMessage`).
+1. **Submission Review**: Primary administrative interface to view, inspect, search, and manage all contact inquiries submitted by visitors on the public `/contact` page.
+2. **Data Source**: Fetches directly from MongoDB via `GET /v1/users/contact-enquire` (using Prisma model `ContactMessage`).
 3. **Comprehensive Inspection**: Allows the administrator to expand any submission to read the full message body, sender phone number, subject, and accurate timestamp.
-4. **Search & Filter**: Allows filtering responses by keyword, sender email, or date range.
+4. **Search & Filter**: Allows filtering inquiries by keyword, sender email, or date range.
 
 ---
 
 ## Page Layout & Component Tree
 
 ```
-ContactResponsePage (Client Component)
+ContactEnquirePage (Client Component)
 ├── Page Header
-│   ├── Title ("Contact Form Responses")
+│   ├── Title ("Contact Enquiries")
 │   ├── Subtitle ("Review, search, and manage all inquiries submitted through your portfolio.")
 │   └── Top Bar Controls
 │       ├── Search Input (Filter by name, email, subject, or message text)
 │       ├── Refresh Button (Re-fetch submissions from API)
-│       └── Total Count Chip ("Total: 18 responses")
+│       └── Total Count Chip ("Total: 18 inquiries")
 │
-├── Responses Data Table
+├── Enquiries Data Table
 │   ├── Table Header
 │   │   ├── Sender (Name & Email)
 │   │   ├── Subject
@@ -49,9 +49,9 @@ ContactResponsePage (Client Component)
 │   │       ├── "View" Button (opens detail modal or expandable drawer)
 │   │       └── "Reply" Link (mailto: with prefilled subject)
 │   │
-│   ├── Empty State (when 0 responses exist or search returns 0 results)
+│   ├── Empty State (when 0 inquiries exist or search returns 0 results)
 │   │   ├── Icon (Inbox / Mail)
-│   │   ├── Message ("No contact responses found")
+│   │   ├── Message ("No contact inquiries found")
 │   │   └── Subtext ("Inquiries submitted through the contact form will appear here.")
 │   │
 │   └── Pagination Controls
@@ -74,7 +74,7 @@ ContactResponsePage (Client Component)
 ## Data Schema & Types
 
 ```typescript
-export interface ContactMessageResponse {
+export interface ContactMessageItem {
   id: string;
   name: string;
   email: string;
@@ -84,13 +84,6 @@ export interface ContactMessageResponse {
   createdAt: string;
   updatedAt: string;
 }
-
-export interface ContactResponseApiResponse {
-  total: number;
-  page: number;
-  limit: number;
-  data: ContactMessageResponse[];
-}
 ```
 
 ---
@@ -98,17 +91,17 @@ export interface ContactResponseApiResponse {
 ## Data Fetching Flow
 
 ```
-ContactResponsePage Mounts
+ContactEnquirePage Mounts
     │
     ├── 1. Auth check verified by parent <AuthProvider>
     │
-    ├── 2. Dispatch axios.get('/v1/users/contact-response', { withCredentials: true })
+    ├── 2. Dispatch axios.get('/v1/users/contact-enquire', { withCredentials: true })
     │       ├── Pending: Renders table skeleton rows
     │       ├── Success (200):
-    │       │   ├── Sets responses state
+    │       │   ├── Sets enquiries state
     │       │   └── Updates total count chip
     │       └── Error (401 / 500):
-    │           ├── Sonner toast error: "Failed to load contact submissions"
+    │           ├── Sonner toast error: "Failed to load contact inquiries"
     │           └── Renders retry button
     │
     ├── 3. Administrator interactions:

@@ -29,7 +29,7 @@ This is a **Next.js 15 App Router** portfolio and administration web application
 │  │    │     └── (dashboard) Layout                │                                 │  │
 │  │    │           ├── AuthProvider (Auth Guard)   │                                 │  │
 │  │    │           ├── dashboard/page.tsx (Private)│                                 │  │
-│  │    │           └── contact-me-response/ (Priv) │                                 │  │
+│  │    │           └── contact-enquire/ (Priv)     │                                 │  │
 │  │    │                                           │                                 │  │
 │  │    ├── studio/[[...tool]]/page.tsx             │                                 │  │
 │  │    └── api/v1/users/ (Route Handlers)          │                                 │  │
@@ -87,7 +87,7 @@ This is a **Next.js 15 App Router** portfolio and administration web application
 | `/blogs/[slug]`                     | Public    | ISR (revalidate: 3600) | Sanity (single post via GROQ)         |
 | `/login`                            | Public    | Client Component       | Redux `userAuth`, redirect if authed  |
 | `/dashboard`                        | Private   | Client Component       | Protected by `AuthProvider`           |
-| `/contact-me-response`              | Private   | Client Component       | Protected by `AuthProvider`, Prisma   |
+| `/contact-enquire`                  | Private   | Client Component       | Protected by `AuthProvider`, Prisma   |
 | `/studio/[[...tool]]`               | Public    | Client-only            | Sanity Studio embedded                |
 
 ---
@@ -111,9 +111,9 @@ Page Load  → GET /v1/users/auth (with cookie) → Redux userAuth dispatch → 
 Logout     → POST /v1/users/auth/logout → Clear HttpOnly cookie → Redux setLogout → Redirect /login
 ```
 
-### 4. Admin Contact Responses Query
+### 4. Admin Contact Enquiries Query
 ```
-Admin Dashboard → GET /v1/users/contact-response (Cookie validated) → prisma.contactMessage.findMany() → Table View
+Admin Dashboard → GET /v1/users/contact-enquire (Cookie validated) → prisma.contactMessage.findMany() → Table View
 ```
 
 ---
@@ -140,8 +140,8 @@ src/app/
 │       ├── layout.tsx            # AuthProvider wrapper + admin layout shell
 │       ├── dashboard/
 │       │   └── page.tsx          # /dashboard (PRIVATE route)
-│       └── contact-me-response/
-│           └── page.tsx          # /contact-me-response (PRIVATE route)
+│       └── contact-enquire/
+│           └── page.tsx          # /contact-enquire (PRIVATE route)
 ├── api/                          # Next.js App Router API endpoints
 │   └── v1/
 │       └── users/
@@ -151,8 +151,8 @@ src/app/
 │           │   │   └── route.ts  # POST: Login & set HttpOnly cookie
 │           │   └── logout/
 │           │       └── route.ts  # POST: Logout & invalidate cookie
-│           ├── contact-response/
-│           │   └── route.ts      # GET: Fetch all contact submissions
+│           ├── contact-enquire/
+│           │   └── route.ts      # GET: Fetch all contact inquiries
 │           └── contact/
 │               └── route.ts      # POST: Submit contact inquiry
 └── studio/                       # Sanity Studio (excluded from portfolio layout)

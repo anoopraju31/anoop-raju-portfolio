@@ -124,8 +124,11 @@ Create a `.env.local` file in the root directory (based on `.env.example`):
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_SANITY_API_KEY=your_sanity_api_read_token
-DATABASE_URL=mongodb_uri
+
+# Backend url
 NEXT_PUBLIC_BACKEND_URL=backend_uri
+
+# Seed user
 ADMIN_EMAIL=seed_user_email
 ADMIN_PASSWORD=seed_user_password
 ADMIN_FIRST_NAME=seed_user_first_name
