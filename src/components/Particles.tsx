@@ -47,17 +47,30 @@ export const Particles: React.FC<ParticlesProps> = ({
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1;
+  const rafId = useRef<number | null>(null);
 
   useEffect(() => {
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext('2d');
     }
     initCanvas();
-    animate();
-    window.addEventListener('resize', initCanvas);
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!mediaQuery.matches) {
+      animate();
+    }
+
+    const handleResize = () => {
+      initCanvas();
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', initCanvas);
+      window.removeEventListener('resize', handleResize);
+      if (rafId.current) {
+        window.cancelAnimationFrame(rafId.current);
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -231,7 +244,7 @@ export const Particles: React.FC<ParticlesProps> = ({
         );
       }
     });
-    window.requestAnimationFrame(animate);
+    rafId.current = window.requestAnimationFrame(animate);
   };
 
   return (
