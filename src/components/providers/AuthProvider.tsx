@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, type FC, type ReactNode } from 'react';
+import { Suspense, useEffect, type FC, type ReactNode } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import useAppSelector from '@/hooks/useAppSelector';
@@ -13,7 +13,7 @@ type Props = {
   children: ReactNode;
 };
 
-const AuthProvider: FC<Props> = ({ children }) => {
+const AuthConsumer: FC<Props> = ({ children }) => {
   const { user, status } = useAppSelector((state) => state.userAuth);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
@@ -49,6 +49,14 @@ const AuthProvider: FC<Props> = ({ children }) => {
   if (status !== AUTH_SUCCESS) return <LoadingScreen />;
 
   return <div>{children}</div>;
+};
+
+const AuthProvider: FC<Props> = ({ children }) => {
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <AuthConsumer>{children}</AuthConsumer>
+    </Suspense>
+  );
 };
 
 export default AuthProvider;
