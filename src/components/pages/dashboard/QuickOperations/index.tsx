@@ -7,9 +7,7 @@ import { FiInbox, FiBookOpen, FiGlobe, FiArrowRight, FiExternalLink } from 'reac
 export const QuickOperations: FC = () => {
   return (
     <div className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
-      <h3 className="mb-4 font-sans text-sm font-bold uppercase tracking-wider text-slate-800">
-        Quick Operations
-      </h3>
+      <h3 className="mb-4 font-sans text-sm font-bold uppercase tracking-wider text-slate-800">Quick Operations</h3>
 
       <div className="flex flex-col gap-2.5">
         {/* Shortcut 1: Manage Inquiries */}
@@ -22,12 +20,8 @@ export const QuickOperations: FC = () => {
               <FiInbox className="text-base" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans text-xs font-semibold text-slate-800">
-                Contact Enquiries
-              </span>
-              <span className="font-sans text-[11px] text-slate-400">
-                Search, inspect, and reply
-              </span>
+              <span className="font-sans text-xs font-semibold text-slate-800">Contact Enquiries</span>
+              <span className="font-sans text-[11px] text-slate-400">Search, inspect, and reply</span>
             </div>
           </div>
           <FiArrowRight className="text-xs text-slate-400 transition-transform group-hover:translate-x-1" />
@@ -45,12 +39,8 @@ export const QuickOperations: FC = () => {
               <FiBookOpen className="text-base" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans text-xs font-semibold text-slate-800">
-                Sanity Studio
-              </span>
-              <span className="font-sans text-[11px] text-slate-400">
-                Draft & publish blog content
-              </span>
+              <span className="font-sans text-xs font-semibold text-slate-800">Sanity Studio</span>
+              <span className="font-sans text-[11px] text-slate-400">Draft & publish blog content</span>
             </div>
           </div>
           <FiExternalLink className="text-xs text-slate-400 transition-transform group-hover:scale-110" />
@@ -68,12 +58,8 @@ export const QuickOperations: FC = () => {
               <FiGlobe className="text-base" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans text-xs font-semibold text-slate-800">
-                Public Portfolio
-              </span>
-              <span className="font-sans text-[11px] text-slate-400">
-                Open live visitor experience
-              </span>
+              <span className="font-sans text-xs font-semibold text-slate-800">Public Portfolio</span>
+              <span className="font-sans text-[11px] text-slate-400">Open live visitor experience</span>
             </div>
           </div>
           <FiExternalLink className="text-xs text-slate-400 transition-transform group-hover:scale-110" />

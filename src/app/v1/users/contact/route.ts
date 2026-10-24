@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
           message: 'Validation failed. Please check the entered fields.',
           errors: result.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -35,13 +35,10 @@ export async function POST(req: NextRequest) {
         message: 'Contact message recorded successfully.',
         id: record.id,
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     console.error('Error saving contact message:', error);
-    return NextResponse.json(
-      { message: 'Database connection failed. Please verify DATABASE_URL.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: 'Database connection failed. Please verify DATABASE_URL.' }, { status: 500 });
   }
 }

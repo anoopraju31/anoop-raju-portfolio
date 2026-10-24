@@ -3,7 +3,6 @@
 import prisma from '@/lib/prisma';
 import { contactFormSchema, type ContactFormInput } from '@/lib/validations/contactValidation';
 
-
 export type SubmitContactResult = {
   success: boolean;
   message: string;

@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     if (!result.success) {
       return NextResponse.json(
         { message: 'Validation failed', errors: result.error.flatten().fieldErrors },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -29,18 +29,12 @@ export async function POST(req: NextRequest) {
     });
 
     if (!user) {
-      return NextResponse.json(
-        { message: 'Invalid email or password' },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: 'Invalid email or password' }, { status: 401 });
     }
 
     const isMatch = await verifyPassword(password, user.password);
     if (!isMatch) {
-      return NextResponse.json(
-        { message: 'Invalid email or password' },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: 'Invalid email or password' }, { status: 401 });
     }
 
     const token = await signToken({
@@ -64,7 +58,7 @@ export async function POST(req: NextRequest) {
           updatedAt: user.updatedAt.toISOString(),
         },
       },
-      { status: 200 }
+      { status: 200 },
     );
 
     response.cookies.set(AUTH_COOKIE_NAME, token, {

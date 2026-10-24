@@ -136,9 +136,9 @@
 }
 
 .achievementTextRegular {
-  @apply text-white/95 leading-relaxed;
+  @apply leading-relaxed text-white/95;
 }
 
 .achievementTextMask {
-  @apply font-normal text-dark-blue leading-relaxed;
+  @apply font-normal leading-relaxed text-dark-blue;
 }

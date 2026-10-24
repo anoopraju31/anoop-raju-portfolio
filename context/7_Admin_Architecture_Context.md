@@ -9,6 +9,7 @@ The Admin Panel serves as the private management backoffice for the portfolio. I
 ## Authentication & Security Model
 
 ### 1. Cookie-Based Session Mechanism
+
 - **Transport**: Standard HTTP Cookie (`token` or `session`).
 - **Flags**:
   - `HttpOnly`: Prevents client-side scripts from reading or manipulating the cookie, mitigating cross-site scripting (XSS).
@@ -26,12 +27,14 @@ The Admin Panel serves as the private management backoffice for the portfolio. I
   ```
 
 ### 2. User Accounts & Role-Based Access Control (RBAC)
+
 - No public user registration endpoint. Accounts are provisioned directly by the administrator or via seed scripts.
 - **Roles**:
   - `ADMIN`: Full read/write access to dashboard metrics, contact message responses, and administrative actions.
   - `MEMBER`: Restricted view access (future extensible).
 
 ### 3. Password Security
+
 - Passwords are never stored in plaintext. They are salted and hashed using `bcrypt` (minimum 10-12 salt rounds).
 - Login compares the plaintext password attempt against the stored hash via `bcrypt.compare()`.
 
@@ -88,6 +91,7 @@ model ContactMessage {
 All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` / Next.js route handlers):
 
 ### 1. `GET /v1/users/auth`
+
 - **Purpose**: Verify existing session cookie and return logged-in user profile.
 - **Headers**: `Cookie: token=...`
 - **Response `200 OK`**:
@@ -111,6 +115,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
   ```
 
 ### 2. `POST /v1/users/auth/login`
+
 - **Purpose**: Authenticate user credentials and set `HttpOnly` cookie.
 - **Request Body**:
   ```json
@@ -142,6 +147,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
   ```
 
 ### 3. `POST /v1/users/auth/logout`
+
 - **Purpose**: Clear the authentication cookie and terminate the session.
 - **Response `200 OK`**:
   - `Set-Cookie`: `token=; HttpOnly; Secure; SameSite=Lax; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT`
@@ -154,6 +160,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
     ```
 
 ### 4. `GET /v1/users/contact-enquire`
+
 - **Purpose**: Retrieve all contact form inquiries from MongoDB (Chronological order, newest first).
 - **Security**: Requires active `ADMIN` cookie session.
 - **Query Parameters (optional)**:
@@ -182,6 +189,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
   ```
 
 ### 5. `POST /v1/users/contact`
+
 - **Purpose**: Public submission endpoint to record incoming inquiries.
 - **Request Body**:
   ```json
@@ -212,6 +220,7 @@ All routes run under `/api/v1/users` (configured via `NEXT_PUBLIC_BACKEND_URL` /
 ## Client Redux Integration (`userAuth` Slice)
 
 Located in `src/redux/features/userAuth.ts`:
+
 - **State Properties**:
   - `user`: `UserAuth | null`
   - `status`: `'IDLE' | 'LOADING' | 'SUCCESS' | 'FAILURE' | 'LOGOUT'`

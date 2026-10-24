@@ -23,9 +23,7 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
     <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center gap-2.5">
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-            Welcome back, {userName}
-          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Welcome back, {userName}</h1>
           <span className="relative flex h-2.5 w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
@@ -43,15 +41,10 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
           disabled={isRefreshing || isLoading}
           className={cn(
             'flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 font-sans text-xs font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900',
-            (isRefreshing || isLoading) && 'cursor-wait opacity-60'
+            (isRefreshing || isLoading) && 'cursor-wait opacity-60',
           )}
         >
-          <FiRefreshCw
-            className={cn(
-              'text-xs',
-              (isRefreshing || isLoading) && 'animate-spin text-emerald-600'
-            )}
-          />
+          <FiRefreshCw className={cn('text-xs', (isRefreshing || isLoading) && 'animate-spin text-emerald-600')} />
           <span>Sync Telemetry</span>
         </button>
 
@@ -59,7 +52,7 @@ export const DashboardHeader: FC<DashboardHeaderProps> = ({
           href="/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 rounded-xl bg-slate-900 px-3.5 py-2 font-sans text-xs font-semibold text-white shadow-sm transition-all hover:bg-slate-800 hover:scale-[1.02]"
+          className="flex items-center gap-1.5 rounded-xl bg-slate-900 px-3.5 py-2 font-sans text-xs font-semibold text-white shadow-sm transition-all hover:scale-[1.02] hover:bg-slate-800"
         >
           <FiGlobe className="text-xs text-emerald-400" />
           <span>Live Portfolio</span>

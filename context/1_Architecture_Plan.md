@@ -78,33 +78,36 @@ This is a **Next.js 15 App Router** portfolio and administration web application
 
 ## Rendering & Access Strategy
 
-| Route                               | Access    | Strategy               | Data Source & Middleware              |
-| ----------------------------------- | --------- | ---------------------- | ------------------------------------- |
-| `/` (Home)                          | Public    | Server Component (SSR) | Sanity (blogs), static constants      |
-| `/projects`                         | Public    | Static (client render) | Hardcoded `projectsData.ts`           |
-| `/contact`                          | Public    | Static (client render) | Server Action (`prisma.contactMessage`)|
-| `/blogs`                            | Public    | Server Component (SSR) | Sanity (all published blogs)          |
-| `/blogs/[slug]`                     | Public    | ISR (revalidate: 3600) | Sanity (single post via GROQ)         |
-| `/login`                            | Public    | Client Component       | Redux `userAuth`, redirect if authed  |
-| `/dashboard`                        | Private   | Client Component       | Protected by `AuthProvider`           |
-| `/contact-enquire`                  | Private   | Client Component       | Protected by `AuthProvider`, Prisma   |
-| `/studio/[[...tool]]`               | Public    | Client-only            | Sanity Studio embedded                |
+| Route                 | Access  | Strategy               | Data Source & Middleware                |
+| --------------------- | ------- | ---------------------- | --------------------------------------- |
+| `/` (Home)            | Public  | Server Component (SSR) | Sanity (blogs), static constants        |
+| `/projects`           | Public  | Static (client render) | Hardcoded `projectsData.ts`             |
+| `/contact`            | Public  | Static (client render) | Server Action (`prisma.contactMessage`) |
+| `/blogs`              | Public  | Server Component (SSR) | Sanity (all published blogs)            |
+| `/blogs/[slug]`       | Public  | ISR (revalidate: 3600) | Sanity (single post via GROQ)           |
+| `/login`              | Public  | Client Component       | Redux `userAuth`, redirect if authed    |
+| `/dashboard`          | Private | Client Component       | Protected by `AuthProvider`             |
+| `/contact-enquire`    | Private | Client Component       | Protected by `AuthProvider`, Prisma     |
+| `/studio/[[...tool]]` | Public  | Client-only            | Sanity Studio embedded                  |
 
 ---
 
 ## Data Flow Patterns
 
 ### 1. Blog Editorial Content (Server → Client)
+
 ```
 Sanity CMS → sanityFetch(GROQ) → page.tsx (Server Component) → props → MaskPage / RegularPage (Client)
 ```
 
 ### 2. Public Contact Inquiries (Client → Database)
+
 ```
 ContactForm (Client, useForm + Zod) → submitContactMe() (Server Action) → prisma.contactMessage.create() → MongoDB
 ```
 
 ### 3. Admin Authentication & Session Management
+
 ```
 Login Form → POST /v1/users/auth/login → Verify bcrypt password → Issue HttpOnly session cookie
 Page Load  → GET /v1/users/auth (with cookie) → Redux userAuth dispatch → AuthProvider route gating
@@ -112,6 +115,7 @@ Logout     → POST /v1/users/auth/logout → Clear HttpOnly cookie → Redux se
 ```
 
 ### 4. Admin Contact Enquiries Query
+
 ```
 Admin Dashboard → GET /v1/users/contact-enquire (Cookie validated) → prisma.contactMessage.findMany() → Table View
 ```
@@ -208,17 +212,17 @@ model ContactMessage {
 
 ## Key Dependencies & Roles
 
-| Package                   | Purpose                                                        |
-| ------------------------- | -------------------------------------------------------------- |
-| `@prisma/client` & `prisma`| MongoDB ORM with type-safe models for Users & ContactMessages |
-| `axios`                   | Client HTTP client for `/v1/users/*` endpoints with credentials|
-| `next-sanity`             | Sanity v3 integration, GROQ queries, live content API          |
-| `framer-motion`           | Dual-layer mask animations, transitions, and accordions        |
-| `@reduxjs/toolkit`        | UI & Auth state management (`userAuth`, `navbar`, `mask`, ...) |
-| `lenis`                   | Smooth inertia scrolling on portfolio routes                   |
-| `ogl`                     | WebGL renderer for FerroFluid shader effect                    |
-| `sonner`                  | Toast notifications for form feedback and auth alerts          |
-| `zod` & `react-hook-form` | Schema validation and form management (contact & login)        |
-| `clsx` + `tailwind-merge` | Conditional className composition utility                      |
-| `date-fns`                | Timestamp formatting in contact responses and blog posts       |
-| `react-icons`             | Icon set (FontAwesome, Feather, Simple Icons)                  |
+| Package                     | Purpose                                                         |
+| --------------------------- | --------------------------------------------------------------- |
+| `@prisma/client` & `prisma` | MongoDB ORM with type-safe models for Users & ContactMessages   |
+| `axios`                     | Client HTTP client for `/v1/users/*` endpoints with credentials |
+| `next-sanity`               | Sanity v3 integration, GROQ queries, live content API           |
+| `framer-motion`             | Dual-layer mask animations, transitions, and accordions         |
+| `@reduxjs/toolkit`          | UI & Auth state management (`userAuth`, `navbar`, `mask`, ...)  |
+| `lenis`                     | Smooth inertia scrolling on portfolio routes                    |
+| `ogl`                       | WebGL renderer for FerroFluid shader effect                     |
+| `sonner`                    | Toast notifications for form feedback and auth alerts           |
+| `zod` & `react-hook-form`   | Schema validation and form management (contact & login)         |
+| `clsx` + `tailwind-merge`   | Conditional className composition utility                       |
+| `date-fns`                  | Timestamp formatting in contact responses and blog posts        |
+| `react-icons`               | Icon set (FontAwesome, Feather, Simple Icons)                   |

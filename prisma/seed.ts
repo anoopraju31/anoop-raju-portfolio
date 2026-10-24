@@ -20,7 +20,7 @@ async function main() {
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
-  
+
     if (existingUser) {
       const updated = await prisma.user.update({
         where: { email },
@@ -44,7 +44,7 @@ async function main() {
       });
       console.log(`Created new admin user: ${created.email} (ID: ${created.id})`);
     }
-  } catch(error) {
+  } catch (error) {
     console.error('Failed to seed admin user:', error);
     process.exit(1);
   }

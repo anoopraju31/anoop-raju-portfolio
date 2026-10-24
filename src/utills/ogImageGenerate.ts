@@ -41,9 +41,7 @@ export function getBrowserExecutablePath(): string {
     }
   }
 
-  throw new Error(
-    'No compatible Chromium-based browser (Edge or Chrome) was found on this system.'
-  );
+  throw new Error('No compatible Chromium-based browser (Edge or Chrome) was found on this system.');
 }
 
 /**
@@ -522,8 +520,7 @@ export function buildOgHtmlTemplate(options: OgImageOptions = {}): string {
  */
 export function generateOgImage(options: OgImageOptions = {}): string {
   const projectRoot = process.cwd();
-  const outputPath =
-    options.outputPath || path.join(projectRoot, 'public', 'og-image.png');
+  const outputPath = options.outputPath || path.join(projectRoot, 'public', 'og-image.png');
   const tempHtmlPath = path.join(os.tmpdir(), `og_preview_${Date.now()}.html`);
 
   const html = buildOgHtmlTemplate(options);
@@ -566,4 +563,3 @@ if (require.main === module) {
 }
 
 export default generateOgImage;
-

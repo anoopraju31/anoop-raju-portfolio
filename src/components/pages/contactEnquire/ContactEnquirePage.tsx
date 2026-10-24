@@ -43,7 +43,7 @@ const ContactEnquirePage: FC = () => {
     try {
       const response = await axios.get<ContactMessageItem[] | { data: ContactMessageItem[] }>(
         '/v1/users/contact-enquire',
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       const items: ContactMessageItem[] = Array.isArray(response.data)
@@ -116,9 +116,7 @@ const ContactEnquirePage: FC = () => {
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Contact Enquiries
-            </h1>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Contact Enquiries</h1>
             <span className="inline-flex items-center rounded-full bg-slate-900 px-2.5 py-0.5 font-mono text-xs font-semibold text-white">
               {messages.length}
             </span>
@@ -143,7 +141,7 @@ const ContactEnquirePage: FC = () => {
             disabled={isRefreshing || isLoading}
             className={cn(
               'flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 font-sans text-xs font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900',
-              (isRefreshing || isLoading) && 'cursor-wait opacity-60'
+              (isRefreshing || isLoading) && 'cursor-wait opacity-60',
             )}
           >
             <FiRefreshCw className={cn('text-xs', (isRefreshing || isLoading) && 'animate-spin text-emerald-600')} />
@@ -178,7 +176,7 @@ const ContactEnquirePage: FC = () => {
         </div>
 
         {/* Search Stats Chip */}
-        <div className="flex items-center justify-between sm:justify-end gap-3 px-1">
+        <div className="flex items-center justify-between gap-3 px-1 sm:justify-end">
           <span className="font-mono text-xs text-slate-400">
             {searchQuery ? `Found ${totalItems} match${totalItems === 1 ? '' : 'es'}` : `${totalItems} total`}
           </span>
@@ -226,8 +224,8 @@ const ContactEnquirePage: FC = () => {
           </div>
         ) : filteredMessages.length === 0 ? (
           /* Empty State */
-          <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-slate-400 border border-slate-100">
+          <div className="flex flex-col items-center justify-center px-4 py-16 text-center">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 text-slate-400">
               <FiInbox className="text-3xl" />
             </div>
             <h3 className="text-lg font-bold text-slate-800">
@@ -286,12 +284,10 @@ const ContactEnquirePage: FC = () => {
                       {/* Sender Column */}
                       <td className="px-6 py-4 align-top">
                         <div className="flex flex-col gap-1">
-                          <span className="font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                          <span className="font-semibold text-slate-900 transition-colors group-hover:text-emerald-700">
                             {item.name}
                           </span>
-                          <span className="font-mono text-xs text-slate-500">
-                            {item.email}
-                          </span>
+                          <span className="font-mono text-xs text-slate-500">{item.email}</span>
                           {item.phone && (
                             <span className="mt-0.5 inline-flex w-fit items-center gap-1 rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] text-slate-600">
                               <FiPhone className="text-[9px]" />
@@ -302,41 +298,28 @@ const ContactEnquirePage: FC = () => {
                       </td>
 
                       {/* Subject & Preview Column */}
-                      <td className="px-6 py-4 align-top max-w-md">
+                      <td className="max-w-md px-6 py-4 align-top">
                         <div className="flex flex-col gap-1">
-                          <span className="font-medium text-slate-800 line-clamp-1">
-                            {item.subject}
-                          </span>
-                          <p className="font-sans text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                          <span className="line-clamp-1 font-medium text-slate-800">{item.subject}</span>
+                          <p className="line-clamp-2 font-sans text-xs leading-relaxed text-slate-500">
                             {item.message || (
-                              <span className="italic text-slate-400">
-                                (No additional message text)
-                              </span>
+                              <span className="italic text-slate-400">(No additional message text)</span>
                             )}
                           </p>
                         </div>
                       </td>
 
                       {/* Date Column */}
-                      <td className="px-6 py-4 align-top whitespace-nowrap">
+                      <td className="whitespace-nowrap px-6 py-4 align-top">
                         <div className="flex flex-col gap-0.5">
-                          <span className="font-sans text-xs font-medium text-slate-700">
-                            {formattedDate}
-                          </span>
-                          {relativeTime && (
-                            <span className="font-mono text-[11px] text-slate-400">
-                              {relativeTime}
-                            </span>
-                          )}
+                          <span className="font-sans text-xs font-medium text-slate-700">{formattedDate}</span>
+                          {relativeTime && <span className="font-mono text-[11px] text-slate-400">{relativeTime}</span>}
                         </div>
                       </td>
 
                       {/* Action Column */}
-                      <td className="px-6 py-4 align-middle text-right whitespace-nowrap">
-                        <div
-                          className="flex items-center justify-end gap-2"
-                          onClick={(e) => e.stopPropagation()}
-                        >
+                      <td className="whitespace-nowrap px-6 py-4 text-right align-middle">
+                        <div className="flex items-center justify-end gap-2" onClick={(e) => e.stopPropagation()}>
                           <button
                             onClick={() => setSelectedMessage(item)}
                             title="Inspect details"
@@ -347,9 +330,7 @@ const ContactEnquirePage: FC = () => {
                           </button>
 
                           <a
-                            href={`mailto:${item.email}?subject=${encodeURIComponent(
-                              `Re: ${item.subject}`
-                            )}`}
+                            href={`mailto:${item.email}?subject=${encodeURIComponent(`Re: ${item.subject}`)}`}
                             title="Quick reply"
                             className="inline-flex items-center gap-1 rounded-lg bg-slate-900 px-2.5 py-1.5 font-sans text-xs font-medium text-white shadow-sm hover:bg-slate-800"
                           >
@@ -371,8 +352,8 @@ const ContactEnquirePage: FC = () => {
         {filteredMessages.length > 0 && (
           <div className="flex flex-col items-center justify-between gap-3 border-t border-slate-100 bg-slate-50/50 px-6 py-3.5 sm:flex-row">
             <span className="font-mono text-xs text-slate-500">
-              Showing {(currentPage - 1) * PAGE_SIZE + 1} to{' '}
-              {Math.min(currentPage * PAGE_SIZE, totalItems)} of {totalItems} entries
+              Showing {(currentPage - 1) * PAGE_SIZE + 1} to {Math.min(currentPage * PAGE_SIZE, totalItems)} of{' '}
+              {totalItems} entries
             </span>
 
             <div className="flex items-center gap-1.5">
@@ -381,7 +362,7 @@ const ContactEnquirePage: FC = () => {
                 disabled={currentPage === 1}
                 className={cn(
                   'flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-sans text-xs font-medium text-slate-700 shadow-sm transition-colors hover:bg-slate-50',
-                  currentPage === 1 && 'cursor-not-allowed opacity-40 hover:bg-white'
+                  currentPage === 1 && 'cursor-not-allowed opacity-40 hover:bg-white',
                 )}
               >
                 <FiChevronLeft className="text-xs" />
@@ -397,7 +378,7 @@ const ContactEnquirePage: FC = () => {
                 disabled={currentPage === totalPages}
                 className={cn(
                   'flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-sans text-xs font-medium text-slate-700 shadow-sm transition-colors hover:bg-slate-50',
-                  currentPage === totalPages && 'cursor-not-allowed opacity-40 hover:bg-white'
+                  currentPage === totalPages && 'cursor-not-allowed opacity-40 hover:bg-white',
                 )}
               >
                 <span>Next</span>
@@ -409,12 +390,7 @@ const ContactEnquirePage: FC = () => {
       </div>
 
       {/* Message Inspection Modal */}
-      {selectedMessage && (
-        <MessageDetailModal
-          message={selectedMessage}
-          onClose={() => setSelectedMessage(null)}
-        />
-      )}
+      {selectedMessage && <MessageDetailModal message={selectedMessage} onClose={() => setSelectedMessage(null)} />}
     </div>
   );
 };

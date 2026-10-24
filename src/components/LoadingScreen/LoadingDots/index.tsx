@@ -1,9 +1,9 @@
-import { cn } from "@/utills";
+import { cn } from '@/utills';
 
-type Props = { 
-  className?: string; 
-  size?: 'sm' | 'md' | 'lg' 
-}
+type Props = {
+  className?: string;
+  size?: 'sm' | 'md' | 'lg';
+};
 
 const dotSizeClasses = {
   sm: 'w-1 h-1',
@@ -17,7 +17,7 @@ export function LoadingDots({ className, size = 'md' }: Props) {
       {[0, 1, 2].map((i) => (
         <div
           key={i}
-          className={cn('animate-bounce rounded-full bg-infinity-blue', dotSizeClasses[size])}
+          className={cn('bg-infinity-blue animate-bounce rounded-full', dotSizeClasses[size])}
           style={{
             animationDelay: `${i * 0.1}s`,
             animationDuration: '0.6s',

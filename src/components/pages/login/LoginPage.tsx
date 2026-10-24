@@ -47,9 +47,7 @@ const LoginPage: FC = () => {
             <FiShield className="text-2xl" />
           </div>
           <h2 className="text-xl font-bold uppercase tracking-wider text-white">Session Active</h2>
-          <p className="font-mono text-sm text-white/60">
-            Welcome back, {user.firstName}. Redirecting to dashboard...
-          </p>
+          <p className="font-mono text-sm text-white/60">Welcome back, {user.firstName}. Redirecting to dashboard...</p>
           <LoadingDots size="lg" />
         </div>
       </div>
@@ -57,7 +55,12 @@ const LoginPage: FC = () => {
   }
 
   return (
-    <div className={cn('relative min-h-screen w-full overflow-hidden bg-dark-blue text-white selection:bg-light-green selection:text-dark-blue', gantari.className)}>
+    <div
+      className={cn(
+        'relative min-h-screen w-full overflow-hidden bg-dark-blue text-white selection:bg-light-green selection:text-dark-blue',
+        gantari.className,
+      )}
+    >
       {/* High-tech Interactive Particles Background */}
       <Particles
         className="pointer-events-auto fixed inset-0 z-0 h-screen"
@@ -119,9 +122,7 @@ const LoginPage: FC = () => {
                   </span>
                 </div>
 
-                <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                  Command Center
-                </h1>
+                <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Command Center</h1>
 
                 <p className="mt-2.5 max-w-sm text-sm text-white/60 sm:text-base">
                   Authenticate credentials to manage dispatches, inquiries, and portfolio settings.

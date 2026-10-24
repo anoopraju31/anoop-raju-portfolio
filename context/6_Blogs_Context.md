@@ -2,10 +2,10 @@
 
 ## Routes & File Locations
 
-| Route             | Page File                                        | Type                          |
-| ----------------- | ------------------------------------------------ | ----------------------------- |
-| `/blogs`          | `src/app/(portfolio)/blogs/page.tsx`              | Server Component (SSR)        |
-| `/blogs/[slug]`   | `src/app/(portfolio)/blogs/[slug]/page.tsx`       | ISR (revalidate: 3600s)       |
+| Route           | Page File                                   | Type                    |
+| --------------- | ------------------------------------------- | ----------------------- |
+| `/blogs`        | `src/app/(portfolio)/blogs/page.tsx`        | Server Component (SSR)  |
+| `/blogs/[slug]` | `src/app/(portfolio)/blogs/[slug]/page.tsx` | ISR (revalidate: 3600s) |
 
 ---
 
@@ -51,24 +51,27 @@ interface Blogs {
   _id: string;
   title: string;
   slug: string;
-  coverImage: BlogsCoverImage;  // { alt, asset: { _ref, _type }, _type }
+  coverImage: BlogsCoverImage; // { alt, asset: { _ref, _type }, _type }
   date: string;
   tags?: string[];
   readTime: number;
   author: {
     name: string;
-    picture: { asset?, hotspot?, crop?, alt?, _type: 'image' };
+    picture: { asset?; hotspot?; crop?; alt?; _type: 'image' };
   };
 }
 ```
 
 ### Stats Bar
+
 - Articles Published count (zero-padded, e.g., "02")
 - "Next.js • React" → "Frontend Core"
 - "WebGL • Kinetic" → "Interactive UI"
 
 ### Empty State
+
 When no blogs are returned:
+
 - Book icon (FiBookOpen, 48px)
 - "New Articles in Progress" heading
 - Description about upcoming articles
@@ -80,6 +83,7 @@ When no blogs are returned:
 **Location**: `src/components/blogCard/index.tsx`
 
 Renders individual blog preview cards with:
+
 - Cover image (from Sanity CDN via `urlFor()`)
 - Title
 - Date (formatted via `formatDate()`)
@@ -99,8 +103,8 @@ Renders individual blog preview cards with:
 ### Rendering Strategy
 
 ```typescript
-export const dynamicParams = true;   // Allow new slugs not generated at build time
-export const revalidate = 3600;      // ISR: regenerate every 1 hour
+export const dynamicParams = true; // Allow new slugs not generated at build time
+export const revalidate = 3600; // ISR: regenerate every 1 hour
 ```
 
 ### Data Fetching
@@ -108,12 +112,13 @@ export const revalidate = 3600;      // ISR: regenerate every 1 hour
 ```typescript
 const post = await sanityFetch<PostQueryResult>({
   query: postQuery,
-  params: await params,  // { slug: "..." }
+  params: await params, // { slug: "..." }
 });
 if (!post.data?._id) return notFound();
 ```
 
 **GROQ Query** (`postQuery`):
+
 ```groq
 *[_type == "post" && slug.current == $slug] [0] {
   content,
@@ -156,6 +161,7 @@ BlogPostPage (Server Component)
 ```
 
 **Note**: The blog post page does NOT use:
+
 - Particles background
 - Mask dual-layer system
 - Smooth scroll (Lenis)
@@ -171,19 +177,21 @@ It's a more traditional, reading-focused layout.
 
 Renders Sanity Portable Text (block content) with custom serializers for:
 
-| Block Type    | Rendering                                              |
-| ------------- | ------------------------------------------------------ |
-| `block`       | Standard text with heading, paragraph, list support     |
-| `code`        | Syntax-highlighted code block (via Prism.js)            |
-| `image`       | Next.js `Image` component with alt text and caption     |
-| `table`       | HTML table rendering from `@sanity/table` data          |
+| Block Type | Rendering                                           |
+| ---------- | --------------------------------------------------- |
+| `block`    | Standard text with heading, paragraph, list support |
+| `code`     | Syntax-highlighted code block (via Prism.js)        |
+| `image`    | Next.js `Image` component with alt text and caption |
+| `table`    | HTML table rendering from `@sanity/table` data      |
 
 ### Supported Text Marks
+
 - Bold, italic, underline, strikethrough
 - Links (with `target="_blank"`)
 - Code inline spans
 
 ### Heading IDs
+
 Headings are auto-assigned IDs for deep linking (slugified from text content).
 
 ---
@@ -192,49 +200,51 @@ Headings are auto-assigned IDs for deep linking (slugified from text content).
 
 ### Post Schema (`src/sanity/schemaTypes/blogs/post.ts`)
 
-| Field            | Type               | Required | Notes                                  |
-| ---------------- | ------------------ | -------- | -------------------------------------- |
-| `title`          | string             | ✅       |                                        |
-| `slug`           | slug               | ✅       | Auto-generated from title              |
-| `content`        | array (portable text) | ✅    | Blocks, code, images, tables           |
-| `conclusion`     | array (portable text) | ❌    | Optional conclusion section            |
-| `readTime`       | number             | ❌       | Estimated minutes (1–1440)             |
-| `coverImage`     | image              | ✅       | With alt text, hotspot                 |
-| `date`           | datetime           | ❌       | Auto-fills to current date             |
-| `author`         | reference → author | ❌       |                                        |
-| `keywords`       | array of strings   | ❌       | SEO keywords                           |
-| `seoTitle`       | string             | ❌       | Max 60 chars (warning)                 |
-| `seoDescription` | text               | ❌       | Max 160 chars (warning)                |
-| `tags`           | array of refs → tag| ❌       | Tag taxonomy                           |
+| Field            | Type                  | Required | Notes                        |
+| ---------------- | --------------------- | -------- | ---------------------------- |
+| `title`          | string                | ✅       |                              |
+| `slug`           | slug                  | ✅       | Auto-generated from title    |
+| `content`        | array (portable text) | ✅       | Blocks, code, images, tables |
+| `conclusion`     | array (portable text) | ❌       | Optional conclusion section  |
+| `readTime`       | number                | ❌       | Estimated minutes (1–1440)   |
+| `coverImage`     | image                 | ✅       | With alt text, hotspot       |
+| `date`           | datetime              | ❌       | Auto-fills to current date   |
+| `author`         | reference → author    | ❌       |                              |
+| `keywords`       | array of strings      | ❌       | SEO keywords                 |
+| `seoTitle`       | string                | ❌       | Max 60 chars (warning)       |
+| `seoDescription` | text                  | ❌       | Max 160 chars (warning)      |
+| `tags`           | array of refs → tag   | ❌       | Tag taxonomy                 |
 
 ### Code Block Languages Supported
+
 JavaScript, TypeScript, HTML, CSS, Python
 
 ### Author Schema (`src/sanity/schemaTypes/blogs/author.ts`)
 
-| Field              | Type                  | Required |
-| ------------------ | --------------------- | -------- |
-| `name`             | string                | ✅       |
-| `shortDescription` | string                | ✅       |
-| `picture`          | image (with alt)      | ✅       |
-| `socialLinks`      | array of { platform, url } | ❌  |
+| Field              | Type                       | Required |
+| ------------------ | -------------------------- | -------- |
+| `name`             | string                     | ✅       |
+| `shortDescription` | string                     | ✅       |
+| `picture`          | image (with alt)           | ✅       |
+| `socialLinks`      | array of { platform, url } | ❌       |
 
 Supported social platforms: Twitter, LinkedIn, Instagram, YouTube, Facebook
 
 ### Tag Schema (`src/sanity/schemaTypes/blogs/tags.ts`)
+
 Simple document with a `title` field for categorization.
 
 ---
 
 ## GROQ Queries Summary
 
-| Query Name        | Purpose                                     | Usage                    |
-| ----------------- | ------------------------------------------- | ------------------------ |
-| `AllBlogsQuery`   | Latest 10 posts (basic fields)              | Unused currently         |
-| `AllBlogsQuery2`  | All posts ordered by date (basic fields)    | Home page + blogs page   |
-| `postQuery`       | Single post by slug (full content)          | Blog post page           |
-| `moreStoriesQuery`| Related posts excluding current (basic)     | Unused currently         |
-| `postSlugs`       | All post slugs                              | Unused (for static gen)  |
+| Query Name         | Purpose                                  | Usage                   |
+| ------------------ | ---------------------------------------- | ----------------------- |
+| `AllBlogsQuery`    | Latest 10 posts (basic fields)           | Unused currently        |
+| `AllBlogsQuery2`   | All posts ordered by date (basic fields) | Home page + blogs page  |
+| `postQuery`        | Single post by slug (full content)       | Blog post page          |
+| `moreStoriesQuery` | Related posts excluding current (basic)  | Unused currently        |
+| `postSlugs`        | All post slugs                           | Unused (for static gen) |
 
 ---
 
@@ -243,7 +253,8 @@ Simple document with a `title` field for categorization.
 ```typescript
 export const metadata: Metadata = {
   title: 'Blogs | Anoop Raju',
-  description: 'Technical deep-dives, architectural notes, and perspectives on modern frontend engineering, React, Next.js, and interactive WebGL by Anoop Raju.',
+  description:
+    'Technical deep-dives, architectural notes, and perspectives on modern frontend engineering, React, Next.js, and interactive WebGL by Anoop Raju.',
 };
 ```
 

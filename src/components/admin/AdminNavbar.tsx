@@ -3,16 +3,7 @@
 import { type FC, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import {
-  FiGrid,
-  FiMail,
-  FiExternalLink,
-  FiLogOut,
-  FiMenu,
-  FiX,
-  FiShield,
-  FiGlobe,
-} from 'react-icons/fi';
+import { FiGrid, FiMail, FiExternalLink, FiLogOut, FiMenu, FiX, FiShield, FiGlobe } from 'react-icons/fi';
 import { toast } from 'sonner';
 
 import useAppSelector from '@/hooks/useAppSelector';
@@ -60,17 +51,13 @@ const AdminNavbar: FC = () => {
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8">
         {/* Brand & Left Navigation */}
         <div className="flex items-center gap-8">
-          <Link href="/dashboard" className="flex items-center gap-2.5 group">
+          <Link href="/dashboard" className="group flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white transition-transform group-hover:scale-105">
               <FiShield className="text-base text-emerald-400" />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans text-sm font-bold tracking-tight text-slate-900">
-                ANOOP RAJU
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
-                CONTROL CENTER
-              </span>
+              <span className="font-sans text-sm font-bold tracking-tight text-slate-900">ANOOP RAJU</span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400">CONTROL CENTER</span>
             </div>
           </Link>
 
@@ -86,7 +73,7 @@ const AdminNavbar: FC = () => {
                     'flex items-center gap-2 rounded-xl px-3.5 py-2 font-sans text-sm font-medium transition-colors',
                     link.active
                       ? 'bg-slate-100 font-semibold text-slate-900'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
                   )}
                 >
                   <Icon className={cn('text-base', link.active ? 'text-slate-900' : 'text-slate-400')} />
@@ -131,9 +118,7 @@ const AdminNavbar: FC = () => {
               <span className="font-sans text-xs font-semibold text-slate-800">
                 {user ? `${user.firstName} ${user.lastName}` : 'Administrator'}
               </span>
-              <span className="font-mono text-[10px] text-slate-400">
-                {user?.email || 'admin@anoopraju.xyz'}
-              </span>
+              <span className="font-mono text-[10px] text-slate-400">{user?.email || 'admin@anoopraju.xyz'}</span>
             </div>
           </div>
 
@@ -175,7 +160,7 @@ const AdminNavbar: FC = () => {
                     'flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 font-sans text-sm font-medium',
                     link.active
                       ? 'bg-slate-100 font-semibold text-slate-900'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
                   )}
                 >
                   <Icon className={cn('text-base', link.active ? 'text-slate-900' : 'text-slate-400')} />
@@ -214,9 +199,7 @@ const AdminNavbar: FC = () => {
                   <span className="font-sans text-xs font-semibold text-slate-800">
                     {user ? `${user.firstName} ${user.lastName}` : 'Administrator'}
                   </span>
-                  <span className="font-mono text-[10px] text-slate-400">
-                    {user?.email || 'admin@anoopraju.xyz'}
-                  </span>
+                  <span className="font-mono text-[10px] text-slate-400">{user?.email || 'admin@anoopraju.xyz'}</span>
                 </div>
               </div>
 

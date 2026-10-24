@@ -171,11 +171,11 @@
 }
 
 .projectDescriptionRegular {
-  @apply font-normal text-white/90 leading-relaxed;
+  @apply font-normal leading-relaxed text-white/90;
 }
 
 .projectDescriptionMask {
-  @apply text-dark-blue/85 leading-relaxed;
+  @apply leading-relaxed text-dark-blue/85;
 }
 
 /* Tech Stack Tags */

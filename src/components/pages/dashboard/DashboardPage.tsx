@@ -32,10 +32,9 @@ const DashboardPage: FC = () => {
     try {
       // 1. Fetch Contact Inquiries
       const contactPromise = axios
-        .get<ContactMessageItem[] | { data: ContactMessageItem[] }>(
-          '/v1/users/contact-enquire',
-          { withCredentials: true }
-        )
+        .get<ContactMessageItem[] | { data: ContactMessageItem[] }>('/v1/users/contact-enquire', {
+          withCredentials: true,
+        })
         .then((res) => {
           const items: ContactMessageItem[] = Array.isArray(res.data)
             ? res.data
@@ -126,12 +125,7 @@ const DashboardPage: FC = () => {
       </div>
 
       {/* 4. Message Inspection Modal */}
-      {selectedMessage && (
-        <MessageDetailModal
-          message={selectedMessage}
-          onClose={() => setSelectedMessage(null)}
-        />
-      )}
+      {selectedMessage && <MessageDetailModal message={selectedMessage} onClose={() => setSelectedMessage(null)} />}
     </div>
   );
 };

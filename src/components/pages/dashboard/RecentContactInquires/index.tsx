@@ -24,9 +24,7 @@ export const RecentContactInquires: FC<RecentContactInquiresProps> = ({
     <div className="flex flex-col rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:col-span-2">
       <div className="flex items-center justify-between border-b border-slate-100 p-5 sm:px-6">
         <div className="flex items-center gap-2.5">
-          <h2 className="text-base font-bold tracking-tight text-slate-900">
-            Recent Contact Inquiries
-          </h2>
+          <h2 className="text-base font-bold tracking-tight text-slate-900">Recent Contact Inquiries</h2>
           <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-xs font-semibold text-slate-600">
             {totalCount}
           </span>
@@ -59,13 +57,11 @@ export const RecentContactInquires: FC<RecentContactInquiresProps> = ({
             ))}
           </div>
         ) : messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-400 border border-slate-100">
+          <div className="flex flex-col items-center justify-center px-4 py-12 text-center">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl border border-slate-100 bg-slate-50 text-slate-400">
               <FiInbox className="text-xl" />
             </div>
-            <p className="font-sans text-sm font-semibold text-slate-700">
-              No inquiries recorded yet
-            </p>
+            <p className="font-sans text-sm font-semibold text-slate-700">No inquiries recorded yet</p>
             <p className="mt-1 font-sans text-xs text-slate-400">
               Transmissions from the public portfolio contact form will display here.
             </p>
@@ -73,36 +69,28 @@ export const RecentContactInquires: FC<RecentContactInquiresProps> = ({
         ) : (
           messages.map((item) => {
             const dateObj = new Date(item.createdAt);
-            const relativeTime = !isNaN(dateObj.getTime())
-              ? formatDistanceToNow(dateObj, { addSuffix: true })
-              : '';
+            const relativeTime = !isNaN(dateObj.getTime()) ? formatDistanceToNow(dateObj, { addSuffix: true }) : '';
 
             return (
               <div
                 key={item.id}
                 onClick={() => onSelectMessage(item)}
-                className="group flex cursor-pointer items-center justify-between p-4 sm:px-6 transition-colors hover:bg-slate-50/80"
+                className="group flex cursor-pointer items-center justify-between p-4 transition-colors hover:bg-slate-50/80 sm:px-6"
               >
-                <div className="flex items-center gap-3.5 min-w-0 pr-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-slate-600 border border-slate-200/60 font-mono text-xs font-bold group-hover:border-slate-300">
+                <div className="flex min-w-0 items-center gap-3.5 pr-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200/60 bg-slate-50 font-mono text-xs font-bold text-slate-600 group-hover:border-slate-300">
                     {item.name ? item.name.charAt(0).toUpperCase() : 'U'}
                   </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="truncate font-sans text-sm font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                  <div className="flex min-w-0 flex-col">
+                    <span className="truncate font-sans text-sm font-semibold text-slate-900 transition-colors group-hover:text-emerald-700">
                       {item.name}
                     </span>
-                    <span className="truncate font-sans text-xs text-slate-500">
-                      {item.subject}
-                    </span>
+                    <span className="truncate font-sans text-xs text-slate-500">{item.subject}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
-                  {relativeTime && (
-                    <span className="font-mono text-xs text-slate-400">
-                      {relativeTime}
-                    </span>
-                  )}
+                <div className="flex shrink-0 items-center gap-3">
+                  {relativeTime && <span className="font-mono text-xs text-slate-400">{relativeTime}</span>}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();

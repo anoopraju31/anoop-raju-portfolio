@@ -54,7 +54,7 @@ const LoginForm: FC = () => {
           email: data.email.trim().toLowerCase(),
           password: data.password,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       if (response.data && response.data.user) {
@@ -111,10 +111,7 @@ const LoginForm: FC = () => {
 
       {/* Email Input Field */}
       <div className="flex flex-col gap-2">
-        <label
-          htmlFor="email"
-          className="font-mono text-xs uppercase tracking-widest text-white/70"
-        >
+        <label htmlFor="email" className="font-mono text-xs uppercase tracking-widest text-white/70">
           Administrator Email
         </label>
         <div className="relative">
@@ -134,22 +131,17 @@ const LoginForm: FC = () => {
               errors.email
                 ? 'border-red-500/80 bg-red-500/[0.04] focus:border-red-400 focus:ring-1 focus:ring-red-400/50'
                 : 'border-white/10 hover:border-white/20 focus:border-light-green focus:bg-white/[0.06] focus:ring-1 focus:ring-light-green/40',
-              (isSubmitting || isSuccess) && 'cursor-not-allowed opacity-60'
+              (isSubmitting || isSuccess) && 'cursor-not-allowed opacity-60',
             )}
           />
         </div>
-        {errors.email && (
-          <p className="font-mono text-xs text-red-400">{errors.email.message}</p>
-        )}
+        {errors.email && <p className="font-mono text-xs text-red-400">{errors.email.message}</p>}
       </div>
 
       {/* Password Input Field */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <label
-            htmlFor="password"
-            className="font-mono text-xs uppercase tracking-widest text-white/70"
-          >
+          <label htmlFor="password" className="font-mono text-xs uppercase tracking-widest text-white/70">
             Access Key / Password
           </label>
         </div>
@@ -170,7 +162,7 @@ const LoginForm: FC = () => {
               errors.password
                 ? 'border-red-500/80 bg-red-500/[0.04] focus:border-red-400 focus:ring-1 focus:ring-red-400/50'
                 : 'border-white/10 hover:border-white/20 focus:border-light-green focus:bg-white/[0.06] focus:ring-1 focus:ring-light-green/40',
-              (isSubmitting || isSuccess) && 'cursor-not-allowed opacity-60'
+              (isSubmitting || isSuccess) && 'cursor-not-allowed opacity-60',
             )}
           />
           <button
@@ -184,19 +176,13 @@ const LoginForm: FC = () => {
             {showPassword ? <FiEyeOff className="text-lg" /> : <FiEye className="text-lg" />}
           </button>
         </div>
-        {errors.password && (
-          <p className="font-mono text-xs text-red-400">{errors.password.message}</p>
-        )}
+        {errors.password && <p className="font-mono text-xs text-red-400">{errors.password.message}</p>}
       </div>
 
       {/* Security notice hint */}
       <div className="flex items-center justify-between pt-1">
-        <span className="font-mono text-[11px] text-white/40">
-          AUTHORIZED PERSONNEL ONLY
-        </span>
-        <span className="font-mono text-[11px] text-light-green/70">
-          TLS 1.3 SECURE
-        </span>
+        <span className="font-mono text-[11px] text-white/40">AUTHORIZED PERSONNEL ONLY</span>
+        <span className="font-mono text-[11px] text-light-green/70">TLS 1.3 SECURE</span>
       </div>
 
       {/* Submit Button */}
@@ -209,7 +195,7 @@ const LoginForm: FC = () => {
             ? 'bg-light-green text-dark-blue shadow-[0_0_30px_rgba(76,252,15,0.5)]'
             : isSubmitting
               ? 'cursor-wait bg-light-green/70 text-dark-blue'
-              : 'cursor-pointer bg-light-green text-dark-blue hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(76,252,15,0.45)] active:scale-[0.99]'
+              : 'cursor-pointer bg-light-green text-dark-blue hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(76,252,15,0.45)] active:scale-[0.99]',
         )}
       >
         {isSubmitting ? (
@@ -220,14 +206,7 @@ const LoginForm: FC = () => {
               fill="none"
               viewBox="0 0 24 24"
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path
                 className="opacity-75"
                 fill="currentColor"

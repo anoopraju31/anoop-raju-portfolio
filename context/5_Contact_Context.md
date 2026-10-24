@@ -46,14 +46,14 @@ ContactPage (Static FC)
 
 ## Contact Information (Hardcoded)
 
-| Field    | Value                                         |
-| -------- | --------------------------------------------- |
-| Email    | `anoopraju31@gmail.com`                       |
-| Phone    | `+91 8921222748`                              |
-| Location | Pathanamthitta, Kerala, India                 |
-| GitHub   | `https://github.com/anoopraju31`              |
-| LinkedIn | `https://www.linkedin.com/in/anoop-raju`      |
-| Instagram| `https://www.instagram.com/_a.n.o.o.p_r.a.j.u_/` |
+| Field     | Value                                            |
+| --------- | ------------------------------------------------ |
+| Email     | `anoopraju31@gmail.com`                          |
+| Phone     | `+91 8921222748`                                 |
+| Location  | Pathanamthitta, Kerala, India                    |
+| GitHub    | `https://github.com/anoopraju31`                 |
+| LinkedIn  | `https://www.linkedin.com/in/anoop-raju`         |
+| Instagram | `https://www.instagram.com/_a.n.o.o.p_r.a.j.u_/` |
 
 ---
 
@@ -65,22 +65,25 @@ The form is powered by **`react-hook-form`** with **Zod** schema validation (`@h
 
 **Fields & Schema**:
 
-| Field       | Type     | Required | Validation Rules                              | Stored In MongoDB |
-| ----------- | -------- | -------- | --------------------------------------------- | ----------------- |
-| `name`      | text     | ✅       | Zod string, min 2, max 100 chars              | `name: String`    |
-| `email`     | email    | ✅       | Zod valid email format                        | `email: String`   |
-| `phone`     | tel      | ❌       | Optional, valid phone format if provided      | `phone: String?`  |
-| `subject`   | text     | ✅       | Zod string, min 3, max 150 chars              | `subject: String` |
-| `message`   | textarea | ❌       | Optional string                               | `message: String?`|
+| Field     | Type     | Required | Validation Rules                         | Stored In MongoDB  |
+| --------- | -------- | -------- | ---------------------------------------- | ------------------ |
+| `name`    | text     | ✅       | Zod string, min 2, max 100 chars         | `name: String`     |
+| `email`   | email    | ✅       | Zod valid email format                   | `email: String`    |
+| `phone`   | tel      | ❌       | Optional, valid phone format if provided | `phone: String?`   |
+| `subject` | text     | ✅       | Zod string, min 3, max 150 chars         | `subject: String`  |
+| `message` | textarea | ❌       | Optional string                          | `message: String?` |
 
 ### Form Validation & State
+
 - Real-time client-side validation triggers on touch (`mode: 'onTouched'`).
 - Inline error messages appear immediately beneath invalid inputs in red (`text-red-400`).
 - Fields use `forwardRef` to connect seamlessly with `register()` from `react-hook-form`.
 - During submission, inputs and button are disabled with an animated loading spinner (`Saving Message...`).
 
 ### Notifications: Custom Sonner Toasts
+
 Rather than plain generic toasts, the form uses custom-styled Sonner toasts (`contactToast.tsx`):
+
 - **Success Toast**: Dark glassmorphic badge with glowing emerald border (`border-light-green/40`), checkmark icon, and confirmation title.
 - **Error Toast**: Dark glassmorphic badge with red warning border (`border-red-500/40`), alert icon, and actionable error description.
 
@@ -91,6 +94,7 @@ Client Form (useForm + Zod) → submitContactMe() Server Action → Prisma Clien
 ```
 
 **Prisma Schema** (`prisma/schema.prisma`):
+
 ```prisma
 datasource db {
   provider = "mongodb"
@@ -114,6 +118,7 @@ model ContactMessage {
 ```
 
 **Server Action** (`src/utills/actions.ts`):
+
 - Performs server-side Zod validation on incoming payloads using `contactFormSchema.safeParse()`.
 - Persists valid submissions into the `ContactMessage` collection via `prisma.contactMessage.create()`.
 - Returns a structured response `{ success: boolean, message: string, id?: string, errors?: Record<string, string[]> }`.
@@ -140,9 +145,10 @@ src/
     └── styles.module.css        # CSS Module for layout structure
 ```
 
-
 ### ContactWrapper Component
+
 Renders individual contact information items with:
+
 - Icon (FiMail, FiPhone, FiMapPin)
 - Label text
 - Content (email, phone, address)
@@ -150,7 +156,9 @@ Renders individual contact information items with:
 - Optional `href` for clickable links
 
 ### InputField & TextareaField
+
 Styled form field components with:
+
 - Floating label animation
 - Focus/blur state transitions
 - Bottom border highlighting
@@ -169,24 +177,25 @@ Styled form field components with:
 
 ### CSS Module Classes (`styles.module.css`)
 
-| Class                      | Purpose                           |
-| -------------------------- | --------------------------------- |
-| `.contact__page`           | Full page wrapper                 |
-| `.wrapper`                 | Max-width centered container      |
-| `.hero_header`             | Editorial header section          |
-| `.heading`                 | Main H1 heading                   |
-| `.subheading`              | Subtitle paragraph                |
-| `.container`               | Two-column grid container         |
-| `.contact__container`      | Left column (info + socials)      |
-| `.form__container`         | Right column (glassmorphic form)  |
-| `.contact__inner__container`| Contact items wrapper             |
-| `.eyebrow`                 | Monospace label badge             |
+| Class                        | Purpose                          |
+| ---------------------------- | -------------------------------- |
+| `.contact__page`             | Full page wrapper                |
+| `.wrapper`                   | Max-width centered container     |
+| `.hero_header`               | Editorial header section         |
+| `.heading`                   | Main H1 heading                  |
+| `.subheading`                | Subtitle paragraph               |
+| `.container`                 | Two-column grid container        |
+| `.contact__container`        | Left column (info + socials)     |
+| `.form__container`           | Right column (glassmorphic form) |
+| `.contact__inner__container` | Contact items wrapper            |
+| `.eyebrow`                   | Monospace label badge            |
 
 ---
 
 ## Toast Notifications
 
 Uses **Sonner** toast library:
+
 - **Success**: "Message received! I will get back to you shortly."
 - **Error (response)**: "Something went wrong. Please try again later or email directly."
 - **Error (catch)**: "Failed to submit message. Please try emailing directly."
@@ -200,7 +209,8 @@ The `<Toaster />` is rendered in the portfolio layout (`(portfolio)/layout.tsx`)
 ```typescript
 export const metadata: Metadata = {
   title: 'Contact | Anoop Raju',
-  description: 'Get in touch with Anoop Raju for full-stack web development, bespoke interactive visual engineering, and software collaborations.',
+  description:
+    'Get in touch with Anoop Raju for full-stack web development, bespoke interactive visual engineering, and software collaborations.',
 };
 ```
 

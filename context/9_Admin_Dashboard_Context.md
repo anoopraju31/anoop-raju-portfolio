@@ -25,6 +25,7 @@
 ## Layout & Hierarchy
 
 The page is encapsulated within `AdminLayout` (`src/app/(admin)/(dashboard)/layout.tsx`):
+
 - Background: `#F9FBFF` (clean administrative canvas).
 - Top navigation / Header bar: Brand badge, active page indicator, user profile chip, and Logout button.
 - Sidebar or Tab Bar: Links between `/dashboard` and `/contact-enquire`.

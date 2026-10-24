@@ -6,9 +6,7 @@ export const loginFormSchema = z.object({
     .trim()
     .min(1, { message: 'Email address is required' })
     .email({ message: 'Please enter a valid email address' }),
-  password: z
-    .string()
-    .min(1, { message: 'Password is required' }),
+  password: z.string().min(1, { message: 'Password is required' }),
 });
 
 export type LoginFormInput = z.infer<typeof loginFormSchema>;

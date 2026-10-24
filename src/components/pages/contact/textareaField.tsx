@@ -21,9 +21,7 @@ const TextareaField = forwardRef<HTMLTextAreaElement, Props>(
           rows={rows}
           className={cn(
             'peer block w-full resize-none appearance-none border-0 border-b-2 bg-transparent px-0 py-3 text-base text-white transition-colors duration-300 focus:outline-none focus:ring-0 sm:text-lg',
-            error
-              ? 'border-red-500/80 focus:border-red-400'
-              : 'border-white/20 focus:border-light-green',
+            error ? 'border-red-500/80 focus:border-red-400' : 'border-white/20 focus:border-light-green',
             className || '',
           )}
           {...rest}
@@ -40,9 +38,7 @@ const TextareaField = forwardRef<HTMLTextAreaElement, Props>(
           </label>
         )}
         {error && (
-          <p className="mt-1.5 font-mono text-xs tracking-wide text-red-400 transition-opacity duration-200">
-            {error}
-          </p>
+          <p className="mt-1.5 font-mono text-xs tracking-wide text-red-400 transition-opacity duration-200">{error}</p>
         )}
       </div>
     );

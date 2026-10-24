@@ -81,11 +81,11 @@
 }
 
 .paragraphs {
-  @apply flex flex-col gap-5 sm:gap-6 text-base leading-relaxed sm:text-lg;
+  @apply flex flex-col gap-5 text-base leading-relaxed sm:gap-6 sm:text-lg;
 }
 
 .paragraphRegular {
-  @apply text-white/90 font-normal;
+  @apply font-normal text-white/90;
 }
 
 .paragraphMask {

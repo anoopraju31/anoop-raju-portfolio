@@ -19,7 +19,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-    // Fetch user on page load
+  // Fetch user on page load
   useEffect(() => {
     // Don't fetch user if user is loading
     if (status === AUTH_LOADING) return;

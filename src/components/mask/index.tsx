@@ -55,7 +55,6 @@ const Mask = ({ children }: { children: React.ReactNode }) => {
               x: { duration: 0 },
               y: { duration: 0 },
             }}
-
           >
             <ImArrowUpRight2 size={26} className="flex-shrink-0" />
           </motion.div>

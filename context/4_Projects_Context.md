@@ -42,31 +42,31 @@ Projects data is **hardcoded** in `src/constants/projectsData.ts` — NOT fetche
 ```typescript
 interface ProjectItem {
   id: number;
-  number: string;        // "01", "02", etc.
+  number: string; // "01", "02", etc.
   name: string;
-  subtitle: string;      // Short descriptor
-  description: string;   // Full description paragraph
+  subtitle: string; // Short descriptor
+  description: string; // Full description paragraph
   year: string;
-  category: string;      // "Creative Web", "AI / Tooling", etc.
-  img: string;           // Path to public/ image
+  category: string; // "Creative Web", "AI / Tooling", etc.
+  img: string; // Path to public/ image
   alt: string;
-  link: string;          // Live deployment URL
-  github: string;        // GitHub repository URL
-  tools: string[];       // Tech stack tags
-  featured?: boolean;    // Featured project flag
-  siteDomain?: string;   // Display domain
+  link: string; // Live deployment URL
+  github: string; // GitHub repository URL
+  tools: string[]; // Tech stack tags
+  featured?: boolean; // Featured project flag
+  siteDomain?: string; // Display domain
 }
 ```
 
 ### Current Projects (5 total)
 
-| # | Name              | Category        | Tech Stack                                      | Featured |
-| - | ----------------- | --------------- | ------------------------------------------------ | -------- |
-| 1 | Eat Curious       | Creative Web    | Next.js, React, TailwindCSS, TypeScript, Framer Motion | ✅       |
-| 2 | Summarizer        | AI / Tooling    | React, OpenAI API, TailwindCSS, JavaScript, RTK Query | ❌       |
-| 3 | Netflix GPT       | AI / Full Stack | React, Firebase Auth, OpenAI GPT, TailwindCSS, TMDB API | ❌       |
-| 4 | Nike Landing Page | Creative Web    | React, TailwindCSS, JavaScript, Responsive UI    | ❌       |
-| 5 | Dropbox Clone     | Full Stack      | Next.js, Firebase Storage, TailwindCSS, TypeScript, Shadcn UI | ❌       |
+| #   | Name              | Category        | Tech Stack                                                    | Featured |
+| --- | ----------------- | --------------- | ------------------------------------------------------------- | -------- |
+| 1   | Eat Curious       | Creative Web    | Next.js, React, TailwindCSS, TypeScript, Framer Motion        | ✅       |
+| 2   | Summarizer        | AI / Tooling    | React, OpenAI API, TailwindCSS, JavaScript, RTK Query         | ❌       |
+| 3   | Netflix GPT       | AI / Full Stack | React, Firebase Auth, OpenAI GPT, TailwindCSS, TMDB API       | ❌       |
+| 4   | Nike Landing Page | Creative Web    | React, TailwindCSS, JavaScript, Responsive UI                 | ❌       |
+| 5   | Dropbox Clone     | Full Stack      | Next.js, Firebase Storage, TailwindCSS, TypeScript, Shadcn UI | ❌       |
 
 ---
 
@@ -102,7 +102,9 @@ src/components/pages/projects/
    - CTA button linking to `/contact`
 
 ### ProjectCard Component
+
 Each project card displays:
+
 - Project number badge (01–05)
 - Project name and subtitle
 - Full description
@@ -124,22 +126,23 @@ Each project card displays:
 
 ### Key CSS Module Classes
 
-| Class                      | Purpose                                  |
-| -------------------------- | ---------------------------------------- |
-| `.regularPage`             | Main container with z-index layering     |
-| `.container`               | Max-width content wrapper                |
-| `.heroSection`             | Hero header area                         |
-| `.project__container`      | Asymmetric grid wrapper                  |
-| `.project1__container` etc.| Individual grid cell sizing/positioning  |
-| `.bottomCtaSection`        | CTA banner at bottom                     |
-| `.statItem`                | Stats bar individual metric              |
-| `.eyebrowBadge`            | Monospace label with pulsing dot         |
+| Class                       | Purpose                                 |
+| --------------------------- | --------------------------------------- |
+| `.regularPage`              | Main container with z-index layering    |
+| `.container`                | Max-width content wrapper               |
+| `.heroSection`              | Hero header area                        |
+| `.project__container`       | Asymmetric grid wrapper                 |
+| `.project1__container` etc. | Individual grid cell sizing/positioning |
+| `.bottomCtaSection`         | CTA banner at bottom                    |
+| `.statItem`                 | Stats bar individual metric             |
+| `.eyebrowBadge`             | Monospace label with pulsing dot        |
 
 ---
 
 ## Dual-Layer Mask System
 
 The MaskPage for projects contains the same grid and cards but with an inverted color scheme:
+
 - Regular: White text on dark blue background
 - Mask: Revealed through mouse-following webkit-mask spotlight
 - When hovering a project card: mask spotlight is replaced by a green arrow cursor (managed by `projectCardSlice`)
@@ -151,7 +154,8 @@ The MaskPage for projects contains the same grid and cards but with an inverted 
 ```typescript
 export const metadata: Metadata = {
   title: 'Projects | Anoop Raju',
-  description: 'Explore curated software engineering projects, production web applications, and interactive digital experiments by Anoop Raju.',
+  description:
+    'Explore curated software engineering projects, production web applications, and interactive digital experiments by Anoop Raju.',
 };
 ```
 
@@ -162,6 +166,7 @@ Title template resolves to: **"Projects | Anoop Raju"**
 ## Note on Data Architecture
 
 There's a discrepancy in the codebase:
+
 - A Sanity `projects` schema exists (`src/sanity/schemaTypes/projects/index.ts`) with fields for `projectName`, `projectDescription`, `publishedAt`, `projectImage`, `deploymentUrl`, `projectGithubUrl`, `techStack`, `isFeatured`
 - But the Projects page uses **hardcoded data** from `src/constants/projectsData.ts`
 - The Home page projects section uses a DIFFERENT hardcoded set from `src/utills/constants.ts` (with a simpler schema)

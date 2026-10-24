@@ -4,10 +4,4 @@ export const AUTH_LOADING = 'LOADING';
 export const AUTH_SUCCESS = 'SUCCESS';
 export const AUTH_FAILURE = 'FAILURE';
 
-export const OPEN_ROUTES = [
-    '/',
-    '/projects',
-    '/blogs',
-    '/contact',
-    '/login'
-]
+export const OPEN_ROUTES = ['/', '/projects', '/blogs', '/contact', '/login'];

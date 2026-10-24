@@ -58,10 +58,7 @@ const ContactForm: FC = () => {
       }, 5000);
     } catch (error) {
       console.error('Contact form submission error:', error);
-      showErrorToast(
-        'Failed to connect to the database. Please verify network or email directly.',
-        'Network Error',
-      );
+      showErrorToast('Failed to connect to the database. Please verify network or email directly.', 'Network Error');
     }
   };
 

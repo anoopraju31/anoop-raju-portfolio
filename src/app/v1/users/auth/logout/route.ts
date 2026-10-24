@@ -3,10 +3,7 @@ import { NextResponse } from 'next/server';
 import { AUTH_COOKIE_NAME } from '@/lib/auth';
 
 function handleLogout() {
-  const response = NextResponse.json(
-    { message: 'Logged out successfully', success: true },
-    { status: 200 }
-  );
+  const response = NextResponse.json({ message: 'Logged out successfully', success: true }, { status: 200 });
 
   response.cookies.set(AUTH_COOKIE_NAME, '', {
     httpOnly: true,

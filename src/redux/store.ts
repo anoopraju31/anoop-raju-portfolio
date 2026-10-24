@@ -14,7 +14,7 @@ export const store = configureStore({
     projectCardHover: projectCardhoverReducer,
     navbar: navbarReducer,
     accordion: accordionReducer,
-    userAuth: userAuthReducer
+    userAuth: userAuthReducer,
   },
 });
 
